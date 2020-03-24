@@ -1,19 +1,20 @@
-.home-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .home-logo {
-        animation: element-spin infinite 20s linear;
-    }
-}
+/* HOME INTRO */
 
 .home-content {
     text-align: center;
     padding: 20px;
     font-size: calc(10px + 2vmin);
     color: white;
+}
+
+.home-intro {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.541);
+}
+
+.home-logo {
+    height: 40vmin;
+    pointer-events: none;
+    animation: element-spin infinite 20s linear;
 }
 
 label {
@@ -23,7 +24,7 @@ label {
 }
 
 
-/*Form sections*/
+/* HOME FORM */
 
 #form_date {
     width: 50%;
@@ -37,7 +38,15 @@ label {
 }
 
 
-/*Animations*/
+/* HOME MODAL */
+
+.modal-text {
+    text-align: center;
+    font-size: 1em;
+}
+
+
+/*HOME ANIMATIONS*/
 
 @keyframes element-spin {
     from {

@@ -4,16 +4,25 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
 const ModalMessage = props => {
-  const { modalTitle, modalText, modalType, showModal, handleClose } = props;
+  const { title, msg, show, close, style } = props;
+
+  let msgText = msg;
+  if (Array.isArray(msg)) {
+    msgText = msg.map((text, index) => (
+      <div className="modal-text" key={index}>
+        {text.trim()}
+      </div>
+    ));
+  }
 
   return (
-    <Modal show={showModal} className={modalType}>
+    <Modal show={show} onHide={close} className={style}>
       <Modal.Header>
-        <Modal.Title>{modalTitle}</Modal.Title>
+        <Modal.Title>{title}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>{modalText}</Modal.Body>
+      <Modal.Body>{msgText}</Modal.Body>
       <Modal.Footer>
-        <Button block variant="secondary" onClick={handleClose}>
+        <Button block variant="secondary" onClick={close}>
           Cerrar
         </Button>
       </Modal.Footer>

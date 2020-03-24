@@ -5,9 +5,16 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
 const InputForm = props => {
-  const { handleUserInput, handleSubmit } = props;
+  const {
+    valueName,
+    valueSubname,
+    valueLastname,
+    valueBirth,
+    handleUserInput,
+    handleSubmit
+  } = props;
   return (
-    <Form autoComplete="off" onSubmit={event => handleSubmit(event)}>
+    <Form autoComplete="false" onSubmit={event => handleSubmit(event)}>
       <Form.Group id="form_name">
         <Form.Label>Nombre completo</Form.Label>
         <Form.Row>
@@ -15,8 +22,9 @@ const InputForm = props => {
             <Form.Control
               name="firstName"
               type="text"
-              placeholder="Nombre..."
+              placeholder="*Nombre..."
               onChange={event => handleUserInput(event)}
+              value={valueName}
             />
           </Col>
           <Col>
@@ -25,14 +33,16 @@ const InputForm = props => {
               type="text"
               placeholder="Segundo nombre..."
               onChange={event => handleUserInput(event)}
+              value={valueSubname}
             />
           </Col>
           <Col>
             <Form.Control
               name="lastName"
               type="text"
-              placeholder="Apellido..."
+              placeholder="*Apellido..."
               onChange={event => handleUserInput(event)}
+              value={valueLastname}
             />
           </Col>
         </Form.Row>
@@ -44,6 +54,7 @@ const InputForm = props => {
           type="date"
           placeholder="Seleccione fecha..."
           onChange={event => handleUserInput(event)}
+          value={valueBirth}
         />
       </Form.Group>
       <Button id="form_submit" variant="primary" type="submit" size="lg">
