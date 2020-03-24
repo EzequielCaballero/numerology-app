@@ -1,7 +1,5 @@
-"use strict";
-exports.__esModule = true;
 //CONTROLLER: managers/orchestrates the work using the service
-const Convertor = require("../services/Convertor");
+import Convertor from "../services/Convertor";
 
 class Calculator {
 
@@ -92,4 +90,4 @@ class Calculator {
     }
 }
 
-module.exports = Calculator;
+export default Calculator;

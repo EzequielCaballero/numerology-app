@@ -1,6 +1,4 @@
-"use strict";
-exports.__esModule = true;
-
+//OBJECT RELATED TO EACH CALCULATION
 class Person {
 
     nombre;
@@ -18,4 +16,4 @@ class Person {
     }
 }
 
-module.exports = Person;
+export default Person;

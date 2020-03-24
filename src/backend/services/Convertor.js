@@ -1,8 +1,6 @@
-"use strict";
-exports.__esModule = true;
 //SERVICE: executes the work (business logic and rules behind the program)
-const numericKeys = require("../data/name_keys.json");
-const personalKeys = require("../data/personal_keys.json");
+import numericKeys from "../data/name_keys.json";
+import personalKeys from "../data/personal_keys.json";
 
 class Convertor {
 
@@ -105,11 +103,12 @@ class Convertor {
         let flag = false;
         if (value > 9) {
 
-            if (!isRestricted ||
-                value !== 11 &&
-                value !== 22 &&
-                value !== 33
-            )
+            if (isRestricted) {
+                if (value !== 11 &&
+                    value !== 22 &&
+                    value !== 33)
+                    flag = true;
+            } else
                 flag = true;
         }
 
@@ -126,4 +125,4 @@ class Convertor {
     }
 }
 
-module.exports = Convertor;
+export default Convertor;
