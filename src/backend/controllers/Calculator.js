@@ -23,26 +23,6 @@ class Calculator {
         this._record.birth = newFormat;
         return newFormat;
     }
-    CalculateEssence(nameParts) {
-        const nameVowels = Convertor.TakeNameVowels(nameParts);
-        const vowelNumbers = Convertor.MatchNumericKeys(nameVowels);
-        const nestedArrayReduced = Convertor.ReduceNestedArray(vowelNumbers);
-        const nestedValueReduced = Convertor.ReduceValueElements(nestedArrayReduced, true);
-        const arrayReduced = Convertor.ReduceArray(nestedValueReduced);
-        const essence = Convertor.ReduceValue(arrayReduced, true);
-
-        //REGISTER ACTIONS
-        this._record.essence.push(nameVowels);
-        this._record.essence.push(vowelNumbers);
-        this._record.essence.push(nestedArrayReduced);
-        if (JSON.stringify(nestedValueReduced) !== JSON.stringify(nestedArrayReduced))
-            this._record.essence.push(nestedValueReduced);
-        if (arrayReduced !== essence)
-            this._record.essence.push(arrayReduced);
-        this._record.essence.push(essence);
-
-        return essence;
-    }
     CalculateImage(nameParts) {
         const nameConsonants = Convertor.TakeNameConsonants(nameParts);
         const consonantNumbers = Convertor.MatchNumericKeys(nameConsonants);
@@ -62,6 +42,26 @@ class Calculator {
         this._record.image.push(image);
 
         return image;
+    }
+    CalculateEssence(nameParts) {
+        const nameVowels = Convertor.TakeNameVowels(nameParts);
+        const vowelNumbers = Convertor.MatchNumericKeys(nameVowels);
+        const nestedArrayReduced = Convertor.ReduceNestedArray(vowelNumbers);
+        const nestedValueReduced = Convertor.ReduceValueElements(nestedArrayReduced, true);
+        const arrayReduced = Convertor.ReduceArray(nestedValueReduced);
+        const essence = Convertor.ReduceValue(arrayReduced, true);
+
+        //REGISTER ACTIONS
+        this._record.essence.push(nameVowels);
+        this._record.essence.push(vowelNumbers);
+        this._record.essence.push(nestedArrayReduced);
+        if (JSON.stringify(nestedValueReduced) !== JSON.stringify(nestedArrayReduced))
+            this._record.essence.push(nestedValueReduced);
+        if (arrayReduced !== essence)
+            this._record.essence.push(arrayReduced);
+        this._record.essence.push(essence);
+
+        return essence;
     }
     CalculateMission(essence, image) {
         const mission = Convertor.ReduceValue((essence + image), true);

@@ -29,23 +29,23 @@ const Results = props => {
       <hr />
       <div className="results details">
         <div
-          name="essence"
-          className="results details-item"
-          onClick={() => showOperations("essence")}
-        >
-          <span className="r-title">Esencia</span>
-          <span className="r-value"> | {person.esencia}</span>
-          <span role="img" aria-label="search">
-            🔎
-          </span>
-        </div>
-        <div
           name="image"
           className="results details-item"
           onClick={() => showOperations("image")}
         >
           <span className="r-title">Imagen</span>
           <span className="r-value"> | {person.imagen}</span>
+          <span role="img" aria-label="search">
+            🔎
+          </span>
+        </div>
+        <div
+          name="essence"
+          className="results details-item"
+          onClick={() => showOperations("essence")}
+        >
+          <span className="r-title">Esencia</span>
+          <span className="r-value"> | {person.esencia}</span>
           <span role="img" aria-label="search">
             🔎
           </span>
