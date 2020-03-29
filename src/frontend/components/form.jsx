@@ -11,6 +11,7 @@ const InputForm = props => {
     valueLastname,
     valueBirth,
     handleUserInput,
+    handleCleanInputs,
     handleSubmit
   } = props;
   return (
@@ -47,7 +48,7 @@ const InputForm = props => {
           </Col>
         </Form.Row>
       </Form.Group>
-      <Form.Group id="form_date">
+      <Form.Group className="form_date">
         <Form.Label>Fecha de nacimiento</Form.Label>
         <Form.Control
           name="birthDate"
@@ -57,9 +58,18 @@ const InputForm = props => {
           value={valueBirth}
         />
       </Form.Group>
-      <Button id="form_submit" variant="primary" type="submit" size="lg">
-        Calcular
-      </Button>
+      <div className="form-actions">
+        <Button
+          id="form_clean"
+          variant="secondary"
+          onClick={() => handleCleanInputs()}
+        >
+          Limpiar
+        </Button>
+        <Button id="form_submit" variant="primary">
+          Calcular
+        </Button>
+      </div>
     </Form>
   );
 };

@@ -39,6 +39,15 @@ class Home extends Component {
     }
   };
 
+  handleCleanInputs = () => {
+    this.setState({
+      firstName: "",
+      secondName: "",
+      lastName: "",
+      birthDate: ""
+    });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     e.stopPropagation();
@@ -163,8 +172,8 @@ class Home extends Component {
         {/* INTRO */}
         <div className="home-intro">
           <img src={logo} className="home-logo" alt="logo" />
-          <div className="home-title">CALCULADORA</div>
-          <p className="home-subtitle">Numerología pitagórica</p>
+          <div className="home-title">Numerología pitagórica</div>
+          <p className="home-subtitle">CALCULADORA</p>
         </div>
         {/* MODAL */}
         <ModalMessage
@@ -176,20 +185,25 @@ class Home extends Component {
         />
 
         {!this.state.showResults ? (
-          <InputForm
-            valueName={this.state.firstName}
-            valueSubname={this.state.secondName}
-            valueLastname={this.state.lastName}
-            valueBirth={this.state.birthDate}
-            handleUserInput={this.handleUserInput}
-            handleSubmit={this.handleSubmit}
-          />
+          <div className="home-form">
+            <InputForm
+              valueName={this.state.firstName}
+              valueSubname={this.state.secondName}
+              valueLastname={this.state.lastName}
+              valueBirth={this.state.birthDate}
+              handleUserInput={this.handleUserInput}
+              handleCleanInputs={this.handleCleanInputs}
+              handleSubmit={this.handleSubmit}
+            />
+          </div>
         ) : (
-          <Results
-            person={this.person}
-            showOperations={this.showOperations}
-            hideResults={this.hideResults}
-          />
+          <div className="home-results">
+            <Results
+              person={this.person}
+              showOperations={this.showOperations}
+              hideResults={this.hideResults}
+            />
+          </div>
         )}
       </div>
     );

@@ -12,7 +12,7 @@
 }
 
 .home-logo {
-    height: 40vmin;
+    height: 30vmin;
     pointer-events: none;
     animation: element-spin infinite 20s linear;
 }
@@ -26,15 +26,19 @@ label {
 
 /* HOME FORM */
 
-#form_date {
-    width: 50%;
-    margin: 0 auto;
-    margin-bottom: 1rem;
-    text-align: center;
+.home-form {
+    margin-top: 2em;
 }
 
-#form_submit {
-    margin-top: 50px;
+.form-actions .btn {
+    margin: 3px;
+}
+
+
+/* HOME RESULTS */
+
+.home-results {
+    margin-top: 2em;
 }
 
 
