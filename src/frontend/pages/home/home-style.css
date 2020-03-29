@@ -3,7 +3,7 @@
 .home-content {
     text-align: center;
     padding: 20px;
-    font-size: calc(10px + 2vmin);
+    font-size: calc(15px + 1vmin);
     color: white;
 }
 
@@ -30,8 +30,20 @@ label {
     margin-top: 2em;
 }
 
-.form-actions .btn {
+.form-input-date .form-control {
     margin: 3px;
+}
+
+.form-output {
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    font-size: 0.8em;
+    background-color: rgba(219, 219, 219, 0.253);
+}
+
+.form-actions .btn {
+    margin: 2px;
 }
 
 

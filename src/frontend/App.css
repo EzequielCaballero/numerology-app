@@ -30,25 +30,3 @@ body {
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#4c4c4c', endColorstr='#131313', GradientType=1);
     /* IE6-9 fallback on horizontal gradient */
 }
-
-.err404-box {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    animation: showup 2s ease-in;
-}
-
-.err404-content {
-    display: table-cell;
-    vertical-align: middle;
-    padding: 1em;
-    color: #ddecee;
-    font-weight: bold;
-    text-align: center;
-    box-shadow: 0 0 10px #9ecaed;
-    -webkit-box-shadow: 0 0 10px #9ecaed;
-    -moz-box-shadow: 0 0 10px #9ecaed;
-    border-radius: 1em;
-    background: rgba(0, 0, 0, 0.473);
-}

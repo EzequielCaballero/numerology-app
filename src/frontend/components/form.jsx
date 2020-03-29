@@ -1,75 +1,167 @@
 import React from "react";
 //BOOTSTRAP
 import Form from "react-bootstrap/Form";
-import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import InputGroup from "react-bootstrap/InputGroup";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 const InputForm = props => {
   const {
-    valueName,
-    valueSubname,
-    valueLastname,
-    valueBirth,
-    handleUserInput,
+    valueFirstName,
+    valueLastName,
+    valueBirthDay,
+    valueBirthMonth,
+    valueBirthYear,
+    handleInputName,
+    handleInputDate,
+    handleAddName,
+    handleRemoveName,
     handleCleanInputs,
     handleSubmit
   } = props;
+
   return (
-    <Form autoComplete="false" onSubmit={event => handleSubmit(event)}>
+    <Form
+      autoComplete="false"
+      onSubmit={event => handleSubmit(event)}
+      noValidate
+    >
       <Form.Group id="form_name">
         <Form.Label>Nombre completo</Form.Label>
-        <Form.Row>
-          <Col>
+        <InputGroup className="mb-3">
+          <InputGroup.Prepend>
+            <Button
+              variant="outline-secondary"
+              onClick={() => handleRemoveName("firstName")}
+            >
+              <span role="img" aria-label="removeField">
+                -
+              </span>
+            </Button>
+          </InputGroup.Prepend>
+          {valueFirstName.map((subname, index) => (
             <Form.Control
-              name="firstName"
+              key={`firstName-${index}`}
+              name={`firstName-${index}`}
               type="text"
-              placeholder="*Nombre..."
-              onChange={event => handleUserInput(event)}
-              value={valueName}
+              placeholder={`Nombre-${index + 1}...`}
+              onChange={event => handleInputName(event)}
+              value={subname}
             />
-          </Col>
-          <Col>
+          ))}
+          <InputGroup.Append>
+            <Button
+              variant="outline-secondary"
+              onClick={() => handleAddName("firstName")}
+            >
+              <span role="img" aria-label="addField">
+                +
+              </span>
+            </Button>
+          </InputGroup.Append>
+        </InputGroup>
+        <InputGroup className="mb-3">
+          <InputGroup.Prepend>
+            <Button
+              variant="outline-secondary"
+              onClick={() => handleRemoveName("lastName")}
+            >
+              <span role="img" aria-label="removeField">
+                -
+              </span>
+            </Button>
+          </InputGroup.Prepend>
+          {valueLastName.map((subname, index) => (
             <Form.Control
-              name="secondName"
+              key={`lastName-${index}`}
+              name={`lastName-${index}`}
               type="text"
-              placeholder="Segundo nombre..."
-              onChange={event => handleUserInput(event)}
-              value={valueSubname}
+              placeholder={`Apellido-${index + 1}...`}
+              onChange={event => handleInputName(event)}
+              value={subname}
             />
-          </Col>
-          <Col>
-            <Form.Control
-              name="lastName"
-              type="text"
-              placeholder="*Apellido..."
-              onChange={event => handleUserInput(event)}
-              value={valueLastname}
-            />
-          </Col>
-        </Form.Row>
+          ))}
+          <InputGroup.Append>
+            <Button
+              variant="outline-secondary"
+              onClick={() => handleAddName("lastName")}
+            >
+              <span role="img" aria-label="addField">
+                +
+              </span>
+            </Button>
+          </InputGroup.Append>
+        </InputGroup>
       </Form.Group>
-      <Form.Group className="form_date">
+      <Form.Group>
         <Form.Label>Fecha de nacimiento</Form.Label>
-        <Form.Control
-          name="birthDate"
-          type="date"
-          placeholder="Seleccione fecha..."
-          onChange={event => handleUserInput(event)}
-          value={valueBirth}
-        />
+        <InputGroup className="mb-3 form-input-date">
+          <Form.Control
+            name="birthDay"
+            type="number"
+            placeholder="Día"
+            onChange={event => handleInputDate(event)}
+            min="1"
+            max="31"
+            value={valueBirthDay}
+          />
+          <Form.Control
+            name="birthMonth"
+            type="number"
+            placeholder="Mes"
+            onChange={event => handleInputDate(event)}
+            min="1"
+            max="12"
+            value={valueBirthMonth}
+          />
+          <Form.Control
+            name="birthYear"
+            type="number"
+            placeholder="Año"
+            onChange={event => handleInputDate(event)}
+            min="1900"
+            max={new Date().getFullYear()}
+            value={valueBirthYear}
+          />
+        </InputGroup>
       </Form.Group>
-      <div className="form-actions">
+      <div className="form-output">
+        <span>
+          {valueFirstName[0] !== "" && valueLastName[0] !== ""
+            ? `${valueFirstName
+                .map(item => item)
+                .toString()
+                .replace(/,/g, " ")} 
+            ${valueLastName
+              .map(item => item)
+              .toString()
+              .replace(/,/g, " ")}`
+            : "..."}
+        </span>
+        <br />
+        <span>
+          {valueBirthDay !== "" &&
+          valueBirthMonth !== "" &&
+          valueBirthYear !== ""
+            ? `${valueBirthDay}/${valueBirthMonth}/${valueBirthYear}`
+            : "..."}
+        </span>
+      </div>
+      <ButtonGroup className="form-actions">
         <Button
           id="form_clean"
           variant="secondary"
+          className="btn-left"
           onClick={() => handleCleanInputs()}
         >
-          Limpiar
+          <span role="img" aria-label="trash">
+            🗑
+          </span>
         </Button>
-        <Button id="form_submit" variant="primary">
+        <Button id="form_submit" variant="success" type="submit">
           Calcular
         </Button>
-      </div>
+      </ButtonGroup>
     </Form>
   );
 };

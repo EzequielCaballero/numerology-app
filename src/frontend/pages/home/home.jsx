@@ -8,16 +8,18 @@ import ModalMessage from "../../components/modal";
 import Results from "../../components/results/results";
 //ASSERTS
 import logo from "../../assets/logo-1.png";
-import "./home.css";
+import "./home-style.css";
+import "./home-responsive.css";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: "",
-      secondName: "",
-      lastName: "",
-      birthDate: "",
+      firstName: [""],
+      lastName: [""],
+      birthDay: "",
+      birthMonth: "",
+      birthYear: "",
       modal: {
         show: false,
         title: "",
@@ -30,57 +32,110 @@ class Home extends Component {
     this.person = new Person();
   }
 
-  handleUserInput = e => {
+  handleInputName = e => {
     try {
       const { name, value } = e.target;
-      this.setState({ [name]: value });
+      const input = name.split("-");
+      let newState = this.state[input[0]];
+      newState[input[1]] = value.trim();
+      this.setState({ [input[0]]: newState });
     } catch (error) {
       console.log(error);
     }
   };
 
+  handleInputDate = e => {
+    try {
+      const { name, value } = e.target;
+      this.setState({ [name]: value.trim() });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  handleAddName = field => {
+    if (this.state[field].length < 3) {
+      let newState = this.state[field];
+      newState.push("");
+      this.setState({ [field]: newState });
+    }
+  };
+
+  handleRemoveName = field => {
+    if (this.state[field].length > 1) {
+      let newState = this.state[field];
+      newState.pop();
+      this.setState({ [field]: newState });
+    }
+  };
+
   handleCleanInputs = () => {
     this.setState({
-      firstName: "",
-      secondName: "",
-      lastName: "",
-      birthDate: ""
+      firstName: [""],
+      lastName: [""],
+      birthDay: "",
+      birthMonth: "",
+      birthYear: ""
     });
   };
 
   handleSubmit = e => {
     e.preventDefault();
     e.stopPropagation();
-    this.validateForm();
-  };
-
-  validateForm = () => {
-    if (
-      this.state.firstName !== "" &&
-      this.state.lastName !== "" &&
-      this.state.birthDate !== ""
-    ) {
-      this.calculateValues();
-    } else {
+    if (this.validateForm()) this.calculateValues();
+    else {
       let newMsg = [];
-      newMsg.push("Faltan valores mandatorios");
+      newMsg.push("Por favor revisar los campos mandatorios");
       newMsg.push("Nombre | Apellido | Fecha de nacimiento");
-      this.handleModalShow("Error!", newMsg);
+      this.handleModalShow("Información incorrecta", newMsg);
     }
   };
 
+  validateForm = () => {
+    if (this.validateNameInput() && this.validateDateInput()) return true;
+
+    return false;
+  };
+
+  validateNameInput = () => {
+    if (this.state.firstName[0] !== "" && this.state.lastName[0] !== "")
+      return true;
+
+    return false;
+  };
+
+  validateDateInput = () => {
+    if (
+      this.state.birthDay !== "" &&
+      this.state.birthDay > 0 &&
+      this.state.birthDay <= 31 &&
+      this.state.birthMonth !== "" &&
+      this.state.birthMonth > 0 &&
+      this.state.birthMonth <= 12 &&
+      this.state.birthYear !== "" &&
+      this.state.birthYear > 1900 &&
+      this.state.birthYear <= new Date().getFullYear()
+    )
+      return true;
+
+    return false;
+  };
+
   formatInput_name = () => {
-    const fullname =
-      this.state.secondName !== ""
-        ? `${this.state.firstName}|${this.state.secondName}|${this.state.lastName}`
-        : `${this.state.firstName}|${this.state.lastName}`;
+    let fullname = "";
+    for (let subname of this.state.firstName) {
+      if (subname !== "") fullname += `${subname}|`;
+    }
+    for (let subname of this.state.lastName) {
+      if (subname !== "") fullname += `${subname}|`;
+    }
+    fullname = fullname.slice(0, -1);
     return fullname;
   };
 
   formatInput_birth = () => {
-    const birthParts = this.state.birthDate.split("-");
     const birth = new Date(
-      `${birthParts[1]}/${birthParts[2]}/${birthParts[0]}`
+      `${this.state.birthYear}/${this.state.birthMonth}/${this.state.birthDay}`
     );
     return birth;
   };
@@ -187,11 +242,15 @@ class Home extends Component {
         {!this.state.showResults ? (
           <div className="home-form">
             <InputForm
-              valueName={this.state.firstName}
-              valueSubname={this.state.secondName}
-              valueLastname={this.state.lastName}
-              valueBirth={this.state.birthDate}
-              handleUserInput={this.handleUserInput}
+              valueFirstName={this.state.firstName}
+              valueLastName={this.state.lastName}
+              valueBirthDay={this.state.birthDay}
+              valueBirthMonth={this.state.birthMonth}
+              valueBirthYear={this.state.birthYear}
+              handleInputName={this.handleInputName}
+              handleInputDate={this.handleInputDate}
+              handleAddName={this.handleAddName}
+              handleRemoveName={this.handleRemoveName}
               handleCleanInputs={this.handleCleanInputs}
               handleSubmit={this.handleSubmit}
             />

@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Routes from "./routes/routes";
-import Err404 from "./components/err404";
+import Err404 from "./components/err404/err404";
 //BASIC STYLE
 import "./App.css";
 

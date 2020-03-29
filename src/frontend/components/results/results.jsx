@@ -1,6 +1,7 @@
 import React from "react";
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 //ASSERTS
 import "./results.css";
 
@@ -10,13 +11,13 @@ const Results = props => {
   return (
     <div className="results">
       <h3>RESULTADOS</h3>
-      <div className="results options">
+      <ButtonGroup className="results options">
         <Button variant="light" onClick={hideResults}>
           Volver
         </Button>
         <Button variant="success">Reporte</Button>
         <Button variant="info">Exportar</Button>
-      </div>
+      </ButtonGroup>
       <hr />
       <div className="results header">
         <p>
