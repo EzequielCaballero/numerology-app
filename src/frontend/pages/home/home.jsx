@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import Person from "../../../backend/entity/Person";
 import Calculator from "../../../backend/controllers/Calculator";
 //COMPONENTS
-import InputForm from "../../components/form";
+import InputForm from "../../components/form/form";
 import ModalMessage from "../../components/modal";
 import Results from "../../components/results/results";
 //ASSERTS
@@ -15,24 +15,24 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: [""],
-      lastName: [""],
-      birthDay: "",
-      birthMonth: "",
-      birthYear: "",
+      firstName: ["Ezequiel", "Andrés"],
+      lastName: ["Caballero"],
+      birthDay: 14,
+      birthMonth: 8,
+      birthYear: 1989,
       modal: {
         show: false,
         title: "",
         msg: [],
-        style: "home-success"
+        style: "home-success",
       },
-      showResults: false
+      showResults: false,
     };
     this.calculator = new Calculator();
     this.person = new Person();
   }
 
-  handleInputName = e => {
+  handleInputName = (e) => {
     try {
       const { name, value } = e.target;
       const input = name.split("-");
@@ -44,7 +44,7 @@ class Home extends Component {
     }
   };
 
-  handleInputDate = e => {
+  handleInputDate = (e) => {
     try {
       const { name, value } = e.target;
       this.setState({ [name]: value.trim() });
@@ -53,7 +53,7 @@ class Home extends Component {
     }
   };
 
-  handleAddName = field => {
+  handleAddName = (field) => {
     if (this.state[field].length < 3) {
       let newState = this.state[field];
       newState.push("");
@@ -61,7 +61,7 @@ class Home extends Component {
     }
   };
 
-  handleRemoveName = field => {
+  handleRemoveName = (field) => {
     if (this.state[field].length > 1) {
       let newState = this.state[field];
       newState.pop();
@@ -75,11 +75,11 @@ class Home extends Component {
       lastName: [""],
       birthDay: "",
       birthMonth: "",
-      birthYear: ""
+      birthYear: "",
     });
   };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
     e.stopPropagation();
     if (this.validateForm()) this.calculateValues();
@@ -177,7 +177,7 @@ class Home extends Component {
     this.setState({ showResults: true });
   };
 
-  showOperations = type => {
+  showOperations = (type) => {
     let newMsg = [];
     //console.log(JSON.stringify(this.calculator._record));
     switch (type) {

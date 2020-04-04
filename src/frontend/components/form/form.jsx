@@ -4,8 +4,10 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
+//STYLE
+import "./form.css";
 
-const InputForm = props => {
+const InputForm = (props) => {
   const {
     valueFirstName,
     valueLastName,
@@ -17,13 +19,13 @@ const InputForm = props => {
     handleAddName,
     handleRemoveName,
     handleCleanInputs,
-    handleSubmit
+    handleSubmit,
   } = props;
 
   return (
     <Form
       autoComplete="false"
-      onSubmit={event => handleSubmit(event)}
+      onSubmit={(event) => handleSubmit(event)}
       noValidate
     >
       <Form.Group id="form_name">
@@ -45,7 +47,7 @@ const InputForm = props => {
               name={`firstName-${index}`}
               type="text"
               placeholder={`Nombre-${index + 1}...`}
-              onChange={event => handleInputName(event)}
+              onChange={(event) => handleInputName(event)}
               value={subname}
             />
           ))}
@@ -77,7 +79,7 @@ const InputForm = props => {
               name={`lastName-${index}`}
               type="text"
               placeholder={`Apellido-${index + 1}...`}
-              onChange={event => handleInputName(event)}
+              onChange={(event) => handleInputName(event)}
               value={subname}
             />
           ))}
@@ -100,7 +102,7 @@ const InputForm = props => {
             name="birthDay"
             type="number"
             placeholder="Día"
-            onChange={event => handleInputDate(event)}
+            onChange={(event) => handleInputDate(event)}
             min="1"
             max="31"
             value={valueBirthDay}
@@ -109,7 +111,7 @@ const InputForm = props => {
             name="birthMonth"
             type="number"
             placeholder="Mes"
-            onChange={event => handleInputDate(event)}
+            onChange={(event) => handleInputDate(event)}
             min="1"
             max="12"
             value={valueBirthMonth}
@@ -118,7 +120,7 @@ const InputForm = props => {
             name="birthYear"
             type="number"
             placeholder="Año"
-            onChange={event => handleInputDate(event)}
+            onChange={(event) => handleInputDate(event)}
             min="1900"
             max={new Date().getFullYear()}
             value={valueBirthYear}
@@ -129,11 +131,11 @@ const InputForm = props => {
         <span>
           {valueFirstName[0] !== "" && valueLastName[0] !== ""
             ? `${valueFirstName
-                .map(item => item)
+                .map((item) => item)
                 .toString()
                 .replace(/,/g, " ")} 
             ${valueLastName
-              .map(item => item)
+              .map((item) => item)
               .toString()
               .replace(/,/g, " ")}`
             : "..."}
@@ -150,15 +152,19 @@ const InputForm = props => {
       <ButtonGroup className="form-actions">
         <Button
           id="form_clean"
-          variant="secondary"
+          variant="light"
           className="btn-left"
           onClick={() => handleCleanInputs()}
         >
           <span role="img" aria-label="trash">
-            🗑
+            <img
+              id="trash-icon"
+              src={require("../../assets/trash.svg")}
+              alt="Trash"
+            />
           </span>
         </Button>
-        <Button id="form_submit" variant="success" type="submit">
+        <Button id="form_submit" variant="success" type="submit" size="lg">
           Calcular
         </Button>
       </ButtonGroup>

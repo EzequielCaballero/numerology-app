@@ -1,0 +1,20 @@
+.form-input-date .form-control {
+    margin: 3px;
+}
+
+.form-output {
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    font-size: 0.8em;
+    background-color: rgba(74, 92, 95, 0.5);
+}
+
+.form-actions .btn {
+    margin: 2px;
+}
+
+#trash-icon {
+    height: 25px;
+    width: 30px;
+}

@@ -30,28 +30,8 @@ label {
     margin-top: 1rem;
 }
 
-.form-input-date .form-control {
-    margin: 3px;
-}
-
-.form-output {
-    margin: 0 auto;
-    margin-bottom: 1rem;
-    border-radius: 10px;
-    font-size: 0.8em;
-    background-color: rgba(219, 219, 219, 0.253);
-}
-
-.form-actions .btn {
-    margin: 2px;
-}
-
 
 /* HOME RESULTS */
-
-.home-results {
-    margin-top: 2em;
-}
 
 
 /* HOME MODAL */

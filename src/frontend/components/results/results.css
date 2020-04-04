@@ -9,25 +9,48 @@
     text-decoration: inherit;
 }
 
-.results.header,
+.results.header p {
+    margin-bottom: unset;
+    font-weight: bold;
+}
+
+.results.header {
+    color: black;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 5px;
+    border-radius: 10px;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#d8e0de+0,aebfbc+22,99afab+33,8ea6a2+50,829d98+67&1+0,0.67+100 */
+    background: -moz-linear-gradient(-45deg, rgba(216, 224, 222, 1) 0%, rgba(174, 191, 188, 0.93) 22%, rgba(153, 175, 171, 0.89) 33%, rgba(142, 166, 162, 0.83) 50%, rgba(130, 157, 152, 0.78) 67%, rgba(130, 157, 152, 0.67) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgba(216, 224, 222, 1) 0%, rgba(174, 191, 188, 0.93) 22%, rgba(153, 175, 171, 0.89) 33%, rgba(142, 166, 162, 0.83) 50%, rgba(130, 157, 152, 0.78) 67%, rgba(130, 157, 152, 0.67) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgba(216, 224, 222, 1) 0%, rgba(174, 191, 188, 0.93) 22%, rgba(153, 175, 171, 0.89) 33%, rgba(142, 166, 162, 0.83) 50%, rgba(130, 157, 152, 0.78) 67%, rgba(130, 157, 152, 0.67) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#d8e0de', endColorstr='#ab829d98', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+#output-name {
+    text-transform: capitalize;
+}
+
 .results.details {
     color: white;
     font-size: 1em;
 }
 
 .results.details-item {
-    margin: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     border-radius: 20px;
     border: 2px solid black;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     background-color: rgba(138, 138, 138, 0.404);
-    cursor: pointer;
-}
-
-.results hr {
-    background-color: white;
-    padding: 2px;
 }
 
 .r-title {
@@ -36,4 +59,8 @@
 
 .r-value {
     font-weight: bolder;
+}
+
+.r-expand {
+    cursor: pointer;
 }
