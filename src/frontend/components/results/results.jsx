@@ -74,9 +74,37 @@ const Results = (props) => {
           <span className="r-title">Clave</span>
           <span className="r-value">{person.clave_personal}</span>
         </div>
-        <div nome="potentialNumber" className="results details-item">
+        <div name="potentialNumber" className="results details-item">
           <span className="r-title">Potencial</span>
           <span className="r-value">{person.numero_potencial}</span>
+        </div>
+        <div name="karma" className="results details-item">
+          <span className="r-title">Karma</span>
+          <span className="r-value">***</span>
+        </div>
+        <div name="stages" className="results details-item">
+          <span className="r-title">Etapas</span>
+          <span className="r-value">***</span>
+          <span
+            className="r-expand"
+            role="img"
+            aria-label="search"
+            onClick={() => showOperations("stages")}
+          >
+            🔎
+          </span>
+        </div>
+        <div name="personalYear" className="results details-item">
+          <span className="r-title">Año personal</span>
+          <span className="r-value">{person.ano_personal}</span>
+        </div>
+        <div name="personalMonth" className="results details-item">
+          <span className="r-title">Mes personal</span>
+          <span className="r-value">{person.mes_personal}</span>
+        </div>
+        <div name="ageDigit" className="results details-item">
+          <span className="r-title">Digito de edad</span>
+          <span className="r-value">{person.digito_edad}</span>
         </div>
       </div>
     </div>

@@ -141,11 +141,12 @@ class Home extends Component {
   };
 
   calculateValues = () => {
-    //CALCULATE
+    //NORMALIZE
     this.person.nombre = this.calculator.FormatName(this.formatInput_name());
     this.person.nacimiento = this.calculator.FormatBirth(
       this.formatInput_birth()
     );
+    //CALCULATE
     this.person.esencia = this.calculator.CalculateEssence(this.person.nombre);
     this.person.imagen = this.calculator.CalculateImage(this.person.nombre);
     this.person.mision = this.calculator.CalculateMission(
@@ -161,6 +162,19 @@ class Home extends Component {
     this.person.numero_potencial = this.calculator.CalculatePotential(
       this.person.mision,
       this.person.sendero_natal
+    );
+    this.person.etapas = this.calculator.CalculateStages(
+      this.person.nacimiento,
+      this.person.sendero_natal
+    );
+    this.person.ano_personal = this.calculator.CalculatePersonalYear(
+      this.person.nacimiento
+    );
+    this.person.mes_personal = this.calculator.CalculatePersonalMonth(
+      this.person.ano_personal
+    );
+    this.person.digito_edad = this.calculator.CalculateAgeDigit(
+      this.person.nacimiento
     );
     console.info(JSON.stringify(this.person));
     this.showResults();
@@ -201,6 +215,14 @@ class Home extends Component {
           newMsg.push(JSON.stringify(this.calculator._record.path[i]));
         }
         this.handleModalShow("Calculo de sendero...", newMsg);
+        break;
+      case "stages":
+        for (let stage of this.person.etapas) {
+          newMsg.push(
+            `Etapa ${stage.num} | Desde: ${stage.from} | Hasta: ${stage.to} | VALOR-> ${stage.value}`
+          );
+        }
+        this.handleModalShow("Detalle de etapas...", newMsg);
         break;
       default:
         break;
