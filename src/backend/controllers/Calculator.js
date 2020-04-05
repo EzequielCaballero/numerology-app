@@ -148,10 +148,7 @@ class Calculator {
         uniqueArray = [...(new Set(uniqueArray))];
         uniqueArray.sort();
         //Find missing number
-        missingNumbers = numbers.filter((num) => {
-            if (uniqueArray.indexOf(num) === -1)
-                return num;
-        });
+        missingNumbers = numbers.filter((num) => uniqueArray.indexOf(num) === -1);
 
         if (missingNumbers.length === 0)
             missingNumbers = [0];
