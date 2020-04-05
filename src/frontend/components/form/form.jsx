@@ -62,7 +62,7 @@ const InputForm = (props) => {
             </Button>
           </InputGroup.Append>
         </InputGroup>
-        <InputGroup className="mb-3">
+        <InputGroup className="mb-3 form-input-name">
           <InputGroup.Prepend>
             <Button
               variant="outline-secondary"
@@ -128,6 +128,7 @@ const InputForm = (props) => {
         </InputGroup>
       </Form.Group>
       <div className="form-output">
+        <div className="form-output-title">Valores finales</div>
         <span>
           {valueFirstName[0] !== "" && valueLastName[0] !== ""
             ? `${valueFirstName

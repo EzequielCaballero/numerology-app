@@ -57,6 +57,14 @@ const Results = (props) => {
         <div name="mission" className="results details-item">
           <span className="r-title">Misión</span>
           <span className="r-value">{person.mision}</span>
+          <span
+            className="r-expand"
+            role="img"
+            aria-label="search"
+            onClick={() => showOperations("mission")}
+          >
+            🔎
+          </span>
         </div>
         <div name="path" className="results details-item">
           <span className="r-title">Sendero</span>
@@ -78,9 +86,17 @@ const Results = (props) => {
           <span className="r-title">Potencial</span>
           <span className="r-value">{person.numero_potencial}</span>
         </div>
-        <div name="karma" className="results details-item">
-          <span className="r-title">Karma</span>
+        <div name="karmas" className="results details-item">
+          <span className="r-title">Karmas</span>
           <span className="r-value">***</span>
+          <span
+            className="r-expand"
+            role="img"
+            aria-label="search"
+            onClick={() => showOperations("karmas")}
+          >
+            🔎
+          </span>
         </div>
         <div name="stages" className="results details-item">
           <span className="r-title">Etapas</span>
@@ -105,6 +121,14 @@ const Results = (props) => {
         <div name="ageDigit" className="results details-item">
           <span className="r-title">Digito de edad</span>
           <span className="r-value">{person.digito_edad}</span>
+          <span
+            className="r-expand"
+            role="img"
+            aria-label="search"
+            onClick={() => showOperations("ages")}
+          >
+            🔎
+          </span>
         </div>
       </div>
     </div>

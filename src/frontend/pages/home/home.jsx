@@ -146,13 +146,11 @@ class Home extends Component {
     this.person.nacimiento = this.calculator.FormatBirth(
       this.formatInput_birth()
     );
+    this.person.edad = this.calculator.CalculateAge(this.formatInput_birth());
     //CALCULATE
-    this.person.esencia = this.calculator.CalculateEssence(this.person.nombre);
     this.person.imagen = this.calculator.CalculateImage(this.person.nombre);
-    this.person.mision = this.calculator.CalculateMission(
-      this.person.esencia,
-      this.person.imagen
-    );
+    this.person.esencia = this.calculator.CalculateEssence(this.person.nombre);
+    this.person.mision = this.calculator.CalculateMission(this.person.nombre);
     this.person.sendero_natal = this.calculator.CalculatePath(
       this.person.nacimiento
     );
@@ -163,6 +161,8 @@ class Home extends Component {
       this.person.mision,
       this.person.sendero_natal
     );
+    this.person.karmas = this.calculator.CalculateKarmas();
+    this.person.posibles_karmas = this.calculator.CalculatePossibleKarmas();
     this.person.etapas = this.calculator.CalculateStages(
       this.person.nacimiento,
       this.person.sendero_natal
@@ -174,7 +174,7 @@ class Home extends Component {
       this.person.ano_personal
     );
     this.person.digito_edad = this.calculator.CalculateAgeDigit(
-      this.person.nacimiento
+      this.person.edad
     );
     console.info(JSON.stringify(this.person));
     this.showResults();
@@ -195,6 +195,13 @@ class Home extends Component {
     let newMsg = [];
     //console.log(JSON.stringify(this.calculator._record));
     switch (type) {
+      case "image":
+        newMsg.push(JSON.stringify(this.calculator._record.name));
+        for (let i = 0; i < this.calculator._record.image.length; i++) {
+          newMsg.push(JSON.stringify(this.calculator._record.image[i]));
+        }
+        this.handleModalShow("Calculo de imagen...", newMsg);
+        break;
       case "essence":
         newMsg.push(JSON.stringify(this.calculator._record.name));
         for (let i = 0; i < this.calculator._record.essence.length; i++) {
@@ -202,12 +209,12 @@ class Home extends Component {
         }
         this.handleModalShow("Calculo de esencia...", newMsg);
         break;
-      case "image":
+      case "mission":
         newMsg.push(JSON.stringify(this.calculator._record.name));
-        for (let i = 0; i < this.calculator._record.image.length; i++) {
-          newMsg.push(JSON.stringify(this.calculator._record.image[i]));
+        for (let i = 0; i < this.calculator._record.mission.length; i++) {
+          newMsg.push(JSON.stringify(this.calculator._record.mission[i]));
         }
-        this.handleModalShow("Calculo de imagen...", newMsg);
+        this.handleModalShow("Calculo de misión...", newMsg);
         break;
       case "path":
         newMsg.push(JSON.stringify(this.calculator._record.birth));
@@ -216,6 +223,14 @@ class Home extends Component {
         }
         this.handleModalShow("Calculo de sendero...", newMsg);
         break;
+      case "karmas":
+        newMsg.push(`Esencia: ${this.person.karmas.essence}`);
+        newMsg.push(`Misión: ${this.person.karmas.mission}`);
+        newMsg.push(`Sendero: ${this.person.karmas.path}`);
+        newMsg.push("---");
+        newMsg.push(`Números faltantes: ${this.person.posibles_karmas}`);
+        this.handleModalShow("Detalle de karmas...", newMsg);
+        break;
       case "stages":
         for (let stage of this.person.etapas) {
           newMsg.push(
@@ -223,6 +238,12 @@ class Home extends Component {
           );
         }
         this.handleModalShow("Detalle de etapas...", newMsg);
+        break;
+      case "ages":
+        newMsg.push(`Edad actual: ${this.person.edad}`);
+        newMsg.push(`Edad futura: ${this.person.edad + 1}`);
+        newMsg.push(`Resultado: ${this.person.digito_edad}`);
+        this.handleModalShow("Detalle de digito de edad...", newMsg);
         break;
       default:
         break;
