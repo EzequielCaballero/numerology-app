@@ -3,22 +3,19 @@ class Person {
 
     nombre;
     nacimiento;
+    edad;
     imagen;
     esencia;
     mision;
     sendero_natal;
     numero_potencial;
     clave_personal;
-    karma;
+    karmas;
+    posibles_karmas;
     etapas;
     ano_personal;
     mes_personal;
     digito_edad;
-
-    constructor(name, date) {
-        this.nombre = name;
-        this.nacimiento = date;
-    }
 }
 
 export default Person;

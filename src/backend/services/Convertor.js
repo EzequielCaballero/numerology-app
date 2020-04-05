@@ -32,6 +32,14 @@ class Convertor {
         return dateValues;
     }
 
+    static TakeNameLetters(nameParts) {
+        let onlyLetters = [];
+        for (let i = 0; i < nameParts.length; i++) {
+            const subname = nameParts[i].match(/[a-zA-Z]/gi);
+            onlyLetters.push(subname);
+        }
+        return onlyLetters;
+    }
     static TakeNameVowels(nameParts) {
         let onlyVowels = [];
         for (let i = 0; i < nameParts.length; i++) {
@@ -71,6 +79,15 @@ class Convertor {
         }
         return matchValue;
     }
+    static GetNumerologyPosition(alphabetPosition) {
+        let position = alphabetPosition;
+        if (alphabetPosition > 9 && alphabetPosition < 19)
+            position -= 9;
+        if (alphabetPosition > 18)
+            position -= 18;
+
+        return position;
+    }
 
     static ReduceNestedArray(nestedArray) {
         let arrayReduced = [];
@@ -105,32 +122,13 @@ class Convertor {
 
             if (isRestricted) {
                 if (value !== 11 &&
-                    value !== 22 &&
-                    value !== 33)
+                    value !== 22)
                     flag = true;
             } else
                 flag = true;
         }
 
         return flag;
-    }
-    static GetNumerologyPosition(alphabetPosition) {
-        let position = alphabetPosition;
-        if (alphabetPosition > 9 && alphabetPosition < 19)
-            position -= 9;
-        if (alphabetPosition > 18)
-            position -= 18;
-
-        return position;
-    }
-    static GetAge(birthDate) {
-        var today = new Date();
-        var age = today.getFullYear() - birthDate.getFullYear();
-        var month = today.getMonth() - birthDate.getMonth();
-        if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
-        return age;
     }
 }
 

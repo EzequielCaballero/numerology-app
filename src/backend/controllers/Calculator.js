@@ -7,9 +7,10 @@ class Calculator {
     //RECORD
     _record = {
         "name": [],
-        "essence": [],
-        "image": [],
         "birth": [],
+        "image": [],
+        "essence": [],
+        "mission": [],
         "path": []
     }
 
@@ -23,6 +24,15 @@ class Calculator {
         const newFormat = Convertor.FormatDateToArray(birth);
         this._record.birth = newFormat;
         return newFormat;
+    }
+    CalculateAge(birthDate) {
+        var today = new Date();
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var month = today.getMonth() - birthDate.getMonth();
+        if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
     }
     CalculateImage(nameParts) {
         const nameConsonants = Convertor.TakeNameConsonants(nameParts);
@@ -64,8 +74,24 @@ class Calculator {
 
         return essence;
     }
-    CalculateMission(essence, image) {
-        const mission = Convertor.ReduceValue((essence + image), true);
+    CalculateMission(nameParts) {
+        const nameLetters = Convertor.TakeNameLetters(nameParts);
+        const vowelNumbers = Convertor.MatchNumericKeys(nameLetters);
+        const nestedArrayReduced = Convertor.ReduceNestedArray(vowelNumbers);
+        const nestedValueReduced = Convertor.ReduceValueElements(nestedArrayReduced, true);
+        const arrayReduced = Convertor.ReduceArray(nestedValueReduced);
+        const mission = Convertor.ReduceValue(arrayReduced, true);
+
+        //REGISTER ACTIONS
+        this._record.mission.push(nameLetters);
+        this._record.mission.push(vowelNumbers);
+        this._record.mission.push(nestedArrayReduced);
+        if (JSON.stringify(nestedValueReduced) !== JSON.stringify(nestedArrayReduced))
+            this._record.mission.push(nestedValueReduced);
+        if (arrayReduced !== mission)
+            this._record.mission.push(arrayReduced);
+        this._record.mission.push(mission);
+
         return mission;
     }
     CalculatePath(birthParts) {
@@ -89,14 +115,48 @@ class Calculator {
         const potentialNumber = Convertor.ReduceValue((mission + path), true);
         return potentialNumber;
     }
+    CalculateKarmas() {
+        let karmas = [13, 14, 16, 19];
+        let matchIndex = -1;
+        let matchKarmas = {
+            essence: 0,
+            mission: 0,
+            path: 0
+        }
 
-    //To be finish...
-    CalculateKarma(essence, mission, path) {
+        //Essence (before reduce)
+        matchIndex = karmas.indexOf(this._record.essence.slice(-2)[0]);
+        if (matchIndex !== -1)
+            matchKarmas.essence = karmas[matchIndex];
+        //Mission (before reduce)
+        matchIndex = karmas.indexOf(this._record.mission.slice(-2)[0]);
+        if (matchIndex !== -1)
+            matchKarmas.mission = karmas[matchIndex];
+        //Path (before reduce)
+        matchIndex = karmas.indexOf(this._record.path.slice(-2)[0]);
+        if (matchIndex !== -1)
+            matchKarmas.path = karmas[matchIndex];
 
+        return matchKarmas;
     }
-    CalculateKarmaLesson(mission, path) {
-        const possibleKarma = Convertor.ReduceValue((mission + path), true);
-        return possibleKarma;
+    CalculatePossibleKarmas() {
+        let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let missingNumbers = [];
+        //Takes values previously calculated (mission + path) into single sorted array
+        let uniqueArray = this._record.mission[1].concat(this._record.path[0]);
+        uniqueArray = uniqueArray.flat();
+        uniqueArray = [...(new Set(uniqueArray))];
+        uniqueArray.sort();
+        //Find missing number
+        missingNumbers = numbers.filter((num) => {
+            if (uniqueArray.indexOf(num) === -1)
+                return num;
+        });
+
+        if (missingNumbers.length === 0)
+            missingNumbers = [0];
+
+        return missingNumbers;
     }
     CalculateStages(birthParts, path) {
         const base_number = 36;
@@ -128,7 +188,7 @@ class Calculator {
         const stage_4 = new Stage();
         stage_4.num = 4;
         stage_4.from = (stages[2].to + 1);
-        stage_4.to = (stage_4.from + default_duration);
+        stage_4.to = "∞";
         stage_4.value = Convertor.ReduceValue((birthReduced[1] + birthReduced[2]), true);
         stages.push(stage_4);
 
@@ -147,9 +207,7 @@ class Calculator {
         const finalValue = Convertor.ReduceValue((personalYear + actualMonth), true);
         return finalValue;
     }
-    CalculateAgeDigit(birthParts) {
-        const birthDate = new Date(`${birthParts[2]}-${birthParts[1]}-${birthParts[0]}`);
-        const age = Convertor.GetAge(birthDate);
+    CalculateAgeDigit(age) {
         let values = [age, (age + 1)];
         const valuesReduced = Convertor.ReduceValueElements(values, true);
         const uniqueValue = Convertor.ReduceArray(valuesReduced);
