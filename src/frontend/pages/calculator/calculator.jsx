@@ -2,6 +2,7 @@ import React, { Component } from "react";
 //LOGIC
 import Person from "../../../backend/entity/Person";
 import Calculator from "../../../backend/controllers/Calculator";
+import TestConfig from "../../../tests/App.test.config.json";
 //COMPONENTS
 import ModalMessage from "../../components/modal";
 import CalculatorForm from "../../components/calculator-form/calculator-form";
@@ -30,7 +31,7 @@ class CalculatorView extends Component {
     };
     this.calculator = new Calculator();
     this.person = new Person();
-    this.testMode = true;
+    this.testMode = TestConfig.testMode;
   }
 
   componentDidMount() {
