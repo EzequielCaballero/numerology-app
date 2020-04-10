@@ -19,9 +19,9 @@ const Results = (props) => {
       </ButtonGroup>
       <div className="results header">
         <p id="output-name">
-          <span>{person.nombre[0].toLowerCase()} </span>
-          <span>{person.nombre[1].toLowerCase()} </span>
-          <span>{person.nombre[2].toLowerCase()}</span>
+          {person.nombre.map((name, index) => (
+            <span key={index}>{name.toLowerCase()} </span>
+          ))}
         </p>
         <p id="output-date">
           <span>{person.nacimiento[0]}/</span>

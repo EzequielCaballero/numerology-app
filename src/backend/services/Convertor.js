@@ -6,8 +6,8 @@ class Convertor {
 
     static FormatNameToArray(name) {
         let nameParts = name
-            //Delete whitespaces (start|end)
-            .trim()
+            //Delete whitespaces
+            .replace(/\s/g, "")
             //Split string to parts
             .split("|");
 

@@ -37,7 +37,9 @@ class Home extends Component {
       const { name, value } = e.target;
       const input = name.split("-");
       let newState = this.state[input[0]];
-      newState[input[1]] = value.trim();
+      newState[input[1]] = value
+        .replace(/\s/g, "")
+        .replace(/[^[A-Za-zÀ-ÖØ-öø-ÿ]/g, "");
       this.setState({ [input[0]]: newState });
     } catch (error) {
       console.log(error);
@@ -176,7 +178,7 @@ class Home extends Component {
     this.person.digito_edad = this.calculator.CalculateAgeDigit(
       this.person.edad
     );
-    console.info(JSON.stringify(this.person));
+    //console.info(JSON.stringify(this.person));
     this.showResults();
   };
 
