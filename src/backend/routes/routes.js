@@ -1,6 +1,6 @@
 //PUBLIC VIEWS
-import Home from "../pages/home/home";
-import Calculator from "../pages/calculator/calculator";
+import Home from "../../frontend/pages/home/home";
+import Calculator from "../../frontend/pages/calculator/calculator";
 
 const Routes = [{
         path: "/(|home)",
