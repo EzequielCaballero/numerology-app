@@ -68,8 +68,9 @@ class CalculatorView extends Component {
   handleInputDate = (e) => {
     try {
       const { name, value } = e.target;
-      if (this.state[name].toString().length < 4)
-        this.setState({ [name]: value.trim() });
+      let maxLength = name === "birthYear" ? 4 : 2;
+      if (value.length <= maxLength) this.setState({ [name]: value });
+      else this.setState({ [name]: value.slice(0, -1) });
     } catch (error) {
       console.log(error);
     }
