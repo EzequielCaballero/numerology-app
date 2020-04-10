@@ -1,13 +1,28 @@
-/* RESULTS */
+/* RESULTS OPTIONS */
 
-.results.options .btn {
-    margin: 3px;
+.results.options {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    margin-top: 3px;
 }
 
-.results.options a {
-    color: inherit;
-    text-decoration: inherit;
+.results-back-btn {
+    flex: 1 1 0px;
 }
+
+.results-options-title {
+    flex: 4 1 0px;
+    font-style: italic;
+}
+
+.results-report-btn {
+    flex: 1 1 0px;
+}
+
+
+/* RESULTS INPUTS */
 
 .results.header p {
     margin-bottom: unset;
@@ -34,6 +49,9 @@
 #output-name {
     text-transform: capitalize;
 }
+
+
+/* RESULTS DETAILS */
 
 .results.details {
     color: white;

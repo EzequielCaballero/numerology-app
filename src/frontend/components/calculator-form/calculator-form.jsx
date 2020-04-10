@@ -33,10 +33,10 @@ const CalculatorForm = (props) => {
         <InputGroup className="mb-3 form-input-name">
           <InputGroup.Prepend>
             <Button
-              variant="outline-secondary"
+              variant="outline-danger"
               onClick={() => handleRemoveName("firstName")}
             >
-              <span role="img" aria-label="removeField">
+              <span id="remove-field" role="img" aria-label="removeField">
                 -
               </span>
             </Button>
@@ -54,10 +54,10 @@ const CalculatorForm = (props) => {
           ))}
           <InputGroup.Append>
             <Button
-              variant="outline-secondary"
+              variant="outline-success"
               onClick={() => handleAddName("firstName")}
             >
-              <span role="img" aria-label="addField">
+              <span id="add-field" role="img" aria-label="addField">
                 +
               </span>
             </Button>
@@ -66,10 +66,10 @@ const CalculatorForm = (props) => {
         <InputGroup className="mb-3 form-input-name">
           <InputGroup.Prepend>
             <Button
-              variant="outline-secondary"
+              variant="outline-danger"
               onClick={() => handleRemoveName("lastName")}
             >
-              <span role="img" aria-label="removeField">
+              <span id="remove-field" role="img" aria-label="removeField">
                 -
               </span>
             </Button>
@@ -87,10 +87,10 @@ const CalculatorForm = (props) => {
           ))}
           <InputGroup.Append>
             <Button
-              variant="outline-secondary"
+              variant="outline-success"
               onClick={() => handleAddName("lastName")}
             >
-              <span role="img" aria-label="addField">
+              <span id="add-field" role="img" aria-label="addField">
                 +
               </span>
             </Button>

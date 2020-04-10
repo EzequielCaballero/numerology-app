@@ -21,6 +21,11 @@
     margin: 2px;
 }
 
+#remove-field,
+#add-field {
+    font-weight: bolder;
+}
+
 #trash_icon {
     height: 25px;
     width: 30px;

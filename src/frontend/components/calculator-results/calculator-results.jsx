@@ -1,7 +1,6 @@
 import React from "react";
 //BOOTSTRAP
 import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
 //ASSERTS
 import "./calculator-results.css";
 
@@ -19,13 +18,19 @@ const CalculatorResults = (props) => {
 
   return (
     <div className="results">
-      <ButtonGroup className="results options">
-        <Button variant="light" onClick={hideResults}>
-          Volver
+      <div className="results options">
+        <Button
+          className="results-back-btn"
+          variant="light"
+          onClick={hideResults}
+        >
+          🡄
         </Button>
-        <Button variant="success">Reporte</Button>
-        <Button variant="info">Exportar</Button>
-      </ButtonGroup>
+        <span className="results-options-title">Resultados</span>
+        <Button className="results-report-btn" variant="success">
+          Reporte
+        </Button>
+      </div>
       <div className="results header">
         <p id="output-name">{fullName}</p>
         <p id="output-date">{birthDate}</p>
