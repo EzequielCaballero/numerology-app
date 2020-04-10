@@ -1,6 +1,7 @@
 //OBJECT RELATED TO EACH CALCULATION
 class Person {
 
+    nombre_input;
     nombre;
     nacimiento;
     edad;

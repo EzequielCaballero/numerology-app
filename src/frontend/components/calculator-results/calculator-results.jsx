@@ -8,6 +8,15 @@ import "./calculator-results.css";
 const CalculatorResults = (props) => {
   const { person, showOperations, hideResults } = props;
 
+  //INPUTS FORMATTED
+  const fullName = person.nombre_input
+    .split("|")
+    .map((name, index) => <span key={index}>{name.toLowerCase()} </span>);
+
+  const birthDate = `${("0" + person.nacimiento[0]).slice(-2)}/${(
+    "0" + person.nacimiento[1]
+  ).slice(-2)}/${person.nacimiento[2]}`;
+
   return (
     <div className="results">
       <ButtonGroup className="results options">
@@ -18,16 +27,8 @@ const CalculatorResults = (props) => {
         <Button variant="info">Exportar</Button>
       </ButtonGroup>
       <div className="results header">
-        <p id="output-name">
-          {person.nombre.map((name, index) => (
-            <span key={index}>{name.toLowerCase()} </span>
-          ))}
-        </p>
-        <p id="output-date">
-          <span>{person.nacimiento[0]}/</span>
-          <span>{person.nacimiento[1]}/</span>
-          <span>{person.nacimiento[2]}</span>
-        </p>
+        <p id="output-name">{fullName}</p>
+        <p id="output-date">{birthDate}</p>
       </div>
       <div className="results details">
         <div name="image" className="results details-item">

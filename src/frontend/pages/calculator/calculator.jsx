@@ -30,7 +30,7 @@ class CalculatorView extends Component {
     };
     this.calculator = new Calculator();
     this.person = new Person();
-    this.testMode = false;
+    this.testMode = true;
   }
 
   componentDidMount() {
@@ -67,7 +67,8 @@ class CalculatorView extends Component {
   handleInputDate = (e) => {
     try {
       const { name, value } = e.target;
-      this.setState({ [name]: value.trim() });
+      if (this.state[name].toString().length < 4)
+        this.setState({ [name]: value.trim() });
     } catch (error) {
       console.log(error);
     }
@@ -133,8 +134,7 @@ class CalculatorView extends Component {
       this.state.birthMonth > 0 &&
       this.state.birthMonth <= 12 &&
       this.state.birthYear !== "" &&
-      this.state.birthYear > 1900 &&
-      this.state.birthYear <= new Date().getFullYear()
+      this.state.birthYear >= 1000
     )
       return true;
 
@@ -162,6 +162,7 @@ class CalculatorView extends Component {
 
   calculateValues = () => {
     //NORMALIZE
+    this.person.nombre_input = this.formatInput_name();
     this.person.nombre = this.calculator.FormatName(this.formatInput_name());
     this.person.nacimiento = this.calculator.FormatBirth(
       this.formatInput_birth()

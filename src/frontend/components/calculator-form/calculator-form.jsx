@@ -30,7 +30,7 @@ const CalculatorForm = (props) => {
     >
       <Form.Group id="form_name">
         <Form.Label>Nombre completo</Form.Label>
-        <InputGroup className="mb-3">
+        <InputGroup className="mb-3 form-input-name">
           <InputGroup.Prepend>
             <Button
               variant="outline-secondary"
@@ -46,6 +46,7 @@ const CalculatorForm = (props) => {
               key={`firstName-${index}`}
               name={`firstName-${index}`}
               type="text"
+              maxLength="30"
               placeholder={`Nombre-${index + 1}...`}
               onChange={(event) => handleInputName(event)}
               value={subname}
@@ -78,6 +79,7 @@ const CalculatorForm = (props) => {
               key={`lastName-${index}`}
               name={`lastName-${index}`}
               type="text"
+              maxLength="30"
               placeholder={`Apellido-${index + 1}...`}
               onChange={(event) => handleInputName(event)}
               value={subname}
@@ -121,8 +123,7 @@ const CalculatorForm = (props) => {
             type="number"
             placeholder="Año"
             onChange={(event) => handleInputDate(event)}
-            min="1900"
-            max={new Date().getFullYear()}
+            min="1000"
             value={valueBirthYear}
           />
         </InputGroup>
