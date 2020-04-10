@@ -305,7 +305,9 @@ class CalculatorView extends Component {
             <img src={logo} className="calculator-logo" alt="logo" />
           </a>
           <div className="calculator-title">Numerología pitagórica</div>
-          <p className="calculator-subtitle">CALCULADORA</p>
+          <p className="calculator-subtitle">
+            <strong>CALCULADORA</strong>
+          </p>
         </div>
         {/* MODAL */}
         <ModalMessage

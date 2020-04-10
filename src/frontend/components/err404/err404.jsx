@@ -13,7 +13,7 @@ const Err404 = () => {
           rel="noopener noreferrer"
           aria-label="Direct link to website home"
         >
-          Inicio
+          Ir al inicio
         </Link>
       </div>
     </div>

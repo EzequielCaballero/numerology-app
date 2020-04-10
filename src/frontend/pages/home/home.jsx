@@ -27,7 +27,7 @@ class HomeView extends Component {
               rel="noopener noreferrer"
               aria-label="Direct link to website calculator"
             >
-              Calculadora
+              CALCULADORA
             </Link>
           </div>
         </div>
