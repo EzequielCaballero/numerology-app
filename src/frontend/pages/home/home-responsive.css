@@ -2,33 +2,21 @@
 DESKTOP
 *******/
 
-@media only screen and (min-width: 1366px) {
-    .home-content {
-        width: 600px;
-    }
-}
+@media only screen and (min-width: 1366px) {}
 
 
 /******
 LAPTOP
 *******/
 
-@media only screen and (min-width: 1024px) and (max-width: 1365px) {
-    .home-content {
-        width: 600px;
-    }
-}
+@media only screen and (min-width: 1024px) and (max-width: 1365px) {}
 
 
 /******
 TABLET
 *******/
 
-@media only screen and (min-width: 601px) and (max-width: 1023px) {
-    .home-content {
-        width: 500px;
-    }
-}
+@media only screen and (min-width: 601px) and (max-width: 1023px) {}
 
 
 /******
@@ -38,17 +26,9 @@ MOBILE
 
 /*Portrait*/
 
-@media only screen and (max-width: 600px) {
-    .home-content {
-        width: 375px;
-    }
-}
+@media only screen and (max-width: 600px) {}
 
 
 /*Landscape*/
 
-@media only screen and (max-width: 900px) and (max-height: 420px) {
-    .home-content {
-        width: 375px;
-    }
-}
+@media only screen and (max-width: 900px) and (max-height: 420px) {}

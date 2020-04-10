@@ -1,0 +1,42 @@
+/* CALCULATOR INTRO */
+
+.calculator-content {
+    text-align: center;
+    padding: 20px;
+    font-size: calc(15px + 1vmin);
+    color: white;
+}
+
+.calculator-intro {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.541);
+}
+
+.calculator-logo {
+    height: 30vmin;
+    pointer-events: none;
+    animation: element-spin infinite 20s linear;
+}
+
+label {
+    text-align: left;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+
+/* CALCULATOR FORM */
+
+.calculator-form {
+    margin-top: 1rem;
+}
+
+
+/* CALCULATOR RESULTS */
+
+
+/* CALCULATOR MODAL */
+
+.modal-text {
+    text-align: center;
+    font-size: 1em;
+}

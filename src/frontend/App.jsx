@@ -4,6 +4,7 @@ import Routes from "./routes/routes";
 import Err404 from "./components/err404/err404";
 //BASIC STYLE
 import "./App.css";
+import "./pages/shared/animations.css";
 
 function App() {
   return (
@@ -16,10 +17,10 @@ function App() {
               key={path}
               path={path}
               exact={exact}
-              render={props => <Component {...props} {...rest} />}
+              render={(props) => <Component {...props} {...rest} />}
             />
           ))}
-          <Route render={props => <Err404 {...props} />} />
+          <Route render={(props) => <Err404 {...props} />} />
         </Switch>
       </main>
       <footer className="site-footer"></footer>
