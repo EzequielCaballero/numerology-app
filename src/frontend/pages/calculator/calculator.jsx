@@ -271,7 +271,7 @@ class CalculatorView extends Component {
       case "stages":
         for (let stage of this.person.etapas) {
           newMsg.push(
-            `Etapa ${stage.num} | Desde: ${stage.from} | Hasta: ${stage.to} | Resultado = ${stage.value}`
+            `Etapa ${stage.num} | Desde: ${stage.from} | Hasta: ${stage.to} | Valor = ${stage.value}`
           );
         }
         this.handleModalShow("Detalle de etapas...", newMsg);
