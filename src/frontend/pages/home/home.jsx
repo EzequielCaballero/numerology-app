@@ -15,11 +15,11 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firstName: ["Ezequiel", "Andrés"],
-      lastName: ["Caballero"],
-      birthDay: 14,
-      birthMonth: 8,
-      birthYear: 1989,
+      firstName: [""],
+      lastName: [""],
+      birthDay: "",
+      birthMonth: "",
+      birthYear: "",
       modal: {
         show: false,
         title: "",
@@ -30,6 +30,24 @@ class Home extends Component {
     };
     this.calculator = new Calculator();
     this.person = new Person();
+    this.testMode = false;
+  }
+
+  componentWillMount() {
+    this.loadTestData();
+  }
+
+  loadTestData() {
+    //TEST DATA
+    if (this.testMode) {
+      this.setState({
+        firstName: ["Ezequiel", "Andrés"],
+        lastName: ["Caballero"],
+        birthDay: 14,
+        birthMonth: 8,
+        birthYear: 1989,
+      });
+    }
   }
 
   handleInputName = (e) => {
