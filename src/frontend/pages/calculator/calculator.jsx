@@ -30,7 +30,7 @@ class CalculatorView extends Component {
     };
     this.calculator = new Calculator();
     this.person = new Person();
-    this.testMode = true;
+    this.testMode = false;
   }
 
   componentDidMount() {
@@ -244,8 +244,18 @@ class CalculatorView extends Component {
         this.handleModalShow("Cálculo de sendero...", newMsg);
         break;
       case "personalKey":
+        newMsg.push("Asociado al día de nacimiento.");
+        newMsg.push(
+          `${this.person.nacimiento[0]} -> ${this.person.clave_personal}`
+        );
+        this.handleModalShow("Detalle de clave personal...", newMsg);
         break;
       case "potentialNumber":
+        newMsg.push("Asociado a la misión + sendero natal.");
+        newMsg.push(
+          `${this.person.mision} + ${this.person.sendero_natal} = ${this.person.numero_potencial}`
+        );
+        this.handleModalShow("Detalle del número potencial...", newMsg);
         break;
       case "karmas":
         newMsg.push(`Esencia: ${this.person.karmas.essence}`);
@@ -258,19 +268,38 @@ class CalculatorView extends Component {
       case "stages":
         for (let stage of this.person.etapas) {
           newMsg.push(
-            `Etapa ${stage.num} | Desde: ${stage.from} | Hasta: ${stage.to} | VALOR-> ${stage.value}`
+            `Etapa ${stage.num} | Desde: ${stage.from} | Hasta: ${stage.to} | Resultado = ${stage.value}`
           );
         }
         this.handleModalShow("Detalle de etapas...", newMsg);
         break;
       case "personalYear":
+        newMsg.push(
+          "Asociado a la fecha de nacimiento considerando el año actual."
+        );
+        newMsg.push(
+          `${this.person.nacimiento[0]} + ${
+            this.person.nacimiento[1]
+          } + ${new Date().getFullYear()} = ${this.person.ano_personal}`
+        );
+        this.handleModalShow("Detalle del año personal...", newMsg);
         break;
       case "personalMonth":
+        newMsg.push("Asociado al año personal + mes en curso");
+        newMsg.push(
+          `${this.person.ano_personal} + ${new Date().getMonth() + 1} = ${
+            this.person.mes_personal
+          }`
+        );
+        this.handleModalShow("Detalle del mes personal...", newMsg);
         break;
       case "ageDigit":
-        newMsg.push(`Edad actual: ${this.person.edad}`);
-        newMsg.push(`Edad futura: ${this.person.edad + 1}`);
-        newMsg.push(`Resultado: ${this.person.digito_edad}`);
+        newMsg.push("Asociado a la edad actual + edad próxima.");
+        newMsg.push(
+          `${this.person.edad} + ${this.person.edad + 1} = ${
+            this.person.digito_edad
+          }`
+        );
         this.handleModalShow("Detalle de digito de edad...", newMsg);
         break;
       default:
