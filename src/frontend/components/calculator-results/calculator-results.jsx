@@ -3,9 +3,9 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 //ASSERTS
-import "./results.css";
+import "./calculator-results.css";
 
-const Results = (props) => {
+const CalculatorResults = (props) => {
   const { person, showOperations, hideResults } = props;
 
   return (
@@ -81,10 +81,26 @@ const Results = (props) => {
         <div name="personalKey" className="results details-item">
           <span className="r-title">Clave</span>
           <span className="r-value">{person.clave_personal}</span>
+          <span
+            className="r-expand"
+            role="img"
+            aria-label="search"
+            onClick={() => showOperations("personalKey")}
+          >
+            🔎
+          </span>
         </div>
         <div name="potentialNumber" className="results details-item">
           <span className="r-title">Potencial</span>
           <span className="r-value">{person.numero_potencial}</span>
+          <span
+            className="r-expand"
+            role="img"
+            aria-label="search"
+            onClick={() => showOperations("potentialNumber")}
+          >
+            🔎
+          </span>
         </div>
         <div name="karmas" className="results details-item">
           <span className="r-title">Karmas</span>
@@ -113,10 +129,26 @@ const Results = (props) => {
         <div name="personalYear" className="results details-item">
           <span className="r-title">Año personal</span>
           <span className="r-value">{person.ano_personal}</span>
+          <span
+            className="r-expand"
+            role="img"
+            aria-label="search"
+            onClick={() => showOperations("personalYear")}
+          >
+            🔎
+          </span>
         </div>
         <div name="personalMonth" className="results details-item">
           <span className="r-title">Mes personal</span>
           <span className="r-value">{person.mes_personal}</span>
+          <span
+            className="r-expand"
+            role="img"
+            aria-label="search"
+            onClick={() => showOperations("personalMonth")}
+          >
+            🔎
+          </span>
         </div>
         <div name="ageDigit" className="results details-item">
           <span className="r-title">Digito de edad</span>
@@ -125,7 +157,7 @@ const Results = (props) => {
             className="r-expand"
             role="img"
             aria-label="search"
-            onClick={() => showOperations("ages")}
+            onClick={() => showOperations("ageDigit")}
           >
             🔎
           </span>
@@ -135,4 +167,4 @@ const Results = (props) => {
   );
 };
 
-export default Results;
+export default CalculatorResults;

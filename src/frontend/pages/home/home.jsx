@@ -3,9 +3,9 @@ import React, { Component } from "react";
 import Person from "../../../backend/entity/Person";
 import Calculator from "../../../backend/controllers/Calculator";
 //COMPONENTS
-import InputForm from "../../components/form/form";
 import ModalMessage from "../../components/modal";
-import Results from "../../components/results/results";
+import CalculatorForm from "../../components/calculator-form/calculator-form";
+import CalculatorResults from "../../components/calculator-results/calculator-results";
 //ASSERTS
 import logo from "../../assets/logo-1.png";
 import "./home-style.css";
@@ -30,7 +30,7 @@ class Home extends Component {
     };
     this.calculator = new Calculator();
     this.person = new Person();
-    this.testMode = false;
+    this.testMode = true;
   }
 
   componentWillMount() {
@@ -220,28 +220,32 @@ class Home extends Component {
         for (let i = 0; i < this.calculator._record.image.length; i++) {
           newMsg.push(JSON.stringify(this.calculator._record.image[i]));
         }
-        this.handleModalShow("Calculo de imagen...", newMsg);
+        this.handleModalShow("Cálculo de imagen...", newMsg);
         break;
       case "essence":
         newMsg.push(JSON.stringify(this.calculator._record.name));
         for (let i = 0; i < this.calculator._record.essence.length; i++) {
           newMsg.push(JSON.stringify(this.calculator._record.essence[i]));
         }
-        this.handleModalShow("Calculo de esencia...", newMsg);
+        this.handleModalShow("Cálculo de esencia...", newMsg);
         break;
       case "mission":
         newMsg.push(JSON.stringify(this.calculator._record.name));
         for (let i = 0; i < this.calculator._record.mission.length; i++) {
           newMsg.push(JSON.stringify(this.calculator._record.mission[i]));
         }
-        this.handleModalShow("Calculo de misión...", newMsg);
+        this.handleModalShow("Cálculo de misión...", newMsg);
         break;
       case "path":
         newMsg.push(JSON.stringify(this.calculator._record.birth));
         for (let i = 0; i < this.calculator._record.path.length; i++) {
           newMsg.push(JSON.stringify(this.calculator._record.path[i]));
         }
-        this.handleModalShow("Calculo de sendero...", newMsg);
+        this.handleModalShow("Cálculo de sendero...", newMsg);
+        break;
+      case "personalKey":
+        break;
+      case "potentialNumber":
         break;
       case "karmas":
         newMsg.push(`Esencia: ${this.person.karmas.essence}`);
@@ -259,7 +263,11 @@ class Home extends Component {
         }
         this.handleModalShow("Detalle de etapas...", newMsg);
         break;
-      case "ages":
+      case "personalYear":
+        break;
+      case "personalMonth":
+        break;
+      case "ageDigit":
         newMsg.push(`Edad actual: ${this.person.edad}`);
         newMsg.push(`Edad futura: ${this.person.edad + 1}`);
         newMsg.push(`Resultado: ${this.person.digito_edad}`);
@@ -304,7 +312,7 @@ class Home extends Component {
 
         {!this.state.showResults ? (
           <div className="home-form">
-            <InputForm
+            <CalculatorForm
               valueFirstName={this.state.firstName}
               valueLastName={this.state.lastName}
               valueBirthDay={this.state.birthDay}
@@ -320,7 +328,7 @@ class Home extends Component {
           </div>
         ) : (
           <div className="home-results">
-            <Results
+            <CalculatorResults
               person={this.person}
               showOperations={this.showOperations}
               hideResults={this.hideResults}

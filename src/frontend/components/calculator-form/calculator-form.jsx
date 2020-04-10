@@ -5,9 +5,9 @@ import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 //STYLE
-import "./form.css";
+import "./calculator-form.css";
 
-const InputForm = (props) => {
+const CalculatorForm = (props) => {
   const {
     valueFirstName,
     valueLastName,
@@ -173,4 +173,4 @@ const InputForm = (props) => {
   );
 };
 
-export default InputForm;
+export default CalculatorForm;
