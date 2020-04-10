@@ -44,7 +44,8 @@ class Convertor {
         let onlyVowels = [];
         for (let i = 0; i < nameParts.length; i++) {
             const subname = nameParts[i].match(/[aeiou]/gi);
-            onlyVowels.push(subname);
+            if (subname)
+                onlyVowels.push(subname);
         }
         return onlyVowels;
     }
@@ -52,7 +53,8 @@ class Convertor {
         let onlyConsonants = [];
         for (let i = 0; i < nameParts.length; i++) {
             const subname = nameParts[i].match(/[^aeiou]/gi);
-            onlyConsonants.push(subname);
+            if (subname)
+                onlyConsonants.push(subname);
         }
         return onlyConsonants;
     }
@@ -82,9 +84,9 @@ class Convertor {
     static GetNumerologyPosition(alphabetPosition) {
         let position = alphabetPosition;
         if (alphabetPosition > 9 && alphabetPosition < 19)
-            position -= 9;
+            position = alphabetPosition - 9;
         if (alphabetPosition > 18)
-            position -= 18;
+            position = alphabetPosition - 18;
 
         return position;
     }

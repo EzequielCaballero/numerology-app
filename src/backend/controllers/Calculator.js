@@ -35,43 +35,50 @@ class Calculator {
         return age;
     }
     CalculateImage(nameParts) {
+        let image = 0;
         const nameConsonants = Convertor.TakeNameConsonants(nameParts);
-        const consonantNumbers = Convertor.MatchNumericKeys(nameConsonants);
-        const nestedArrayReduced = Convertor.ReduceNestedArray(consonantNumbers);
-        const nestedValueReduced = Convertor.ReduceValueElements(nestedArrayReduced, true);
-        const arrayReduced = Convertor.ReduceArray(nestedValueReduced);
-        const image = Convertor.ReduceValue(arrayReduced, true);
-
-        //REGISTER ACTIONS
         this._record.image.push(nameConsonants);
-        this._record.image.push(consonantNumbers);
-        this._record.image.push(nestedArrayReduced);
-        if (JSON.stringify(nestedValueReduced) !== JSON.stringify(nestedArrayReduced))
-            this._record.image.push(nestedValueReduced);
-        if (arrayReduced !== image)
-            this._record.image.push(arrayReduced);
-        this._record.image.push(image);
+        const canBeCalculated = nameConsonants.length !== 0 ? true : false;
+        if (canBeCalculated) {
+            const consonantNumbers = Convertor.MatchNumericKeys(nameConsonants);
+            const nestedArrayReduced = Convertor.ReduceNestedArray(consonantNumbers);
+            const nestedValueReduced = Convertor.ReduceValueElements(nestedArrayReduced, true);
+            const arrayReduced = Convertor.ReduceArray(nestedValueReduced);
+            image = Convertor.ReduceValue(arrayReduced, true);
 
+            //REGISTER ACTIONS
+            this._record.image.push(consonantNumbers);
+            this._record.image.push(nestedArrayReduced);
+            if (JSON.stringify(nestedValueReduced) !== JSON.stringify(nestedArrayReduced))
+                this._record.image.push(nestedValueReduced);
+            if (arrayReduced !== image)
+                this._record.image.push(arrayReduced);
+        }
+        this._record.image.push(image);
         return image;
     }
     CalculateEssence(nameParts) {
+        let essence = 0;
         const nameVowels = Convertor.TakeNameVowels(nameParts);
-        const vowelNumbers = Convertor.MatchNumericKeys(nameVowels);
-        const nestedArrayReduced = Convertor.ReduceNestedArray(vowelNumbers);
-        const nestedValueReduced = Convertor.ReduceValueElements(nestedArrayReduced, true);
-        const arrayReduced = Convertor.ReduceArray(nestedValueReduced);
-        const essence = Convertor.ReduceValue(arrayReduced, true);
-
-        //REGISTER ACTIONS
         this._record.essence.push(nameVowels);
-        this._record.essence.push(vowelNumbers);
-        this._record.essence.push(nestedArrayReduced);
-        if (JSON.stringify(nestedValueReduced) !== JSON.stringify(nestedArrayReduced))
-            this._record.essence.push(nestedValueReduced);
-        if (arrayReduced !== essence)
-            this._record.essence.push(arrayReduced);
-        this._record.essence.push(essence);
+        const canBeCalculated = nameVowels.length !== 0 ? true : false;
+        if (canBeCalculated) {
+            const vowelNumbers = Convertor.MatchNumericKeys(nameVowels);
+            const nestedArrayReduced = Convertor.ReduceNestedArray(vowelNumbers);
+            const nestedValueReduced = Convertor.ReduceValueElements(nestedArrayReduced, true);
+            const arrayReduced = Convertor.ReduceArray(nestedValueReduced);
+            essence = Convertor.ReduceValue(arrayReduced, true);
 
+            //REGISTER ACTIONS
+
+            this._record.essence.push(vowelNumbers);
+            this._record.essence.push(nestedArrayReduced);
+            if (JSON.stringify(nestedValueReduced) !== JSON.stringify(nestedArrayReduced))
+                this._record.essence.push(nestedValueReduced);
+            if (arrayReduced !== essence)
+                this._record.essence.push(arrayReduced);
+        }
+        this._record.essence.push(essence);
         return essence;
     }
     CalculateMission(nameParts) {
