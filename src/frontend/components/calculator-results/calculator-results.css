@@ -8,8 +8,14 @@
     margin-top: 3px;
 }
 
+#back_icon {
+    width: 25px;
+    height: 25px;
+}
+
 .results-back-btn {
     flex: 1 1 0px;
+    font-weight: bold;
 }
 
 .results-options-title {

@@ -24,7 +24,11 @@ const CalculatorResults = (props) => {
           variant="light"
           onClick={hideResults}
         >
-          🡄
+          <img
+            id="back_icon"
+            src={require("../../assets/back.svg")}
+            alt="Back"
+          />
         </Button>
         <span className="results-options-title">Resultados</span>
         <Button className="results-report-btn" variant="success">
