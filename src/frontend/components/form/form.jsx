@@ -159,7 +159,7 @@ const InputForm = (props) => {
         >
           <span role="img" aria-label="trash">
             <img
-              id="trash-icon"
+              id="trash_icon"
               src={require("../../assets/trash.svg")}
               alt="Trash"
             />

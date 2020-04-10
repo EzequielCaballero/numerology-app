@@ -21,7 +21,12 @@
     margin: 2px;
 }
 
-#trash-icon {
+#trash_icon {
     height: 25px;
     width: 30px;
+}
+
+#form_submit {
+    color: black;
+    font-weight: bolder;
 }
