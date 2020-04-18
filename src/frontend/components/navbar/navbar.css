@@ -1,0 +1,110 @@
+.nav-custom {
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    float: top;
+    z-index: 1;
+    border-bottom: 1px solid rgb(187, 186, 186);
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#4c4c4c+0,474747+7,474747+7,595959+9,666666+11,666666+11,666666+13,666666+15,474747+16,474747+16,2c2c2c+20,2c2c2c+20,2c2c2c+23,000000+24,111111+26,111111+26,111111+26,2b2b2b+27,1c1c1c+91,131313+100;Black+Gloss+%231 */
+    background: rgb(76, 76, 76);
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, rgba(76, 76, 76, 1) 0%, rgba(71, 71, 71, 1) 7%, rgba(71, 71, 71, 1) 7%, rgba(89, 89, 89, 1) 9%, rgba(102, 102, 102, 1) 11%, rgba(102, 102, 102, 1) 11%, rgba(102, 102, 102, 1) 13%, rgba(102, 102, 102, 1) 15%, rgba(71, 71, 71, 1) 16%, rgba(71, 71, 71, 1) 16%, rgba(44, 44, 44, 1) 20%, rgba(44, 44, 44, 1) 20%, rgba(44, 44, 44, 1) 23%, rgba(0, 0, 0, 1) 24%, rgba(17, 17, 17, 1) 26%, rgba(17, 17, 17, 1) 26%, rgba(17, 17, 17, 1) 26%, rgba(43, 43, 43, 1) 27%, rgba(28, 28, 28, 1) 91%, rgba(19, 19, 19, 1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgba(76, 76, 76, 1) 0%, rgba(71, 71, 71, 1) 7%, rgba(71, 71, 71, 1) 7%, rgba(89, 89, 89, 1) 9%, rgba(102, 102, 102, 1) 11%, rgba(102, 102, 102, 1) 11%, rgba(102, 102, 102, 1) 13%, rgba(102, 102, 102, 1) 15%, rgba(71, 71, 71, 1) 16%, rgba(71, 71, 71, 1) 16%, rgba(44, 44, 44, 1) 20%, rgba(44, 44, 44, 1) 20%, rgba(44, 44, 44, 1) 23%, rgba(0, 0, 0, 1) 24%, rgba(17, 17, 17, 1) 26%, rgba(17, 17, 17, 1) 26%, rgba(17, 17, 17, 1) 26%, rgba(43, 43, 43, 1) 27%, rgba(28, 28, 28, 1) 91%, rgba(19, 19, 19, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgba(76, 76, 76, 1) 0%, rgba(71, 71, 71, 1) 7%, rgba(71, 71, 71, 1) 7%, rgba(89, 89, 89, 1) 9%, rgba(102, 102, 102, 1) 11%, rgba(102, 102, 102, 1) 11%, rgba(102, 102, 102, 1) 13%, rgba(102, 102, 102, 1) 15%, rgba(71, 71, 71, 1) 16%, rgba(71, 71, 71, 1) 16%, rgba(44, 44, 44, 1) 20%, rgba(44, 44, 44, 1) 20%, rgba(44, 44, 44, 1) 23%, rgba(0, 0, 0, 1) 24%, rgba(17, 17, 17, 1) 26%, rgba(17, 17, 17, 1) 26%, rgba(17, 17, 17, 1) 26%, rgba(43, 43, 43, 1) 27%, rgba(28, 28, 28, 1) 91%, rgba(19, 19, 19, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#4c4c4c', endColorstr='#131313', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
+}
+
+.nav-custom>.nav-custom-header {
+    display: inline;
+}
+
+.nav-custom>.nav-custom-header>.nav-custom-title {
+    display: inline-block;
+    font-size: 1.5em;
+    color: #fff;
+    padding: 10px 10px 10px 10px;
+}
+
+.nav-custom>.nav-custom-header>.nav-custom-title>a {
+    text-decoration: none;
+    color: #efefef;
+}
+
+.nav-custom>.nav-custom-btn {
+    display: none;
+}
+
+.nav-custom>.nav-custom-links {
+    float: right;
+    font-size: 1.2em;
+}
+
+.nav-custom>.nav-custom-links>a {
+    display: inline-block;
+    padding: 13px 10px 13px 10px;
+    text-decoration: none;
+    color: #efefef;
+}
+
+.nav-custom>.nav-custom-links>a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav-custom>#nav-custom-check {
+    display: none;
+}
+
+
+/* NAVBAR RESPONSIVE | Mobile / Tablet */
+
+@media (max-width:600px) {
+    .nav-custom>.nav-custom-btn {
+        display: inline-block;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+    }
+    .nav-custom>.nav-custom-btn>label {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        padding: 13px;
+    }
+    .nav-custom>.nav-custom-btn>label:hover,
+    .nav-custom #nav-custom-check:checked~.nav-custom-btn>label {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    .nav-custom>.nav-custom-btn>label>span {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid #eee;
+    }
+    .nav-custom>.nav-custom-links {
+        position: absolute;
+        display: block;
+        width: 100%;
+        background-color: #333;
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 50px;
+        left: 0px;
+    }
+    .nav-custom>.nav-custom-links>a {
+        display: block;
+        width: 100%;
+    }
+    .nav-custom>#nav-custom-check:not(:checked)~.nav-custom-links {
+        height: 0px;
+    }
+    .nav-custom>#nav-custom-check:checked~.nav-custom-links {
+        height: calc(100vh - 50px);
+        padding-top: 1.5em;
+        overflow-y: auto;
+    }
+}
