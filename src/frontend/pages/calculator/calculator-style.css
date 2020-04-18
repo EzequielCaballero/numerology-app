@@ -1,6 +1,7 @@
 /* CALCULATOR INTRO */
 
 .calculator-content {
+    margin: 0 auto;
     text-align: center;
     padding: 20px;
     font-size: calc(15px + 1vmin);

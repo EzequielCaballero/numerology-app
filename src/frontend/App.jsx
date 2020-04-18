@@ -1,5 +1,8 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+//COMPONENTS
+import Navbar from "./components/navbar/navbar";
+import Footer from "./components/footer";
 import Routes from "../backend/routes/routes";
 import Err404 from "./components/err404/err404";
 //BASIC STYLE
@@ -9,7 +12,9 @@ import "./App-animation.css";
 function App() {
   return (
     <div className="site">
-      <header className="site-header"></header>
+      <header className="site-header">
+        <Navbar />
+      </header>
       <main className="site-content">
         <Switch>
           {Routes.map(({ path, exact, component: Component, ...rest }) => (
@@ -23,7 +28,9 @@ function App() {
           <Route render={(props) => <Err404 {...props} />} />
         </Switch>
       </main>
-      <footer className="site-footer"></footer>
+      <footer className="site-footer">
+        <Footer />
+      </footer>
     </div>
   );
 }

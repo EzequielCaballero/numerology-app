@@ -35,3 +35,8 @@
     color: black;
     font-weight: bolder;
 }
+
+.input-group-append .btn,
+.input-group-prepend .btn {
+    z-index: unset !important;
+}
