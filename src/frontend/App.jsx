@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 //COMPONENTS
 import Navbar from "./components/navbar/navbar";
-import Footer from "./components/footer";
+import Footer from "./components/footer/footer";
 import Routes from "../backend/routes/routes";
 import Err404 from "./components/err404/err404";
 //BASIC STYLE

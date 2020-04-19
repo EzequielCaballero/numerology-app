@@ -1,18 +1,34 @@
+.home-box {
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    transform: translate(-30%, -50%);
+}
+
 .home-content {
-    padding: 2em;
     color: #ddecee;
+    text-align: center;
+}
+
+.home-header {
     font-size: 1.2em;
     font-weight: bold;
-    text-align: center;
-    box-shadow: 0 0 10px #9ecaed;
-    -webkit-box-shadow: 0 0 10px #9ecaed;
-    -moz-box-shadow: 0 0 10px #9ecaed;
-    border-radius: 1em;
-    background: rgba(0, 0, 0, 0.473);
+}
+
+.home-quote {
+    font-size: 1em;
+    font-style: italic;
 }
 
 .home-logo {
     height: 30vmin;
     pointer-events: none;
     animation: element-spin infinite 20s linear;
+}
+
+.home-button {
+    font-size: 1.2em;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }

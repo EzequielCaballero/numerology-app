@@ -15,8 +15,16 @@ class HomeView extends Component {
     return (
       <div className="home-box">
         <div className="home-content">
-          <p>{`👋 ¡Bienvenido! 👋`}</p>
-          <p>Numerología pitagórica</p>
+          <div className="home-header">
+            <p>{`👋 ¡Bienvenido! 👋`}</p>
+            <p>Numerología pitagórica</p>
+          </div>
+          <div className="home-quote">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+          </div>
           <div>
             <img src={logo} className="home-logo" alt="logo" />
           </div>
@@ -24,6 +32,7 @@ class HomeView extends Component {
           <div>
             <Link
               to="/calculator"
+              className="home-button"
               rel="noopener noreferrer"
               aria-label="Direct link to website calculator"
             >
