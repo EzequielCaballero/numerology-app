@@ -11,20 +11,20 @@ const Navbar = () => {
           <a href="/home" rel="noopener noreferrer">
             <svg
               version="1.1"
-              id="home-icon"
+              id="svg2"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
-              width="35"
-              height="35"
+              width="30"
+              height="30"
             >
               <g transform="translate(0,448)">
                 <path
-                  fill="#FFFFFF"
-                  stroke="#000000"
-                  strokeWidth="15"
+                  fill="none"
+                  stroke="#FFFFFF"
+                  strokeWidth="20"
                   strokeLinejoin="round"
-                  d="M16-192l240-192l96,72v-32h48v72l96,80h-48V0
-              H328v-160h-96V0H64v-192H16z"
+                  d="M16-192l240-192l96,72v-32h48v72l96,80h-48V0H328
+              v-160h-96V0H64v-192H16z"
                 />
               </g>
             </svg>
