@@ -329,13 +329,7 @@ class CalculatorView extends Component {
       <div className="calculator-content">
         {/* INTRO */}
         <div className="calculator-intro">
-          <a
-            href="/home"
-            rel="noopener noreferrer"
-            aria-label="Direct link to website home"
-          >
-            <img src={logo} className="calculator-logo" alt="logo" />
-          </a>
+          <img src={logo} className="calculator-logo" alt="logo" />
           <div className="calculator-title">Numerología pitagórica</div>
           <p className="calculator-subtitle">
             <strong>CALCULADORA</strong>

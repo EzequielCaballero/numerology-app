@@ -22,16 +22,11 @@
     display: inline;
 }
 
-.nav-custom>.nav-custom-header>.nav-custom-title {
+.nav-custom>.nav-custom-header>.nav-custom-icon {
     display: inline-block;
     font-size: 1.5em;
     color: #fff;
-    padding: 10px 10px 10px 10px;
-}
-
-.nav-custom>.nav-custom-header>.nav-custom-title>a {
-    text-decoration: none;
-    color: #efefef;
+    padding: 2px 0px 0px 10px;
 }
 
 .nav-custom>.nav-custom-btn {
