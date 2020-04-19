@@ -247,14 +247,12 @@ class CalculatorView extends Component {
         this.handleModalShow("Cálculo de sendero...", newMsg);
         break;
       case "personalKey":
-        newMsg.push("Asociado al día de nacimiento.");
         newMsg.push(
           `${this.person.nacimiento[0]} -> ${this.person.clave_personal}`
         );
         this.handleModalShow("Detalle de clave personal...", newMsg);
         break;
       case "potentialNumber":
-        newMsg.push("Asociado a la misión + sendero natal.");
         newMsg.push(
           `${this.person.mision} + ${this.person.sendero_natal} = ${this.person.numero_potencial}`
         );
@@ -278,9 +276,6 @@ class CalculatorView extends Component {
         break;
       case "personalYear":
         newMsg.push(
-          "Asociado a la fecha de nacimiento considerando el año actual."
-        );
-        newMsg.push(
           `${this.person.nacimiento[0]} + ${
             this.person.nacimiento[1]
           } + ${new Date().getFullYear()} = ${this.person.ano_personal}`
@@ -288,21 +283,21 @@ class CalculatorView extends Component {
         this.handleModalShow("Detalle del año personal...", newMsg);
         break;
       case "personalMonth":
-        newMsg.push("Asociado al año personal + mes en curso");
         newMsg.push(
           `${this.person.ano_personal} + ${new Date().getMonth() + 1} = ${
             this.person.mes_personal
           }`
         );
+        newMsg.push("(año personal + mes actual)");
         this.handleModalShow("Detalle del mes personal...", newMsg);
         break;
       case "ageDigit":
-        newMsg.push("Asociado a la edad actual + edad próxima.");
         newMsg.push(
           `${this.person.edad} + ${this.person.edad + 1} = ${
             this.person.digito_edad
           }`
         );
+        newMsg.push("(edad actual + edad próxima)");
         this.handleModalShow("Detalle de digito de edad...", newMsg);
         break;
       default:
