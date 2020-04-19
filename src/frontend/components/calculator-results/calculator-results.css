@@ -8,9 +8,9 @@
     margin-top: 3px;
 }
 
-#back_icon {
-    width: 25px;
-    height: 25px;
+#results_report_btn {
+    color: black;
+    font-weight: bolder;
 }
 
 .results-back-btn {

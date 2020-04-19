@@ -178,7 +178,7 @@ const CalculatorForm = (props) => {
             </svg>
           </span>
         </Button>
-        <Button id="form_submit" variant="success" type="submit" size="lg">
+        <Button id="form_submit_btn" variant="success" type="submit" size="lg">
           Calcular
         </Button>
       </ButtonGroup>

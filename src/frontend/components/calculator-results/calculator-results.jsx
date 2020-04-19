@@ -43,7 +43,11 @@ const CalculatorResults = (props) => {
           </svg>
         </Button>
         <span className="results-options-title">Resultados</span>
-        <Button className="results-report-btn" variant="success">
+        <Button
+          id="results_report_btn"
+          className="results-report-btn"
+          variant="success"
+        >
           Reporte
         </Button>
       </div>
