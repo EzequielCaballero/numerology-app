@@ -151,7 +151,8 @@ class Calculator {
         let missingNumbers = [];
         //Takes values previously calculated (mission + path) into single sorted array
         let uniqueArray = this._record.mission[1].concat(this._record.path[0]);
-        uniqueArray = uniqueArray.flat();
+        //uniqueArray = uniqueArray.flat();
+        uniqueArray = uniqueArray.reduce((acc, val) => acc.concat(val), []);
         uniqueArray = [...(new Set(uniqueArray))];
         uniqueArray.sort();
         //Find missing number
