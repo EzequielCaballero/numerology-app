@@ -25,10 +25,10 @@ const Navbar = () => {
         <a href="/calculator" rel="noopener noreferrer">
           Calculadora
         </a>
-        <a href="/" rel="noopener noreferrer">
+        <a href="/about" rel="noopener noreferrer">
           ¿Cómo funciona?
         </a>
-        <a href="/" rel="noopener noreferrer">
+        <a href="/contact" rel="noopener noreferrer">
           Contacto
         </a>
       </div>
