@@ -1,0 +1,22 @@
+/* GENERAL */
+
+.footer-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em;
+    overflow-x: hidden;
+}
+
+
+/* TITLE AUTHOR */
+
+.footer-title {
+    display: flex;
+    color: #c5c5cc;
+    align-self: flex-end;
+    text-indent: 5px;
+    font-style: italic;
+    margin-bottom: 0;
+}
