@@ -129,27 +129,36 @@ const CalculatorForm = (props) => {
         </InputGroup>
       </Form.Group>
       <div className="form-output">
-        <div className="form-output-title">Valores finales</div>
-        <span>
-          {valueFirstName[0] !== "" && valueLastName[0] !== ""
-            ? `${valueFirstName
-                .map((item) => item)
-                .toString()
-                .replace(/,/g, " ")} 
+        <input type="checkbox" id="form-output-check" />
+        <div className="form-output-header">
+          <span>Valores finales</span>
+
+          <label className="form-output-check-btn" htmlFor="form-output-check">
+            <span>?</span>
+          </label>
+        </div>
+        <div className="form-output-values">
+          <span>
+            {valueFirstName[0] !== "" && valueLastName[0] !== ""
+              ? `${valueFirstName
+                  .map((item) => item)
+                  .toString()
+                  .replace(/,/g, " ")} 
             ${valueLastName
               .map((item) => item)
               .toString()
               .replace(/,/g, " ")}`
-            : "..."}
-        </span>
-        <br />
-        <span>
-          {valueBirthDay !== "" &&
-          valueBirthMonth !== "" &&
-          valueBirthYear !== ""
-            ? `${valueBirthDay}/${valueBirthMonth}/${valueBirthYear}`
-            : "..."}
-        </span>
+              : "..."}
+          </span>
+          <br />
+          <span>
+            {valueBirthDay !== "" &&
+            valueBirthMonth !== "" &&
+            valueBirthYear !== ""
+              ? `${valueBirthDay}/${valueBirthMonth}/${valueBirthYear}`
+              : "..."}
+          </span>
+        </div>
       </div>
       <ButtonGroup className="form-actions">
         <Button
