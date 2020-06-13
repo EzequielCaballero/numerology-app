@@ -1,34 +1,55 @@
 .home-box {
-    position: absolute;
-    left: 40%;
-    top: 50%;
-    transform: translate(-30%, -50%);
+	display: flex;
+	margin: 0 auto;
 }
 
 .home-content {
-    color: #ddecee;
-    text-align: center;
+	color: #ddecee;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 1.5rem;
 }
 
 .home-header {
-    font-size: 1.2em;
-    font-weight: bold;
+	font-size: 1.2em;
+	font-weight: bold;
 }
 
 .home-quote {
-    font-size: 1em;
-    font-style: italic;
+	font-size: 1em;
+	font-style: italic;
 }
 
 .home-logo {
-    height: 30vmin;
-    pointer-events: none;
-    animation: element-spin infinite 20s linear;
+	height: 30vmin;
+	pointer-events: none;
+	animation: element-spin infinite 20s linear;
 }
 
 .home-button {
-    font-size: 1.2em;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
+	margin-top: 2rem;
+}
+
+.home-button > a {
+	color: white;
+	outline: none;
+	text-decoration: none;
+	background-color: rgb(27, 52, 77);
+	padding: 15px;
+	border-radius: 0.25rem;
+	border-top: 1px solid #c5c4c4;
+	border-left: 1px solid #c5c4c4;
+}
+
+.home-button > a:hover,
+.home-button > a:focus {
+	outline: none;
+	border: none;
+	text-decoration: none;
+	color: white;
+	border-top: 3px solid white;
+	border-left: 3px solid white;
+	background-color: rgb(52, 101, 148);
 }
