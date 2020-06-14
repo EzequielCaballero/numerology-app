@@ -1,0 +1,93 @@
+/* INPUT */
+.calculator-form {
+	margin-top: 1rem;
+	animation: showup 2s ease-in;
+}
+
+#form_name .form-control,
+#form_date .form-control {
+	color: var(--default-color-1);
+	border: 1px solid var(--default-color-1);
+}
+
+.form-input-date .form-control {
+	margin: 3px;
+}
+
+/* OUTPUT */
+
+.form-output {
+	margin: 0 auto;
+	margin-top: 1.5rem;
+	margin-bottom: 1rem;
+	font-size: var(--font-size-1);
+	border-top: 1px solid var(--default-color-3);
+	border-radius: 15px 15px 0px 0px;
+	padding: 5px;
+	background: linear-gradient(to bottom, var(--default-color-1) 0%, rgba(58, 58, 58, 0.1) 100%);
+}
+.form-output-header {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+}
+
+.form-output-check-btn {
+	margin-left: 10px;
+	text-align-last: center;
+	font-size: var(--font-size-1);
+	height: 22px;
+	width: 22px;
+	border: 1px solid white;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.form-output-check-btn > span {
+	margin-right: 3px;
+}
+
+#form-output-check {
+	display: none;
+}
+
+.form-output-values {
+	display: block;
+	width: 100%;
+	height: 0px;
+	overflow-y: hidden;
+	transition: all 0.2s ease-in;
+	border-radius: 0px 0px 15px 15px;
+	-ms-overflow-style: none;
+}
+
+.form-output-values::-webkit-scrollbar {
+	display: none;
+}
+
+#form-output-check:not(:checked) ~ .form-output-values {
+	height: 0px;
+}
+
+#form-output-check:checked ~ .form-output-values {
+	height: 55px;
+	overflow-y: auto;
+}
+
+/* ACTIONS */
+
+.form-actions {
+	display: grid;
+	grid-template-columns: 0.5fr 2fr 0.5fr;
+	grid-gap: 20px;
+}
+
+#remove-field,
+#add-field {
+	font-weight: bolder;
+}
+
+.input-group-append .btn,
+.input-group-prepend .btn {
+	z-index: unset !important;
+}

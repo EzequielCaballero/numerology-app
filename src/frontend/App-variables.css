@@ -1,0 +1,23 @@
+:root {
+	/* GLOBAL */
+	--app-font-family: 'Rubik', sans-serif;
+	--app-background: url("./assets/background.jpg");
+	/* COLORS */
+	--scroll-color-1: rgb(224, 224, 224);
+	--scroll-color-2: #47545a;
+	--scroll-color-3: rgb(31, 31, 31);
+	--default-color-1: black;
+	--default-color-2: white;
+	--default-color-3: gray;
+	--content-color-1: rgba(34, 19, 51, 0.7);
+	--content-color-2: rgb(199, 185, 250);
+	--content-color-3: rgb(59, 31, 50);
+	--content-box-shadow: 0 0 10px #ed9ec5;
+	--btn-active-1: rgb(44, 18, 51);
+	--btn-inactive-1: rgb(74, 44, 99);
+	/* FONT-SIZE */
+	--font-size-1: 1rem;
+	--font-size-2: 1.2rem;
+	--font-size-3: 1.5rem;
+	--font-size-4: 0.8rem;
+}

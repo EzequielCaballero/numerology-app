@@ -14,30 +14,38 @@ body {
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	scrollbar-width: thin;
+	scrollbar-color: var(--scroll-color-1) var(--scroll-color-2);
+	user-select: none;
+	-webkit-user-select: none;
 }
 
-/* SCROLL-BAR STYLE */
 body::-webkit-scrollbar {
 	width: 15px;
 }
-body {
-	scrollbar-width: thin;
-	scrollbar-color: white #47545a;
-}
+
 body::-webkit-scrollbar-track {
-	background: black;
+	background: var(--scroll-color-3);
 }
 body::-webkit-scrollbar-thumb {
-	background-color: #47545a;
+	background-color: var(--scroll-color-2);
 	border-radius: 6px;
-	border: 3px solid white;
+	border: 3px solid var(--scroll-color-1);
+}
+
+button,
+button:focus,
+button:hover {
+	outline: none !important;
+	text-decoration: none;
+	border: none;
+	background: none;
 }
 
 .site {
 	min-height: 100vh;
-	font-family: 'Rubik', sans-serif;
-	background-color: black;
-	background: url("./assets/background.jpg");
+	font-family: var(--app-font-family);
+	background: var(--app-background) black;
 	background-repeat: no-repeat;
 	background-clip: border-box;
 	background-size: cover;

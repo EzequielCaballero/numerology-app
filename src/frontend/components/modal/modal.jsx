@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-//BOOTSTRAP
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
+import './modal.css';
 
 const ModalMessage = (props) => {
 	const { title, msg, show, close, style } = props;
@@ -27,15 +26,15 @@ const ModalMessage = (props) => {
 	);
 
 	return (
-		<Modal show={show} onHide={close} className={style}>
-			<Modal.Header>
-				<Modal.Title>{title}</Modal.Title>
+		<Modal id="app-modal" show={show} onHide={close} className={style}>
+			<Modal.Header id="app-modal-header">
+				<Modal.Title id="app-modal-title">{title}</Modal.Title>
 			</Modal.Header>
-			<Modal.Body>{msgText}</Modal.Body>
-			<Modal.Footer>
-				<Button block variant="secondary" onClick={close}>
+			<Modal.Body id="app-modal-body">{msgText}</Modal.Body>
+			<Modal.Footer id="app-modal-footer">
+				<button id="app-modal-btn" block variant="secondary" onClick={close}>
 					Cerrar
-				</Button>
+				</button>
 			</Modal.Footer>
 		</Modal>
 	);

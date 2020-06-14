@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 //ASSERTS
 import logo from '../../assets/logo-1.png';
-import './home-style.css';
+import './home.css';
 import './home-responsive.css';
 
 class HomeView extends Component {
@@ -10,6 +9,10 @@ class HomeView extends Component {
 		super(props);
 		this.state = {};
 	}
+
+	goToCalculator = () => {
+		this.props.history.push('/calculator');
+	};
 
 	render() {
 		return (
@@ -28,11 +31,9 @@ class HomeView extends Component {
 					<div>
 						<img src={logo} className="home-logo" alt="logo" />
 					</div>
-					<div className="home-button">
-						<Link to="/calculator" rel="noopener noreferrer" aria-label="Direct link to website calculator">
-							CALCULADORA
-						</Link>
-					</div>
+					<button className="home-button" onClick={() => this.goToCalculator()}>
+						CALCULADORA
+					</button>
 				</div>
 			</div>
 		);

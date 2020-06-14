@@ -1,10 +1,7 @@
 import React from 'react';
-//BOOTSTRAP
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-//STYLE
 import './calculator-form.css';
 
 const CalculatorForm = (props) => {
@@ -23,7 +20,7 @@ const CalculatorForm = (props) => {
 	} = props;
 
 	return (
-		<Form autoComplete="false" onSubmit={(event) => handleSubmit(event)} noValidate>
+		<Form className="calculator-form" autoComplete="false" onSubmit={(event) => handleSubmit(event)} noValidate>
 			<Form.Group id="form_name">
 				<Form.Label>Nombre completo</Form.Label>
 				<InputGroup className="mb-3 form-input-name">
@@ -81,7 +78,7 @@ const CalculatorForm = (props) => {
 					</InputGroup.Append>
 				</InputGroup>
 			</Form.Group>
-			<Form.Group>
+			<Form.Group id="form_date">
 				<Form.Label>Fecha de nacimiento</Form.Label>
 				<InputGroup className="mb-3 form-input-date">
 					<Form.Control
@@ -140,8 +137,8 @@ const CalculatorForm = (props) => {
 					</span>
 				</div>
 			</div>
-			<ButtonGroup className="form-actions">
-				<Button id="form_clean" variant="outline-dark" className="btn-left" onClick={() => handleCleanInputs()}>
+			<div className="form-actions">
+				<button type="text" onClick={(e) => handleCleanInputs(e)}>
 					<span role="img" aria-label="trash">
 						<svg
 							version="1.1"
@@ -161,11 +158,11 @@ const CalculatorForm = (props) => {
 							/>
 						</svg>
 					</span>
-				</Button>
-				<Button id="form_submit_btn" variant="success" type="submit" size="lg">
+				</button>
+				<button class="calculator-action-btn" type="submit">
 					Calcular
-				</Button>
-			</ButtonGroup>
+				</button>
+			</div>
 		</Form>
 	);
 };

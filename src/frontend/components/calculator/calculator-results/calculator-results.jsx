@@ -1,7 +1,4 @@
 import React from 'react';
-//BOOTSTRAP
-import Button from 'react-bootstrap/Button';
-//ASSERTS
 import './calculator-results.css';
 
 const CalculatorResults = (props) => {
@@ -16,9 +13,9 @@ const CalculatorResults = (props) => {
 		.nacimiento[2]}`;
 
 	return (
-		<div className="results">
-			<div className="results options">
-				<Button className="results-back-btn" variant="outline-dark" onClick={hideResults}>
+		<div className="calculator-results">
+			<div className="results-header">
+				<button onClick={hideResults}>
 					<svg
 						version="1.1"
 						id="Layer_1"
@@ -28,7 +25,7 @@ const CalculatorResults = (props) => {
 						height="25"
 					>
 						<path
-							fill="#FFFFFF"
+							fill="#000"
 							d="M500,234.6v38.8c0,10.7-3.6,19.8-10.7,27.4c-7.1,7.6-16.4,11.4-27.8,11.4h-232l96.5,89.1
             c8.3,7.3,12.5,16.4,12.5,27.3c0,10.9-4.2,20-12.5,27.3l-24.7,23c-8.1,7.5-18,11.2-29.7,11.2c-11.4,0-21.4-3.7-30-11.2L27.2,281.3
             C19.1,273.8,15,264.7,15,254c0-10.5,4.1-19.7,12.2-27.6L241.7,29.5C250,21.8,260,18,271.7,18c11.4,0,21.3,3.8,29.7,11.5L326,51.9
@@ -36,15 +33,12 @@ const CalculatorResults = (props) => {
             z"
 						/>
 					</svg>
-				</Button>
-				<span className="results-options-title">Resultados</span>
-				<Button id="results_report_btn" className="results-report-btn" variant="success">
-					Reporte
-				</Button>
-			</div>
-			<div className="results header">
-				<p id="output-name">{fullName}</p>
-				<p id="output-date">{birthDate}</p>
+				</button>
+				<div className="results-person">
+					<p id="output-name">{fullName}</p>
+					<p id="output-date">{birthDate}</p>
+				</div>
+				<button className="calculator-action-btn">Reporte</button>
 			</div>
 			<div className="results details">
 				<div name="image" className="results details-item">

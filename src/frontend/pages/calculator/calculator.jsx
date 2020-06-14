@@ -4,12 +4,12 @@ import Person from '../../../backend/entity/Person';
 import Calculator from '../../../backend/controllers/Calculator';
 import TestConfig from '../../../tests/App.test.config.json';
 //COMPONENTS
-import ModalMessage from '../../components/modal';
-import CalculatorForm from '../../components/calculator-form/calculator-form';
-import CalculatorResults from '../../components/calculator-results/calculator-results';
+import ModalMessage from '../../components/modal/modal';
+import CalculatorForm from '../../components/calculator/calculator-form/calculator-form';
+import CalculatorResults from '../../components/calculator/calculator-results/calculator-results';
 //ASSERTS
 import logo from '../../assets/logo-1.png';
-import './calculator-style.css';
+import './calculator.css';
 import './calculator-responsive.css';
 
 class CalculatorView extends Component {
@@ -90,7 +90,8 @@ class CalculatorView extends Component {
 		}
 	};
 
-	handleCleanInputs = () => {
+	handleCleanInputs = (event) => {
+		event.preventDefault();
 		this.setState({
 			firstName: [ '' ],
 			lastName: [ '' ],
@@ -327,7 +328,7 @@ class CalculatorView extends Component {
 							/>
 						</div>
 					) : (
-						<div className="calculator-results">
+						<div>
 							<CalculatorResults
 								person={this.person}
 								showOperations={this.showOperations}
