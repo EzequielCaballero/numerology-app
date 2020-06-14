@@ -1,40 +1,44 @@
-/* RESULTS OPTIONS */
+/* RESULT HEADER */
 
-.calculator-results {
+.calculator-result {
 	animation: showup 2s ease-in;
 }
 
-.results-header {
+.result-header {
 	display: grid;
 	grid-template-columns: 1fr 2fr 1fr;
 	grid-gap: 5px;
 	margin: 1rem;
 	padding: 5px;
 	border-radius: 10px;
-	background-color: var(--content-color-2);
+	background: var(--background-color-2);
 }
 
-.results-person p {
+.result-person p {
 	margin-bottom: unset;
 	font-weight: bold;
 }
 
-.results-person {
-	color: var(--default-color-1);
+.result-person {
+	color: var(--font-color-1);
 }
 
 #output-name {
 	text-transform: capitalize;
 }
 
-/* RESULTS DETAILS */
+/* RESULT DETAIL */
 
-.results.details {
-	color: var(--default-color-2);
+#back_icon > path {
+	fill: var(--default-color-2);
+}
+
+.result-detail {
+	color: var(--font-color-1);
 	font-size: var(--font-size-1);
 }
 
-.results.details-item {
+.result-detail-item {
 	display: grid;
 	grid-template-columns: 2fr 1fr 1fr;
 	grid-gap: 5px;
@@ -43,7 +47,7 @@
 	border: 2px solid var(--default-color-1);
 	padding: 5px;
 	text-align: center;
-	background-color: var(--content-color-3);
+	background-color: var(--content-color-2);
 }
 
 .r-title {

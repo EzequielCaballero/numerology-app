@@ -3,6 +3,7 @@ DESKTOP
 *******/
 
 @media only screen and (min-width: 1366px) {
+	.home-content,
 	.calculator-content {
 		width: 600px;
 	}
@@ -13,6 +14,7 @@ LAPTOP
 *******/
 
 @media only screen and (min-width: 1024px) and (max-width: 1365px) {
+	.home-content,
 	.calculator-content {
 		width: 600px;
 	}
@@ -23,6 +25,7 @@ TABLET
 *******/
 
 @media only screen and (min-width: 601px) and (max-width: 1023px) {
+	.home-content,
 	.calculator-content {
 		width: 500px;
 	}
@@ -35,6 +38,7 @@ MOBILE
 /*Portrait*/
 
 @media only screen and (max-width: 600px) {
+	.home-content,
 	.calculator-content {
 		max-width: 375px;
 	}

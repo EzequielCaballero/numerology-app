@@ -19,8 +19,8 @@ const Navbar = () => {
 				<div className="nav-custom-icon">
 					<button onClick={() => changeView('/home')}>
 						<svg
+							id="home_icon"
 							version="1.1"
-							id="svg2"
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 512 512"
 							width="30"
@@ -28,7 +28,6 @@ const Navbar = () => {
 						>
 							<g transform="translate(0,448)">
 								<path
-									fill="none"
 									strokeWidth="25"
 									strokeLinejoin="round"
 									d="M16-192l240-192l96,72v-32h48v72l96,80h-48V0H328

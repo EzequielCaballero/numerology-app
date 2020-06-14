@@ -3,12 +3,14 @@
 }
 
 #app-modal-header {
-	color: var(--default-color-2);
+	color: var(--font-color-1);
 	background-color: var(--content-color-3);
 }
 
-#app-modal-body {
-	background-color: var(--default-color-2);
+#app-modal-body,
+#app-modal-footer {
+	color: var(--font-color-1);
+	background-color: var(--content-color-3);
 }
 
 #app-modal-btn {
@@ -22,7 +24,7 @@
 	border-top: 2px solid var(--default-color-3);
 	border-left: 2px solid var(--default-color-3);
 	border-radius: 0.25rem;
-	background-color: var(--btn-inactive-1);
+	background-color: var(--blur-color-1);
 }
 
 #app-modal-btn:hover,
@@ -34,5 +36,5 @@
 	border-top: 2px solid var(--default-color-2);
 	border-left: 2px solid var(--default-color-2);
 	border-radius: 0.3rem;
-	background-color: var(--btn-active-1);
+	background-color: var(--focus-color-1);
 }

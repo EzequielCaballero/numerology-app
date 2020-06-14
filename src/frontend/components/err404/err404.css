@@ -13,9 +13,34 @@
 	font-size: 1.2em;
 	font-weight: bold;
 	text-align: center;
-	box-shadow: 0 0 10px #9ecaed;
-	-webkit-box-shadow: 0 0 10px #9ecaed;
-	-moz-box-shadow: 0 0 10px #9ecaed;
+	box-shadow: var(--content-box-shadow);
+	-webkit-box-shadow: var(--content-box-shadow);
+	-moz-box-shadow: var(--content-box-shadow);
 	border-radius: 1em;
-	background: rgba(0, 0, 0, 0.473);
+	background: var(--background-color-1);
+}
+
+.err404-btn {
+	margin: 0 auto;
+	margin-top: 1rem;
+	padding: 10px;
+	outline: none;
+	text-decoration: none;
+	color: var(--default-color-2);
+	border-top: 2px solid var(--default-color-3);
+	border-left: 2px solid var(--default-color-3);
+	border-radius: 0.25rem;
+	background-color: var(--blur-color-1);
+}
+
+.err404-btn:hover,
+.err404-btn:focus {
+	outline: none;
+	border: none;
+	text-decoration: none;
+	color: var(--default-color-2);
+	border-top: 2px solid var(--default-color-2);
+	border-left: 2px solid var(--default-color-2);
+	border-radius: 0.3rem;
+	background-color: var(--focus-color-1);
 }

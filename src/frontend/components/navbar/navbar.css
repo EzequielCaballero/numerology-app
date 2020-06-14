@@ -9,9 +9,11 @@
 	background: linear-gradient(
 		135deg,
 		var(--default-color-1) 5%,
-		var(--content-color-3) 15%,
-		var(--content-color-1) 20%,
-		var(--content-color-3) 30%,
+		var(--content-color-3) 10%,
+		var(--content-color-2) 30%,
+		var(--content-color-1) 40%,
+		var(--content-color-2) 55%,
+		var(--content-color-3) 80%,
 		var(--default-color-1) 100%
 	);
 }
@@ -20,13 +22,13 @@
 	display: inline;
 }
 
+#home_icon > g > path {
+	stroke: var(--default-color-2);
+}
+
 .nav-custom > .nav-custom-header > .nav-custom-icon {
 	display: inline-block;
 	padding: 6.5px 0px 0px 10px;
-}
-
-.nav-custom-icon > button > svg > g > path {
-	stroke: var(--default-color-2);
 }
 
 .nav-custom > .nav-custom-btn {

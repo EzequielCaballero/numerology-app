@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 //ASSERTS
 import logo from '../../assets/logo-1.png';
 import './home.css';
-import './home-responsive.css';
 
 class HomeView extends Component {
 	constructor(props) {

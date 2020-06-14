@@ -6,11 +6,10 @@ import TestConfig from '../../../tests/App.test.config.json';
 //COMPONENTS
 import ModalMessage from '../../components/modal/modal';
 import CalculatorForm from '../../components/calculator/calculator-form/calculator-form';
-import CalculatorResults from '../../components/calculator/calculator-results/calculator-results';
+import CalculatorResult from '../../components/calculator/calculator-result/calculator-result';
 //ASSERTS
 import logo from '../../assets/logo-1.png';
 import './calculator.css';
-import './calculator-responsive.css';
 
 class CalculatorView extends Component {
 	constructor(props) {
@@ -245,9 +244,7 @@ class CalculatorView extends Component {
 				break;
 			case 'stages':
 				for (let stage of this.person.etapas) {
-					newMsg.push(
-						`Etapa ${stage.num} | Desde: ${stage.from} | Hasta: ${stage.to} | Valor = ${stage.value}`
-					);
+					newMsg.push(`${stage.num}° | ${stage.from} -> ${stage.to} = ${stage.value}`);
 				}
 				this.handleModalShow('Detalle de etapas...', newMsg);
 				break;
@@ -298,7 +295,7 @@ class CalculatorView extends Component {
 						<div className="calculator-intro-text">
 							<p>Numerología pitagórica</p>
 							<p>
-								<strong>CALCULADORA</strong>
+								<strong>{this.state.showResults ? 'RESULTADOS' : 'CALCULADORA'}</strong>
 							</p>
 						</div>
 					</div>
@@ -329,7 +326,7 @@ class CalculatorView extends Component {
 						</div>
 					) : (
 						<div>
-							<CalculatorResults
+							<CalculatorResult
 								person={this.person}
 								showOperations={this.showOperations}
 								hideResults={this.hideResults}

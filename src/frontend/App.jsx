@@ -8,6 +8,7 @@ import Err404 from './components/err404/err404';
 //BASIC STYLE
 import './App-variables.css';
 import './App-style.css';
+import './App-responsive.css';
 import './App-animation.css';
 
 function App() {

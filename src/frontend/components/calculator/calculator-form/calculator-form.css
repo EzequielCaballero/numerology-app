@@ -24,7 +24,7 @@
 	border-top: 1px solid var(--default-color-3);
 	border-radius: 15px 15px 0px 0px;
 	padding: 5px;
-	background: linear-gradient(to bottom, var(--default-color-1) 0%, rgba(58, 58, 58, 0.1) 100%);
+	background: var(--background-color-2);
 }
 .form-output-header {
 	display: flex;
@@ -38,7 +38,7 @@
 	font-size: var(--font-size-1);
 	height: 22px;
 	width: 22px;
-	border: 1px solid white;
+	border: 1px solid var(--default-color-2);
 	border-radius: 50%;
 	cursor: pointer;
 }
@@ -76,9 +76,13 @@
 
 /* ACTIONS */
 
+#trash_icon > path {
+	fill: var(--default-color-2);
+}
+
 .form-actions {
 	display: grid;
-	grid-template-columns: 0.5fr 2fr 0.5fr;
+	grid-template-columns: 2fr 0.5fr;
 	grid-gap: 20px;
 }
 

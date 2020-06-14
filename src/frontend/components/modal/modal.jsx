@@ -32,7 +32,7 @@ const ModalMessage = (props) => {
 			</Modal.Header>
 			<Modal.Body id="app-modal-body">{msgText}</Modal.Body>
 			<Modal.Footer id="app-modal-footer">
-				<button id="app-modal-btn" block variant="secondary" onClick={close}>
+				<button id="app-modal-btn" onClick={close}>
 					Cerrar
 				</button>
 			</Modal.Footer>
