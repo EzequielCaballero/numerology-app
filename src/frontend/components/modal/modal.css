@@ -2,39 +2,20 @@
 	box-shadow: var(--content-box-shadow);
 }
 
-#app-modal-header {
-	color: var(--font-color-1);
-	background-color: var(--content-color-3);
-}
-
+#app-modal-header,
 #app-modal-body,
 #app-modal-footer {
-	color: var(--font-color-1);
 	background-color: var(--content-color-3);
+	border: none;
+	color: var(--font-color-1);
+}
+
+#app-modal-body {
+	border-top: 0.5rem solid var(--border-color-2);
+	padding: 1rem 1rem 0.5rem 1rem;
 }
 
 #app-modal-btn {
 	margin: 0 auto;
 	width: 100%;
-	padding: 10px;
-	outline: none;
-	text-decoration: none;
-	text-align: center;
-	color: var(--default-color-2);
-	border-top: 2px solid var(--default-color-3);
-	border-left: 2px solid var(--default-color-3);
-	border-radius: 0.25rem;
-	background-color: var(--blur-color-1);
-}
-
-#app-modal-btn:hover,
-#app-modal-btn:focus {
-	outline: none;
-	border: none;
-	text-decoration: none;
-	color: var(--default-color-2);
-	border-top: 2px solid var(--default-color-2);
-	border-left: 2px solid var(--default-color-2);
-	border-radius: 0.3rem;
-	background-color: var(--focus-color-1);
 }

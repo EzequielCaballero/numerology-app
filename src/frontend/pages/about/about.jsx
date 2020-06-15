@@ -5,8 +5,10 @@ import './about.css';
 class About extends Component {
 	render() {
 		return (
-			<div className="about-header">
-				<p>Acerca de...</p>
+			<div className="box">
+				<div className="box-content">
+					<p>Acerca de...</p>
+				</div>
 			</div>
 		);
 	}

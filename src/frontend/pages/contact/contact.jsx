@@ -5,8 +5,10 @@ import './contact.css';
 class Contact extends Component {
 	render() {
 		return (
-			<div className="contact-header">
-				<p>Contacto...</p>
+			<div className="box">
+				<div className="box-content">
+					<p>Contacto...</p>
+				</div>
 			</div>
 		);
 	}

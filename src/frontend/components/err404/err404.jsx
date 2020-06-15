@@ -14,7 +14,7 @@ const Err404 = () => {
 		<div className="err404-box">
 			<div className="err404-content">
 				<p>{`Ups... la ruta solicitada no existe 😬`}</p>
-				<button className="err404-btn" onClick={() => backToHome()}>
+				<button className="btn-action" onClick={() => backToHome()}>
 					Volver al inicio
 				</button>
 			</div>

@@ -15,8 +15,8 @@ class HomeView extends Component {
 
 	render() {
 		return (
-			<div className="home-box">
-				<div className="home-content">
+			<div className="box">
+				<div className="box-content">
 					<div className="home-header">
 						<p>{`👋 ¡Bienvenido! 👋`}</p>
 						<p>Numerología pitagórica</p>
@@ -30,7 +30,7 @@ class HomeView extends Component {
 					<div>
 						<img src={logo} className="home-logo" alt="logo" />
 					</div>
-					<button className="home-button" onClick={() => this.goToCalculator()}>
+					<button className="btn-action" onClick={() => this.goToCalculator()}>
 						CALCULADORA
 					</button>
 				</div>

@@ -287,8 +287,8 @@ class CalculatorView extends Component {
 
 	render() {
 		return (
-			<div className="calculator-box">
-				<div className="calculator-content">
+			<div className="box">
+				<div className="box-content">
 					{/* INTRO */}
 					<div className="calculator-intro">
 						<img src={logo} className="calculator-intro-logo" alt="logo" />
@@ -309,29 +309,25 @@ class CalculatorView extends Component {
 					/>
 
 					{!this.state.showResults ? (
-						<div className="calculator-form">
-							<CalculatorForm
-								valueFirstName={this.state.firstName}
-								valueLastName={this.state.lastName}
-								valueBirthDay={this.state.birthDay}
-								valueBirthMonth={this.state.birthMonth}
-								valueBirthYear={this.state.birthYear}
-								handleInputName={this.handleInputName}
-								handleInputDate={this.handleInputDate}
-								handleAddName={this.handleAddName}
-								handleRemoveName={this.handleRemoveName}
-								handleCleanInputs={this.handleCleanInputs}
-								handleSubmit={this.handleSubmit}
-							/>
-						</div>
+						<CalculatorForm
+							valueFirstName={this.state.firstName}
+							valueLastName={this.state.lastName}
+							valueBirthDay={this.state.birthDay}
+							valueBirthMonth={this.state.birthMonth}
+							valueBirthYear={this.state.birthYear}
+							handleInputName={this.handleInputName}
+							handleInputDate={this.handleInputDate}
+							handleAddName={this.handleAddName}
+							handleRemoveName={this.handleRemoveName}
+							handleCleanInputs={this.handleCleanInputs}
+							handleSubmit={this.handleSubmit}
+						/>
 					) : (
-						<div>
-							<CalculatorResult
-								person={this.person}
-								showOperations={this.showOperations}
-								hideResults={this.hideResults}
-							/>
-						</div>
+						<CalculatorResult
+							person={this.person}
+							showOperations={this.showOperations}
+							hideResults={this.hideResults}
+						/>
 					)}
 				</div>
 			</div>

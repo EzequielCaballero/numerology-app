@@ -1,11 +1,4 @@
 .nav-custom {
-	height: 50px;
-	width: 100%;
-	position: fixed;
-	z-index: 1;
-	border-bottom: 1px solid var(--default-color-3);
-	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#4c4c4c+0,474747+7,474747+7,595959+9,666666+11,666666+11,666666+13,666666+15,474747+16,474747+16,2c2c2c+20,2c2c2c+20,2c2c2c+23,000000+24,111111+26,111111+26,111111+26,2b2b2b+27,1c1c1c+91,131313+100;Black+Gloss+%231 */
-	background: var(--default-color-3);
 	background: linear-gradient(
 		135deg,
 		var(--default-color-1) 5%,
@@ -16,6 +9,18 @@
 		var(--content-color-3) 80%,
 		var(--default-color-1) 100%
 	);
+	border-bottom: 1px solid var(--border-color-2);
+	height: 50px;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+}
+
+.nav-custom > .nav-custom-header > .nav-custom-icon > button,
+.nav-custom > .nav-custom-links > button {
+	background: none;
+	border: none;
+	text-decoration: none;
 }
 
 .nav-custom > .nav-custom-header {
@@ -43,66 +48,13 @@
 .nav-custom > .nav-custom-links > button {
 	display: inline-block;
 	padding: 13px 10px 13px 10px;
-	color: #efefef;
 }
 
 .nav-custom > .nav-custom-links > button:hover {
 	border-bottom: 3px solid white;
+	border-radius: 0.25rem;
 }
 
 .nav-custom > #nav-custom-check {
 	display: none;
-}
-
-/* NAVBAR RESPONSIVE | Mobile / Tablet */
-
-@media (max-width: 600px) {
-	.nav-custom > .nav-custom-btn {
-		display: inline-block;
-		position: absolute;
-		right: 0px;
-		top: 0px;
-	}
-	.nav-custom > .nav-custom-btn > label {
-		display: inline-block;
-		width: 50px;
-		height: 50px;
-		padding: 13px;
-	}
-
-	.nav-custom #nav-custom-check:checked ~ .nav-custom-btn > label {
-		border: 1px solid white;
-		background-color: var(--default-color-1);
-	}
-	.nav-custom > .nav-custom-btn > label > span {
-		display: block;
-		width: 25px;
-		height: 10px;
-		border-top: 2px solid #eee;
-	}
-	.nav-custom > .nav-custom-links {
-		position: absolute;
-		display: block;
-		width: 100%;
-		background-color: var(--default-color-1);
-		height: 0px;
-		transition: all 0.2s ease-in;
-		overflow-y: hidden;
-		top: 50px;
-		left: 0px;
-	}
-	.nav-custom > .nav-custom-links > button {
-		display: block;
-		text-align: left;
-		width: 100%;
-	}
-	.nav-custom > #nav-custom-check:not(:checked) ~ .nav-custom-links {
-		height: 0px;
-	}
-	.nav-custom > #nav-custom-check:checked ~ .nav-custom-links {
-		height: calc(100vh - 50px);
-		padding-top: 1.5rem;
-		padding-left: 1rem;
-		overflow-y: auto;
-	}
 }

@@ -1,27 +1,8 @@
-/* CALCULATOR INTRO */
-
-.calculator-box {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin: 0 auto;
-	animation: showup 2s ease-in;
-}
-
-.calculator-content {
-	text-align: center;
-	margin: 0.5rem;
-	padding: 10px;
-	border-radius: 1rem;
-	color: var(--default-color-2);
-	background-color: var(--background-color-1);
-	box-shadow: var(--content-box-shadow);
-}
-
 .calculator-intro {
+	border-bottom: 2px solid var(--border-color-1);
 	display: flex;
 	justify-content: center;
-	border-bottom: 2px solid rgba(255, 255, 255, 0.541);
+	margin: 0 1rem 0 1rem;
 }
 
 .calculator-intro-text > p:first-child {
@@ -33,16 +14,16 @@
 }
 
 .calculator-intro-logo {
+	animation: element-spin infinite 20s linear;
 	height: 65px;
-	width: 65px;
 	margin: 10px;
 	pointer-events: none;
-	animation: element-spin infinite 20s linear;
+	width: 65px;
 }
 
 .calculator-intro-text {
-	text-align: left;
 	align-self: center;
+	text-align: left;
 }
 
 .calculator-intro-text > p {
@@ -53,32 +34,6 @@ label {
 	font-style: italic;
 }
 
-.calculator-action-btn {
-	padding: .375rem .75rem;
-	outline: none;
-	text-decoration: none;
-	color: var(--font-color-1);
-	border-top: 2px solid var(--default-color-3);
-	border-left: 2px solid var(--default-color-3);
-	border-radius: 0.25rem;
-	background-color: var(--blur-color-1);
-}
-
-.calculator-action-btn:hover,
-.calculator-action-btn:focus {
-	outline: none;
-	border: none;
-	text-decoration: none;
-	color: var(--default-color-2);
-	border-top: 2px solid var(--default-color-2);
-	border-left: 2px solid var(--default-color-2);
-	border-radius: 0.3rem;
-	background-color: var(--focus-color-1);
-}
-
-/* CALCULATOR MODAL */
-
 .modal-text {
 	text-align: center;
-	font-size: var(--font-size-1);
 }

@@ -20,7 +20,7 @@ const CalculatorForm = (props) => {
 	} = props;
 
 	return (
-		<Form ClassName="calculator-form" autoComplete="false" onSubmit={(event) => handleSubmit(event)} noValidate>
+		<Form className="calculator-form" autoComplete="false" onSubmit={(event) => handleSubmit(event)} noValidate>
 			<Form.Group id="form_name">
 				<Form.Label>Nombre completo</Form.Label>
 				<InputGroup className="mb-3 form-input-name">
@@ -138,7 +138,7 @@ const CalculatorForm = (props) => {
 				</div>
 			</div>
 			<div className="form-actions">
-				<button className="calculator-action-btn" type="submit">
+				<button className="btn-action" type="submit">
 					Calcular
 				</button>
 				<button type="text" onClick={(e) => handleCleanInputs(e)}>

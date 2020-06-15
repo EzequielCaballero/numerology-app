@@ -14,7 +14,7 @@ const CalculatorResult = (props) => {
 
 	return (
 		<div className="calculator-result">
-			<div className="result-header">
+			<div className="result-option">
 				<button onClick={hideResults}>
 					<svg
 						id="back_icon"
@@ -31,11 +31,11 @@ const CalculatorResult = (props) => {
             z" />
 					</svg>
 				</button>
-				<div className="result-person">
-					<p id="output-name">{fullName}</p>
-					<p id="output-date">{birthDate}</p>
-				</div>
-				<button className="calculator-action-btn">Reporte</button>
+				<button className="btn-action">Reporte</button>
+			</div>
+			<div className="result-person">
+				<p id="output-name">{fullName}</p>
+				<p id="output-date">{birthDate}</p>
 			</div>
 			<div className="result-detail">
 				<div name="image" className="result-detail-item">

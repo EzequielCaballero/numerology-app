@@ -1,22 +1,22 @@
 /* GENERAL */
 
 .footer-box {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
 	align-items: center;
+	flex-direction: row;
 	font-size: var(--font-size-4);
-	padding: 0.5rem 0 0 0.5rem;
+	display: flex;
+	justify-content: space-between;
 	overflow-x: hidden;
+	padding: 0.5rem 0 0 0.5rem;
 }
 
 /* TITLE AUTHOR */
 
 .footer-title {
-	display: flex;
-	color: #c5c5cc;
 	align-self: flex-end;
-	text-indent: 5px;
+	color: #c5c5cc;
 	font-style: italic;
+	display: flex;
 	margin-bottom: 0;
+	text-indent: 5px;
 }
