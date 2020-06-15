@@ -9,7 +9,6 @@
 		var(--content-color-3) 80%,
 		var(--default-color-1) 100%
 	);
-	border-bottom: 1px solid var(--border-color-2);
 	height: 50px;
 	position: fixed;
 	width: 100%;
