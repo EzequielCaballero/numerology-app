@@ -37,6 +37,8 @@ MOBILE
 @media only screen and (max-width: 600px) {
 	.box-content {
 		max-width: 375px;
+		padding: 0.5rem;
+		margin: 0.5rem;
 	}
 
 	/* NAVBAR RESPONSIVE | Mobile */
