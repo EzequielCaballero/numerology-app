@@ -30,7 +30,6 @@ class CalculatorView extends Component {
 		};
 		this.calculator = new Calculator();
 		this.person = new Person();
-		this.testMode = TestConfig.testMode;
 	}
 
 	componentDidMount() {
@@ -39,13 +38,13 @@ class CalculatorView extends Component {
 
 	loadTestData() {
 		//TEST DATA
-		if (this.testMode) {
+		if (TestConfig.active) {
 			this.setState({
-				firstName: [ 'Ezequiel', 'Andrés' ],
-				lastName: [ 'Caballero' ],
-				birthDay: 14,
-				birthMonth: 8,
-				birthYear: 1989
+				firstName: TestConfig.data.firstName,
+				lastName: TestConfig.data.lastName,
+				birthDay: TestConfig.data.birthDay,
+				birthMonth: TestConfig.data.birthMonth,
+				birthYear: TestConfig.data.birthYear
 			});
 		}
 	}

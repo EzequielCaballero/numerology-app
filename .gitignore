@@ -7,7 +7,6 @@
 
 # testing
 /coverage
-/src/tests/App.test.config.json
 
 # production
 /build

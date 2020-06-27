@@ -1,0 +1,10 @@
+{
+	"active": true,
+	"data": {
+		"firstName": [ "Ezequiel", "Andrés" ],
+		"lastName": [ "Caballero" ],
+		"birthDay": 14,
+		"birthMonth": 8,
+		"birthYear": 1989
+	}
+}
