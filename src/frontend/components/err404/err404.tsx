@@ -1,11 +1,9 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 
 import './err404.css';
 
-const Err404 = () => {
-	const history = useHistory();
-
+const Err404: React.FunctionComponent<RouteComponentProps> = ({ history }) => {
 	const backToHome = () => {
 		history.push('/home');
 	};
