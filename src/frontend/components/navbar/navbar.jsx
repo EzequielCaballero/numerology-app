@@ -1,10 +1,22 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 //CSS
 import './navbar.css';
 
 const Navbar = () => {
 	const history = useHistory();
+	const location = useLocation();
+
+	useEffect(
+		() => {
+			const currentPath = location.pathname === '/' ? 'home' : location.pathname.split('/')[1];
+			document.querySelectorAll('.nav-custom-links > button').forEach((btn) => {
+				btn.classList.remove('active-route');
+			});
+			document.getElementById(`route_${currentPath}`).classList.add('active-route');
+		},
+		[ location ]
+	);
 
 	const changeView = (newView) => {
 		let navCheck = document.getElementById('nav-custom-check');
@@ -47,10 +59,18 @@ const Navbar = () => {
 			</div>
 
 			<div className="nav-custom-links">
-				<button onClick={() => changeView('/home')}>Inicio</button>
-				<button onClick={() => changeView('/calculator')}>Calculadora</button>
-				<button onClick={() => changeView('/about')}>¿Cómo funciona?</button>
-				<button onClick={() => changeView('/contact')}>Contacto</button>
+				<button id="route_home" onClick={() => changeView('/home')}>
+					Inicio
+				</button>
+				<button id="route_calculator" onClick={() => changeView('/calculator')}>
+					Calculadora
+				</button>
+				<button id="route_about" onClick={() => changeView('/about')}>
+					¿Cómo funciona?
+				</button>
+				<button id="route_contact" onClick={() => changeView('/contact')}>
+					Contacto
+				</button>
 			</div>
 		</div>
 	);
