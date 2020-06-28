@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 //ASSERTS
 import logo from '../../assets/logo-1.png';
 import './home.css';
 
-class HomeView extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
-
+class HomeView extends React.Component<RouteComponentProps> {
 	goToCalculator = () => {
 		this.props.history.push('/calculator');
 	};

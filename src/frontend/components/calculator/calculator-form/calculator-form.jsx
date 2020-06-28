@@ -6,11 +6,8 @@ import './calculator-form.css';
 
 const CalculatorForm = (props) => {
 	const {
-		valueFirstName,
-		valueLastName,
-		valueBirthDay,
-		valueBirthMonth,
-		valueBirthYear,
+		valueName,
+		valueBirth,
 		handleInputName,
 		handleInputDate,
 		handleAddName,
@@ -31,7 +28,7 @@ const CalculatorForm = (props) => {
 							</span>
 						</Button>
 					</InputGroup.Prepend>
-					{valueFirstName.map((subname, index) => (
+					{valueName.firstName.map((subname, index) => (
 						<Form.Control
 							key={`firstName-${index}`}
 							name={`firstName-${index}`}
@@ -58,7 +55,7 @@ const CalculatorForm = (props) => {
 							</span>
 						</Button>
 					</InputGroup.Prepend>
-					{valueLastName.map((subname, index) => (
+					{valueName.lastName.map((subname, index) => (
 						<Form.Control
 							key={`lastName-${index}`}
 							name={`lastName-${index}`}
@@ -88,7 +85,7 @@ const CalculatorForm = (props) => {
 						onChange={(event) => handleInputDate(event)}
 						min="1"
 						max="31"
-						value={valueBirthDay}
+						value={valueBirth.birthDay}
 					/>
 					<Form.Control
 						name="birthMonth"
@@ -97,7 +94,7 @@ const CalculatorForm = (props) => {
 						onChange={(event) => handleInputDate(event)}
 						min="1"
 						max="12"
-						value={valueBirthMonth}
+						value={valueBirth.birthMonth}
 					/>
 					<Form.Control
 						name="birthYear"
@@ -105,7 +102,7 @@ const CalculatorForm = (props) => {
 						placeholder="Año"
 						onChange={(event) => handleInputDate(event)}
 						min="1000"
-						value={valueBirthYear}
+						value={valueBirth.birthYear}
 					/>
 				</InputGroup>
 			</Form.Group>
@@ -120,17 +117,17 @@ const CalculatorForm = (props) => {
 				</div>
 				<div className="form-output-values">
 					<span>
-						{valueFirstName[0] !== '' && valueLastName[0] !== '' ? (
-							`${valueFirstName.map((item) => item).toString().replace(/,/g, ' ')} 
-            ${valueLastName.map((item) => item).toString().replace(/,/g, ' ')}`
+						{valueName.firstName[0] !== '' && valueName.lastName[0] !== '' ? (
+							`${valueName.firstName.map((item) => item).toString().replace(/,/g, ' ')} 
+            ${valueName.lastName.map((item) => item).toString().replace(/,/g, ' ')}`
 						) : (
 							'...'
 						)}
 					</span>
 					<br />
 					<span>
-						{valueBirthDay !== '' && valueBirthMonth !== '' && valueBirthYear !== '' ? (
-							`${valueBirthDay}/${valueBirthMonth}/${valueBirthYear}`
+						{valueBirth.birthDay !== '' && valueBirth.birthMonth !== '' && valueBirth.birthYear !== '' ? (
+							`${valueBirth.birthDay}/${valueBirth.birthMonth}/${valueBirth.birthYear}`
 						) : (
 							'...'
 						)}

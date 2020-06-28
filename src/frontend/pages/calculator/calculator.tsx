@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 //LOGIC
 import Person from '../../../backend/entity/Person';
 import Calculator from '../../../backend/controllers/Calculator';
@@ -11,26 +11,55 @@ import CalculatorResult from '../../components/calculator/calculator-result/calc
 import logo from '../../assets/logo-1.png';
 import './calculator.css';
 
-class CalculatorView extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
+interface IProps {}
+
+interface IName {
+	firstName: string[];
+	lastName: string[];
+}
+
+interface IBirth {
+	birthDay: number;
+	birthMonth: number;
+	birthYear: number;
+}
+
+interface IModal {
+	show: boolean;
+	title: string;
+	msg: string[];
+	style: string;
+}
+
+interface IState {
+	name: IName;
+	birth: IBirth;
+	modal: IModal;
+	showResults: boolean;
+}
+// type StateKeys = keyof IState;
+
+class CalculatorView extends React.Component<IProps, IState> {
+	private calculator: Calculator = new Calculator();
+	private person: Person = new Person();
+	public state = {
+		name: {
 			firstName: [ '' ],
-			lastName: [ '' ],
-			birthDay: '',
-			birthMonth: '',
-			birthYear: '',
-			modal: {
-				show: false,
-				title: '',
-				msg: [],
-				style: 'calculator-success'
-			},
-			showResults: false
-		};
-		this.calculator = new Calculator();
-		this.person = new Person();
-	}
+			lastName: [ '' ]
+		},
+		birth: {
+			birthDay: 0,
+			birthMonth: 0,
+			birthYear: 0
+		},
+		modal: {
+			show: false,
+			title: '',
+			msg: [ '' ],
+			style: 'calculator-success'
+		},
+		showResults: false
+	};
 
 	componentDidMount() {
 		this.loadTestData();
@@ -38,125 +67,138 @@ class CalculatorView extends Component {
 
 	loadTestData() {
 		//TEST DATA
+		const testName: IName = {
+			firstName: TestConfig.data.firstName,
+			lastName: TestConfig.data.lastName
+		};
+		const testBirth: IBirth = {
+			birthDay: TestConfig.data.birthDay,
+			birthMonth: TestConfig.data.birthMonth,
+			birthYear: TestConfig.data.birthYear
+		};
 		if (TestConfig.active) {
 			this.setState({
-				firstName: TestConfig.data.firstName,
-				lastName: TestConfig.data.lastName,
-				birthDay: TestConfig.data.birthDay,
-				birthMonth: TestConfig.data.birthMonth,
-				birthYear: TestConfig.data.birthYear
+				name: testName,
+				birth: testBirth
 			});
 		}
 	}
 
-	handleInputName = (e) => {
+	handleInputName = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		try {
 			const { name, value } = e.target;
-			const input = name.split('-');
-			let newState = this.state[input[0]];
-			newState[input[1]] = value.replace(/\s/g, '').replace(/[^[A-Za-zÀ-ÖØ-öø-ÿ]/g, '');
-			this.setState({ [input[0]]: newState });
+			const keyState: string = name.split('-')[0];
+			const indexValue: number = Number(name.split('-')[1]);
+			let newState: IName = this.state.name;
+			newState[keyState as keyof IName][indexValue] = value
+				.replace(/\s/g, '')
+				.replace(/[^[A-Za-zÀ-ÖØ-öø-ÿ]/g, '');
+			this.setState({ name: newState });
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
-	handleInputDate = (e) => {
+	handleInputDate = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		try {
 			const { name, value } = e.target;
-			let maxLength = name === 'birthYear' ? 4 : 2;
-			if (value.length <= maxLength) this.setState({ [name]: value });
-			else this.setState({ [name]: value.slice(0, -1) });
+			const maxLength: number = name === 'birthYear' ? 4 : 2;
+			let newState: IBirth = this.state.birth;
+			newState[name as keyof IBirth] = value.length <= maxLength ? Number(value) : Number(value.slice(0, -1));
+			this.setState({ birth: newState });
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
-	handleAddName = (field) => {
-		if (this.state[field].length < 3) {
-			let newState = this.state[field];
-			newState.push('');
-			this.setState({ [field]: newState });
+	handleAddName = (field: string): void => {
+		if (this.state.name[field as keyof IName].length < 3) {
+			let newState: IName = this.state.name;
+			newState[field as keyof IName].push('');
+			this.setState({ name: newState });
 		}
 	};
 
-	handleRemoveName = (field) => {
-		if (this.state[field].length > 1) {
-			let newState = this.state[field];
-			newState.pop();
-			this.setState({ [field]: newState });
+	handleRemoveName = (field: string) => {
+		if (this.state.name[field as keyof IName].length > 1) {
+			let newState: IName = this.state.name;
+			newState[field as keyof IName].pop();
+			this.setState({ name: newState });
 		}
 	};
 
-	handleCleanInputs = (event) => {
+	handleCleanInputs = (event: React.ChangeEvent<HTMLButtonElement>) => {
 		event.preventDefault();
-		this.setState({
+		let name: IName = {
 			firstName: [ '' ],
-			lastName: [ '' ],
-			birthDay: '',
-			birthMonth: '',
-			birthYear: ''
-		});
+			lastName: [ '' ]
+		};
+		let birth: IBirth = {
+			birthDay: 0,
+			birthMonth: 0,
+			birthYear: 0
+		};
+		this.setState({ name, birth });
 	};
 
-	handleSubmit = (e) => {
+	handleSubmit = (e: Event) => {
 		e.preventDefault();
 		e.stopPropagation();
 		if (this.validateForm()) this.calculateValues();
 		else {
-			let newMsg = [];
+			let newMsg: string[] = [];
 			newMsg.push('Por favor revisar los campos mandatorios');
 			newMsg.push('Nombre | Apellido | Fecha de nacimiento');
 			this.handleModalShow('Información incorrecta', newMsg);
 		}
 	};
 
-	validateForm = () => {
+	validateForm = (): boolean => {
 		if (this.validateNameInput() && this.validateDateInput()) return true;
-
 		return false;
 	};
 
-	validateNameInput = () => {
-		if (this.state.firstName[0] !== '' && this.state.lastName[0] !== '') return true;
-
+	validateNameInput = (): boolean => {
+		if (this.state.name.firstName[0] !== '' && this.state.name.lastName[0] !== '') return true;
 		return false;
 	};
 
-	validateDateInput = () => {
+	validateDateInput = (): boolean => {
 		if (
-			this.state.birthDay !== '' &&
-			this.state.birthDay > 0 &&
-			this.state.birthDay <= 31 &&
-			this.state.birthMonth !== '' &&
-			this.state.birthMonth > 0 &&
-			this.state.birthMonth <= 12 &&
-			this.state.birthYear !== '' &&
-			this.state.birthYear >= 1000
+			this.state.birth.birthDay !== 0 &&
+			this.state.birth.birthDay > 0 &&
+			this.state.birth.birthDay <= 31 &&
+			this.state.birth.birthMonth !== 0 &&
+			this.state.birth.birthMonth > 0 &&
+			this.state.birth.birthMonth <= 12 &&
+			this.state.birth.birthYear !== 0 &&
+			this.state.birth.birthYear >= 1000
 		)
 			return true;
 
 		return false;
 	};
 
-	formatInput_name = () => {
-		let fullname = '';
-		for (let subname of this.state.firstName) {
+	formatInput_name = (): string => {
+		let fullname: string = '';
+		for (let subname of this.state.name.firstName) {
 			if (subname !== '') fullname += `${subname}|`;
 		}
-		for (let subname of this.state.lastName) {
+		for (let subname of this.state.name.lastName) {
 			if (subname !== '') fullname += `${subname}|`;
 		}
 		fullname = fullname.slice(0, -1);
 		return fullname;
 	};
 
-	formatInput_birth = () => {
-		const birth = new Date(`${this.state.birthYear}/${this.state.birthMonth}/${this.state.birthDay}`);
+	formatInput_birth = (): Date => {
+		const birth: Date = new Date(
+			`${this.state.birth.birthYear}/${this.state.birth.birthMonth}/${this.state.birth.birthDay}`
+		);
 		return birth;
 	};
 
-	calculateValues = () => {
+	calculateValues = (): void => {
 		//NORMALIZE
 		this.person.nombre_input = this.formatInput_name();
 		this.person.nombre = this.calculator.FormatName(this.formatInput_name());
@@ -182,19 +224,18 @@ class CalculatorView extends Component {
 		this.showResults();
 	};
 
-	hideResults = () => {
+	hideResults = (): void => {
 		this.calculator = new Calculator();
 		this.person = new Person();
 		this.setState({ showResults: false });
 	};
 
-	showResults = () => {
-		this.operations = this.calculator._record;
+	showResults = (): void => {
 		this.setState({ showResults: true });
 	};
 
-	showOperations = (type) => {
-		let newMsg = [];
+	showOperations = (type: string): void => {
+		let newMsg: string[] = [ '' ];
 		//console.log(JSON.stringify(this.calculator._record));
 		switch (type) {
 			case 'image':
@@ -269,14 +310,14 @@ class CalculatorView extends Component {
 		}
 	};
 
-	handleModalClose = () => {
+	handleModalClose = (): void => {
 		let modalProperties = this.state.modal;
 		modalProperties.msg = [];
 		modalProperties.show = false;
 		this.setState({ modal: modalProperties });
 	};
 
-	handleModalShow = (title, msg) => {
+	handleModalShow = (title: string, msg: string[]): void => {
 		let modalProperties = this.state.modal;
 		modalProperties.show = true;
 		modalProperties.title = title;
@@ -309,11 +350,8 @@ class CalculatorView extends Component {
 
 					{!this.state.showResults ? (
 						<CalculatorForm
-							valueFirstName={this.state.firstName}
-							valueLastName={this.state.lastName}
-							valueBirthDay={this.state.birthDay}
-							valueBirthMonth={this.state.birthMonth}
-							valueBirthYear={this.state.birthYear}
+							valueName={this.state.name}
+							valueBirth={this.state.birth}
 							handleInputName={this.handleInputName}
 							handleInputDate={this.handleInputDate}
 							handleAddName={this.handleAddName}
