@@ -25,10 +25,13 @@ interface IBirth {
 }
 
 interface IModal {
-	show: boolean;
-	title: string;
-	msg: string[];
-	style: string;
+	text: {
+		title: string;
+		msg: string[];
+	};
+	properties: {
+		show: boolean;
+	};
 }
 
 interface IState {
@@ -53,10 +56,13 @@ class CalculatorView extends React.Component<IProps, IState> {
 			birthYear: 0
 		},
 		modal: {
-			show: false,
-			title: '',
-			msg: [ '' ],
-			style: 'calculator-success'
+			text: {
+				title: '',
+				msg: [ '' ]
+			},
+			properties: {
+				show: false
+			}
 		},
 		showResults: false
 	};
@@ -149,7 +155,8 @@ class CalculatorView extends React.Component<IProps, IState> {
 			let newMsg: string[] = [];
 			newMsg.push('Por favor revisar los campos mandatorios');
 			newMsg.push('Nombre | Apellido | Fecha de nacimiento');
-			this.handleModalShow('Información incorrecta', newMsg);
+			this.handleModalContent('Información incorrecta', newMsg);
+			this.showModal(true);
 		}
 	};
 
@@ -221,17 +228,15 @@ class CalculatorView extends React.Component<IProps, IState> {
 		this.person.mes_personal = this.calculator.CalculatePersonalMonth(this.person.ano_personal);
 		this.person.digito_edad = this.calculator.CalculateAgeDigit(this.person.edad);
 		//console.info(JSON.stringify(this.person));
-		this.showResults();
+		this.showResultsView(true);
 	};
 
-	hideResults = (): void => {
-		this.calculator = new Calculator();
-		this.person = new Person();
-		this.setState({ showResults: false });
-	};
-
-	showResults = (): void => {
-		this.setState({ showResults: true });
+	showResultsView = (show: boolean): void => {
+		if (!show) {
+			this.calculator = new Calculator();
+			this.person = new Person();
+		}
+		this.setState({ showResults: show });
 	};
 
 	showOperations = (type: string): void => {
@@ -243,36 +248,36 @@ class CalculatorView extends React.Component<IProps, IState> {
 				for (let i = 0; i < this.calculator._record.image.length; i++) {
 					newMsg.push(JSON.stringify(this.calculator._record.image[i]));
 				}
-				this.handleModalShow('Cálculo de imagen...', newMsg);
+				this.handleModalContent('Cálculo de imagen...', newMsg);
 				break;
 			case 'essence':
 				newMsg.push(JSON.stringify(this.calculator._record.name));
 				for (let i = 0; i < this.calculator._record.essence.length; i++) {
 					newMsg.push(JSON.stringify(this.calculator._record.essence[i]));
 				}
-				this.handleModalShow('Cálculo de esencia...', newMsg);
+				this.handleModalContent('Cálculo de esencia...', newMsg);
 				break;
 			case 'mission':
 				newMsg.push(JSON.stringify(this.calculator._record.name));
 				for (let i = 0; i < this.calculator._record.mission.length; i++) {
 					newMsg.push(JSON.stringify(this.calculator._record.mission[i]));
 				}
-				this.handleModalShow('Cálculo de misión...', newMsg);
+				this.handleModalContent('Cálculo de misión...', newMsg);
 				break;
 			case 'path':
 				newMsg.push(JSON.stringify(this.calculator._record.birth));
 				for (let i = 0; i < this.calculator._record.path.length; i++) {
 					newMsg.push(JSON.stringify(this.calculator._record.path[i]));
 				}
-				this.handleModalShow('Cálculo de sendero...', newMsg);
+				this.handleModalContent('Cálculo de sendero...', newMsg);
 				break;
 			case 'personalKey':
 				newMsg.push(`${this.person.nacimiento[0]} -> ${this.person.clave_personal}`);
-				this.handleModalShow('Detalle de clave personal...', newMsg);
+				this.handleModalContent('Detalle de clave personal...', newMsg);
 				break;
 			case 'potentialNumber':
 				newMsg.push(`${this.person.mision} + ${this.person.sendero_natal} = ${this.person.numero_potencial}`);
-				this.handleModalShow('Detalle del número potencial...', newMsg);
+				this.handleModalContent('Detalle del número potencial...', newMsg);
 				break;
 			case 'karmas':
 				newMsg.push(`Esencia: ${this.person.karmas.essence}`);
@@ -280,49 +285,48 @@ class CalculatorView extends React.Component<IProps, IState> {
 				newMsg.push(`Sendero: ${this.person.karmas.path}`);
 				newMsg.push('---');
 				newMsg.push(`Números faltantes: ${this.person.posibles_karmas}`);
-				this.handleModalShow('Detalle de karmas...', newMsg);
+				this.handleModalContent('Detalle de karmas...', newMsg);
 				break;
 			case 'stages':
 				for (let stage of this.person.etapas) {
 					newMsg.push(`${stage.num}° | ${stage.from} -> ${stage.to} = ${stage.value}`);
 				}
-				this.handleModalShow('Detalle de etapas...', newMsg);
+				this.handleModalContent('Detalle de etapas...', newMsg);
 				break;
 			case 'personalYear':
 				newMsg.push(
 					`${this.person.nacimiento[0]} + ${this.person.nacimiento[1]} + ${new Date().getFullYear()} = ${this
 						.person.ano_personal}`
 				);
-				this.handleModalShow('Detalle del año personal...', newMsg);
+				this.handleModalContent('Detalle del año personal...', newMsg);
 				break;
 			case 'personalMonth':
 				newMsg.push(`${this.person.ano_personal} + ${new Date().getMonth() + 1} = ${this.person.mes_personal}`);
 				newMsg.push('(año personal + mes actual)');
-				this.handleModalShow('Detalle del mes personal...', newMsg);
+				this.handleModalContent('Detalle del mes personal...', newMsg);
 				break;
 			case 'ageDigit':
 				newMsg.push(`${this.person.edad} + ${this.person.edad + 1} = ${this.person.digito_edad}`);
 				newMsg.push('(edad actual + edad próxima)');
-				this.handleModalShow('Detalle de digito de edad...', newMsg);
+				this.handleModalContent('Detalle de digito de edad...', newMsg);
 				break;
 			default:
 				break;
 		}
+		this.showModal(true);
 	};
 
-	handleModalClose = (): void => {
-		let modalProperties = this.state.modal;
-		modalProperties.msg = [];
-		modalProperties.show = false;
-		this.setState({ modal: modalProperties });
+	handleModalContent = (title: string, msg: string[]): void => {
+		let modal: IModal = this.state.modal;
+		modal.text.title = title;
+		modal.text.msg = msg;
+		this.setState({ modal });
 	};
 
-	handleModalShow = (title: string, msg: string[]): void => {
-		let modalProperties = this.state.modal;
-		modalProperties.show = true;
-		modalProperties.title = title;
-		modalProperties.msg = msg;
-		this.setState({ modal: modalProperties });
+	showModal = (show: boolean): void => {
+		let modal: IModal = this.state.modal;
+		modal.properties.show = show;
+		this.setState({ modal });
 	};
 
 	render() {
@@ -341,11 +345,9 @@ class CalculatorView extends React.Component<IProps, IState> {
 					</div>
 					{/* MODAL */}
 					<ModalMessage
-						title={this.state.modal.title}
-						msg={this.state.modal.msg}
-						show={this.state.modal.show}
-						close={this.handleModalClose}
-						style={this.state.modal.style}
+						text={this.state.modal.text}
+						properties={this.state.modal.properties}
+						showModal={this.showModal}
 					/>
 
 					{!this.state.showResults ? (
@@ -363,7 +365,7 @@ class CalculatorView extends React.Component<IProps, IState> {
 						<CalculatorResult
 							person={this.person}
 							showOperations={this.showOperations}
-							hideResults={this.hideResults}
+							showResultsView={this.showResultsView}
 						/>
 					)}
 				</div>

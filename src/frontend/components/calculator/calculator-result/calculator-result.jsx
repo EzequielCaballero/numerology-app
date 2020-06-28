@@ -2,7 +2,7 @@ import React from 'react';
 import './calculator-result.css';
 
 const CalculatorResult = (props) => {
-	const { person, showOperations, hideResults } = props;
+	const { person, showOperations, showResultsView } = props;
 
 	//INPUTS FORMATTED
 	const fullName = person.nombre_input
@@ -15,7 +15,7 @@ const CalculatorResult = (props) => {
 	return (
 		<div className="calculator-result">
 			<div className="result-option">
-				<button onClick={hideResults}>
+				<button onClick={() => showResultsView(false)}>
 					<svg
 						id="back_icon"
 						version="1.1"
