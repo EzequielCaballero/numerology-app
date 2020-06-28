@@ -125,7 +125,7 @@ class CalculatorView extends React.Component<{}, IState> {
 		}
 	};
 
-	handleCleanInputs = (event: React.ChangeEvent<HTMLButtonElement>) => {
+	handleCleanInputs = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		event.preventDefault();
 		let name: IName = {
 			firstName: [ '' ],
@@ -139,7 +139,7 @@ class CalculatorView extends React.Component<{}, IState> {
 		this.setState({ name, birth });
 	};
 
-	handleSubmit = (e: Event) => {
+	handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		e.stopPropagation();
 		if (this.validateForm()) this.calculateValues();
@@ -220,10 +220,10 @@ class CalculatorView extends React.Component<{}, IState> {
 		this.person.mes_personal = this.calculator.CalculatePersonalMonth(this.person.ano_personal);
 		this.person.digito_edad = this.calculator.CalculateAgeDigit(this.person.edad);
 		//console.info(JSON.stringify(this.person));
-		this.showResultsView(true);
+		this.showResultView(true);
 	};
 
-	showResultsView = (show: boolean): void => {
+	showResultView = (show: boolean): void => {
 		if (!show) {
 			this.calculator = new Calculator();
 			this.person = new Person();
@@ -231,7 +231,7 @@ class CalculatorView extends React.Component<{}, IState> {
 		this.setState({ showResults: show });
 	};
 
-	showOperations = (type: string): void => {
+	showDetail = (type: string): void => {
 		let newMsg: string[] = [ '' ];
 		//console.log(JSON.stringify(this.calculator._record));
 		switch (type) {
@@ -356,8 +356,8 @@ class CalculatorView extends React.Component<{}, IState> {
 					) : (
 						<CalculatorResult
 							person={this.person}
-							showOperations={this.showOperations}
-							showResultsView={this.showResultsView}
+							showDetail={this.showDetail}
+							showResultView={this.showResultView}
 						/>
 					)}
 				</div>

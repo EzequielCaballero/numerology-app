@@ -4,7 +4,29 @@ import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import './calculator-form.css';
 
-const CalculatorForm = (props) => {
+interface IName {
+	firstName: string[];
+	lastName: string[];
+}
+
+interface IBirth {
+	birthDay: number;
+	birthMonth: number;
+	birthYear: number;
+}
+
+interface IFormProps {
+	valueName: IName;
+	valueBirth: IBirth;
+	handleInputName: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	handleInputDate: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	handleAddName: (keyName: string) => void;
+	handleRemoveName: (keyName: string) => void;
+	handleCleanInputs: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+	handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+}
+
+const CalculatorForm = (props: IFormProps) => {
 	const {
 		valueName,
 		valueBirth,
@@ -17,7 +39,12 @@ const CalculatorForm = (props) => {
 	} = props;
 
 	return (
-		<Form className="calculator-form" autoComplete="false" onSubmit={(event) => handleSubmit(event)} noValidate>
+		<Form
+			className="calculator-form"
+			autoComplete="false"
+			onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit(event)}
+			noValidate
+		>
 			<Form.Group id="form_name">
 				<Form.Label>Nombre completo</Form.Label>
 				<InputGroup className="mb-3 form-input-name">
@@ -33,9 +60,9 @@ const CalculatorForm = (props) => {
 							key={`firstName-${index}`}
 							name={`firstName-${index}`}
 							type="text"
-							maxLength="30"
+							maxLength={30}
 							placeholder={`Nombre-${index + 1}...`}
-							onChange={(event) => handleInputName(event)}
+							onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputName(event)}
 							value={subname}
 						/>
 					))}
@@ -60,9 +87,9 @@ const CalculatorForm = (props) => {
 							key={`lastName-${index}`}
 							name={`lastName-${index}`}
 							type="text"
-							maxLength="30"
+							maxLength={30}
 							placeholder={`Apellido-${index + 1}...`}
-							onChange={(event) => handleInputName(event)}
+							onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputName(event)}
 							value={subname}
 						/>
 					))}
@@ -82,27 +109,27 @@ const CalculatorForm = (props) => {
 						name="birthDay"
 						type="number"
 						placeholder="Día"
-						onChange={(event) => handleInputDate(event)}
+						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1"
 						max="31"
-						value={valueBirth.birthDay}
+						value={valueBirth.birthDay === 0 ? '' : valueBirth.birthDay}
 					/>
 					<Form.Control
 						name="birthMonth"
 						type="number"
 						placeholder="Mes"
-						onChange={(event) => handleInputDate(event)}
+						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1"
 						max="12"
-						value={valueBirth.birthMonth}
+						value={valueBirth.birthMonth === 0 ? '' : valueBirth.birthMonth}
 					/>
 					<Form.Control
 						name="birthYear"
 						type="number"
 						placeholder="Año"
-						onChange={(event) => handleInputDate(event)}
+						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1000"
-						value={valueBirth.birthYear}
+						value={valueBirth.birthYear === 0 ? '' : valueBirth.birthYear}
 					/>
 				</InputGroup>
 			</Form.Group>
@@ -126,7 +153,7 @@ const CalculatorForm = (props) => {
 					</span>
 					<br />
 					<span>
-						{valueBirth.birthDay !== '' && valueBirth.birthMonth !== '' && valueBirth.birthYear !== '' ? (
+						{valueBirth.birthDay !== 0 && valueBirth.birthMonth !== 0 && valueBirth.birthYear !== 0 ? (
 							`${valueBirth.birthDay}/${valueBirth.birthMonth}/${valueBirth.birthYear}`
 						) : (
 							'...'
@@ -138,7 +165,7 @@ const CalculatorForm = (props) => {
 				<button className="btn-action" type="submit">
 					Calcular
 				</button>
-				<button type="text" onClick={(e) => handleCleanInputs(e)}>
+				<button onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleCleanInputs(e)}>
 					<span role="img" aria-label="trash">
 						<svg
 							id="trash_icon"
@@ -148,12 +175,7 @@ const CalculatorForm = (props) => {
 							width="30"
 							height="25"
 						>
-							<path d="M459.2,60.7h-72C386.2,43,371.6,29,353.7,29H161.7c-17.9,0-32.4,14-33.6,31.7H64.6
-            c-18.6,0-33.8,15.1-33.8,33.8v8.4c0,18.6,15.1,33.8,33.8,33.8h21v342.1c0,13.8,11.2,25,25,25h309c13.8,0,25-11.2,25-25V136.7h14.7
-            c18.7,0,33.8-15.1,33.8-33.8v-8.4C493,75.8,477.9,60.7,459.2,60.7z M196.7,443.7c0,12.6-10.2,22.8-22.8,22.8
-            c-12.6,0-22.8-10.2-22.8-22.8V158.8c0-12.6,10.2-22.8,22.8-22.8c12.6,0,22.8,10.2,22.8,22.8V443.7z M287.9,443.7
-            c0,12.6-10.2,22.8-22.8,22.8s-22.8-10.2-22.8-22.8V158.8c0-12.6,10.2-22.8,22.8-22.8s22.8,10.2,22.8,22.8V443.7z M379.1,443.7
-            c0,12.6-10.2,22.8-22.8,22.8c-12.6,0-22.8-10.2-22.8-22.8V158.8c0-12.6,10.2-22.8,22.8-22.8c12.6,0,22.8,10.2,22.8,22.8V443.7z" />
+							<path d="M459.2,60.7h-72C386.2,43,371.6,29,353.7,29H161.7c-17.9,0-32.4,14-33.6,31.7H64.6c-18.6,0-33.8,15.1-33.8,33.8v8.4c0,18.6,15.1,33.8,33.8,33.8h21v342.1c0,13.8,11.2,25,25,25h309c13.8,0,25-11.2,25-25V136.7h14.7c18.7,0,33.8-15.1,33.8-33.8v-8.4C493,75.8,477.9,60.7,459.2,60.7z M196.7,443.7c0,12.6-10.2,22.8-22.8,22.8c-12.6,0-22.8-10.2-22.8-22.8V158.8c0-12.6,10.2-22.8,22.8-22.8c12.6,0,22.8,10.2,22.8,22.8V443.7z M287.9,443.7c0,12.6-10.2,22.8-22.8,22.8s-22.8-10.2-22.8-22.8V158.8c0-12.6,10.2-22.8,22.8-22.8s22.8,10.2,22.8,22.8V443.7z M379.1,443.7c0,12.6-10.2,22.8-22.8,22.8c-12.6,0-22.8-10.2-22.8-22.8V158.8c0-12.6,10.2-22.8,22.8-22.8c12.6,0,22.8,10.2,22.8,22.8V443.7z" />
 						</svg>
 					</span>
 				</button>
