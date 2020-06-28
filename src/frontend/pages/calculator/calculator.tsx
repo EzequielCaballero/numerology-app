@@ -4,14 +4,12 @@ import Person from '../../../backend/entity/Person';
 import Calculator from '../../../backend/controllers/Calculator';
 import TestConfig from '../../../tests/App.test.config.json';
 //COMPONENTS
-import ModalMessage from '../../components/modal/modal';
+import { IModal, ModalMessage } from '../../components/modal/modal';
 import CalculatorForm from '../../components/calculator/calculator-form/calculator-form';
 import CalculatorResult from '../../components/calculator/calculator-result/calculator-result';
 //ASSERTS
 import logo from '../../assets/logo-1.png';
 import './calculator.css';
-
-interface IProps {}
 
 interface IName {
 	firstName: string[];
@@ -24,16 +22,6 @@ interface IBirth {
 	birthYear: number;
 }
 
-interface IModal {
-	text: {
-		title: string;
-		msg: string[];
-	};
-	properties: {
-		show: boolean;
-	};
-}
-
 interface IState {
 	name: IName;
 	birth: IBirth;
@@ -42,30 +30,34 @@ interface IState {
 }
 // type StateKeys = keyof IState;
 
-class CalculatorView extends React.Component<IProps, IState> {
+class CalculatorView extends React.Component<{}, IState> {
 	private calculator: Calculator = new Calculator();
 	private person: Person = new Person();
-	public state = {
-		name: {
-			firstName: [ '' ],
-			lastName: [ '' ]
-		},
-		birth: {
-			birthDay: 0,
-			birthMonth: 0,
-			birthYear: 0
-		},
-		modal: {
-			text: {
-				title: '',
-				msg: [ '' ]
+	constructor(props: {}) {
+		super(props);
+		this.state = {
+			name: {
+				firstName: [ '' ],
+				lastName: [ '' ]
 			},
-			properties: {
-				show: false
-			}
-		},
-		showResults: false
-	};
+			birth: {
+				birthDay: 0,
+				birthMonth: 0,
+				birthYear: 0
+			},
+			modal: {
+				text: {
+					title: '',
+					msg: [ '' ]
+				},
+				properties: {
+					show: false
+				},
+				showModal: this.showModal
+			},
+			showResults: false
+		};
+	}
 
 	componentDidMount() {
 		this.loadTestData();
@@ -347,7 +339,7 @@ class CalculatorView extends React.Component<IProps, IState> {
 					<ModalMessage
 						text={this.state.modal.text}
 						properties={this.state.modal.properties}
-						showModal={this.showModal}
+						showModal={this.state.modal.showModal}
 					/>
 
 					{!this.state.showResults ? (

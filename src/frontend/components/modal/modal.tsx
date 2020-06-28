@@ -2,24 +2,34 @@ import React, { useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import './modal.css';
 
-const ModalMessage = (props) => {
+export interface IModal {
+	text: {
+		title: string;
+		msg: string[];
+	};
+	properties: {
+		show: boolean;
+	};
+	showModal: (show: boolean) => void;
+}
+
+export const ModalMessage = (props: IModal) => {
 	const { text, properties, showModal } = props;
 
-	let msgText = text.msg;
-	if (Array.isArray(text.msg)) {
-		msgText = text.msg.map((text, index) => (
+	const renderDivMsgs = (): Array<JSX.Element> => {
+		return text.msg.map((text, index) => (
 			<div className="modal-text" key={index}>
 				{text.trim()}
 			</div>
 		));
-	}
+	};
 
 	useEffect(
 		() => {
-			const bodyElement = document.body;
+			const bodyElement: HTMLElement = document.body;
 			if (properties.show) {
 				bodyElement.classList.remove('modal-open');
-				bodyElement.style = '';
+				bodyElement.removeAttribute('style');
 			}
 		},
 		[ properties.show ]
@@ -30,7 +40,7 @@ const ModalMessage = (props) => {
 			<Modal.Header id="app-modal-header">
 				<Modal.Title id="app-modal-title">{text.title}</Modal.Title>
 			</Modal.Header>
-			<Modal.Body id="app-modal-body">{msgText}</Modal.Body>
+			<Modal.Body id="app-modal-body">{renderDivMsgs()}</Modal.Body>
 			<Modal.Footer id="app-modal-footer">
 				<button id="app-modal-btn" className="btn-action-outline" onClick={() => showModal(false)}>
 					Cerrar
@@ -39,5 +49,3 @@ const ModalMessage = (props) => {
 		</Modal>
 	);
 };
-
-export default ModalMessage;
