@@ -1,8 +1,8 @@
 class Stage {
-    num;
-    from;
-    to;
-    value;
+	num;
+	from;
+	to;
+	value;
 }
 
 export default Stage;
