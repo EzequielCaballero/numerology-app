@@ -3,20 +3,21 @@ import Person from '../../../../backend/entity/Person';
 import './calculator-result.css';
 
 interface IResultProps {
+	inputName: string;
 	person: Person;
 	showDetail: (type: string) => void;
 	showResultView: (show: boolean) => void;
 }
 
 const CalculatorResult = (props: IResultProps) => {
-	const { person, showDetail, showResultView } = props;
+	const { inputName, person, showDetail, showResultView } = props;
 
 	//INPUTS FORMATTED
-	const fullName: JSX.Element = person.nombre_input
+	const fullname: JSX.Element[] = inputName
 		.split('|')
 		.map((name: string, index: number) => <span key={index}>{name.toLowerCase()} </span>);
 
-	const birthDate: string = `${('0' + person.nacimiento[0]).slice(-2)}/
+	const birthdate: string = `${('0' + person.nacimiento[0]).slice(-2)}/
 							   ${('0' + person.nacimiento[1]).slice(-2)}/
 							   ${person.nacimiento[2]}`;
 
@@ -38,8 +39,8 @@ const CalculatorResult = (props: IResultProps) => {
 				<button className="btn-action">Reporte</button>
 			</div>
 			<div className="result-person">
-				<p id="output-name">{fullName}</p>
-				<p id="output-date">{birthDate}</p>
+				<p id="output-name">{fullname}</p>
+				<p id="output-date">{birthdate}</p>
 			</div>
 			<div className="result-detail">
 				<div title="image" className="result-detail-item">

@@ -5,22 +5,11 @@ import Calculator from '../../../backend/controllers/Calculator';
 import TestConfig from '../../../tests/App.test.config.json';
 //COMPONENTS
 import { IModal, ModalMessage } from '../../components/modal/modal';
-import CalculatorForm from '../../components/calculator/calculator-form/calculator-form';
+import { IName, IBirth, CalculatorForm } from '../../components/calculator/calculator-form/calculator-form';
 import CalculatorResult from '../../components/calculator/calculator-result/calculator-result';
 //ASSERTS
 import logo from '../../assets/logo-1.png';
 import './calculator.css';
-
-interface IName {
-	firstName: string[];
-	lastName: string[];
-}
-
-interface IBirth {
-	birthDay: number;
-	birthMonth: number;
-	birthYear: number;
-}
 
 interface IState {
 	name: IName;
@@ -199,7 +188,6 @@ class CalculatorView extends React.Component<{}, IState> {
 
 	calculateValues = (): void => {
 		//NORMALIZE
-		this.person.nombre_input = this.formatInput_name();
 		this.person.nombre = this.calculator.FormatName(this.formatInput_name());
 		this.person.nacimiento = this.calculator.FormatBirth(this.formatInput_birth());
 		this.person.edad = this.calculator.CalculateAge(this.formatInput_birth());
@@ -344,8 +332,8 @@ class CalculatorView extends React.Component<{}, IState> {
 
 					{!this.state.showResults ? (
 						<CalculatorForm
-							valueName={this.state.name}
-							valueBirth={this.state.birth}
+							name={this.state.name}
+							birth={this.state.birth}
 							handleInputName={this.handleInputName}
 							handleInputDate={this.handleInputDate}
 							handleAddName={this.handleAddName}
@@ -355,6 +343,7 @@ class CalculatorView extends React.Component<{}, IState> {
 						/>
 					) : (
 						<CalculatorResult
+							inputName={this.formatInput_name()}
 							person={this.person}
 							showDetail={this.showDetail}
 							showResultView={this.showResultView}

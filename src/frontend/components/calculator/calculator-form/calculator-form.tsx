@@ -4,20 +4,20 @@ import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import './calculator-form.css';
 
-interface IName {
+export interface IName {
 	firstName: string[];
 	lastName: string[];
 }
 
-interface IBirth {
+export interface IBirth {
 	birthDay: number;
 	birthMonth: number;
 	birthYear: number;
 }
 
 interface IFormProps {
-	valueName: IName;
-	valueBirth: IBirth;
+	name: IName;
+	birth: IBirth;
 	handleInputName: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	handleInputDate: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	handleAddName: (keyName: string) => void;
@@ -26,10 +26,10 @@ interface IFormProps {
 	handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const CalculatorForm = (props: IFormProps) => {
+export const CalculatorForm = (props: IFormProps) => {
 	const {
-		valueName,
-		valueBirth,
+		name,
+		birth,
 		handleInputName,
 		handleInputDate,
 		handleAddName,
@@ -55,7 +55,7 @@ const CalculatorForm = (props: IFormProps) => {
 							</span>
 						</Button>
 					</InputGroup.Prepend>
-					{valueName.firstName.map((subname, index) => (
+					{name.firstName.map((subname, index) => (
 						<Form.Control
 							key={`firstName-${index}`}
 							name={`firstName-${index}`}
@@ -82,7 +82,7 @@ const CalculatorForm = (props: IFormProps) => {
 							</span>
 						</Button>
 					</InputGroup.Prepend>
-					{valueName.lastName.map((subname, index) => (
+					{name.lastName.map((subname, index) => (
 						<Form.Control
 							key={`lastName-${index}`}
 							name={`lastName-${index}`}
@@ -112,7 +112,7 @@ const CalculatorForm = (props: IFormProps) => {
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1"
 						max="31"
-						value={valueBirth.birthDay === 0 ? '' : valueBirth.birthDay}
+						value={birth.birthDay === 0 ? '' : birth.birthDay}
 					/>
 					<Form.Control
 						name="birthMonth"
@@ -121,7 +121,7 @@ const CalculatorForm = (props: IFormProps) => {
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1"
 						max="12"
-						value={valueBirth.birthMonth === 0 ? '' : valueBirth.birthMonth}
+						value={birth.birthMonth === 0 ? '' : birth.birthMonth}
 					/>
 					<Form.Control
 						name="birthYear"
@@ -129,7 +129,7 @@ const CalculatorForm = (props: IFormProps) => {
 						placeholder="Año"
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1000"
-						value={valueBirth.birthYear === 0 ? '' : valueBirth.birthYear}
+						value={birth.birthYear === 0 ? '' : birth.birthYear}
 					/>
 				</InputGroup>
 			</Form.Group>
@@ -144,17 +144,17 @@ const CalculatorForm = (props: IFormProps) => {
 				</div>
 				<div className="form-output-values">
 					<span>
-						{valueName.firstName[0] !== '' && valueName.lastName[0] !== '' ? (
-							`${valueName.firstName.map((item) => item).toString().replace(/,/g, ' ')} 
-            ${valueName.lastName.map((item) => item).toString().replace(/,/g, ' ')}`
+						{name.firstName[0] !== '' && name.lastName[0] !== '' ? (
+							`${name.firstName.map((item) => item).toString().replace(/,/g, ' ')} 
+            ${name.lastName.map((item) => item).toString().replace(/,/g, ' ')}`
 						) : (
 							'...'
 						)}
 					</span>
 					<br />
 					<span>
-						{valueBirth.birthDay !== 0 && valueBirth.birthMonth !== 0 && valueBirth.birthYear !== 0 ? (
-							`${valueBirth.birthDay}/${valueBirth.birthMonth}/${valueBirth.birthYear}`
+						{birth.birthDay !== 0 && birth.birthMonth !== 0 && birth.birthYear !== 0 ? (
+							`${birth.birthDay}/${birth.birthMonth}/${birth.birthYear}`
 						) : (
 							'...'
 						)}
@@ -183,5 +183,3 @@ const CalculatorForm = (props: IFormProps) => {
 		</Form>
 	);
 };
-
-export default CalculatorForm;
