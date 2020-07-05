@@ -8,7 +8,7 @@ class Convertor {
 			//Delete whitespaces
 			.replace(/\s/g, '')
 			//Split string to parts
-			.split('|');
+			.split('-');
 
 		for (let i = 0; i < nameParts.length; i++) {
 			const subname = nameParts[i];
@@ -27,7 +27,8 @@ class Convertor {
 	}
 	static FormatDateToArray(date) {
 		//FORMAT: es_AR
-		let dateValues = [ date.getDate(), date.getMonth() + 1, date.getFullYear() ];
+		const birth = new Date(date);
+		let dateValues = [ birth.getDate(), birth.getMonth() + 1, birth.getFullYear() ];
 		return dateValues;
 	}
 

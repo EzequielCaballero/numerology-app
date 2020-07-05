@@ -4,7 +4,7 @@ import Stage from '../entity/Stage';
 
 class Calculator {
 	//RECORD
-	_record = {
+	static _record = {
 		name: [],
 		birth: [],
 		image: [],
@@ -14,29 +14,29 @@ class Calculator {
 	};
 
 	//METHODS
-	FormatName(fullname) {
+	static FormatName(fullname) {
 		const newFormat = Convertor.FormatNameToArray(fullname);
-		this._record.name = newFormat;
+		Calculator._record.name = newFormat;
 		return newFormat;
 	}
-	FormatBirth(birth) {
+	static FormatBirth(birth) {
 		const newFormat = Convertor.FormatDateToArray(birth);
-		this._record.birth = newFormat;
+		Calculator._record.birth = newFormat;
 		return newFormat;
 	}
-	CalculateAge(birthDate) {
+	static CalculateAge(birthDate) {
 		var today = new Date();
-		var age = today.getFullYear() - birthDate.getFullYear();
-		var month = today.getMonth() - birthDate.getMonth();
-		if (month < 0 || (month === 0 && today.getDate() < birthDate.getDate())) {
+		var age = today.getFullYear() - birthDate[2];
+		var month = today.getMonth() - (birthDate[1] - 1);
+		if (month < 0 || (month === 0 && today.getDate() < birthDate[0])) {
 			age--;
 		}
 		return age;
 	}
-	CalculateImage(nameParts) {
+	static CalculateImage(nameParts) {
 		let image = 0;
 		const nameConsonants = Convertor.TakeNameConsonants(nameParts);
-		this._record.image.push(nameConsonants);
+		Calculator._record.image.push(nameConsonants);
 		const canBeCalculated = nameConsonants.length !== 0 ? true : false;
 		if (canBeCalculated) {
 			const consonantNumbers = Convertor.MatchNumericKeys(nameConsonants);
@@ -46,19 +46,19 @@ class Calculator {
 			image = Convertor.ReduceValue(arrayReduced, true);
 
 			//REGISTER ACTIONS
-			this._record.image.push(consonantNumbers);
-			this._record.image.push(nestedArrayReduced);
+			Calculator._record.image.push(consonantNumbers);
+			Calculator._record.image.push(nestedArrayReduced);
 			if (JSON.stringify(nestedValueReduced) !== JSON.stringify(nestedArrayReduced))
-				this._record.image.push(nestedValueReduced);
-			if (arrayReduced !== image) this._record.image.push(arrayReduced);
+				Calculator._record.image.push(nestedValueReduced);
+			if (arrayReduced !== image) Calculator._record.image.push(arrayReduced);
 		}
-		this._record.image.push(image);
+		Calculator._record.image.push(image);
 		return image;
 	}
-	CalculateEssence(nameParts) {
+	static CalculateEssence(nameParts) {
 		let essence = 0;
 		const nameVowels = Convertor.TakeNameVowels(nameParts);
-		this._record.essence.push(nameVowels);
+		Calculator._record.essence.push(nameVowels);
 		const canBeCalculated = nameVowels.length !== 0 ? true : false;
 		if (canBeCalculated) {
 			const vowelNumbers = Convertor.MatchNumericKeys(nameVowels);
@@ -69,16 +69,16 @@ class Calculator {
 
 			//REGISTER ACTIONS
 
-			this._record.essence.push(vowelNumbers);
-			this._record.essence.push(nestedArrayReduced);
+			Calculator._record.essence.push(vowelNumbers);
+			Calculator._record.essence.push(nestedArrayReduced);
 			if (JSON.stringify(nestedValueReduced) !== JSON.stringify(nestedArrayReduced))
-				this._record.essence.push(nestedValueReduced);
-			if (arrayReduced !== essence) this._record.essence.push(arrayReduced);
+				Calculator._record.essence.push(nestedValueReduced);
+			if (arrayReduced !== essence) Calculator._record.essence.push(arrayReduced);
 		}
-		this._record.essence.push(essence);
+		Calculator._record.essence.push(essence);
 		return essence;
 	}
-	CalculateMission(nameParts) {
+	static CalculateMission(nameParts) {
 		const nameLetters = Convertor.TakeNameLetters(nameParts);
 		const vowelNumbers = Convertor.MatchNumericKeys(nameLetters);
 		const nestedArrayReduced = Convertor.ReduceNestedArray(vowelNumbers);
@@ -87,37 +87,37 @@ class Calculator {
 		const mission = Convertor.ReduceValue(arrayReduced, true);
 
 		//REGISTER ACTIONS
-		this._record.mission.push(nameLetters);
-		this._record.mission.push(vowelNumbers);
-		this._record.mission.push(nestedArrayReduced);
+		Calculator._record.mission.push(nameLetters);
+		Calculator._record.mission.push(vowelNumbers);
+		Calculator._record.mission.push(nestedArrayReduced);
 		if (JSON.stringify(nestedValueReduced) !== JSON.stringify(nestedArrayReduced))
-			this._record.mission.push(nestedValueReduced);
-		if (arrayReduced !== mission) this._record.mission.push(arrayReduced);
-		this._record.mission.push(mission);
+			Calculator._record.mission.push(nestedValueReduced);
+		if (arrayReduced !== mission) Calculator._record.mission.push(arrayReduced);
+		Calculator._record.mission.push(mission);
 
 		return mission;
 	}
-	CalculatePath(birthParts) {
+	static CalculatePath(birthParts) {
 		const birthNumbers = Convertor.ReduceValueElements(birthParts, true);
 		const arrayReduced = Convertor.ReduceArray(birthNumbers);
 		const path = Convertor.ReduceValue(arrayReduced, true);
 
 		//REGISTER ACTIONS
-		this._record.path.push(birthNumbers);
-		if (arrayReduced !== path) this._record.path.push(arrayReduced);
-		this._record.path.push(path);
+		Calculator._record.path.push(birthNumbers);
+		if (arrayReduced !== path) Calculator._record.path.push(arrayReduced);
+		Calculator._record.path.push(path);
 
 		return path;
 	}
-	CalculatePersonalKey(birthParts) {
+	static CalculatePersonalKey(birthParts) {
 		const personalKey = Convertor.MatchPersonalKeys(birthParts);
 		return personalKey;
 	}
-	CalculatePotential(mission, path) {
+	static CalculatePotential(mission, path) {
 		const potentialNumber = Convertor.ReduceValue(mission + path, true);
 		return potentialNumber;
 	}
-	CalculateKarmas() {
+	static CalculateKarmas() {
 		let karmas = [ 13, 14, 16, 19 ];
 		let matchIndex = -1;
 		let matchKarmas = {
@@ -127,22 +127,22 @@ class Calculator {
 		};
 
 		//Essence (before reduce)
-		matchIndex = karmas.indexOf(this._record.essence.slice(-2)[0]);
+		matchIndex = karmas.indexOf(Calculator._record.essence.slice(-2)[0]);
 		if (matchIndex !== -1) matchKarmas.essence = karmas[matchIndex];
 		//Mission (before reduce)
-		matchIndex = karmas.indexOf(this._record.mission.slice(-2)[0]);
+		matchIndex = karmas.indexOf(Calculator._record.mission.slice(-2)[0]);
 		if (matchIndex !== -1) matchKarmas.mission = karmas[matchIndex];
 		//Path (before reduce)
-		matchIndex = karmas.indexOf(this._record.path.slice(-2)[0]);
+		matchIndex = karmas.indexOf(Calculator._record.path.slice(-2)[0]);
 		if (matchIndex !== -1) matchKarmas.path = karmas[matchIndex];
 
 		return matchKarmas;
 	}
-	CalculatePossibleKarmas() {
+	static CalculatePossibleKarmas() {
 		let numbers = [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ];
 		let missingNumbers = [];
 		//Takes values previously calculated (mission + path) into single sorted array
-		let uniqueArray = this._record.mission[1].concat(this._record.path[0]);
+		let uniqueArray = Calculator._record.mission[1].concat(Calculator._record.path[0]);
 		//uniqueArray = uniqueArray.flat();
 		uniqueArray = uniqueArray.reduce((acc, val) => acc.concat(val), []);
 		uniqueArray = [ ...new Set(uniqueArray) ];
@@ -154,7 +154,7 @@ class Calculator {
 
 		return missingNumbers;
 	}
-	CalculateStages(birthParts, path) {
+	static CalculateStages(birthParts, path) {
 		const base_number = 36;
 		const default_duration = 9;
 		const birthReduced = Convertor.ReduceValueElements(birthParts, true);
@@ -190,7 +190,7 @@ class Calculator {
 
 		return stages;
 	}
-	CalculatePersonalYear(birthParts) {
+	static CalculatePersonalYear(birthParts) {
 		const actualYear = new Date().getFullYear();
 		const values = [ birthParts[0], birthParts[1], actualYear ];
 		const valuesReduced = Convertor.ReduceValueElements(values, true);
@@ -198,17 +198,27 @@ class Calculator {
 		const finalValue = Convertor.ReduceValue(uniqueValue, true);
 		return finalValue;
 	}
-	CalculatePersonalMonth(personalYear) {
+	static CalculatePersonalMonth(personalYear) {
 		const actualMonth = new Date().getMonth() + 1;
 		const finalValue = Convertor.ReduceValue(personalYear + actualMonth, true);
 		return finalValue;
 	}
-	CalculateAgeDigit(age) {
+	static CalculateAgeDigit(age) {
 		let values = [ age, age + 1 ];
 		const valuesReduced = Convertor.ReduceValueElements(values, true);
 		const uniqueValue = Convertor.ReduceArray(valuesReduced);
 		const finalValue = Convertor.ReduceValue(uniqueValue, true);
 		return finalValue;
+	}
+	static CleanRecord() {
+		Calculator._record = {
+			name: [],
+			birth: [],
+			image: [],
+			essence: [],
+			mission: [],
+			path: []
+		};
 	}
 }
 
