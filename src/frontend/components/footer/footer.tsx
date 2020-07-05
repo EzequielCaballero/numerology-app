@@ -1,7 +1,7 @@
 import React from 'react';
 import './footer.css';
 
-const Footer = () => {
+const Footer: React.FunctionComponent = () => {
 	return (
 		<div className="footer-box">
 			<p className="footer-title">

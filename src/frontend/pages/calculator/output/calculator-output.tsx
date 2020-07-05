@@ -1,13 +1,13 @@
 import React from 'react';
 import { RouteComponentProps, Redirect } from 'react-router-dom';
 import Header from '../../../components/header/header';
-import { IModal, ModalMessage } from '../../../components/modal/modal';
+import { TModal, ModalMessage } from '../../../components/modal/modal';
 import Person from '../../../../backend/entity/Person';
 import './calculator-output.css';
 
 type TState = {
 	search: URLSearchParams;
-	modal: IModal;
+	modal: TModal;
 };
 
 class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
@@ -140,14 +140,14 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 	};
 
 	private handleModalContent = (title: string, msg: string[]): void => {
-		let modal: IModal = this.state.modal;
+		let modal: TModal = this.state.modal;
 		modal.text.title = title;
 		modal.text.msg = msg;
 		this.setState({ modal });
 	};
 
 	private showModal = (show: boolean): void => {
-		let modal: IModal = this.state.modal;
+		let modal: TModal = this.state.modal;
 		modal.properties.show = show;
 		this.setState({ modal });
 	};

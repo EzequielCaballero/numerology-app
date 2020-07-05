@@ -1,6 +1,5 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-
 import './err404.css';
 
 const Err404: React.FunctionComponent<RouteComponentProps> = ({ history }) => {

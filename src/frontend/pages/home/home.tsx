@@ -1,15 +1,14 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-//ASSERTS
 import logo from '../../assets/logo-1.png';
 import './home.css';
 
 class HomeView extends React.Component<RouteComponentProps> {
-	goToCalculator = () => {
+	private goToCalculator = () => {
 		this.props.history.push('/calculator');
 	};
 
-	render() {
+	public render() {
 		return (
 			<div className="box">
 				<div className="box-content">

@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-//CSS
+import React from 'react';
 import './about.css';
 
-class About extends Component {
-	render() {
+class About extends React.Component {
+	public render() {
 		return (
 			<div className="box">
 				<div className="box-content">

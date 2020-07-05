@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import './modal.css';
 
-export interface IModal {
+export type TModal = {
 	text: {
 		title: string;
 		msg: string[];
@@ -11,11 +11,9 @@ export interface IModal {
 		show: boolean;
 	};
 	showModal: (show: boolean) => void;
-}
+};
 
-export const ModalMessage = (props: IModal) => {
-	const { text, properties, showModal } = props;
-
+export const ModalMessage: React.FunctionComponent<TModal> = ({ text, properties, showModal }) => {
 	const renderDivMsgs = (): Array<JSX.Element> => {
 		return text.msg.map((text, index) => (
 			<div className="modal-text" key={index}>

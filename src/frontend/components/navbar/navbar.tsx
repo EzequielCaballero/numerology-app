@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import './navbar.css';
 
-const Navbar = () => {
+const Navbar: React.FunctionComponent = () => {
 	const history = useHistory();
 	const location = useLocation();
 	const changeView = (newView: string): void => {

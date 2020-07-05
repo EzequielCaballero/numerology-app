@@ -2,14 +2,14 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import TestConfig from '../../../../tests/App.test.config.json';
 import Header from '../../../components/header/header';
-import { IModal, ModalMessage } from '../../../components/modal/modal';
-import { IName, IBirth, CalculatorForm } from '../../../components/calculator/calculator-form/calculator-form';
+import { TModal, ModalMessage } from '../../../components/modal/modal';
+import { TName, TBirth, FormCalculator } from '../../../components/form/form-calculator/form-calculator';
 import './calculator-input.css';
 
 type TState = {
-	name: IName;
-	birth: IBirth;
-	modal: IModal;
+	name: TName;
+	birth: TBirth;
+	modal: TModal;
 };
 // type StateKeys = keyof TState;
 
@@ -39,17 +39,17 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 		};
 	}
 
-	componentDidMount() {
+	public componentDidMount() {
 		if (TestConfig.active) this.loadTestData();
 	}
 
-	loadTestData() {
+	private loadTestData() {
 		//TEST DATA
-		const testName: IName = {
+		const testName: TName = {
 			firstName: [ TestConfig.data.name[0], TestConfig.data.name[1] ],
 			lastName: [ TestConfig.data.name[2] ]
 		};
-		const testBirth: IBirth = {
+		const testBirth: TBirth = {
 			birthDay: TestConfig.data.birth[0],
 			birthMonth: TestConfig.data.birth[1],
 			birthYear: TestConfig.data.birth[2]
@@ -61,13 +61,13 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 		});
 	}
 
-	handleInputName = (e: React.ChangeEvent<HTMLInputElement>): void => {
+	private handleInputName = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		try {
 			const { name, value } = e.target;
 			const keyState: string = name.split('-')[0];
 			const indexValue: number = Number(name.split('-')[1]);
-			let newState: IName = this.state.name;
-			newState[keyState as keyof IName][indexValue] = value
+			let newState: TName = this.state.name;
+			newState[keyState as keyof TName][indexValue] = value
 				.replace(/\s/g, '')
 				.replace(/[^[A-Za-zÀ-ÖØ-öø-ÿ]/g, '');
 			this.setState({ name: newState });
@@ -76,41 +76,41 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 		}
 	};
 
-	handleInputDate = (e: React.ChangeEvent<HTMLInputElement>): void => {
+	private handleInputDate = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		try {
 			const { name, value } = e.target;
 			const maxLength: number = name === 'birthYear' ? 4 : 2;
-			let newState: IBirth = this.state.birth;
-			newState[name as keyof IBirth] = value.length <= maxLength ? Number(value) : Number(value.slice(0, -1));
+			let newState: TBirth = this.state.birth;
+			newState[name as keyof TBirth] = value.length <= maxLength ? Number(value) : Number(value.slice(0, -1));
 			this.setState({ birth: newState });
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
-	handleAddName = (field: string): void => {
-		if (this.state.name[field as keyof IName].length < 3) {
-			let newState: IName = this.state.name;
-			newState[field as keyof IName].push('');
+	private handleAddName = (field: string): void => {
+		if (this.state.name[field as keyof TName].length < 3) {
+			let newState: TName = this.state.name;
+			newState[field as keyof TName].push('');
 			this.setState({ name: newState });
 		}
 	};
 
-	handleRemoveName = (field: string) => {
-		if (this.state.name[field as keyof IName].length > 1) {
-			let newState: IName = this.state.name;
-			newState[field as keyof IName].pop();
+	private handleRemoveName = (field: string) => {
+		if (this.state.name[field as keyof TName].length > 1) {
+			let newState: TName = this.state.name;
+			newState[field as keyof TName].pop();
 			this.setState({ name: newState });
 		}
 	};
 
-	handleCleanInputs = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+	private handleCleanInputs = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		event.preventDefault();
-		let name: IName = {
+		let name: TName = {
 			firstName: [ '' ],
 			lastName: [ '' ]
 		};
-		let birth: IBirth = {
+		let birth: TBirth = {
 			birthDay: 0,
 			birthMonth: 0,
 			birthYear: 0
@@ -118,7 +118,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 		this.setState({ name, birth });
 	};
 
-	handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+	private handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		e.stopPropagation();
 		if (this.validateForm()) this.goToResultView();
@@ -131,17 +131,17 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 		}
 	};
 
-	validateForm = (): boolean => {
+	private validateForm = (): boolean => {
 		if (this.validateNameInput() && this.validateDateInput()) return true;
 		return false;
 	};
 
-	validateNameInput = (): boolean => {
+	private validateNameInput = (): boolean => {
 		if (this.state.name.firstName[0] !== '' && this.state.name.lastName[0] !== '') return true;
 		return false;
 	};
 
-	validateDateInput = (): boolean => {
+	private validateDateInput = (): boolean => {
 		if (
 			this.state.birth.birthDay !== 0 &&
 			this.state.birth.birthDay > 0 &&
@@ -157,7 +157,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 		return false;
 	};
 
-	formatInput_name = (): string => {
+	private formatInput_name = (): string => {
 		let fullname: string = '';
 		for (let subname of this.state.name.firstName) {
 			if (subname !== '') fullname += `${subname}-`;
@@ -169,24 +169,24 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 		return fullname;
 	};
 
-	formatInput_birth = (): string => {
+	private formatInput_birth = (): string => {
 		return `${this.state.birth.birthYear}-${this.state.birth.birthMonth}-${this.state.birth.birthDay}`;
 	};
 
-	handleModalContent = (title: string, msg: string[]): void => {
-		let modal: IModal = this.state.modal;
+	private handleModalContent = (title: string, msg: string[]): void => {
+		let modal: TModal = this.state.modal;
 		modal.text.title = title;
 		modal.text.msg = msg;
 		this.setState({ modal });
 	};
 
-	showModal = (show: boolean): void => {
-		let modal: IModal = this.state.modal;
+	private showModal = (show: boolean): void => {
+		let modal: TModal = this.state.modal;
 		modal.properties.show = show;
 		this.setState({ modal });
 	};
 
-	goToResultView = (): void => {
+	private goToResultView = (): void => {
 		const params = `?name=${this.formatInput_name()}&birth=${this.formatInput_birth()}`;
 		this.props.history.push({
 			pathname: '/calculator/result',
@@ -194,7 +194,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 		});
 	};
 
-	render() {
+	public render() {
 		return (
 			<div className="box">
 				<div className="box-content">
@@ -204,10 +204,12 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 						properties={this.state.modal.properties}
 						showModal={this.state.modal.showModal}
 					/>
+
 					{/* INTRO */}
 					<Header title="CALCULADORA" />
+
 					{/* CALCULATOR FORM */}
-					<CalculatorForm
+					<FormCalculator
 						name={this.state.name}
 						birth={this.state.birth}
 						handleInputName={this.handleInputName}

@@ -2,31 +2,31 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
-import './calculator-form.css';
+import './form-calculator.css';
 
-export interface IName {
+export type TName = {
 	firstName: string[];
 	lastName: string[];
-}
+};
 
-export interface IBirth {
+export type TBirth = {
 	birthDay: number;
 	birthMonth: number;
 	birthYear: number;
-}
+};
 
-interface IFormProps {
-	name: IName;
-	birth: IBirth;
+type TProps = {
+	name: TName;
+	birth: TBirth;
 	handleInputName: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	handleInputDate: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	handleAddName: (keyName: string) => void;
 	handleRemoveName: (keyName: string) => void;
 	handleCleanInputs: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 	handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-}
+};
 
-export const CalculatorForm = (props: IFormProps) => {
+export const FormCalculator: React.FunctionComponent<TProps> = (props: TProps) => {
 	const {
 		name,
 		birth,
@@ -40,7 +40,7 @@ export const CalculatorForm = (props: IFormProps) => {
 
 	return (
 		<Form
-			className="calculator-form"
+			className="form-calculator"
 			autoComplete="false"
 			onSubmit={(event: React.FormEvent<HTMLFormElement>) => handleSubmit(event)}
 			noValidate
