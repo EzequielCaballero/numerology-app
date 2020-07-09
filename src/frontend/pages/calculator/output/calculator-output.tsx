@@ -113,7 +113,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 				break;
 			case 'stages':
 				for (let stage of this.person.etapas) {
-					newMsg.push(`${stage.num}° | ${stage.from} -> ${stage.to} = ${stage.value}`);
+					newMsg.push(`${stage.num}° | ${stage.from} -> ${stage.to === 0 ? '∞' : stage.to} = ${stage.value}`);
 				}
 				this.handleModalContent('Detalle de etapas...', newMsg);
 				break;
