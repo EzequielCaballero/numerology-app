@@ -1,4 +1,3 @@
-//SERVICE: executes the work (business logic and rules behind the program)
 import alphabetKeys from '../data/alphabet_keys.json';
 import monthKeys from '../data/month_keys.json';
 

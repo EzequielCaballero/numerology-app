@@ -1,5 +1,4 @@
-//CONTROLLER: managers/orchestrates the work using the service
-import Convertor from '../services/convertor';
+import Convertor from './convertor';
 import { TStage, TKarma } from '../entity/iperson';
 
 type TRecord = {
