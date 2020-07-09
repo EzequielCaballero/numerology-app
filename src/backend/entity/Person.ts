@@ -1,5 +1,5 @@
-import { TStage, TKarma, IPerson } from './IPerson';
-import Calculator from '../controllers/Calculator';
+import { TStage, TKarma, IPerson } from './iperson';
+import Calculator from '../controllers/calculator';
 
 class Person implements IPerson {
 	nombre: string[];
