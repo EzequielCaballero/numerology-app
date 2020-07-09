@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 //COMPONENTS
 import Navbar from './components/navbar/navbar';
 import Footer from './components/footer/footer';
-import Routes from '../backend/routes/routes';
+import { Routes } from '../backend/sitemap/routes';
 import Err404 from './components/err404/err404';
 //BASIC STYLE
 import './App-variables.css';
@@ -19,9 +19,9 @@ function App() {
 			</header>
 			<main className="site-content">
 				<Switch>
-					{Routes.map(({ path, exact, component: Component, ...rest }) => (
+					{Routes.map(({ key, path, exact, component: Component, ...rest }) => (
 						<Route
-							key={path}
+							key={key}
 							path={path}
 							exact={exact}
 							render={(props) => <Component {...props} {...rest} />}

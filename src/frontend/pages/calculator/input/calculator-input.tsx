@@ -1,5 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import { RoutePath } from '../../../../backend/sitemap/routes';
 import TestConfig from '../../../../tests/App.test.config.json';
 import Header from '../../../components/header/header';
 import { TModal, ModalMessage } from '../../../components/modal/modal';
@@ -189,7 +190,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 	private goToResultView = (): void => {
 		const params = `?name=${this.formatInput_name()}&birth=${this.formatInput_birth()}`;
 		this.props.history.push({
-			pathname: '/calculator/result',
+			pathname: RoutePath.COutput,
 			search: params
 		});
 	};

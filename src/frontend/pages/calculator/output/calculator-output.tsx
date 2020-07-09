@@ -1,8 +1,9 @@
 import React from 'react';
 import { RouteComponentProps, Redirect } from 'react-router-dom';
+import { RoutePath } from '../../../../backend/sitemap/routes';
 import Header from '../../../components/header/header';
 import { TModal, ModalMessage } from '../../../components/modal/modal';
-import Person from '../../../../backend/entity/Person';
+import Person from '../../../../backend/entity/person';
 import './calculator-output.css';
 
 type TState = {
@@ -155,7 +156,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 	private goToInputView = (): void => {
 		const params = `?name=${this.nameParam}&birth=${this.birthParam}`;
 		this.props.history.push({
-			pathname: '/calculator/input',
+			pathname: RoutePath.CInput,
 			search: params
 		});
 	};

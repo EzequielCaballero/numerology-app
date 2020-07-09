@@ -1,11 +1,12 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import { RoutePath } from '../../../backend/sitemap/routes';
 import logo from '../../assets/logo-1.png';
 import './home.css';
 
 class HomeView extends React.Component<RouteComponentProps> {
 	private goToCalculator = () => {
-		this.props.history.push('/calculator');
+		this.props.history.push(RoutePath.CInput);
 	};
 
 	public render() {

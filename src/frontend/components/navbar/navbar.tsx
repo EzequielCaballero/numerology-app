@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+import { RoutePath } from '../../../backend/sitemap/routes';
 import './navbar.css';
 
 const Navbar: React.FunctionComponent = () => {
@@ -13,7 +14,8 @@ const Navbar: React.FunctionComponent = () => {
 
 	useEffect(
 		() => {
-			const currentPath = location.pathname === '/' ? 'home' : location.pathname.split('/')[1];
+			const currentPath =
+				location.pathname === '/' ? RoutePath.Home.split('/')[1] : location.pathname.split('/')[1];
 			document.querySelectorAll('.nav-custom-links > button').forEach((btn) => {
 				btn.classList.remove('active-route');
 			});
@@ -28,7 +30,7 @@ const Navbar: React.FunctionComponent = () => {
 			<input type="checkbox" id="nav-custom-check" />
 			<div className="nav-custom-header">
 				<div className="nav-custom-icon">
-					<button onClick={() => changeView('/home')}>
+					<button onClick={() => changeView(RoutePath.Home)}>
 						<svg
 							id="home_icon"
 							version="1.1"
@@ -57,16 +59,16 @@ const Navbar: React.FunctionComponent = () => {
 			</div>
 
 			<div className="nav-custom-links">
-				<button id="route_home" onClick={() => changeView('/home')}>
+				<button id="route_home" onClick={() => changeView(RoutePath.Home)}>
 					Inicio
 				</button>
-				<button id="route_calculator" onClick={() => changeView('/calculator')}>
+				<button id="route_calculator" onClick={() => changeView(RoutePath.CInput)}>
 					Calculadora
 				</button>
-				<button id="route_about" onClick={() => changeView('/about')}>
+				<button id="route_about" onClick={() => changeView(RoutePath.About)}>
 					¿Cómo funciona?
 				</button>
-				<button id="route_contact" onClick={() => changeView('/contact')}>
+				<button id="route_contact" onClick={() => changeView(RoutePath.Contact)}>
 					Contacto
 				</button>
 			</div>

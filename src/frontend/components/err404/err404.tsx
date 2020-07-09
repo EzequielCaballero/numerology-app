@@ -1,10 +1,11 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import { RoutePath } from '../../../backend/sitemap/routes';
 import './err404.css';
 
 const Err404: React.FunctionComponent<RouteComponentProps> = ({ history }) => {
 	const backToHome = () => {
-		history.push('/home');
+		history.push(RoutePath.Home);
 	};
 
 	return (
