@@ -20,7 +20,7 @@ type Route = {
 	component: React.ComponentClass<any>;
 };
 
-export const Routes: Array<Route> = [
+export const Routes: Route[] = [
 	{
 		key: RoutePath.Home,
 		path: '/(|home)',
