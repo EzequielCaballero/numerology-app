@@ -1,5 +1,7 @@
 import { TStage, TKarma, IPerson } from './iperson';
-import Calculator from '../services/calculator';
+import Convertor from '../services/convertor';
+import Calculator, { TRecord } from '../services/calculator';
+import Validator, { TName, TBirth } from '../services/validator';
 
 class Person implements IPerson {
 	nombre: string[];
@@ -18,20 +20,21 @@ class Person implements IPerson {
 	mes_personal: number = 0;
 	digito_edad: number = 0;
 
-	constructor(name: string, birth: string) {
-		if (name !== '' && birth !== '') {
-			Calculator.CleanRecord();
-			this.nombre = Calculator.FormatName(name);
-			this.nacimiento = Calculator.FormatBirth(birth);
+	constructor(name: TName, birth: TBirth) {
+		if (Validator.ValidateName(name) && Validator.ValidateDate(birth)) {
+			this.nombre = Convertor.FormatNameToArray(name);
+			this.nacimiento = Convertor.FormatDateToArray(birth);
 		} else {
 			this.nombre = [];
 			this.nacimiento = [];
 		}
 	}
 
-	public calculateValues(): any {
+	public calculateValues(): TRecord {
 		try {
+			Calculator.CleanRecord();
 			if (this.nombre.length !== 0 && this.nacimiento.length !== 0) {
+				Calculator.InitRecord(this.nombre, this.nacimiento);
 				this.edad = Calculator.CalculateAge(this.nacimiento);
 				this.imagen = Calculator.CalculateImage(this.nombre);
 				this.esencia = Calculator.CalculateEssence(this.nombre);
@@ -46,9 +49,10 @@ class Person implements IPerson {
 				this.mes_personal = Calculator.CalculatePersonalMonth(this.ano_personal);
 				this.digito_edad = Calculator.CalculateAgeDigit(this.edad);
 			}
-			return Calculator._record;
 		} catch (error) {
 			console.error(`Error calculating person values. Detail: ${error}`);
+		} finally {
+			return Calculator._record;
 		}
 	}
 }

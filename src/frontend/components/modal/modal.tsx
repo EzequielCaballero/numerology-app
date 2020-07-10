@@ -13,7 +13,7 @@ export type TModal = {
 	showModal: (show: boolean) => void;
 };
 
-export const ModalMessage: React.FunctionComponent<TModal> = ({ text, properties, showModal }) => {
+const ModalMessage: React.FunctionComponent<TModal> = ({ text, properties, showModal }) => {
 	const renderDivMsgs = (): Array<JSX.Element> => {
 		return text.msg.map((text, index) => (
 			<div className="modal-text" key={index}>
@@ -47,3 +47,5 @@ export const ModalMessage: React.FunctionComponent<TModal> = ({ text, properties
 		</Modal>
 	);
 };
+
+export default ModalMessage;

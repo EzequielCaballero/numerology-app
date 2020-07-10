@@ -2,25 +2,31 @@ import React from 'react';
 import { RouteComponentProps, Redirect } from 'react-router-dom';
 import { RoutePath } from '../../../../backend/sitemap/routes';
 import Header from '../../../components/header/header';
-import { TModal, ModalMessage } from '../../../components/modal/modal';
+import ModalMessage, { TModal } from '../../../components/modal/modal';
+import { TRecord } from '../../../../backend/services/calculator';
+import Validator, { TName, TBirth } from '../../../../backend/services/validator';
+import URLHandler from '../../../../backend/services/urlhandler';
 import Person from '../../../../backend/entity/person';
 import './calculator-output.css';
 
 type TState = {
-	search: URLSearchParams;
 	modal: TModal;
 };
 
 class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
-	private nameParam: string;
-	private birthParam: string;
+	private nameParam: TName;
+	private birthParam: TBirth;
 	private person: Person;
-	private record: any;
+	private record: TRecord;
 
 	constructor(props: RouteComponentProps) {
 		super(props);
+		URLHandler.setLocation(this.props.location.search);
+		this.nameParam = URLHandler.getParamName();
+		this.birthParam = URLHandler.getParamBirth();
+		this.person = new Person(this.nameParam, this.birthParam);
+		this.record = this.person.calculateValues();
 		this.state = {
-			search: new URLSearchParams(this.props.location.search),
 			modal: {
 				text: {
 					title: '',
@@ -32,35 +38,21 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 				showModal: this.showModal
 			}
 		};
-		this.nameParam = this.getParamName();
-		this.birthParam = this.getParamBirth();
-		this.person = new Person(this.nameParam, this.birthParam);
-		this.record = this.person.calculateValues();
 	}
 
 	public componentDidMount() {}
 
-	private getParamName = (): string => {
-		const param: string = this.state.search.get('name') ? this.state.search.get('name') as string : '';
-		return param;
+	private getFullnameText = (): JSX.Element[] => {
+		return this.person.nombre.map((name: string, index: number) => <span key={index}>{name.toLowerCase()} </span>);
 	};
 
-	private getParamBirth = (): string => {
-		const param: string = this.state.search.get('birth') ? this.state.search.get('birth') as string : '';
-		return param;
-	};
-
-	private getFullname = (): JSX.Element[] => {
-		return this.nameParam
-			.split('-')
-			.map((name: string, index: number) => <span key={index}>{name.toLowerCase()} </span>);
-	};
-
-	private getBirthdate = (): string => {
-		const birth: Date = new Date(this.birthParam);
-		return `${('0' + birth.getDate()).slice(-2)}/
-        ${('0' + (birth.getMonth() + 1)).slice(-2)}/
-        ${birth.getFullYear()}`;
+	private getBirthdateText = (): string => {
+		const birth: Date = new Date(
+			`${this.person.nacimiento[2]}-${this.person.nacimiento[1]}-${this.person.nacimiento[0]}`
+		);
+		return `${('0' + birth.getDate()).slice(-2)}/${('0' + (birth.getMonth() + 1)).slice(
+			-2
+		)}/${birth.getFullYear()}`;
 	};
 
 	private showDetail = (type: string): void => {
@@ -154,16 +146,15 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 	};
 
 	private goToInputView = (): void => {
-		const params = `?name=${this.nameParam}&birth=${this.birthParam}`;
 		this.props.history.push({
 			pathname: RoutePath.CInput,
-			search: params
+			search: URLHandler.generateURLwithParams(this.nameParam, this.birthParam)
 		});
 	};
 
 	public render() {
-		if (this.nameParam === '' || this.birthParam === '')
-			return <Redirect from={this.props.location.pathname} exact to="/calculator/input" />;
+		if (!Validator.ValidateName(this.nameParam) || !Validator.ValidateDate(this.birthParam))
+			return <Redirect from={this.props.location.pathname} exact to={RoutePath.CInput} />;
 
 		return (
 			<div className="box">
@@ -194,8 +185,8 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 							<button className="btn-action">Reporte</button>
 						</div>
 						<div className="result-person">
-							<p id="input-name">{this.getFullname()}</p>
-							<p id="input-date">{this.getBirthdate()}</p>
+							<p id="input-name">{this.getFullnameText()}</p>
+							<p id="input-date">{this.getBirthdateText()}</p>
 						</div>
 						<div className="result-detail">
 							<div title="image" className="result-detail-item">

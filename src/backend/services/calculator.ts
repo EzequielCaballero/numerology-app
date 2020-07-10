@@ -1,7 +1,7 @@
 import Convertor from './convertor';
 import { TStage, TKarma } from '../entity/iperson';
 
-type TRecord = {
+export type TRecord = {
 	name: string[];
 	birth: number[];
 	image: any[]; //dynamic multitype
@@ -22,16 +22,11 @@ class Calculator {
 	};
 
 	//METHODS
-	public static FormatName(fullname: string): string[] {
-		const newFormat = Convertor.FormatNameToArray(fullname);
-		Calculator._record.name = newFormat;
-		return newFormat;
+	public static InitRecord(name: string[], birth: number[]): void {
+		Calculator._record.name = name;
+		Calculator._record.birth = birth;
 	}
-	public static FormatBirth(birth: string): number[] {
-		const newFormat: number[] = Convertor.FormatDateToArray(birth);
-		Calculator._record.birth = newFormat;
-		return newFormat;
-	}
+
 	public static CalculateAge(birthDate: number[]): number {
 		const today: Date = new Date();
 		const month: number = today.getMonth() - (birthDate[1] - 1);
@@ -221,6 +216,7 @@ class Calculator {
 		const finalValue: number = Convertor.ReduceValue(uniqueValue, true);
 		return finalValue;
 	}
+
 	public static CleanRecord(): void {
 		Calculator._record = {
 			name: [],

@@ -3,9 +3,11 @@ import { RouteComponentProps } from 'react-router-dom';
 import { RoutePath } from '../../../../backend/sitemap/routes';
 import TestConfig from '../../../../tests/App.test.config.json';
 import Header from '../../../components/header/header';
-import { TModal, ModalMessage } from '../../../components/modal/modal';
-import { TName, TBirth, FormCalculator } from '../../../components/form/form-calculator/form-calculator';
+import ModalMessage, { TModal } from '../../../components/modal/modal';
+import FormCalculator from '../../../components/form/form-calculator/form-calculator';
+import Validator, { TName, TBirth } from '../../../../backend/services/validator';
 import './calculator-input.css';
+import URLHandler from '../../../../backend/services/urlhandler';
 
 type TState = {
 	name: TName;
@@ -15,18 +17,17 @@ type TState = {
 // type StateKeys = keyof TState;
 
 class CalculatorInput extends React.Component<RouteComponentProps, TState> {
+	private nameParam: TName;
+	private birthParam: TBirth;
+
 	constructor(props: RouteComponentProps) {
 		super(props);
+		URLHandler.setLocation(this.props.location.search);
+		this.nameParam = URLHandler.getParamName();
+		this.birthParam = URLHandler.getParamBirth();
 		this.state = {
-			name: {
-				firstName: [ '' ],
-				lastName: [ '' ]
-			},
-			birth: {
-				birthDay: 0,
-				birthMonth: 0,
-				birthYear: 0
-			},
+			name: this.nameParam,
+			birth: this.birthParam,
 			modal: {
 				text: {
 					title: '',
@@ -122,7 +123,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 	private handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		e.stopPropagation();
-		if (this.validateForm()) this.goToResultView();
+		if (Validator.ValidateName(this.state.name) && Validator.ValidateDate(this.state.birth)) this.goToResultView();
 		else {
 			let newMsg: string[] = [];
 			newMsg.push('Por favor revisar los campos mandatorios');
@@ -130,48 +131,6 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 			this.handleModalContent('Información incorrecta', newMsg);
 			this.showModal(true);
 		}
-	};
-
-	private validateForm = (): boolean => {
-		if (this.validateNameInput() && this.validateDateInput()) return true;
-		return false;
-	};
-
-	private validateNameInput = (): boolean => {
-		if (this.state.name.firstName[0] !== '' && this.state.name.lastName[0] !== '') return true;
-		return false;
-	};
-
-	private validateDateInput = (): boolean => {
-		if (
-			this.state.birth.birthDay !== 0 &&
-			this.state.birth.birthDay > 0 &&
-			this.state.birth.birthDay <= 31 &&
-			this.state.birth.birthMonth !== 0 &&
-			this.state.birth.birthMonth > 0 &&
-			this.state.birth.birthMonth <= 12 &&
-			this.state.birth.birthYear !== 0 &&
-			this.state.birth.birthYear >= 1000
-		)
-			return true;
-
-		return false;
-	};
-
-	private formatInput_name = (): string => {
-		let fullname: string = '';
-		for (let subname of this.state.name.firstName) {
-			if (subname !== '') fullname += `${subname}-`;
-		}
-		for (let subname of this.state.name.lastName) {
-			if (subname !== '') fullname += `${subname}-`;
-		}
-		fullname = fullname.slice(0, -1);
-		return fullname;
-	};
-
-	private formatInput_birth = (): string => {
-		return `${this.state.birth.birthYear}-${this.state.birth.birthMonth}-${this.state.birth.birthDay}`;
 	};
 
 	private handleModalContent = (title: string, msg: string[]): void => {
@@ -188,10 +147,9 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 	};
 
 	private goToResultView = (): void => {
-		const params = `?name=${this.formatInput_name()}&birth=${this.formatInput_birth()}`;
 		this.props.history.push({
 			pathname: RoutePath.COutput,
-			search: params
+			search: URLHandler.generateURLwithParams(this.state.name, this.state.birth)
 		});
 	};
 

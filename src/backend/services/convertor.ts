@@ -1,17 +1,14 @@
+import { TName, TBirth } from './validator';
 import alphabetKeys from '../data/alphabet_keys.json';
 import monthKeys from '../data/month_keys.json';
 
 class Convertor {
-	public static FormatNameToArray(name: string): string[] {
-		let nameParts = name
-			//Delete whitespaces
-			.replace(/\s/g, '')
-			//Split string to parts
-			.split('-');
+	public static FormatNameToArray(name: TName): string[] {
+		let _fullname = name.firstName.concat(name.lastName);
 
-		for (let i = 0; i < nameParts.length; i++) {
-			const subname = nameParts[i];
-			nameParts[i] = subname
+		for (let i = 0; i < _fullname.length; i++) {
+			const subname = _fullname[i];
+			_fullname[i] = subname
 				//Normalize string
 				.normalize('NFD')
 				//Replace special characters
@@ -22,11 +19,11 @@ class Convertor {
 				.toUpperCase();
 		}
 
-		return nameParts;
+		return _fullname;
 	}
-	public static FormatDateToArray(date: string): number[] {
+	public static FormatDateToArray(date: TBirth): number[] {
+		const birth = new Date(`${date.birthYear}-${date.birthMonth}-${date.birthDay}`);
 		//FORMAT: es_AR
-		const birth = new Date(date);
 		let dateValues: number[] = [ birth.getDate(), birth.getMonth() + 1, birth.getFullYear() ];
 		return dateValues;
 	}
