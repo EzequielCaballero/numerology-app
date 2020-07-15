@@ -20,7 +20,7 @@ const Navbar: React.FunctionComponent = () => {
 				btn.classList.remove('active-route');
 			});
 			const buttonLink: HTMLButtonElement = document.getElementById(`route_${currentPath}`) as HTMLButtonElement;
-			buttonLink.classList.add('active-route');
+			if (buttonLink) buttonLink.classList.add('active-route');
 		},
 		[ location ]
 	);
