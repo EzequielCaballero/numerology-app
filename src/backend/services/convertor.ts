@@ -3,12 +3,18 @@ import alphabetKeys from '../data/alphabet_keys.json';
 import monthKeys from '../data/month_keys.json';
 
 class Convertor {
-	public static FormatNameToArray(name: TName): string[] {
-		let _fullname = name.firstName.concat(name.lastName);
-
-		for (let i = 0; i < _fullname.length; i++) {
-			const subname = _fullname[i];
-			_fullname[i] = subname
+	public static CleanString(value: string): string {
+		return (
+			value
+				//Remove empty spaces
+				.replace(/\s/g, '')
+				//Remove special characters
+				.replace(/[^[A-Za-zÀ-ÖØ-öø-ÿ]/g, '')
+		);
+	}
+	public static CleanStringDeeper(value: string): string {
+		return (
+			value
 				//Normalize string
 				.normalize('NFD')
 				//Replace special characters
@@ -16,7 +22,21 @@ class Convertor {
 				//Select only alphabetical values
 				.replace(/[^[a-zA-Z]/g, '')
 				//Transform to upper case
-				.toUpperCase();
+				.toUpperCase()
+		);
+	}
+	public static FormatName(name: TName): TName {
+		let nameCleaned: TName = JSON.parse(JSON.stringify(name));
+		nameCleaned.firstName = name.firstName.map((subname) => Convertor.CleanString(subname));
+		nameCleaned.lastName = name.lastName.map((subname) => Convertor.CleanString(subname));
+		return nameCleaned;
+	}
+	public static FormatNameToArray(name: TName): string[] {
+		let _fullname = name.firstName.concat(name.lastName);
+
+		for (let i = 0; i < _fullname.length; i++) {
+			const subname = _fullname[i];
+			_fullname[i] = Convertor.CleanStringDeeper(subname);
 		}
 
 		return _fullname;

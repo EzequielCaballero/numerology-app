@@ -6,8 +6,8 @@ import Header from '../../../components/header/header';
 import ModalMessage, { TModal } from '../../../components/modal/modal';
 import FormCalculator from '../../../components/form/form-calculator/form-calculator';
 import Validator, { TName, TBirth } from '../../../../backend/services/validator';
-import './calculator-input.css';
 import URLHandler from '../../../../backend/services/urlhandler';
+import './calculator-input.css';
 
 type TState = {
 	name: TName;

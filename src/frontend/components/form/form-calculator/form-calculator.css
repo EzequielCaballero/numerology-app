@@ -13,6 +13,11 @@
 	margin: 3px;
 }
 
+input[name^="firstName"],
+input[name^="lastName"] {
+	text-transform: capitalize;
+}
+
 /* OUTPUT */
 
 .form-output {

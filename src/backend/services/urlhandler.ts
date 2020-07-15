@@ -1,4 +1,5 @@
 import { TName, TBirth } from './validator';
+import Convertor from './convertor';
 
 enum URLparams {
 	firstname = 'firstname',
@@ -29,7 +30,7 @@ class URLHandler {
 			};
 		}
 
-		return param;
+		return Convertor.FormatName(param);
 	};
 
 	public static getParamBirth = (): TBirth => {

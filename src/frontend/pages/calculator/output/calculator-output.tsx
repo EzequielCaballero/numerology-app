@@ -43,7 +43,8 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 	public componentDidMount() {}
 
 	private getFullnameText = (): JSX.Element[] => {
-		return this.person.nombre.map((name: string, index: number) => <span key={index}>{name.toLowerCase()} </span>);
+		let fullname: string[] = this.nameParam.firstName.concat(this.nameParam.lastName);
+		return fullname.map((name: string, index: number) => <span key={index}>{name.toLowerCase()} </span>);
 	};
 
 	private getBirthdateText = (): string => {
