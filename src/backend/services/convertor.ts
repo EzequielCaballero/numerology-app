@@ -43,8 +43,8 @@ class Convertor {
 	}
 	public static FormatDateToArray(date: TBirth): number[] {
 		const birth = new Date(`${date.birthYear}-${date.birthMonth}-${date.birthDay}`);
-		//FORMAT: es_AR
-		let dateValues: number[] = [ birth.getDate(), birth.getMonth() + 1, birth.getFullYear() ];
+		//FORMAT: YMD
+		let dateValues: number[] = [ birth.getFullYear(), birth.getMonth() + 1, birth.getDate() ];
 		return dateValues;
 	}
 
@@ -88,7 +88,7 @@ class Convertor {
 	}
 	public static MatchMonthKeys(birthParts: number[]): number {
 		//Match only the day of birth with the specific personal key month
-		let matchValue = monthKeys.month[birthParts[1] - 1][birthParts[0] - 1];
+		let matchValue = monthKeys.month[birthParts[1] - 1][birthParts[2] - 1];
 		return matchValue;
 	}
 	public static GetNumerologyPosition(alphabetPosition: number): number {

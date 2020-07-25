@@ -30,8 +30,8 @@ class Calculator {
 	public static CalculateAge(birthDate: number[]): number {
 		const today: Date = new Date();
 		const month: number = today.getMonth() - (birthDate[1] - 1);
-		let age: number = today.getFullYear() - birthDate[2];
-		if (month < 0 || (month === 0 && today.getDate() < birthDate[0])) {
+		let age: number = today.getFullYear() - birthDate[0];
+		if (month < 0 || (month === 0 && today.getDate() < birthDate[2])) {
 			age--;
 		}
 		return age;
@@ -198,7 +198,7 @@ class Calculator {
 	}
 	public static CalculatePersonalYear(birthParts: number[]): number {
 		const actualYear: number = new Date().getFullYear();
-		const values: number[] = [ birthParts[0], birthParts[1], actualYear ];
+		const values: number[] = [ actualYear, birthParts[1], birthParts[2] ];
 		const valuesReduced: number[] = Convertor.ReduceValueElements(values, true);
 		const uniqueValue: number = Convertor.ReduceArray(valuesReduced);
 		const finalValue: number = Convertor.ReduceValue(uniqueValue, true);

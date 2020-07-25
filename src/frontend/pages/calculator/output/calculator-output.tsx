@@ -49,7 +49,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 
 	private getBirthdateText = (): string => {
 		const birth: Date = new Date(
-			`${this.person.nacimiento[2]}-${this.person.nacimiento[1]}-${this.person.nacimiento[0]}`
+			`${this.person.nacimiento[0]}-${this.person.nacimiento[1]}-${this.person.nacimiento[2]}`
 		);
 		return `${('0' + birth.getDate()).slice(-2)}/${('0' + (birth.getMonth() + 1)).slice(
 			-2
@@ -89,7 +89,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 				this.handleModalContent('Cálculo de sendero...', newMsg);
 				break;
 			case 'personalKey':
-				newMsg.push(`${this.person.nacimiento[0]} -> ${this.person.clave_personal}`);
+				newMsg.push(`${this.person.nacimiento[2]} -> ${this.person.clave_personal}`);
 				this.handleModalContent('Detalle de clave personal...', newMsg);
 				break;
 			case 'potentialNumber':
@@ -112,7 +112,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 				break;
 			case 'personalYear':
 				newMsg.push(
-					`${this.person.nacimiento[0]} + ${this.person.nacimiento[1]} + ${new Date().getFullYear()} = ${this
+					`${this.person.nacimiento[2]} + ${this.person.nacimiento[1]} + ${new Date().getFullYear()} = ${this
 						.person.ano_personal}`
 				);
 				this.handleModalContent('Detalle del año personal...', newMsg);
