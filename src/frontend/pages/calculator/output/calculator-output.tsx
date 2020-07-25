@@ -49,7 +49,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 
 	private getBirthdateText = (): string => {
 		const birth: Date = new Date(
-			`${this.person.nacimiento[0]}-${this.person.nacimiento[1]}-${this.person.nacimiento[2]}`
+			`${this.person.birthdate[0]}-${this.person.birthdate[1]}-${this.person.birthdate[2]}`
 		);
 		return `${('0' + birth.getDate()).slice(-2)}/${('0' + (birth.getMonth() + 1)).slice(
 			-2
@@ -89,11 +89,11 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 				this.handleModalContent('Cálculo de sendero...', newMsg);
 				break;
 			case 'personalKey':
-				newMsg.push(`${this.person.nacimiento[2]} -> ${this.person.clave_personal}`);
+				newMsg.push(`${this.person.birthdate[2]} -> ${this.person.personal_key}`);
 				this.handleModalContent('Detalle de clave personal...', newMsg);
 				break;
 			case 'potentialNumber':
-				newMsg.push(`${this.person.mision} + ${this.person.sendero_natal} = ${this.person.numero_potencial}`);
+				newMsg.push(`${this.person.mission} + ${this.person.natal_path} = ${this.person.potential_number}`);
 				this.handleModalContent('Detalle del número potencial...', newMsg);
 				break;
 			case 'karmas':
@@ -101,29 +101,31 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 				newMsg.push(`Misión: ${this.person.karmas.mission}`);
 				newMsg.push(`Sendero: ${this.person.karmas.path}`);
 				newMsg.push('---');
-				newMsg.push(`Números faltantes: ${this.person.posibles_karmas}`);
+				newMsg.push(`Números faltantes: ${this.person.possible_karmas}`);
 				this.handleModalContent('Detalle de karmas...', newMsg);
 				break;
 			case 'stages':
-				for (let stage of this.person.etapas) {
+				for (let stage of this.person.stages) {
 					newMsg.push(`${stage.num}° | ${stage.from} -> ${stage.to === 0 ? '∞' : stage.to} = ${stage.value}`);
 				}
 				this.handleModalContent('Detalle de etapas...', newMsg);
 				break;
 			case 'personalYear':
 				newMsg.push(
-					`${this.person.nacimiento[2]} + ${this.person.nacimiento[1]} + ${new Date().getFullYear()} = ${this
-						.person.ano_personal}`
+					`${this.person.birthdate[2]} + ${this.person.birthdate[1]} + ${new Date().getFullYear()} = ${this
+						.person.personal_year}`
 				);
 				this.handleModalContent('Detalle del año personal...', newMsg);
 				break;
 			case 'personalMonth':
-				newMsg.push(`${this.person.ano_personal} + ${new Date().getMonth() + 1} = ${this.person.mes_personal}`);
+				newMsg.push(
+					`${this.person.personal_year} + ${new Date().getMonth() + 1} = ${this.person.personal_month}`
+				);
 				newMsg.push('(año personal + mes actual)');
 				this.handleModalContent('Detalle del mes personal...', newMsg);
 				break;
 			case 'ageDigit':
-				newMsg.push(`${this.person.edad} + ${this.person.edad + 1} = ${this.person.digito_edad}`);
+				newMsg.push(`${this.person.age} + ${this.person.age + 1} = ${this.person.age_digit}`);
 				newMsg.push('(edad actual + edad próxima)');
 				this.handleModalContent('Detalle de digito de edad...', newMsg);
 				break;
@@ -192,7 +194,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 						<div className="result-detail">
 							<div title="image" className="result-detail-item">
 								<span className="r-title">Imagen</span>
-								<span className="r-value">{this.person.imagen}</span>
+								<span className="r-value">{this.person.image}</span>
 								<span
 									className="r-expand"
 									role="img"
@@ -204,7 +206,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 							</div>
 							<div title="essence" className="result-detail-item">
 								<span className="r-title">Esencia</span>
-								<span className="r-value">{this.person.esencia}</span>
+								<span className="r-value">{this.person.essence}</span>
 								<span
 									className="r-expand"
 									role="img"
@@ -216,7 +218,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 							</div>
 							<div title="mission" className="result-detail-item">
 								<span className="r-title">Misión</span>
-								<span className="r-value">{this.person.mision}</span>
+								<span className="r-value">{this.person.mission}</span>
 								<span
 									className="r-expand"
 									role="img"
@@ -228,7 +230,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 							</div>
 							<div title="path" className="result-detail-item">
 								<span className="r-title">Sendero</span>
-								<span className="r-value">{this.person.sendero_natal}</span>
+								<span className="r-value">{this.person.natal_path}</span>
 								<span
 									className="r-expand"
 									role="img"
@@ -240,7 +242,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 							</div>
 							<div title="personalKey" className="result-detail-item">
 								<span className="r-title">Clave</span>
-								<span className="r-value">{this.person.clave_personal}</span>
+								<span className="r-value">{this.person.personal_key}</span>
 								<span
 									className="r-expand"
 									role="img"
@@ -252,7 +254,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 							</div>
 							<div title="potentialNumber" className="result-detail-item">
 								<span className="r-title">Potencial</span>
-								<span className="r-value">{this.person.numero_potencial}</span>
+								<span className="r-value">{this.person.potential_number}</span>
 								<span
 									className="r-expand"
 									role="img"
@@ -288,7 +290,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 							</div>
 							<div title="personalYear" className="result-detail-item">
 								<span className="r-title">Año personal</span>
-								<span className="r-value">{this.person.ano_personal}</span>
+								<span className="r-value">{this.person.personal_year}</span>
 								<span
 									className="r-expand"
 									role="img"
@@ -300,7 +302,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 							</div>
 							<div title="personalMonth" className="result-detail-item">
 								<span className="r-title">Mes personal</span>
-								<span className="r-value">{this.person.mes_personal}</span>
+								<span className="r-value">{this.person.personal_month}</span>
 								<span
 									className="r-expand"
 									role="img"
@@ -312,7 +314,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 							</div>
 							<div title="ageDigit" className="result-detail-item">
 								<span className="r-title">Digito de edad</span>
-								<span className="r-value">{this.person.digito_edad}</span>
+								<span className="r-value">{this.person.age_digit}</span>
 								<span
 									className="r-expand"
 									role="img"

@@ -12,19 +12,19 @@ export type TKarma = {
 };
 
 export interface IPerson {
-	nombre: string[];
-	nacimiento: number[];
-	edad: number;
-	imagen: number;
-	esencia: number;
-	mision: number;
-	sendero_natal: number;
-	numero_potencial: number;
-	clave_personal: number;
+	fullname: string[];
+	birthdate: number[];
+	age: number;
+	image: number;
+	essence: number;
+	mission: number;
+	natal_path: number;
+	potential_number: number;
+	personal_key: number;
 	karmas: TKarma;
-	posibles_karmas: number[];
-	etapas: TStage[];
-	ano_personal: number;
-	mes_personal: number;
-	digito_edad: number;
+	possible_karmas: number[];
+	stages: TStage[];
+	personal_year: number;
+	personal_month: number;
+	age_digit: number;
 }
