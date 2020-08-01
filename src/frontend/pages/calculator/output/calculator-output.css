@@ -1,64 +1,59 @@
-/* RESULT HEADER */
+/* OUTPUT CONTENT */
 
-.calculator-result {
+.calculator-output {
 	animation: showup 2s ease-in;
 	margin-top: 0.5rem;
 }
 
-.result-option {
+/* OUTPUT OPTIONS */
+
+.output-option {
+	align-items: center;
 	display: grid;
-	grid-template-columns: 1fr 3fr;
+	grid-template-columns: 1fr 3fr 1fr;
 	grid-gap: 5px;
 	margin: 0 1rem 0 1rem;
 }
 
-.result-person {
+#icon_back {
+	height: 25px;
+	width: 25px;
+}
+
+#icon_save {
+	height: 35px;
+	width: 35px;
+}
+
+#icon_output_saved {
+	animation: showup 2s ease-in;
+}
+
+#icon_back > path,
+#icon_save {
+	fill: var(--default-color-2);
+}
+
+/* INPUT PERSON */
+
+.input-person {
 	background: var(--background-color-2);
 	border-radius: 10px;
 	color: var(--font-color-1);
 	margin: 1rem;
 }
 
-.result-person p {
+.input-person p {
 	font-weight: bold;
 	margin-bottom: unset;
 }
 
-#input-name {
+#input-person-name {
 	text-transform: capitalize;
 }
 
-/* RESULT DETAIL */
+/* OUTPUT TYPE */
 
-#back_icon > path {
-	fill: var(--default-color-2);
-}
-
-.result-detail {
-	color: var(--font-color-1);
-	font-size: var(--font-size-1);
-}
-
-.result-detail-item {
-	background-color: var(--content-color-2);
-	border: 2px solid var(--default-color-1);
-	border-radius: 20px;
-	display: grid;
-	grid-template-columns: 2fr 1fr 1fr;
-	grid-gap: 5px;
-	margin: 1rem;
-	padding: 5px;
-	text-align: center;
-}
-
-.r-title {
-	font-style: italic;
-}
-
-.r-value {
-	font-weight: bolder;
-}
-
-.r-expand {
-	cursor: pointer;
+.output-detail {
+	transition: all 1s ease 2s;
 }
