@@ -1,8 +1,8 @@
 import React from 'react';
 import './contact.css';
 
-class Contact extends React.Component {
-	public render() {
+class Contact extends React.PureComponent {
+	public render(): React.ReactNode {
 		return (
 			<div className="box">
 				<div className="box-content">

@@ -16,7 +16,7 @@ type TState = {
 };
 // type StateKeys = keyof TState;
 
-class CalculatorInput extends React.Component<RouteComponentProps, TState> {
+class CalculatorInput extends React.PureComponent<RouteComponentProps, TState> {
 	private nameParam: TName;
 	private birthParam: TBirth;
 
@@ -154,7 +154,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 		});
 	};
 
-	public render() {
+	public render(): React.ReactNode {
 		return (
 			<div className="box">
 				<div className="box-content">

@@ -18,7 +18,7 @@ type TState = {
 	modal: TModal;
 };
 
-class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
+class CalculatorOutput extends React.PureComponent<RouteComponentProps, TState> {
 	private nameParam: TName;
 	private birthParam: TBirth;
 	private person: Person;
@@ -176,7 +176,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 		});
 	};
 
-	public render() {
+	public render(): React.ReactNode {
 		if (!Validator.ValidateName(this.nameParam) || !Validator.ValidateDate(this.birthParam))
 			return <Redirect from={this.props.location.pathname} exact to={RoutePath.CInput} />;
 

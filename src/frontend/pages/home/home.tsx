@@ -4,12 +4,12 @@ import { RoutePath } from '../../../backend/sitemap/routes';
 import logo from '../../assets/logo-1.png';
 import './home.css';
 
-class Home extends React.Component<RouteComponentProps> {
+class Home extends React.PureComponent<RouteComponentProps> {
 	private goToCalculator = () => {
 		this.props.history.push(RoutePath.CInput);
 	};
 
-	public render() {
+	public render(): React.ReactNode {
 		return (
 			<div className="box">
 				<div className="box-content">

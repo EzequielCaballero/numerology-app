@@ -1,8 +1,8 @@
 import React from 'react';
 import './about.css';
 
-class About extends React.Component {
-	public render() {
+class About extends React.PureComponent {
+	public render(): React.ReactNode {
 		return (
 			<div className="box">
 				<div className="box-content">
