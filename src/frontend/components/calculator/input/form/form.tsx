@@ -2,8 +2,8 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { TName, TBirth } from '../../../../backend/services/validator';
-import './form-calculator.css';
+import { TName, TBirth } from '../../../../../backend/services/validator';
+import './form.css';
 
 type TProps = {
 	name: TName;
@@ -16,7 +16,7 @@ type TProps = {
 	handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 };
 
-const FormCalculator: React.FunctionComponent<TProps> = (props: TProps) => {
+const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TProps) => {
 	const {
 		name,
 		birth,
@@ -174,4 +174,4 @@ const FormCalculator: React.FunctionComponent<TProps> = (props: TProps) => {
 	);
 };
 
-export default FormCalculator;
+export default CalculatorInputForm;

@@ -1,0 +1,7 @@
+.output-report {
+	animation: showup 2s ease-in;
+	background-color: var(--content-color-2);
+	border: 2px solid var(--default-color-1);
+	border-radius: 20px;
+	padding: 1rem;
+}

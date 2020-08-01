@@ -1,0 +1,29 @@
+.output-record {
+	animation: showup 2s ease-in;
+	color: var(--font-color-1);
+	font-size: var(--font-size-1);
+}
+
+.output-record-operation {
+	background-color: var(--content-color-2);
+	border: 2px solid var(--default-color-1);
+	border-radius: 20px;
+	display: grid;
+	grid-template-columns: 2fr 1fr 1fr;
+	grid-gap: 5px;
+	margin: 1rem;
+	padding: 5px;
+	text-align: center;
+}
+
+.record-title {
+	font-style: italic;
+}
+
+.record-value {
+	font-weight: bolder;
+}
+
+.record-expand {
+	cursor: pointer;
+}
