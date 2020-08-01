@@ -2,9 +2,9 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { RoutePath } from '../../../../backend/sitemap/routes';
 import TestConfig from '../../../../tests/App.test.config.json';
-import Header from '../../../components/header/header';
+import Header from '../../../components/calculator/header/header';
 import ModalMessage, { TModal } from '../../../components/modal/modal';
-import FormCalculator from '../../../components/form/form-calculator/form-calculator';
+import CalculatorInputForm from '../../../components/calculator/input/form/form';
 import Validator, { TName, TBirth } from '../../../../backend/services/validator';
 import URLHandler from '../../../../backend/services/urlhandler';
 import './calculator-input.css';
@@ -148,6 +148,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 
 	private goToResultView = (): void => {
 		this.props.history.push({
+			state: RoutePath.CInput,
 			pathname: RoutePath.COutput,
 			search: URLHandler.generateURLwithParams(this.state.name, this.state.birth)
 		});
@@ -168,7 +169,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 					<Header title="CALCULADORA" />
 
 					{/* CALCULATOR FORM */}
-					<FormCalculator
+					<CalculatorInputForm
 						name={this.state.name}
 						birth={this.state.birth}
 						handleInputName={this.handleInputName}
