@@ -30,7 +30,7 @@ class URLHandler {
 			};
 		}
 
-		return Convertor.FormatName(param);
+		return Convertor.CleanName(param);
 	};
 
 	public static getParamBirth = (): TBirth => {

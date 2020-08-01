@@ -25,7 +25,7 @@ class Convertor {
 				.toUpperCase()
 		);
 	}
-	public static FormatName(name: TName): TName {
+	public static CleanName(name: TName): TName {
 		let nameCleaned: TName = JSON.parse(JSON.stringify(name));
 		nameCleaned.firstName = name.firstName.map((subname) => Convertor.CleanString(subname));
 		nameCleaned.lastName = name.lastName.map((subname) => Convertor.CleanString(subname));
