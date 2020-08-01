@@ -8,13 +8,13 @@ import Contact from '../../frontend/pages/contact/contact';
 export enum RoutePath {
 	Home = '/home',
 	CInput = '/calculator/input',
-	COutput = '/calculator/result',
+	COutput = '/calculator/output',
 	About = '/about',
 	Contact = '/contact'
 }
 
 type Route = {
-	key: RoutePath;
+	key: string;
 	path: string;
 	exact: boolean;
 	component: React.ComponentClass<any>;
@@ -22,32 +22,32 @@ type Route = {
 
 export const Routes: Route[] = [
 	{
-		key: RoutePath.Home,
+		key: 'Home',
 		path: '/(|home)',
 		exact: true,
 		component: Home
 	},
 	{
-		key: RoutePath.CInput,
+		key: 'Calculator-input',
 		path: '/calculator(|/input)',
 		exact: true,
 		component: CalculatorInput
 	},
 	{
-		key: RoutePath.COutput,
-		path: '/calculator/result',
+		key: 'Calculator-output',
+		path: RoutePath.COutput,
 		exact: true,
 		component: CalculatorOutput
 	},
 	{
-		key: RoutePath.About,
-		path: '/about',
+		key: 'About',
+		path: RoutePath.About,
 		exact: true,
 		component: About
 	},
 	{
-		key: RoutePath.Contact,
-		path: '/contact',
+		key: 'Contact',
+		path: RoutePath.Contact,
 		exact: true,
 		component: Contact
 	}
