@@ -6,6 +6,7 @@ import ModalMessage, { TModal } from '../../../components/modal/modal';
 import CalculatorOutputRecord from '../../../components/calculator/output/record/record';
 import CalculatorOutputReport from '../../../components/calculator/output/report/report';
 import { TRecord } from '../../../../backend/services/calculator';
+import Convertor from '../../../../backend/services/convertor';
 import Validator, { TName, TBirth } from '../../../../backend/services/validator';
 import URLHandler from '../../../../backend/services/urlhandler';
 import StorageHandler from '../../../../backend/services/storagehandler';
@@ -51,20 +52,6 @@ class CalculatorOutput extends React.PureComponent<RouteComponentProps, TState> 
 		StorageHandler.deleteInvalidKeyValues();
 		if (!StorageHandler.isResultStored(this.nameParam, this.birthParam)) this.setState({ isSaveActive: true });
 	}
-
-	private getFullnameText = (): string => {
-		let fullname: string[] = this.nameParam.firstName.concat(this.nameParam.lastName);
-		return fullname.map((name: string) => name.toLowerCase()).join(' ');
-	};
-
-	private getBirthdateText = (): string => {
-		const birth: Date = new Date(
-			`${this.person.birthdate[0]}-${this.person.birthdate[1]}-${this.person.birthdate[2]}`
-		);
-		return `${('0' + birth.getDate()).slice(-2)}/${('0' + (birth.getMonth() + 1)).slice(
-			-2
-		)}/${birth.getFullYear()}`;
-	};
 
 	private showRecord = (operation: string): void => {
 		let newMsg: string[] = [ '' ];
@@ -228,8 +215,8 @@ class CalculatorOutput extends React.PureComponent<RouteComponentProps, TState> 
 							)}
 						</div>
 						<div className="input-person">
-							<p id="input-person-name">{this.getFullnameText()}</p>
-							<p id="input-person-date">{this.getBirthdateText()}</p>
+							<p id="input-person-name">{Convertor.FormatNameToString(this.nameParam)}</p>
+							<p id="input-person-date">{Convertor.FormatDateToString(this.birthParam)}</p>
 						</div>
 						<div className="output-detail">
 							{!this.state.showReport ? (
