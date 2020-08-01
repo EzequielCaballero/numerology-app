@@ -11,7 +11,7 @@ const Err404: React.FunctionComponent<RouteComponentProps> = ({ history }) => {
 	return (
 		<div className="err404-box">
 			<div className="err404-content">
-				<p>{`Ups... la ruta solicitada no existe 😬`}</p>
+				<p>{`Ups... la página solicitada no existe 😬`}</p>
 				<button className="btn-action" onClick={() => backToHome()}>
 					Volver al inicio
 				</button>
