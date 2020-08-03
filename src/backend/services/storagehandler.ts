@@ -1,7 +1,8 @@
 import { TName, TBirth } from './validator';
 
-type Result = {
+export type TResult = {
 	id: number;
+	key: string;
 	name: TName;
 	birth: TBirth;
 };
@@ -21,20 +22,22 @@ class StorageHandler {
 		return regex.test(k);
 	}
 
-	private static validateResultStored(result: any): result is Result {
+	private static validateResultStored(result: any): result is TResult {
 		try {
 			let isValid = false;
 			if (
-				(result as Result).id !== undefined &&
-				(result as Result).name !== undefined &&
-				(result as Result).birth !== undefined
+				(result as TResult).id !== undefined &&
+				(result as TResult).key !== undefined &&
+				(result as TResult).name !== undefined &&
+				(result as TResult).birth !== undefined
 			) {
-				if (typeof (result as Result).id === 'number')
-					if (Array.isArray((result as Result).name.firstName))
-						if (Array.isArray((result as Result).name.lastName))
-							if (typeof (result as Result).birth.birthYear === 'number')
-								if (typeof (result as Result).birth.birthMonth === 'number')
-									if (typeof (result as Result).birth.birthDay === 'number') isValid = true;
+				if (typeof (result as TResult).id === 'number')
+					if (typeof (result as TResult).key === 'string')
+						if (Array.isArray((result as TResult).name.firstName))
+							if (Array.isArray((result as TResult).name.lastName))
+								if (typeof (result as TResult).birth.birthYear === 'number')
+									if (typeof (result as TResult).birth.birthMonth === 'number')
+										if (typeof (result as TResult).birth.birthDay === 'number') isValid = true;
 			}
 			return isValid;
 		} catch (error) {
@@ -43,9 +46,9 @@ class StorageHandler {
 	}
 
 	public static isResultStored(name: TName, birth: TBirth): boolean {
-		const results: Result[] = this.getAllResultsStored() as Result[];
-		const matches: Result[] = results.filter(
-			(r: Result) =>
+		const results: TResult[] = this.getAllResultsStored() as TResult[];
+		const matches: TResult[] = results.filter(
+			(r: TResult) =>
 				JSON.stringify(r.name) === JSON.stringify(name) && JSON.stringify(r.birth) === JSON.stringify(birth)
 		);
 		return matches.length > 0;
@@ -55,9 +58,9 @@ class StorageHandler {
 		return Object.keys(localStorage).filter((k: string) => this.validateKeyStored(k));
 	}
 
-	public static getResultStored(key: string): Result | boolean {
+	public static getResultStored(key: string): TResult | boolean {
 		try {
-			const result: Result = JSON.parse(window.localStorage.getItem(key) as string);
+			const result: TResult = JSON.parse(window.localStorage.getItem(key) as string);
 			if (this.validateResultStored(result)) return result;
 			else return false;
 		} catch (error) {
@@ -65,14 +68,14 @@ class StorageHandler {
 		}
 	}
 
-	public static getAllResultsStored(): Result[] | boolean {
+	public static getAllResultsStored(): TResult[] | boolean {
 		try {
-			let results: Result[] = [];
+			let results: TResult[] = [];
 			const keys: string[] = this.getKeysStored();
 
 			keys.forEach((k: string) => {
-				let resultStored: Result | boolean = this.getResultStored(k);
-				if (resultStored) results.push(this.getResultStored(k) as Result);
+				let resultStored: TResult | boolean = this.getResultStored(k);
+				if (resultStored) results.push(this.getResultStored(k) as TResult);
 			});
 			return results;
 		} catch (error) {
@@ -85,12 +88,13 @@ class StorageHandler {
 			const totalResults: number = this.getKeysStored().length;
 			if (totalResults < this.MAX_NUMBER_SAVES && !this.isResultStored(name, birth)) {
 				const newId: number = totalResults + 1;
-				const newSearch: Result = {
+				const newSearch: TResult = {
 					id: newId,
+					key: `${this.KEYNAME}_${newId}`,
 					name,
 					birth
 				};
-				window.localStorage.setItem(`${this.KEYNAME}_${newSearch.id}`, JSON.stringify(newSearch));
+				window.localStorage.setItem(newSearch.key, JSON.stringify(newSearch));
 				return true;
 			}
 			return false;
