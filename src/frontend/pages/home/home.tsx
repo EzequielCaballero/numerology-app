@@ -4,7 +4,7 @@ import { RoutePath } from '../../../backend/sitemap/routes';
 import logo from '../../assets/logo-1.png';
 import './home.css';
 
-class Home extends React.PureComponent<RouteComponentProps> {
+class Home extends React.Component<RouteComponentProps> {
 	private goToCalculator = () => {
 		this.props.history.push(RoutePath.CInput);
 	};
