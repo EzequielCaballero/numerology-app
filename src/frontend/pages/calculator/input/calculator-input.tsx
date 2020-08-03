@@ -1,12 +1,12 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { RoutePath } from '../../../../backend/sitemap/routes';
-import TestConfig from '../../../../tests/App.test.config.json';
-import Header from '../../../components/calculator/header/header';
-import ModalMessage, { TModal } from '../../../components/modal/modal';
-import CalculatorInputForm from '../../../components/calculator/input/form/form';
 import Validator, { TName, TBirth } from '../../../../backend/services/validator';
 import URLHandler from '../../../../backend/services/urlhandler';
+import Header from '../../../components/header/header';
+import ModalMessage, { TModal } from '../../../components/modal/modal';
+import CalculatorInputForm from '../../../components/calculator/input/form/form';
+import TestConfig from '../../../../tests/App.test.config.json';
 import './calculator-input.css';
 
 type TState = {
@@ -16,7 +16,7 @@ type TState = {
 };
 // type StateKeys = keyof TState;
 
-class CalculatorInput extends React.PureComponent<RouteComponentProps, TState> {
+class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 	private nameParam: TName;
 	private birthParam: TBirth;
 
@@ -65,6 +65,7 @@ class CalculatorInput extends React.PureComponent<RouteComponentProps, TState> {
 
 	private handleInputName = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		try {
+			e.preventDefault();
 			const { name, value } = e.target;
 			const keyState: string = name.split('-')[0];
 			const indexValue: number = Number(name.split('-')[1]);
@@ -80,6 +81,7 @@ class CalculatorInput extends React.PureComponent<RouteComponentProps, TState> {
 
 	private handleInputDate = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		try {
+			e.preventDefault();
 			const { name, value } = e.target;
 			const maxLength: number = name === 'birthYear' ? 4 : 2;
 			let newState: TBirth = this.state.birth;
@@ -106,8 +108,8 @@ class CalculatorInput extends React.PureComponent<RouteComponentProps, TState> {
 		}
 	};
 
-	private handleCleanInputs = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-		event.preventDefault();
+	private handleCleanInputs = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+		e.preventDefault();
 		let name: TName = {
 			firstName: [ '' ],
 			lastName: [ '' ]
@@ -165,7 +167,7 @@ class CalculatorInput extends React.PureComponent<RouteComponentProps, TState> {
 						showModal={this.state.modal.showModal}
 					/>
 
-					{/* INTRO */}
+					{/* HEADER */}
 					<Header title="CALCULADORA" />
 
 					{/* CALCULATOR FORM */}
