@@ -1,16 +1,16 @@
 import React from 'react';
 import { RouteComponentProps, Redirect } from 'react-router-dom';
 import { RoutePath } from '../../../../backend/sitemap/routes';
-import Header from '../../../components/calculator/header/header';
-import ModalMessage, { TModal } from '../../../components/modal/modal';
-import CalculatorOutputRecord from '../../../components/calculator/output/record/record';
-import CalculatorOutputReport from '../../../components/calculator/output/report/report';
 import { TRecord } from '../../../../backend/services/calculator';
 import Convertor from '../../../../backend/services/convertor';
 import Validator, { TName, TBirth } from '../../../../backend/services/validator';
 import URLHandler from '../../../../backend/services/urlhandler';
 import StorageHandler from '../../../../backend/services/storagehandler';
 import Person from '../../../../backend/entity/person';
+import Header from '../../../components/header/header';
+import ModalMessage, { TModal } from '../../../components/modal/modal';
+import CalculatorOutputRecord from '../../../components/calculator/output/record/record';
+import CalculatorOutputReport from '../../../components/calculator/output/report/report';
 import './calculator-output.css';
 
 type TState = {
@@ -19,7 +19,7 @@ type TState = {
 	modal: TModal;
 };
 
-class CalculatorOutput extends React.PureComponent<RouteComponentProps, TState> {
+class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 	private nameParam: TName;
 	private birthParam: TBirth;
 	private person: Person;
@@ -159,7 +159,8 @@ class CalculatorOutput extends React.PureComponent<RouteComponentProps, TState> 
 		const prevPath: string = this.props.location.state ? this.props.location.state as string : RoutePath.CInput;
 		this.props.history.push({
 			pathname: prevPath,
-			search: URLHandler.generateURLwithParams(this.nameParam, this.birthParam)
+			search:
+				prevPath === RoutePath.History ? '' : URLHandler.generateURLwithParams(this.nameParam, this.birthParam)
 		});
 	};
 
@@ -176,7 +177,7 @@ class CalculatorOutput extends React.PureComponent<RouteComponentProps, TState> 
 						properties={this.state.modal.properties}
 						showModal={this.state.modal.showModal}
 					/>
-					{/* INTRO */}
+					{/* HEADER */}
 					<Header title="RESULTADOS" />
 					{/* CALCULATOR OUTPUT */}
 					<div className="calculator-output">
