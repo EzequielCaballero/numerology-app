@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../../assets/logo-1.png';
+import logo from '../../assets/logo-1.png';
 import './header.css';
 
 type TProps = {
