@@ -2,6 +2,7 @@
 import Home from '../../frontend/pages/home/home';
 import CalculatorInput from '../../frontend/pages/calculator/input/calculator-input';
 import CalculatorOutput from '../../frontend/pages/calculator/output/calculator-output';
+import History from '../../frontend/pages/history/history';
 import About from '../../frontend/pages/about/about';
 import Contact from '../../frontend/pages/contact/contact';
 
@@ -9,6 +10,7 @@ export enum RoutePath {
 	Home = '/home',
 	CInput = '/calculator/input',
 	COutput = '/calculator/output',
+	History = '/history',
 	About = '/about',
 	Contact = '/contact'
 }
@@ -38,6 +40,12 @@ export const Routes: Route[] = [
 		path: RoutePath.COutput,
 		exact: true,
 		component: CalculatorOutput
+	},
+	{
+		key: 'History',
+		path: RoutePath.History,
+		exact: true,
+		component: History
 	},
 	{
 		key: 'About',

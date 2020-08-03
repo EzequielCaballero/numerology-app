@@ -65,6 +65,9 @@ const Navbar: React.FunctionComponent = () => {
 				<button id="route_calculator" onClick={() => changeView(RoutePath.CInput)}>
 					Calculadora
 				</button>
+				<button id="route_history" onClick={() => changeView(RoutePath.History)}>
+					Historial
+				</button>
 				<button id="route_about" onClick={() => changeView(RoutePath.About)}>
 					¿Cómo funciona?
 				</button>

@@ -1,0 +1,24 @@
+.history-item {
+	background-color: var(--content-color-2);
+	border: 2px solid var(--default-color-1);
+	border-radius: 20px;
+	display: grid;
+	grid-template-columns: 2fr 1fr 0.5fr 0.5fr;
+	grid-gap: 5px;
+	margin: 1rem;
+	padding: 5px;
+	text-align: center;
+}
+
+.history-item-fullname {
+	font-style: italic;
+	text-transform: capitalize;
+}
+
+.history-item-birth {
+	font-weight: bolder;
+}
+
+.history-item-action {
+	cursor: pointer;
+}
