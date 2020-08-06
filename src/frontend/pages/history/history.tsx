@@ -39,32 +39,39 @@ class History extends React.Component<RouteComponentProps, TState> {
 					{/* HEADER */}
 					<Header title="HISTORIAL" />
 					{/* HISTORY */}
-					<div>
-						<br />
-						<p>Aquí encontrarás un listado de resultados previamente guardados</p>
+					<div className="history-title">
+						{this.state.results.length > 0 ? (
+							<i>Listado de resultados previamente guardados</i>
+						) : (
+							<i>No hay resultados guardados</i>
+						)}
 					</div>
 					{this.state.results.map((result) => (
 						<div key={result.id} className="history-item">
-							<span className="history-item-fullname">{Convertor.FormatNameToString(result.name)}</span>
-							<span className="history-item-birth">{Convertor.FormatDateToString(result.birth)}</span>
-							<span
-								title="Ver"
-								className="history-item-action"
-								role="img"
-								aria-label="search"
-								onClick={() => this.goToResultView(result)}
-							>
-								📌
-							</span>
-							<span
-								title="Borrar"
-								className="history-item-action"
-								role="img"
-								aria-label="delete"
-								onClick={() => this.deleteItemHistory(result.key)}
-							>
-								🔴
-							</span>
+							<div className="history-item-person">
+								<p className="history-item-fullname">{Convertor.FormatNameToString(result.name)}</p>
+								<p className="history-item-birth">{Convertor.FormatDateToString(result.birth)}</p>
+							</div>
+							<div>
+								<span
+									title="Ver"
+									className="history-item-action"
+									role="img"
+									aria-label="search"
+									onClick={() => this.goToResultView(result)}
+								>
+									📌
+								</span>
+								<span
+									title="Borrar"
+									className="history-item-action"
+									role="img"
+									aria-label="delete"
+									onClick={() => this.deleteItemHistory(result.key)}
+								>
+									🔴
+								</span>
+							</div>
 						</div>
 					))}
 				</div>

@@ -1,13 +1,22 @@
+.history-title {
+	padding-top: 1rem;
+}
+
 .history-item {
-	background-color: var(--content-color-2);
-	border: 2px solid var(--default-color-1);
+	background: var(--background-color-2);
 	border-radius: 20px;
 	display: grid;
-	grid-template-columns: 2fr 1fr 0.5fr 0.5fr;
+	grid-template-columns: 3fr 1fr;
 	grid-gap: 5px;
+	align-items: center;
 	margin: 1rem;
 	padding: 5px;
 	text-align: center;
+}
+
+.history-item-person p {
+	font-weight: bold;
+	margin-bottom: unset;
 }
 
 .history-item-fullname {
@@ -20,5 +29,6 @@
 }
 
 .history-item-action {
+	margin: 0rem 1rem;
 	cursor: pointer;
 }
