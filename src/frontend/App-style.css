@@ -79,7 +79,7 @@ body::-webkit-scrollbar-thumb {
 	box-shadow: var(--content-box-shadow);
 	color: var(--font-color-1);
 	margin: 1rem;
-	padding: 1rem;
+	padding: 1.5rem 1rem;
 	text-align: center;
 }
 
