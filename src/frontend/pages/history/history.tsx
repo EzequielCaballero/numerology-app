@@ -60,8 +60,11 @@ class History extends React.Component<RouteComponentProps, TState> {
 									aria-label="search"
 									onClick={() => this.goToResultView(result)}
 								>
-									📌
+									{' '}
+									📌{' '}
 								</span>
+							</div>
+							<div>
 								<span
 									title="Borrar"
 									className="history-item-action"
