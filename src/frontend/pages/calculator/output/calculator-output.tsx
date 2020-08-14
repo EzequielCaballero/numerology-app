@@ -41,9 +41,10 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 					msg: [ '' ]
 				},
 				properties: {
-					show: false
+					isActive: false,
+					isInteractive: false
 				},
-				showModal: this.showModal
+				action: this.handleModalResponse
 			}
 		};
 	}
@@ -62,36 +63,36 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 				for (let i = 0; i < this.record.image.length; i++) {
 					newMsg.push(JSON.stringify(this.record.image[i]));
 				}
-				this.handleModalContent('Cálculo de imagen...', newMsg);
+				this.setModalContent('Cálculo de imagen...', newMsg);
 				break;
 			case 'essence':
 				newMsg.push(JSON.stringify(this.record.name));
 				for (let i = 0; i < this.record.essence.length; i++) {
 					newMsg.push(JSON.stringify(this.record.essence[i]));
 				}
-				this.handleModalContent('Cálculo de esencia...', newMsg);
+				this.setModalContent('Cálculo de esencia...', newMsg);
 				break;
 			case 'mission':
 				newMsg.push(JSON.stringify(this.record.name));
 				for (let i = 0; i < this.record.mission.length; i++) {
 					newMsg.push(JSON.stringify(this.record.mission[i]));
 				}
-				this.handleModalContent('Cálculo de misión...', newMsg);
+				this.setModalContent('Cálculo de misión...', newMsg);
 				break;
 			case 'path':
 				newMsg.push(JSON.stringify(this.record.birth));
 				for (let i = 0; i < this.record.path.length; i++) {
 					newMsg.push(JSON.stringify(this.record.path[i]));
 				}
-				this.handleModalContent('Cálculo de sendero...', newMsg);
+				this.setModalContent('Cálculo de sendero...', newMsg);
 				break;
 			case 'personalKey':
 				newMsg.push(`${this.person.birthdate[2]} -> ${this.person.personal_key}`);
-				this.handleModalContent('Detalle de clave personal...', newMsg);
+				this.setModalContent('Detalle de clave personal...', newMsg);
 				break;
 			case 'potentialNumber':
 				newMsg.push(`${this.person.mission} + ${this.person.natal_path} = ${this.person.potential_number}`);
-				this.handleModalContent('Detalle del número potencial...', newMsg);
+				this.setModalContent('Detalle del número potencial...', newMsg);
 				break;
 			case 'karmas':
 				newMsg.push(`Esencia: ${this.person.karmas.essence}`);
@@ -99,36 +100,37 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 				newMsg.push(`Sendero: ${this.person.karmas.path}`);
 				newMsg.push('---');
 				newMsg.push(`Números faltantes: ${this.person.possible_karmas}`);
-				this.handleModalContent('Detalle de karmas...', newMsg);
+				this.setModalContent('Detalle de karmas...', newMsg);
 				break;
 			case 'stages':
 				for (let stage of this.person.stages) {
 					newMsg.push(`${stage.num}° | ${stage.from} -> ${stage.to === 0 ? '∞' : stage.to} = ${stage.value}`);
 				}
-				this.handleModalContent('Detalle de etapas...', newMsg);
+				this.setModalContent('Detalle de etapas...', newMsg);
 				break;
 			case 'personalYear':
 				newMsg.push(
 					`${this.person.birthdate[2]} + ${this.person.birthdate[1]} + ${new Date().getFullYear()} = ${this
 						.person.personal_year}`
 				);
-				this.handleModalContent('Detalle del año personal...', newMsg);
+				this.setModalContent('Detalle del año personal...', newMsg);
 				break;
 			case 'personalMonth':
 				newMsg.push(
 					`${this.person.personal_year} + ${new Date().getMonth() + 1} = ${this.person.personal_month}`
 				);
 				newMsg.push('(año personal + mes actual)');
-				this.handleModalContent('Detalle del mes personal...', newMsg);
+				this.setModalContent('Detalle del mes personal...', newMsg);
 				break;
 			case 'ageDigit':
 				newMsg.push(`${this.person.age} + ${this.person.age + 1} = ${this.person.age_digit}`);
 				newMsg.push('(edad actual + edad próxima)');
-				this.handleModalContent('Detalle de digito de edad...', newMsg);
+				this.setModalContent('Detalle de digito de edad...', newMsg);
 				break;
 			default:
 				break;
 		}
+		this.setModalProperties(false);
 		this.showModal(true);
 	};
 
@@ -137,17 +139,39 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 		this.setState({ showReport: !prevState });
 	};
 
-	private handleModalContent = (title: string, msg: string[]): void => {
+	private setModalContent = (title: string, msg: string[]): void => {
 		let modal: TModal = this.state.modal;
 		modal.text.title = title;
 		modal.text.msg = msg;
 		this.setState({ modal });
 	};
 
+	private setModalProperties = (isInteractive: boolean, identifier?: string): void => {
+		let modal: TModal = this.state.modal;
+		modal.properties.isInteractive = isInteractive;
+		if (identifier) modal.properties.actionIdentifier = identifier;
+		this.setState({ modal });
+	};
+
 	private showModal = (show: boolean): void => {
 		let modal: TModal = this.state.modal;
-		modal.properties.show = show;
+		modal.properties.isActive = show;
 		this.setState({ modal });
+	};
+
+	private handleModalResponse = (response: boolean): void => {
+		this.showModal(false);
+		if (response) {
+			this.saveResult();
+		}
+	};
+
+	private handleSaveResult = (): void => {
+		let newMsg: string[] = [ '' ];
+		newMsg.push('El resultado será guardado en tu navegador.');
+		this.setModalContent('Guardar resultado', newMsg);
+		this.setModalProperties(true, 'save');
+		this.showModal(true);
 	};
 
 	private saveResult = (): void => {
@@ -155,12 +179,17 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 		this.setState({ isSaveActive: false });
 	};
 
-	private goBack = (): void => {
-		const prevPath: string = this.props.location.state ? this.props.location.state as string : RoutePath.CInput;
+	private goToCalculatorInput = (): void => {
 		this.props.history.push({
-			pathname: prevPath,
-			search:
-				prevPath === RoutePath.History ? '' : URLHandler.generateURLwithParams(this.nameParam, this.birthParam)
+			pathname: RoutePath.CInput,
+			search: URLHandler.generateURLwithParams(this.nameParam, this.birthParam)
+		});
+	};
+
+	private goToHistory = (): void => {
+		this.props.history.push({
+			pathname: RoutePath.History,
+			search: ''
 		});
 	};
 
@@ -175,14 +204,14 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 					<ModalMessage
 						text={this.state.modal.text}
 						properties={this.state.modal.properties}
-						showModal={this.state.modal.showModal}
+						action={this.state.modal.action}
 					/>
 					{/* HEADER */}
 					<Header title="RESULTADOS" />
 					{/* CALCULATOR OUTPUT */}
 					<div className="calculator-output">
 						<div className="output-option">
-							<button onClick={this.goBack}>
+							<button onClick={this.goToCalculatorInput}>
 								<svg
 									id="icon_back"
 									version="1.1"
@@ -196,7 +225,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 								{this.state.showReport ? 'Cálculo' : 'Reporte'}
 							</button>
 							{this.state.isSaveActive ? (
-								<button onClick={this.saveResult}>
+								<button onClick={this.handleSaveResult}>
 									<svg
 										id="icon_save"
 										version="1.1"
@@ -210,9 +239,9 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 									</svg>
 								</button>
 							) : (
-								<span id="icon_output_saved" title="Resultado guardado">
-									🟢
-								</span>
+								<button onClick={this.goToHistory} title="Resultado guardado">
+									<span id="icon_output_saved">🟢</span>
+								</button>
 							)}
 						</div>
 						<div className="input-person">

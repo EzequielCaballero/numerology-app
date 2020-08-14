@@ -34,9 +34,10 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 					msg: [ '' ]
 				},
 				properties: {
-					show: false
+					isActive: false,
+					isInteractive: false
 				},
-				showModal: this.showModal
+				action: this.handleModalResponse
 			}
 		};
 	}
@@ -130,22 +131,34 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 			let newMsg: string[] = [];
 			newMsg.push('Por favor revisar los campos mandatorios');
 			newMsg.push('Nombre | Apellido | Fecha de nacimiento');
-			this.handleModalContent('Información incorrecta', newMsg);
+			this.setModalContent('Información incorrecta', newMsg);
+			this.setModalProperties(false);
 			this.showModal(true);
 		}
 	};
 
-	private handleModalContent = (title: string, msg: string[]): void => {
+	private setModalContent = (title: string, msg: string[]): void => {
 		let modal: TModal = this.state.modal;
 		modal.text.title = title;
 		modal.text.msg = msg;
 		this.setState({ modal });
 	};
 
+	private setModalProperties = (isInteractive: boolean, identifier?: string): void => {
+		let modal: TModal = this.state.modal;
+		modal.properties.isInteractive = isInteractive;
+		if (identifier) modal.properties.actionIdentifier = identifier;
+		this.setState({ modal });
+	};
+
 	private showModal = (show: boolean): void => {
 		let modal: TModal = this.state.modal;
-		modal.properties.show = show;
+		modal.properties.isActive = show;
 		this.setState({ modal });
+	};
+
+	private handleModalResponse = (response: boolean): void => {
+		this.showModal(false);
 	};
 
 	private goToResultView = (): void => {
@@ -164,7 +177,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 					<ModalMessage
 						text={this.state.modal.text}
 						properties={this.state.modal.properties}
-						showModal={this.state.modal.showModal}
+						action={this.state.modal.action}
 					/>
 
 					{/* HEADER */}

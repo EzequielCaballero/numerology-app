@@ -8,13 +8,15 @@ export type TModal = {
 		msg: string[];
 	};
 	properties: {
-		show: boolean;
+		isActive: boolean;
+		isInteractive: boolean;
+		actionIdentifier?: string;
 	};
-	showModal: (show: boolean) => void;
+	action: (response: boolean, identifier?: string) => void;
 };
 
-const ModalMessage: React.FunctionComponent<TModal> = ({ text, properties, showModal }) => {
-	const renderDivMsgs = (): Array<JSX.Element> => {
+const ModalMessage: React.FunctionComponent<TModal> = ({ text, properties, action }) => {
+	const formatTextContent = (): Array<JSX.Element> => {
 		return text.msg.map((text, index) => (
 			<div className="modal-text" key={index}>
 				{text.trim()}
@@ -25,24 +27,33 @@ const ModalMessage: React.FunctionComponent<TModal> = ({ text, properties, showM
 	useEffect(
 		() => {
 			const bodyElement: HTMLElement = document.body;
-			if (properties.show) {
+			if (properties.isActive) {
 				bodyElement.classList.remove('modal-open');
 				bodyElement.removeAttribute('style');
 			}
 		},
-		[ properties.show ]
+		[ properties.isActive ]
 	);
 
 	return (
-		<Modal id="app-modal" show={properties.show} onHide={() => showModal(false)}>
+		<Modal id="app-modal" show={properties.isActive} onHide={() => action(false)}>
 			<Modal.Header id="app-modal-header">
 				<Modal.Title id="app-modal-title">{text.title}</Modal.Title>
 			</Modal.Header>
-			<Modal.Body id="app-modal-body">{renderDivMsgs()}</Modal.Body>
+			<Modal.Body id="app-modal-body">{formatTextContent()}</Modal.Body>
 			<Modal.Footer id="app-modal-footer">
-				<button id="app-modal-btn" className="btn-action-outline" onClick={() => showModal(false)}>
-					Cerrar
+				<button id="app-modal-btn-cancel" className="btn-action-outline" onClick={() => action(false)}>
+					{properties.isInteractive ? 'Cancelar' : 'Cerrar'}
 				</button>
+				{properties.isInteractive && (
+					<button
+						id="app-modal-btn-accept"
+						className="btn-action"
+						onClick={() => action(true, properties.actionIdentifier)}
+					>
+						Aceptar
+					</button>
+				)}
 			</Modal.Footer>
 		</Modal>
 	);
