@@ -46,13 +46,13 @@ class Convertor {
 		return fullname.map((name: string) => name.toLowerCase()).join(' ');
 	}
 	public static FormatDateToArray(date: TBirth): number[] {
-		const birth = new Date(`${date.birthYear}-${date.birthMonth}-${date.birthDay}`);
+		const birth: Date = new Date(date.birthYear, date.birthMonth, date.birthDay);
 		//FORMAT: YMD
 		let dateValues: number[] = [ birth.getFullYear(), birth.getMonth() + 1, birth.getDate() ];
 		return dateValues;
 	}
 	public static FormatDateToString(date: TBirth): string {
-		const birth: Date = new Date(`${date.birthYear}-${date.birthMonth}-${date.birthDay}`);
+		const birth: Date = new Date(date.birthYear, date.birthMonth, date.birthDay);
 		return `${('0' + birth.getDate()).slice(-2)}/${('0' + (birth.getMonth() + 1)).slice(
 			-2
 		)}/${birth.getFullYear()}`;
