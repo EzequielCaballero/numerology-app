@@ -48,14 +48,12 @@ class Convertor {
 	public static FormatDateToArray(date: TBirth): number[] {
 		const birth: Date = new Date(date.birthYear, date.birthMonth, date.birthDay);
 		//FORMAT: YMD
-		let dateValues: number[] = [ birth.getFullYear(), birth.getMonth() + 1, birth.getDate() ];
+		let dateValues: number[] = [ birth.getFullYear(), birth.getMonth(), birth.getDate() ];
 		return dateValues;
 	}
 	public static FormatDateToString(date: TBirth): string {
 		const birth: Date = new Date(date.birthYear, date.birthMonth, date.birthDay);
-		return `${('0' + birth.getDate()).slice(-2)}/${('0' + (birth.getMonth() + 1)).slice(
-			-2
-		)}/${birth.getFullYear()}`;
+		return `${('0' + birth.getDate()).slice(-2)}/${('0' + birth.getMonth()).slice(-2)}/${birth.getFullYear()}`;
 	}
 
 	public static TakeNameLetters(nameParts: string[]): string[][] {
