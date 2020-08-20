@@ -23,4 +23,7 @@
 	--scroll-color-background: rgb(31, 31, 31);
 	--scroll-color-body: #47545a;
 	--scroll-color-border: rgb(224, 224, 224);
+	--status-color-success: rgb(93, 240, 93);
+	--status-color-warning: rgb(235, 227, 123);
+	--status-color-danger: rgb(233, 90, 90);
 }
