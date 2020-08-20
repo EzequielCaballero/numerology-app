@@ -47,7 +47,6 @@ class Convertor {
 	}
 	public static FormatDateToArray(date: TBirth): number[] {
 		const birth: Date = new Date(date.birthYear, date.birthMonth, date.birthDay);
-		//FORMAT: YMD
 		let dateValues: number[] = [ birth.getFullYear(), birth.getMonth(), birth.getDate() ];
 		return dateValues;
 	}

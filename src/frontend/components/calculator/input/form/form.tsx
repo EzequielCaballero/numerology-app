@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { TName, TBirth } from '../../../../../backend/services/validator';
+import SVGSelector from '../../../svg/selector';
 import './form.css';
 
 type TProps = {
@@ -156,18 +157,7 @@ const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TProps) => 
 					Calcular
 				</button>
 				<button onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleCleanInputs(e)}>
-					<span role="img" aria-label="trash">
-						<svg
-							id="trash_icon"
-							version="1.1"
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 512 512"
-							width="30"
-							height="25"
-						>
-							<path d="M459.2,60.7h-72C386.2,43,371.6,29,353.7,29H161.7c-17.9,0-32.4,14-33.6,31.7H64.6c-18.6,0-33.8,15.1-33.8,33.8v8.4c0,18.6,15.1,33.8,33.8,33.8h21v342.1c0,13.8,11.2,25,25,25h309c13.8,0,25-11.2,25-25V136.7h14.7c18.7,0,33.8-15.1,33.8-33.8v-8.4C493,75.8,477.9,60.7,459.2,60.7z M196.7,443.7c0,12.6-10.2,22.8-22.8,22.8c-12.6,0-22.8-10.2-22.8-22.8V158.8c0-12.6,10.2-22.8,22.8-22.8c12.6,0,22.8,10.2,22.8,22.8V443.7z M287.9,443.7c0,12.6-10.2,22.8-22.8,22.8s-22.8-10.2-22.8-22.8V158.8c0-12.6,10.2-22.8,22.8-22.8s22.8,10.2,22.8,22.8V443.7z M379.1,443.7c0,12.6-10.2,22.8-22.8,22.8c-12.6,0-22.8-10.2-22.8-22.8V158.8c0-12.6,10.2-22.8,22.8-22.8c12.6,0,22.8,10.2,22.8,22.8V443.7z" />
-						</svg>
-					</span>
+					<SVGSelector name="trash" />
 				</button>
 			</div>
 		</Form>

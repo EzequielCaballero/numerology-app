@@ -11,7 +11,8 @@ import Header from '../../../components/header/header';
 import ModalMessage, { TModal } from '../../../components/modal/modal';
 import CalculatorOutputRecord from '../../../components/calculator/output/record/record';
 import CalculatorOutputReport from '../../../components/calculator/output/report/report';
-import './calculator-output.css';
+import SVGSelector from '../../../components/svg/selector';
+import './output.css';
 
 type TState = {
 	isSaveActive: boolean;
@@ -167,16 +168,29 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 	};
 
 	private handleSaveResult = (): void => {
-		let newMsg: string[] = [ '' ];
-		newMsg.push('El resultado será guardado en tu navegador.');
-		this.setModalContent('Guardar resultado', newMsg);
-		this.setModalProperties(true, 'save');
-		this.showModal(true);
+		if (StorageHandler.isSavingAllowed()) {
+			let newMsg: string[] = [ '' ];
+			newMsg.push('El resultado será guardado en tu navegador.');
+			this.setModalContent('Guardar resultado', newMsg);
+			this.setModalProperties(true);
+			this.showModal(true);
+		} else {
+			let newMsg: string[] = [ '' ];
+			newMsg.push('Número máximo de resultados guardados alcanzado.');
+			newMsg.push(`Límite: ${StorageHandler.getMaxNumberSaves()}.`);
+			this.setModalContent('Límite de guardado.', newMsg);
+			this.setModalProperties(false);
+			this.showModal(true);
+		}
 	};
 
 	private saveResult = (): void => {
-		StorageHandler.saveResult(this.nameParam, this.birthParam);
-		this.setState({ isSaveActive: false });
+		try {
+			StorageHandler.saveResult(this.nameParam, this.birthParam);
+			this.setState({ isSaveActive: false });
+		} catch (error) {
+			console.error(`Error saving result in localstorage. Detail: ${error}`);
+		}
 	};
 
 	private goToCalculatorInput = (): void => {
@@ -212,35 +226,19 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 					<div className="calculator-output">
 						<div className="output-option">
 							<button onClick={this.goToCalculatorInput}>
-								<svg
-									id="icon_back"
-									version="1.1"
-									xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 512 512"
-								>
-									<path d="M500,234.6v38.8c0,10.7-3.6,19.8-10.7,27.4c-7.1,7.6-16.4,11.4-27.8,11.4h-232l96.5,89.1c8.3,7.3,12.5,16.4,12.5,27.3c0,10.9-4.2,20-12.5,27.3l-24.7,23c-8.1,7.5-18,11.2-29.7,11.2c-11.4,0-21.4-3.7-30-11.2L27.2,281.3C19.1,273.8,15,264.7,15,254c0-10.5,4.1-19.7,12.2-27.6L241.7,29.5C250,21.8,260,18,271.7,18c11.4,0,21.3,3.8,29.7,11.5L326,51.9c8.3,7.7,12.5,16.9,12.5,27.6c0,10.7-4.2,19.9-12.5,27.6l-96.5,88.8h232c11.4,0,20.7,3.8,27.8,11.4C496.4,214.8,500,223.9,500,234.6z" />
-								</svg>
+								<SVGSelector name="edit" />
 							</button>
 							<button className="btn-action" onClick={this.switchOutput}>
 								{this.state.showReport ? 'Cálculo' : 'Reporte'}
+								<SVGSelector name="switch" />
 							</button>
 							{this.state.isSaveActive ? (
 								<button onClick={this.handleSaveResult}>
-									<svg
-										id="icon_save"
-										version="1.1"
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 512 512"
-									>
-										<path d="M294.6,134h36.4c1.1,0,2-4.1,2-9.2V49.7h-40.3v75.1C292.6,129.9,293.5,134,294.6,134z" />
-										<path d="M375,49.7l-22.1,0c0,0,0.5,84.3,0.5,84.3c0,12-8.7,16.3-20.7,16.3H157.3c-12,0-21.8-9.8-21.8-21.8V49.7H81.7C61.4,49.7,45,66.2,45,86.4V413c0,20.3,16.4,36.7,36.7,36.7h339.6c13.1,0,23.7-10.6,23.7-23.7V126C445,120.3,379,53.7,375,49.7zM382.8,377.4c0,11.1,0,35.5-19.2,39.3H130.9c-23.7,0-23.7-18.5-23.7-30.3V253.9c0-11.8,9.6-21.4,21.4-21.4h232.7c11.8,0,21.4,9.6,21.4,22.2V377.4z" />
-										<path d="M153.1,306h192.1c5.7,0,10.4-0.9,10.4-1.9v-15.6h-213V304C142.7,305.1,147.3,306,153.1,306z" />
-										<path d="M153.1,367.4h192.1c5.7,0,10.4-0.9,10.4-1.9v-15.6h-213v15.6C142.7,366.5,147.3,367.4,153.1,367.4z" />
-									</svg>
+									<SVGSelector name="save" />
 								</button>
 							) : (
 								<button onClick={this.goToHistory} title="Resultado guardado">
-									<span id="icon_output_saved">🟢</span>
+									<SVGSelector name="check" />
 								</button>
 							)}
 						</div>

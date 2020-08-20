@@ -7,7 +7,7 @@ import Header from '../../../components/header/header';
 import ModalMessage, { TModal } from '../../../components/modal/modal';
 import CalculatorInputForm from '../../../components/calculator/input/form/form';
 import TestConfig from '../../../../tests/App.test.config.json';
-import './calculator-input.css';
+import './input.css';
 
 type TState = {
 	name: TName;

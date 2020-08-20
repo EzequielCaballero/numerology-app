@@ -32,3 +32,15 @@
 	margin: 0rem 10px;
 	cursor: pointer;
 }
+
+#svg_icon_view {
+	fill: var(--border-color-1);
+	height: 30px;
+	width: 30px;
+}
+
+#svg_icon_delete {
+	fill: var(--status-color-danger);
+	height: 30px;
+	width: 30px;
+}

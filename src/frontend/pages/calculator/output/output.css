@@ -15,23 +15,43 @@
 	margin: 0 1rem 0 1rem;
 }
 
-#icon_back {
-	height: 25px;
-	width: 25px;
+#svg_icon_switch {
+	height: 15px;
+	width: 15px;
+	margin-left: 5px;
 }
 
-#icon_save {
+#svg_icon_edit {
+	height: 30px;
+	width: 30px;
+}
+
+#svg_icon_save {
 	height: 35px;
 	width: 35px;
 }
 
-#icon_output_saved {
-	animation: showup 2s ease-in;
+#svg_icon_edit,
+#svg_icon_save {
+	fill: var(--status-color-warning);
 }
 
-#icon_back > path,
-#icon_save {
+#svg_icon_switch {
 	fill: var(--default-color-2);
+}
+
+#svg_icon_check {
+	animation: showup 2s ease-in;
+	height: 30px;
+	width: 30px;
+}
+
+#svg_icon_check > g {
+	fill: var(--status-color-success);
+}
+
+#svg_icon_check > circle {
+	stroke: var(--status-color-success);
 }
 
 /* INPUT PERSON */

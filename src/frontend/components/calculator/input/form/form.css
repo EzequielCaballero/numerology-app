@@ -60,6 +60,7 @@ input[name^="lastName"] {
 	display: block;
 	height: 0px;
 	overflow-y: hidden;
+	text-transform: capitalize;
 	transition: all 0.2s ease-in;
 	width: 100%;
 	-ms-overflow-style: none;
@@ -80,8 +81,10 @@ input[name^="lastName"] {
 
 /* ACTIONS */
 
-#trash_icon > path {
-	fill: var(--default-color-2);
+#svg_icon_trash {
+	fill: var(--status-color-danger);
+	height: 30px;
+	width: 25px;
 }
 
 .form-actions {
