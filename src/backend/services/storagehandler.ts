@@ -1,23 +1,21 @@
 import { TName, TBirth } from './validator';
 
 export type TResult = {
-	id: number;
 	key: string;
 	name: TName;
 	birth: TBirth;
 };
 
 class StorageHandler {
-	private static KEYNAME: string = 'result';
-	private static MAX_NUMBER_SAVES: number = 10;
+	private static readonly KEYNAME: string = 'result';
+	private static readonly MAX_NUMBER_SAVES: number = 6;
+
+	public static getMaxNumberSaves(): number {
+		return this.MAX_NUMBER_SAVES;
+	}
 
 	private static validateKeyStored(k: string): boolean {
-		const maxParts = this.MAX_NUMBER_SAVES.toString().split('');
-		const rule =
-			this.MAX_NUMBER_SAVES < 10
-				? `^(${this.KEYNAME}_)([1-9])$`
-				: `^(${this.KEYNAME}_)([1-9]|[1-${maxParts[0]}][0-${maxParts[1]}])$`;
-
+		const rule = `^(${this.KEYNAME})_(\\d+)$`;
 		let regex = new RegExp(rule);
 		return regex.test(k);
 	}
@@ -26,23 +24,26 @@ class StorageHandler {
 		try {
 			let isValid = false;
 			if (
-				(result as TResult).id !== undefined &&
 				(result as TResult).key !== undefined &&
 				(result as TResult).name !== undefined &&
 				(result as TResult).birth !== undefined
 			) {
-				if (typeof (result as TResult).id === 'number')
-					if (typeof (result as TResult).key === 'string')
-						if (Array.isArray((result as TResult).name.firstName))
-							if (Array.isArray((result as TResult).name.lastName))
-								if (typeof (result as TResult).birth.birthYear === 'number')
-									if (typeof (result as TResult).birth.birthMonth === 'number')
-										if (typeof (result as TResult).birth.birthDay === 'number') isValid = true;
+				if (typeof (result as TResult).key === 'string')
+					if (Array.isArray((result as TResult).name.firstName))
+						if (Array.isArray((result as TResult).name.lastName))
+							if (typeof (result as TResult).birth.birthYear === 'number')
+								if (typeof (result as TResult).birth.birthMonth === 'number')
+									if (typeof (result as TResult).birth.birthDay === 'number') isValid = true;
 			}
 			return isValid;
 		} catch (error) {
 			return false;
 		}
+	}
+
+	public static isKeyStored(idKey: number): boolean {
+		const key: string = `${this.KEYNAME}_${idKey}`;
+		return Object.keys(localStorage).filter((k: string) => k === key).length > 0;
 	}
 
 	public static isResultStored(name: TName, birth: TBirth): boolean {
@@ -54,8 +55,8 @@ class StorageHandler {
 		return matches.length > 0;
 	}
 
-	private static getKeysStored(): string[] {
-		return Object.keys(localStorage).filter((k: string) => this.validateKeyStored(k));
+	public static isSavingAllowed(): boolean {
+		return this.getAllKeysStored().length < this.MAX_NUMBER_SAVES;
 	}
 
 	public static getResultStored(key: string): TResult | boolean {
@@ -68,10 +69,15 @@ class StorageHandler {
 		}
 	}
 
+	private static getAllKeysStored(): string[] {
+		let keys: string[] = Object.keys(localStorage).filter((k: string) => this.validateKeyStored(k));
+		return keys.sort((a, b) => parseInt(b.split('_')[1]) - parseInt(a.split('_')[1]));
+	}
+
 	public static getAllResultsStored(): TResult[] | boolean {
 		try {
 			let results: TResult[] = [];
-			const keys: string[] = this.getKeysStored();
+			const keys: string[] = this.getAllKeysStored();
 
 			keys.forEach((k: string) => {
 				let resultStored: TResult | boolean = this.getResultStored(k);
@@ -83,23 +89,17 @@ class StorageHandler {
 		}
 	}
 
-	public static saveResult(name: TName, birth: TBirth): boolean {
+	public static saveResult(name: TName, birth: TBirth): void {
 		try {
-			const totalResults: number = this.getKeysStored().length;
-			if (totalResults < this.MAX_NUMBER_SAVES && !this.isResultStored(name, birth)) {
-				const newId: number = totalResults + 1;
-				const newSearch: TResult = {
-					id: newId,
-					key: `${this.KEYNAME}_${newId}`,
-					name,
-					birth
-				};
-				window.localStorage.setItem(newSearch.key, JSON.stringify(newSearch));
-				return true;
-			}
-			return false;
+			let newId: number = Date.now();
+			const newSearch: TResult = {
+				key: `${this.KEYNAME}_${newId}`,
+				name,
+				birth
+			};
+			window.localStorage.setItem(newSearch.key, JSON.stringify(newSearch));
 		} catch (error) {
-			return false;
+			throw new Error(error);
 		}
 	}
 
