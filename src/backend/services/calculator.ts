@@ -159,13 +159,14 @@ class Calculator {
 	public static CalculateStages(birthParts: number[], path: number): TStage[] {
 		const base_number: number = 36;
 		const default_duration: number = 9;
+		const pathReduced: number = Convertor.ReduceValue(path, false);
 		const birthReduced: number[] = Convertor.ReduceValueElements(birthParts, true);
 		let stages: TStage[] = [];
 		//STAGE 1
 		const stage_1: TStage = {
 			num: 1,
 			from: 0,
-			to: base_number - path,
+			to: base_number - pathReduced,
 			value: Convertor.ReduceValue(birthReduced[1] + birthReduced[0], true)
 		};
 		stages.push(stage_1);
