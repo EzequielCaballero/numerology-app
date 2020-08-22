@@ -9,7 +9,7 @@ import SVGIconSave from './icon/save';
 import SVGIconSwitch from './icon/switch';
 import SVGIconTrash from './icon/trash';
 import SVGIconView from './icon/view';
-import SVGLogoMain from './logo/main';
+import SVGLogoMandala from './logo/mandala';
 import SVGLogoGithub from './logo/github';
 
 const _SVG_CATALOG = {
@@ -23,7 +23,7 @@ const _SVG_CATALOG = {
 	iconSwitch: SVGIconSwitch,
 	iconTrash: SVGIconTrash,
 	iconView: SVGIconView,
-	logoMain: SVGLogoMain,
+	logoMandala: SVGLogoMandala,
 	logoGithub: SVGLogoGithub
 };
 

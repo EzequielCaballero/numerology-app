@@ -8,18 +8,25 @@
 	font-style: italic;
 }
 
-#svg_logo_main {
+.home-content #svg_logo_mandala {
 	animation: element-spin infinite 20s linear;
 	height: 30vmin;
 	margin: 1rem;
 	pointer-events: none;
 }
 
-#svg_logo_main > g > path {
-	fill: var(--content-color-3);
-	stroke: white;
+.home-content #svg_logo_mandala > path[id^='number'] {
+	stroke: var(--default-color-2);
 }
 
-#svg_logo_main > path:last-child {
-	stroke: white;
+.home-content #svg_logo_mandala > g > g[id='mandala-outline'] > g > path {
+	stroke: var(--default-color-1);
+}
+
+.home-content #svg_logo_mandala > g > g[id='mandala-outline'] > g[id='mandala-outline-2'] > path {
+	stroke: var(--default-color-2);
+}
+
+.home-content #svg_logo_mandala > g > g[id='mandala-baseline'] > g > g > path {
+	stroke: var(--default-color-2);
 }

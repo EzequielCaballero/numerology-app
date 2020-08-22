@@ -5,20 +5,15 @@
 	margin: 0 1rem 0 1rem;
 }
 
-.header-content #svg_logo_main {
+.header-content #svg_logo_mandala {
 	animation: element-spin infinite 20s linear;
-	height: 65px;
+	height: 75px;
 	margin: 10px;
 	pointer-events: none;
-	width: 65px;
+	width: 75px;
 }
 
-.header-content #svg_logo_main > g > path {
-	fill: var(--content-color-2);
-	stroke: white;
-}
-
-.header-content #svg_logo_main > path:last-child {
+.header-content #svg_logo_mandala path {
 	stroke: white;
 }
 

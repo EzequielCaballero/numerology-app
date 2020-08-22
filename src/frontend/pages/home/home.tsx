@@ -23,12 +23,14 @@ class Home extends React.Component<RouteComponentProps> {
 							labore et dolore magna aliqua.
 						</p>
 					</div>
-					<div>
-						<SVGSelector name="logoMain" />
+					<div className="home-content">
+						<div>
+							<SVGSelector name="logoMandala" />
+						</div>
+						<button className="btn-action" onClick={() => this.goToCalculator()}>
+							CALCULADORA
+						</button>
 					</div>
-					<button className="btn-action" onClick={() => this.goToCalculator()}>
-						CALCULADORA
-					</button>
 				</div>
 			</div>
 		);
