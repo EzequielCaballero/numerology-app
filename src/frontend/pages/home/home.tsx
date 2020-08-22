@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { RoutePath } from '../../../backend/sitemap/routes';
-import logo from '../../assets/logo-1.png';
+import SVGSelector from '../../components/svg/selector';
 import './home.css';
 
 class Home extends React.Component<RouteComponentProps> {
@@ -24,7 +24,7 @@ class Home extends React.Component<RouteComponentProps> {
 						</p>
 					</div>
 					<div>
-						<img src={logo} className="home-logo" alt="logo" />
+						<SVGSelector name="logoMain" />
 					</div>
 					<button className="btn-action" onClick={() => this.goToCalculator()}>
 						CALCULADORA

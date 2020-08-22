@@ -157,7 +157,7 @@ const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TProps) => 
 					Calcular
 				</button>
 				<button onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleCleanInputs(e)}>
-					<SVGSelector name="trash" />
+					<SVGSelector name="iconTrash" />
 				</button>
 			</div>
 		</Form>

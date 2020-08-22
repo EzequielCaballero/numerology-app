@@ -117,7 +117,7 @@ class History extends React.Component<RouteComponentProps, TState> {
 									aria-label="search"
 									onClick={() => this.goToResultView(result)}
 								>
-									<SVGSelector name="view" />
+									<SVGSelector name="iconView" />
 								</button>
 							</div>
 							<div>
@@ -126,7 +126,7 @@ class History extends React.Component<RouteComponentProps, TState> {
 									aria-label="delete"
 									onClick={() => this.handleDeleteItemHistory(result.key)}
 								>
-									<SVGSelector name="delete" />
+									<SVGSelector name="iconDelete" />
 								</button>
 							</div>
 						</div>

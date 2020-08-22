@@ -5,20 +5,29 @@
 	margin: 0 1rem 0 1rem;
 }
 
+.header-content #svg_logo_main {
+	animation: element-spin infinite 20s linear;
+	height: 65px;
+	margin: 10px;
+	pointer-events: none;
+	width: 65px;
+}
+
+.header-content #svg_logo_main > g > path {
+	fill: var(--content-color-2);
+	stroke: white;
+}
+
+.header-content #svg_logo_main > path:last-child {
+	stroke: white;
+}
+
 .header-content-text > p:first-child {
 	font-size: var(--font-size-2);
 }
 
 .header-content-text > p:last-child {
 	font-size: var(--font-size-3);
-}
-
-.header-content-logo {
-	animation: element-spin infinite 20s linear;
-	height: 65px;
-	margin: 10px;
-	pointer-events: none;
-	width: 65px;
 }
 
 .header-content-text {

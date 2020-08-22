@@ -8,9 +8,18 @@
 	font-style: italic;
 }
 
-.home-logo {
+#svg_logo_main {
 	animation: element-spin infinite 20s linear;
 	height: 30vmin;
 	margin: 1rem;
 	pointer-events: none;
+}
+
+#svg_logo_main > g > path {
+	fill: var(--content-color-3);
+	stroke: white;
+}
+
+#svg_logo_main > path:last-child {
+	stroke: white;
 }

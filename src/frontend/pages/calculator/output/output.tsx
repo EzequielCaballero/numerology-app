@@ -226,19 +226,19 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 					<div className="calculator-output">
 						<div className="output-option">
 							<button onClick={this.goToCalculatorInput}>
-								<SVGSelector name="edit" />
+								<SVGSelector name="iconEdit" />
 							</button>
 							<button className="btn-action" onClick={this.switchOutput}>
 								{this.state.showReport ? 'Cálculo' : 'Reporte'}
-								<SVGSelector name="switch" />
+								<SVGSelector name="iconSwitch" />
 							</button>
 							{this.state.isSaveActive ? (
 								<button onClick={this.handleSaveResult}>
-									<SVGSelector name="save" />
+									<SVGSelector name="iconSave" />
 								</button>
 							) : (
 								<button onClick={this.goToHistory} title="Resultado guardado">
-									<SVGSelector name="check" />
+									<SVGSelector name="iconCheck" />
 								</button>
 							)}
 						</div>

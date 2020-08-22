@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../assets/logo-1.png';
+import SVGSelector from '../svg/selector';
 import './header.css';
 
 type TProps = {
@@ -9,7 +9,7 @@ type TProps = {
 const Header: React.FunctionComponent<TProps> = ({ title }) => {
 	return (
 		<div className="header-content">
-			<img src={logo} className="header-content-logo" alt="logo" />
+			<SVGSelector name="logoMain" />
 			<div className="header-content-text">
 				<p>Numerología pitagórica</p>
 				<p>

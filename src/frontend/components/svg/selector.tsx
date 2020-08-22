@@ -4,23 +4,27 @@ import SVGIconCheck from './icon/check';
 import SVGIconDelete from './icon/delete';
 import SVGIconEdit from './icon/edit';
 import SVGIconEmail from './icon/email';
+import SVGIconHome from './icon/home';
 import SVGIconSave from './icon/save';
 import SVGIconSwitch from './icon/switch';
 import SVGIconTrash from './icon/trash';
 import SVGIconView from './icon/view';
+import SVGLogoMain from './logo/main';
 import SVGLogoGithub from './logo/github';
 
 const _SVG_CATALOG = {
-	back: SVGIconBack,
-	check: SVGIconCheck,
-	delete: SVGIconDelete,
-	edit: SVGIconEdit,
-	email: SVGIconEmail,
-	save: SVGIconSave,
-	switch: SVGIconSwitch,
-	trash: SVGIconTrash,
-	view: SVGIconView,
-	github: SVGLogoGithub
+	iconBack: SVGIconBack,
+	iconCheck: SVGIconCheck,
+	iconDelete: SVGIconDelete,
+	iconEdit: SVGIconEdit,
+	iconEmail: SVGIconEmail,
+	iconHome: SVGIconHome,
+	iconSave: SVGIconSave,
+	iconSwitch: SVGIconSwitch,
+	iconTrash: SVGIconTrash,
+	iconView: SVGIconView,
+	logoMain: SVGLogoMain,
+	logoGithub: SVGLogoGithub
 };
 
 type TProps = {

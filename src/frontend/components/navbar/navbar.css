@@ -26,7 +26,12 @@
 	display: inline;
 }
 
-#home_icon > g > path {
+#svg_icon_home {
+	height: 30px;
+	width: 30px;
+}
+
+#svg_icon_home > g > path {
 	stroke: var(--default-color-2);
 }
 
