@@ -22,7 +22,7 @@ type Route = {
 	component: React.ComponentClass<any>;
 };
 
-export const Routes: Route[] = [
+const Routes: Route[] = [
 	{
 		key: 'Home',
 		path: '/(|home)',
@@ -60,3 +60,5 @@ export const Routes: Route[] = [
 		component: Contact
 	}
 ];
+
+export default Routes;
