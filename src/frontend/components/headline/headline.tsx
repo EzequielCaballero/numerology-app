@@ -8,9 +8,9 @@ type TProps = {
 
 const Header: React.FunctionComponent<TProps> = ({ title }) => {
 	return (
-		<div className="header-content">
+		<div className="headline-content">
 			<SVGSelector name="logoMandala" />
-			<div className="header-content-text">
+			<div className="headline-content-text">
 				<p>Numerología pitagórica</p>
 				<p>
 					<strong>{title}</strong>
