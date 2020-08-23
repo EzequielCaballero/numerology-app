@@ -4,7 +4,7 @@ import { RoutePath } from '../../../backend/sitemap/routes';
 import Convertor from '../../../backend/services/convertor';
 import URLHandler from '../../../backend/services/urlhandler';
 import StorageHandler, { TResult } from '../../../backend/services/storagehandler';
-import Header from '../../components/header/header';
+import Headline from '../../components/headline/headline';
 import ModalMessage, { TModal } from '../../components/modal/modal';
 import SVGSelector from '../../components/svg/selector';
 import './history.css';
@@ -96,7 +96,7 @@ class History extends React.Component<RouteComponentProps, TState> {
 						action={this.state.modal.action}
 					/>
 					{/* HEADER */}
-					<Header title="HISTORIAL" />
+					<Headline title="HISTORIAL" />
 					{/* HISTORY */}
 					<div className="history-title">
 						{this.state.results.length > 0 ? (

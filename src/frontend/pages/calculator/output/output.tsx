@@ -7,7 +7,7 @@ import Validator, { TName, TBirth } from '../../../../backend/services/validator
 import URLHandler from '../../../../backend/services/urlhandler';
 import StorageHandler from '../../../../backend/services/storagehandler';
 import Person from '../../../../backend/entity/person';
-import Header from '../../../components/header/header';
+import Headline from '../../../components/headline/headline';
 import ModalMessage, { TModal } from '../../../components/modal/modal';
 import CalculatorOutputRecord from '../../../components/calculator/output/record/record';
 import CalculatorOutputReport from '../../../components/calculator/output/report/report';
@@ -221,7 +221,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 						action={this.state.modal.action}
 					/>
 					{/* HEADER */}
-					<Header title="RESULTADOS" />
+					<Headline title="RESULTADOS" />
 					{/* CALCULATOR OUTPUT */}
 					<div className="calculator-output">
 						<div className="output-option">

@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { RoutePath } from '../../../../backend/sitemap/routes';
 import Validator, { TName, TBirth } from '../../../../backend/services/validator';
 import URLHandler from '../../../../backend/services/urlhandler';
-import Header from '../../../components/header/header';
+import Headline from '../../../components/headline/headline';
 import ModalMessage, { TModal } from '../../../components/modal/modal';
 import CalculatorInputForm from '../../../components/calculator/input/form/form';
 import TestConfig from '../../../../tests/App.test.config.json';
@@ -181,7 +181,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 					/>
 
 					{/* HEADER */}
-					<Header title="CALCULADORA" />
+					<Headline title="CALCULADORA" />
 
 					{/* CALCULATOR FORM */}
 					<CalculatorInputForm

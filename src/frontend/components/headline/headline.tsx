@@ -1,6 +1,6 @@
 import React from 'react';
 import SVGSelector from '../svg/selector';
-import './header.css';
+import './headline.css';
 
 type TProps = {
 	title: string;
