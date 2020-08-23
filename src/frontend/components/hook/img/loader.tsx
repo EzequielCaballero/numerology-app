@@ -5,11 +5,13 @@ const useImgLoader = (src: string[]) => {
 
 	useEffect(
 		() => {
-			const sizes: string[] = [ '1500w', '800w', '600w', '400w' ];
 			const img: HTMLImageElement = new Image();
-			const srcCustomset: string = src.map((s, i) => `${s} ${sizes[i]}`).join(',');
-			img.srcset = srcCustomset;
-			img.src = src[1];
+			if (src.length > 1 && src.length <= 4) {
+				const sizes: string[] = [ '1500w', '800w', '600w', '400w' ];
+				const srcCustomset: string = src.map((s, i) => `${s} ${sizes[i]}`).join(',');
+				img.srcset = srcCustomset;
+			}
+			img.src = src[0];
 			img.onload = () => setSrcLoaded(img.currentSrc);
 		},
 		[ src ]
