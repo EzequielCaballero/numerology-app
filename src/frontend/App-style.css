@@ -36,11 +36,12 @@ body::-webkit-scrollbar-thumb {
 /* SITE PARTS */
 .site {
 	background: var(--default-color-1);
+	background-size: cover;
 	background-attachment: scroll;
 	background-clip: border-box;
 	background-repeat: no-repeat;
 	font-family: var(--app-font-family);
-	transition: background-image 1.5s ease;
+	transition: background-image 1.5s linear;
 	min-height: 100vh;
 }
 

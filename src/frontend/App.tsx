@@ -4,21 +4,25 @@ import { Route, Switch } from 'react-router-dom';
 import Navbar from './components/navbar/navbar';
 import Footer from './components/footer/footer';
 import Err404 from './components/err404/err404';
-import ImgLoader from './components/img/loader';
+import useImgLoader from './components/hook/img/loader';
 import Routes from '../backend/sitemap/routes';
 //BASIC STYLE
-import _backgroundHD from './assets/background-hd.jpg';
-import _backgroundLD from './assets/background-ld.jpg';
+import _backgroundX4 from './assets/background-x4.jpg';
+import _backgroundX3 from './assets/background-x3.jpg';
+import _backgroundX2 from './assets/background-x2.jpg';
+import _backgroundX1 from './assets/background-x1.jpg';
+import _backgroundPH from './assets/background-ph.jpg';
 import './App-variables.css';
 import './App-style.css';
 import './App-responsive.css';
 import './App-animation.css';
 
 const App = (): JSX.Element => {
-	const imgHDLoaded = ImgLoader(_backgroundHD);
+	const srcs: string[] = [ _backgroundX4, _backgroundX3, _backgroundX2, _backgroundX1 ];
+	const imgHDLoaded = useImgLoader(srcs);
 
 	return (
-		<div className="site" style={{ backgroundImage: `url(${imgHDLoaded || _backgroundLD})` }}>
+		<div className="site" style={{ backgroundImage: `url(${imgHDLoaded || _backgroundPH})` }}>
 			<header className="site-header">
 				<Navbar />
 			</header>
