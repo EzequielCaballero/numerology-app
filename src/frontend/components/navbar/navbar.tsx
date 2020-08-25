@@ -32,7 +32,7 @@ const Navbar: React.FunctionComponent = () => {
 			<div className="nav-custom-header">
 				<div className="nav-custom-icon">
 					<button onClick={() => changeView(RoutePath.Home)}>
-						<SVGSelector name="iconHome" />
+						<SVGSelector name="logoMandala" />
 					</button>
 				</div>
 			</div>

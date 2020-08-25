@@ -28,7 +28,7 @@ body::-webkit-scrollbar-track {
 	background: var(--scroll-color-background);
 }
 body::-webkit-scrollbar-thumb {
-	background-color: var(--scroll-color-body);
+	background: var(--scroll-color-body);
 	border: 3px solid var(--scroll-color-border);
 	border-radius: 6px;
 }
@@ -37,7 +37,7 @@ body::-webkit-scrollbar-thumb {
 .site {
 	background: var(--default-color-1);
 	background-size: cover;
-	background-attachment: scroll;
+	background-attachment: fixed;
 	background-clip: border-box;
 	background-repeat: no-repeat;
 	font-family: var(--app-font-family);
@@ -75,9 +75,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .box-content {
-	background: var(--background-color-1);
+	background: var(--app-box-background-1);
 	border-radius: 1rem;
-	box-shadow: var(--content-box-shadow);
+	box-shadow: var(--app-box-shadow-1);
 	color: var(--font-color-1);
 	margin: 1rem;
 	text-align: center;
@@ -96,9 +96,9 @@ button:hover {
 }
 
 .btn-action {
-	background: var(--btn-blur-color-1);
-	border-top: 2px solid var(--default-color-3);
-	border-left: 2px solid var(--default-color-3);
+	background: var(--btn-blur-background-1);
+	border-top: 2px solid transparent;
+	border-left: 2px solid transparent;
 	border-radius: 0.25rem;
 	padding: .375rem .75rem;
 }

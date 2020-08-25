@@ -1,11 +1,11 @@
 #app-modal .modal-content {
-	box-shadow: var(--content-box-shadow);
+	box-shadow: var(--app-box-shadow-1);
 }
 
 #app-modal-header,
 #app-modal-body,
 #app-modal-footer {
-	background-color: var(--content-color-3);
+	background: var(--content-color-3);
 	border: none;
 	color: var(--font-color-1);
 }
@@ -17,8 +17,4 @@
 #app-modal-body {
 	border-top: 0.5rem solid var(--border-color-2);
 	padding: 1rem 1rem 0.5rem 1rem;
-}
-
-.modal-text {
-	margin-bottom: 10px;
 }

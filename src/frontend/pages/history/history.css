@@ -3,7 +3,7 @@
 }
 
 .history-item {
-	background: var(--background-color-2);
+	background: var(--content-background-1);
 	border-radius: 20px;
 	display: grid;
 	grid-template-columns: 3fr 1fr 1fr;
@@ -43,4 +43,9 @@
 	fill: var(--status-color-danger);
 	height: 30px;
 	width: 30px;
+}
+
+#svg_icon_view:hover,
+#svg_icon_delete:hover {
+	fill: var(--default-color-2);
 }

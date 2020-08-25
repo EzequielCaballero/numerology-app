@@ -125,7 +125,8 @@ class Calculator {
 		let matchKarmas: TKarma = {
 			essence: 0,
 			mission: 0,
-			path: 0
+			path: 0,
+			possible_karmas: []
 		};
 
 		//Essence (before reduce)

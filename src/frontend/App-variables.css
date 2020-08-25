@@ -1,12 +1,22 @@
 :root {
 	--app-font-family: 'Rubik', sans-serif;
-	--background-color-1: rgba(34, 19, 51, 0.7);
-	--background-color-2: linear-gradient(to bottom, black 0%, rgba(58, 58, 58, 0.1) 100%);
+	--app-box-background-1: rgba(34, 19, 51, 0.7);
+	--app-box-shadow-1: 0 0 10px #ed9ec5;
 	--border-color-1: rgb(186, 114, 253);
 	--border-color-2: rgb(52, 32, 66);
-	--btn-blur-color-1: rgb(74, 44, 99);
+	--border-color-3: rgb(25, 9, 31);
+	--btn-blur-color-1: rgb(125, 75, 167);
+	--btn-blur-color-2: rgb(73, 38, 102);
+	--btn-blur-background-1: linear-gradient(
+		to bottom,
+		var(--btn-blur-color-1) 51%,
+		var(--btn-blur-color-2) 51%,
+		var(--btn-blur-color-2) 100%
+	);
 	--btn-focus-color-1: rgb(40, 15, 50);
-	--content-box-shadow: 0 0 10px #ed9ec5;
+	--content-background-1: linear-gradient(to bottom, black 0%, rgba(58, 58, 58, 0.1) 100%);
+	--content-background-2: linear-gradient(to bottom, rgb(99, 52, 84) 51%, rgb(51, 21, 42) 51%, rgb(51, 21, 42) 100%);
+	--content-background-3: linear-gradient(to bottom, rgb(51, 21, 42) 0%, rgba(58, 58, 58, 0.1) 100%);
 	--content-color-1: rgb(97, 50, 95);
 	--content-color-2: rgb(59, 31, 50);
 	--content-color-3: rgb(20, 11, 14);
@@ -22,7 +32,7 @@
 	--scroll-color-background: rgb(31, 31, 31);
 	--scroll-color-body: #47545a;
 	--scroll-color-border: rgb(224, 224, 224);
-	--status-color-success: rgb(93, 240, 93);
-	--status-color-warning: rgb(235, 227, 123);
-	--status-color-danger: rgb(233, 90, 90);
+	--status-color-success: rgb(91, 185, 91);
+	--status-color-warning: rgb(196, 190, 105);
+	--status-color-danger: rgb(214, 101, 101);
 }

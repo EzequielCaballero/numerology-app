@@ -2,17 +2,36 @@
 	animation: showup 2s ease-in;
 	color: var(--font-color-1);
 	font-size: var(--font-size-1);
+	margin: 1rem 1rem 0 1rem;
 }
 
-.output-record-operation {
-	background-color: var(--content-color-2);
-	border: 2px solid var(--default-color-1);
-	border-radius: 20px;
+/* GLOBAL EXPAND */
+
+.output-record-switch-expand {
+	border-radius: 20px 20px 0 0;
+	border-top: 1px var(--border-color-1) solid;
+	border-bottom: none;
+	display: grid;
+	gap: 5px;
+	grid-template-columns: 1fr 1fr;
+}
+
+.output-record-switch-expand > button {
+	color: var(--border-color-1);
+}
+
+/* ROWS */
+
+.output-record-item {
+	align-items: center;
+	background: var(--content-background-2);
+	border: 2px solid var(--border-color-3);
+	border-bottom: 0;
+	border-radius: 20px 20px 0 0;
 	display: grid;
 	grid-template-columns: 2fr 1fr 1fr;
-	grid-gap: 5px;
-	margin: 1rem;
-	padding: 5px;
+	gap: 5px;
+	padding: 2px;
 	text-align: center;
 }
 
@@ -25,5 +44,46 @@
 }
 
 .record-expand {
+	color: var(--default-color-2);
 	cursor: pointer;
+	font-style: normal;
+	font-weight: bolder;
+	transform: rotate(90deg);
+	transition: transform .3s ease, top .3s ease;
+}
+
+input[id^='check-record-item'] {
+	display: none;
+}
+
+input[id^='check-record-item']:not(:checked) ~ div[id^='record-detail-'] {
+	height: 0;
+}
+
+input[id^='check-record-item']:checked ~ div[id^='record-detail-'] {
+	height: auto;
+}
+
+input[id^='check-record-item']:checked ~ .output-record-item {
+	background: var(--content-background-1);
+}
+
+input[id^='check-record-item']:checked ~ .output-record-item span > label.record-expand {
+	transform: rotate(-90deg);
+}
+
+/* DETAIL */
+
+div[id^='record-detail-'] {
+	background: var(--content-background-3);
+	border: 0 2px 0 2px;
+	border: solid var(--border-color-3);
+	border-radius: 0 0 20px 20px;
+	display: block;
+	font-size: 0.85em;
+	height: 0px;
+	margin-bottom: 0.5rem;
+	overflow-y: hidden;
+	text-transform: capitalize;
+	transition: all .3s ease;
 }

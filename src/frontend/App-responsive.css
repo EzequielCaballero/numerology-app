@@ -58,7 +58,7 @@ MOBILE
 	}
 
 	.nav-custom #nav-custom-check:checked ~ .nav-custom-btn > label {
-		background-color: var(--default-color-1);
+		background: var(--default-color-1);
 		border: 1px solid var(--default-color-2);
 	}
 	.nav-custom > .nav-custom-btn > label > span {
@@ -68,7 +68,7 @@ MOBILE
 		width: 25px;
 	}
 	.nav-custom > .nav-custom-links {
-		background-color: var(--content-color-3);
+		background: var(--content-color-3);
 		border-bottom: 3px solid var(--content-color-1);
 		display: block;
 		height: 0px;

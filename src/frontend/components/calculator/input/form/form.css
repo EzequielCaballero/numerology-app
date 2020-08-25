@@ -21,7 +21,7 @@ input[name^="lastName"] {
 /* OUTPUT */
 
 .form-output {
-	background: var(--background-color-2);
+	background: var(--content-background-1);
 	border-top: 1px solid var(--border-color-1);
 	border-radius: 15px 15px 0px 0px;
 	font-size: var(--font-size-1);
@@ -30,29 +30,20 @@ input[name^="lastName"] {
 	margin-top: 1.5rem;
 	padding: 5px;
 }
-.form-output-header {
-	align-items: baseline;
-	display: flex;
-	justify-content: center;
-}
-
-.form-output-check-btn {
-	border: 1px solid var(--default-color-2);
-	border-radius: 50%;
-	cursor: pointer;
-	font-size: var(--font-size-1);
-	height: 22px;
-	margin-left: 10px;
-	text-align-last: center;
-	width: 22px;
-}
-
-.form-output-check-btn > span {
-	margin-right: 3px;
-}
 
 #form-output-check {
 	display: none;
+}
+
+.form-output-check-btn {
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: var(--font-size-1);
+	font-style: normal;
+	font-weight: bolder;
+	margin-left: 10px;
+	transform: rotate(90deg);
+	transition: transform .3s ease, top .3s ease;
 }
 
 .form-output-values {
@@ -61,7 +52,7 @@ input[name^="lastName"] {
 	height: 0px;
 	overflow-y: hidden;
 	text-transform: capitalize;
-	transition: all 0.2s ease-in;
+	transition: all .3s ease;
 	width: 100%;
 	-ms-overflow-style: none;
 }
@@ -79,7 +70,17 @@ input[name^="lastName"] {
 	overflow-y: auto;
 }
 
+#form-output-check:checked ~ .form-output-header .form-output-check-btn {
+	transform: rotate(-90deg);
+}
+
 /* ACTIONS */
+
+.form-actions {
+	display: grid;
+	grid-template-columns: 2fr 0.5fr;
+	grid-gap: 20px;
+}
 
 #svg_icon_trash {
 	fill: var(--status-color-danger);
@@ -87,10 +88,8 @@ input[name^="lastName"] {
 	width: 25px;
 }
 
-.form-actions {
-	display: grid;
-	grid-template-columns: 2fr 0.5fr;
-	grid-gap: 20px;
+#svg_icon_trash:hover {
+	fill: var(--default-color-2);
 }
 
 #remove-field,

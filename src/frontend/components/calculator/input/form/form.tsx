@@ -127,17 +127,17 @@ const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TProps) => 
 			<div className="form-output">
 				<input type="checkbox" id="form-output-check" />
 				<div className="form-output-header">
-					<span>Valores finales</span>
+					<span>Valores ingresados</span>
 
 					<label className="form-output-check-btn" htmlFor="form-output-check">
-						<span>?</span>
+						<span>{'>'}</span>
 					</label>
 				</div>
 				<div className="form-output-values">
 					<span>
 						{name.firstName[0] !== '' && name.lastName[0] !== '' ? (
-							`${name.firstName.map((item) => item).toString().replace(/,/g, ' ')} 
-            ${name.lastName.map((item) => item).toString().replace(/,/g, ' ')}`
+							`${name.firstName.map((item) => item).join(' ')} 
+            				 ${name.lastName.map((item) => item).join(' ')}`
 						) : (
 							'...'
 						)}

@@ -95,42 +95,44 @@ class History extends React.Component<RouteComponentProps, TState> {
 						properties={this.state.modal.properties}
 						action={this.state.modal.action}
 					/>
-					{/* HEADER */}
+					{/* HEADLINE */}
 					<Headline title="HISTORIAL" />
 					{/* HISTORY */}
-					<div className="history-title">
-						{this.state.results.length > 0 ? (
-							<i>Listado de resultados guardados</i>
-						) : (
-							<i>No hay resultados guardados</i>
-						)}
-					</div>
-					{this.state.results.map((result) => (
-						<div key={result.key} className="history-item">
-							<div className="history-item-person">
-								<p className="history-item-fullname">{Convertor.FormatNameToString(result.name)}</p>
-								<p className="history-item-birth">{Convertor.FormatDateToString(result.birth)}</p>
-							</div>
-							<div>
-								<button
-									className="history-item-action"
-									aria-label="search"
-									onClick={() => this.goToResultView(result)}
-								>
-									<SVGSelector name="iconView" />
-								</button>
-							</div>
-							<div>
-								<button
-									className="history-item-action"
-									aria-label="delete"
-									onClick={() => this.handleDeleteItemHistory(result.key)}
-								>
-									<SVGSelector name="iconDelete" />
-								</button>
-							</div>
+					<div className="history">
+						<div className="history-title">
+							{this.state.results.length > 0 ? (
+								<i>Listado de resultados guardados</i>
+							) : (
+								<i>No hay resultados guardados</i>
+							)}
 						</div>
-					))}
+						{this.state.results.map((result) => (
+							<div key={result.key} className="history-item">
+								<div className="history-item-person">
+									<p className="history-item-fullname">{Convertor.FormatNameToString(result.name)}</p>
+									<p className="history-item-birth">{Convertor.FormatDateToString(result.birth)}</p>
+								</div>
+								<div>
+									<button
+										className="history-item-action"
+										aria-label="search"
+										onClick={() => this.goToResultView(result)}
+									>
+										<SVGSelector name="iconView" />
+									</button>
+								</div>
+								<div>
+									<button
+										className="history-item-action"
+										aria-label="delete"
+										onClick={() => this.handleDeleteItemHistory(result.key)}
+									>
+										<SVGSelector name="iconDelete" />
+									</button>
+								</div>
+							</div>
+						))}
+					</div>
 				</div>
 			</div>
 		);

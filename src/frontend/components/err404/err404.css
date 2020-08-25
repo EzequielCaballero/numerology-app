@@ -1,19 +1,8 @@
-.err404-box {
-	align-self: center;
-	animation: showup 2s ease-in;
-	margin: 0 auto;
-}
-
-.err404-content {
-	background: var(--background-color-1);
-	border-radius: 1rem;
-	box-shadow: var(--content-box-shadow);
+.err404-text {
 	color: var(--font-color-1);
 	font-size: var(--font-size-2);
 	font-weight: bold;
 	margin: 2rem;
 	padding: 1rem;
 	text-align: center;
-	-webkit-box-shadow: var(--content-box-shadow);
-	-moz-box-shadow: var(--content-box-shadow);
 }

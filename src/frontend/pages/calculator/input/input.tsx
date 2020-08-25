@@ -180,7 +180,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 						action={this.state.modal.action}
 					/>
 
-					{/* HEADER */}
+					{/* HEADLINE */}
 					<Headline title="CALCULADORA" />
 
 					{/* CALCULATOR FORM */}

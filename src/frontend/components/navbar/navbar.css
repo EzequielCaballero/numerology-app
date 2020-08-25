@@ -26,18 +26,22 @@
 	display: inline;
 }
 
-#svg_icon_home {
-	height: 30px;
-	width: 30px;
+.nav-custom-icon #svg_logo_mandala {
+	height: 40px;
+	width: 40px;
 }
 
-#svg_icon_home > g > path {
+.nav-custom-icon #svg_logo_mandala path {
+	stroke: var(--default-color-3);
+}
+
+.nav-custom-icon:hover #svg_logo_mandala path {
 	stroke: var(--default-color-2);
 }
 
 .nav-custom > .nav-custom-header > .nav-custom-icon {
 	display: inline-block;
-	padding: 6.5px 0px 0px 10px;
+	padding: 5px 0 0 10px;
 }
 
 .nav-custom > .nav-custom-btn {

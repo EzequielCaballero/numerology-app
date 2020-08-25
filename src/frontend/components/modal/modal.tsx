@@ -18,9 +18,9 @@ export type TModal = {
 const ModalMessage: React.FunctionComponent<TModal> = ({ text, properties, action }) => {
 	const formatTextContent = (): Array<JSX.Element> => {
 		return text.msg.map((text, index) => (
-			<div className="modal-text" key={index}>
+			<p className="modal-text" key={index}>
 				{text.trim()}
-			</div>
+			</p>
 		));
 	};
 

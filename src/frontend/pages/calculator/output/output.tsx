@@ -9,9 +9,9 @@ import StorageHandler from '../../../../backend/services/storagehandler';
 import Person from '../../../../backend/entity/person';
 import Headline from '../../../components/headline/headline';
 import ModalMessage, { TModal } from '../../../components/modal/modal';
+import CalculatorOutputPanel from '../../../components/calculator/output/panel/panel';
 import CalculatorOutputRecord from '../../../components/calculator/output/record/record';
 import CalculatorOutputReport from '../../../components/calculator/output/report/report';
-import SVGSelector from '../../../components/svg/selector';
 import './output.css';
 
 type TState = {
@@ -54,86 +54,6 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 		StorageHandler.deleteInvalidKeyValues();
 		if (!StorageHandler.isResultStored(this.nameParam, this.birthParam)) this.setState({ isSaveActive: true });
 	}
-
-	private showRecord = (operation: string): void => {
-		let newMsg: string[] = [ '' ];
-		//console.log(JSON.stringify(record));
-		switch (operation) {
-			case 'image':
-				newMsg.push(JSON.stringify(this.record.name));
-				for (let i = 0; i < this.record.image.length; i++) {
-					newMsg.push(JSON.stringify(this.record.image[i]));
-				}
-				this.setModalContent('Cálculo de imagen...', newMsg);
-				break;
-			case 'essence':
-				newMsg.push(JSON.stringify(this.record.name));
-				for (let i = 0; i < this.record.essence.length; i++) {
-					newMsg.push(JSON.stringify(this.record.essence[i]));
-				}
-				this.setModalContent('Cálculo de esencia...', newMsg);
-				break;
-			case 'mission':
-				newMsg.push(JSON.stringify(this.record.name));
-				for (let i = 0; i < this.record.mission.length; i++) {
-					newMsg.push(JSON.stringify(this.record.mission[i]));
-				}
-				this.setModalContent('Cálculo de misión...', newMsg);
-				break;
-			case 'path':
-				newMsg.push(JSON.stringify(this.record.birth));
-				for (let i = 0; i < this.record.path.length; i++) {
-					newMsg.push(JSON.stringify(this.record.path[i]));
-				}
-				this.setModalContent('Cálculo de sendero...', newMsg);
-				break;
-			case 'personalKey':
-				newMsg.push(`${this.person.birthdate[2]} -> ${this.person.personal_key}`);
-				this.setModalContent('Detalle de clave personal...', newMsg);
-				break;
-			case 'potentialNumber':
-				newMsg.push(`${this.person.mission} + ${this.person.natal_path} = ${this.person.potential_number}`);
-				this.setModalContent('Detalle del número potencial...', newMsg);
-				break;
-			case 'karmas':
-				newMsg.push(`Esencia: ${this.person.karmas.essence}`);
-				newMsg.push(`Misión: ${this.person.karmas.mission}`);
-				newMsg.push(`Sendero: ${this.person.karmas.path}`);
-				newMsg.push('---');
-				newMsg.push(`Números faltantes: ${this.person.possible_karmas}`);
-				this.setModalContent('Detalle de karmas...', newMsg);
-				break;
-			case 'stages':
-				for (let stage of this.person.stages) {
-					newMsg.push(`${stage.num}° | ${stage.from} -> ${stage.to === 0 ? '∞' : stage.to} = ${stage.value}`);
-				}
-				this.setModalContent('Detalle de etapas...', newMsg);
-				break;
-			case 'personalYear':
-				newMsg.push(
-					`${this.person.birthdate[2]} + ${this.person.birthdate[1]} + ${new Date().getFullYear()} = ${this
-						.person.personal_year}`
-				);
-				this.setModalContent('Detalle del año personal...', newMsg);
-				break;
-			case 'personalMonth':
-				newMsg.push(
-					`${this.person.personal_year} + ${new Date().getMonth() + 1} = ${this.person.personal_month}`
-				);
-				newMsg.push('(año personal + mes actual)');
-				this.setModalContent('Detalle del mes personal...', newMsg);
-				break;
-			case 'ageDigit':
-				newMsg.push(`${this.person.age} + ${this.person.age + 1} = ${this.person.age_digit}`);
-				newMsg.push('(edad actual + edad próxima)');
-				this.setModalContent('Detalle de digito de edad...', newMsg);
-				break;
-			default:
-				break;
-		}
-		this.setModalProperties(false);
-		this.showModal(true);
-	};
 
 	private switchOutput = (): void => {
 		let prevState = this.state.showReport;
@@ -220,39 +140,25 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 						properties={this.state.modal.properties}
 						action={this.state.modal.action}
 					/>
-					{/* HEADER */}
+					{/* HEADLINE */}
 					<Headline title="RESULTADOS" />
 					{/* CALCULATOR OUTPUT */}
 					<div className="calculator-output">
-						<div className="output-option">
-							<button onClick={this.goToCalculatorInput}>
-								<SVGSelector name="iconEdit" />
-							</button>
-							<button className="btn-action" onClick={this.switchOutput}>
-								{this.state.showReport ? 'Cálculo' : 'Reporte'}
-								<SVGSelector name="iconSwitch" />
-							</button>
-							{this.state.isSaveActive ? (
-								<button onClick={this.handleSaveResult}>
-									<SVGSelector name="iconSave" />
-								</button>
-							) : (
-								<button onClick={this.goToHistory} title="Resultado guardado">
-									<SVGSelector name="iconCheck" />
-								</button>
-							)}
-						</div>
-						<div className="input-person">
-							<p id="input-person-name">{Convertor.FormatNameToString(this.nameParam)}</p>
-							<p id="input-person-date">{Convertor.FormatDateToString(this.birthParam)}</p>
-						</div>
-						<div className="output-detail">
-							{!this.state.showReport ? (
-								<CalculatorOutputRecord person={this.person} showRecord={this.showRecord} />
-							) : (
-								<CalculatorOutputReport person={this.person} />
-							)}
-						</div>
+						<CalculatorOutputPanel
+							name={Convertor.FormatNameToString(this.nameParam)}
+							birth={Convertor.FormatDateToString(this.birthParam)}
+							showReport={this.state.showReport}
+							isSaveActive={this.state.isSaveActive}
+							switchOutput={this.switchOutput}
+							handleSaveResult={this.handleSaveResult}
+							goToCalculatorInput={this.goToCalculatorInput}
+							goToHistory={this.goToHistory}
+						/>
+						{!this.state.showReport ? (
+							<CalculatorOutputRecord person={this.person} record={this.record} />
+						) : (
+							<CalculatorOutputReport person={this.person} />
+						)}
 					</div>
 				</div>
 			</div>
