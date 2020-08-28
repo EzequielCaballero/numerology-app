@@ -24,7 +24,7 @@
 
 .output-record-item {
 	align-items: center;
-	background: var(--content-background-2);
+	background: var(--element-background-2);
 	border: 2px solid var(--border-color-3);
 	border-bottom: 0;
 	border-radius: 20px 20px 0 0;
@@ -44,7 +44,7 @@
 }
 
 .record-expand {
-	color: var(--default-color-2);
+	color: var(--default-color-3);
 	cursor: pointer;
 	font-style: normal;
 	font-weight: bolder;
@@ -65,7 +65,7 @@ input[id^='check-record-item']:checked ~ div[id^='record-detail-'] {
 }
 
 input[id^='check-record-item']:checked ~ .output-record-item {
-	background: var(--content-background-1);
+	background: var(--element-background-1);
 }
 
 input[id^='check-record-item']:checked ~ .output-record-item span > label.record-expand {
@@ -75,7 +75,7 @@ input[id^='check-record-item']:checked ~ .output-record-item span > label.record
 /* DETAIL */
 
 div[id^='record-detail-'] {
-	background: var(--content-background-3);
+	background: var(--element-background-3);
 	border: 0 2px 0 2px;
 	border: solid var(--border-color-3);
 	border-radius: 0 0 20px 20px;

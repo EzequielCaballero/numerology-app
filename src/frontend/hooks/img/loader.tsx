@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useImgLoader = (src: string[]) => {
+export const useImgLoader = (src: string[], placeholder: string) => {
 	const [ srcLoaded, setSrcLoaded ] = useState<string | null>(null);
 
 	useEffect(
@@ -17,7 +17,5 @@ const useImgLoader = (src: string[]) => {
 		[ src ]
 	);
 
-	return srcLoaded;
+	return srcLoaded || placeholder;
 };
-
-export default useImgLoader;

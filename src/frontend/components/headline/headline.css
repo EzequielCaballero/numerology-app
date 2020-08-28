@@ -14,7 +14,7 @@
 }
 
 .headline-content #svg_logo_mandala path {
-	stroke: white;
+	stroke: var(--default-color-3);
 }
 
 .headline-content-text > p:first-child {

@@ -14,7 +14,7 @@ class Home extends React.Component<RouteComponentProps> {
 			<div className="box">
 				<div className="box-content">
 					<div className="home-header">
-						<p>{`👋 ¡Bienvenido! 👋`}</p>
+						<p>{`¡Bienvenido! 👋`}</p>
 						<p>Numerología pitagórica</p>
 					</div>
 					<div className="home-quote">
@@ -28,7 +28,7 @@ class Home extends React.Component<RouteComponentProps> {
 							<SVGSelector name="logoMandala" />
 						</div>
 						<button className="btn-action" onClick={() => this.goToCalculator()}>
-							CALCULADORA
+							Probar
 						</button>
 					</div>
 				</div>

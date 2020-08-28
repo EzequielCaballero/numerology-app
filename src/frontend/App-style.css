@@ -35,7 +35,7 @@ body::-webkit-scrollbar-thumb {
 
 /* SITE PARTS */
 .site {
-	background: var(--default-color-1);
+	background-color: var(--default-color-1);
 	background-size: cover;
 	background-attachment: fixed;
 	background-clip: border-box;
@@ -75,9 +75,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .box-content {
-	background: var(--app-box-background-1);
+	background: var(--content-background);
 	border-radius: 1rem;
-	box-shadow: var(--app-box-shadow-1);
+	box-shadow: var(--content-shadow);
 	color: var(--font-color-1);
 	margin: 1rem;
 	text-align: center;
@@ -90,13 +90,13 @@ button:focus,
 button:hover {
 	background: none;
 	border: none;
-	color: var(--default-color-2);
+	color: white;
 	outline: none !important;
 	text-decoration: none;
 }
 
 .btn-action {
-	background: var(--btn-blur-background-1);
+	background: var(--btn-blur-background);
 	border-top: 2px solid transparent;
 	border-left: 2px solid transparent;
 	border-radius: 0.25rem;
@@ -105,7 +105,7 @@ button:hover {
 
 .btn-action-outline {
 	background: none;
-	border: 1px solid var(--default-color-2);
+	border: 1px solid var(--default-color-3);
 	border-radius: 0.25rem;
 	padding: .375rem .75rem;
 }
@@ -114,8 +114,8 @@ button:hover {
 .btn-action:hover,
 .btn-action-outline:focus,
 .btn-action-outline:hover {
-	background: var(--btn-focus-color-1);
-	border-right: 2px solid var(--default-color-2);
-	border-bottom: 2px solid var(--default-color-2);
+	background: var(--btn-focus-background);
+	border-right: 2px solid var(--default-color-3);
+	border-bottom: 2px solid var(--default-color-3);
 	border-radius: 0.3rem;
 }

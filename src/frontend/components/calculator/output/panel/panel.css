@@ -44,13 +44,13 @@
 #svg_icon_edit:hover,
 #svg_icon_save:hover,
 #svg_icon_check:hover > g {
-	fill: var(--default-color-2);
+	fill: var(--default-color-3);
 }
 
 /* INPUT PERSON */
 
 .input-person {
-	background: var(--content-background-1);
+	background: var(--element-background-1);
 	border-radius: 10px;
 	color: var(--font-color-1);
 	margin: 1rem;

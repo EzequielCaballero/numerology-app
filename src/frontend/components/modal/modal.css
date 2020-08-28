@@ -1,13 +1,14 @@
 #app-modal .modal-content {
-	box-shadow: var(--app-box-shadow-1);
+	background: var(--modal-background);
+	border: none;
+	box-shadow: var(--modal-shadow);
+	color: var(--font-color-1);
 }
 
 #app-modal-header,
 #app-modal-body,
 #app-modal-footer {
-	background: var(--content-color-3);
 	border: none;
-	color: var(--font-color-1);
 }
 
 #app-modal-title {

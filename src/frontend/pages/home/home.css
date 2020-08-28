@@ -16,17 +16,17 @@
 }
 
 .home-content #svg_logo_mandala > path[id^='number'] {
-	stroke: var(--font-color-1);
+	stroke: var(--default-color-3);
 }
 
 .home-content #svg_logo_mandala > g > g[id='mandala-outline'] > g > path {
-	stroke: var(--content-color-1);
+	stroke: var(--element-color-1);
 }
 
 .home-content #svg_logo_mandala > g > g[id='mandala-outline'] > g[id='mandala-outline-2'] > path {
-	stroke: var(--default-color-2);
+	stroke: var(--default-color-3);
 }
 
 .home-content #svg_logo_mandala > g > g[id='mandala-baseline'] > g > g > path {
-	stroke: var(--default-color-2);
+	stroke: var(--default-color-3);
 }

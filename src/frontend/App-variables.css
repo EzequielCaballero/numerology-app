@@ -1,38 +1,78 @@
 :root {
 	--app-font-family: 'Rubik', sans-serif;
-	--app-box-background-1: rgba(34, 19, 51, 0.7);
-	--app-box-shadow-1: 0 0 10px #ed9ec5;
-	--border-color-1: rgb(186, 114, 253);
-	--border-color-2: rgb(52, 32, 66);
-	--border-color-3: rgb(25, 9, 31);
-	--btn-blur-color-1: rgb(125, 75, 167);
-	--btn-blur-color-2: rgb(73, 38, 102);
-	--btn-blur-background-1: linear-gradient(
-		to bottom,
-		var(--btn-blur-color-1) 51%,
-		var(--btn-blur-color-2) 51%,
-		var(--btn-blur-color-2) 100%
-	);
-	--btn-focus-color-1: rgb(40, 15, 50);
-	--content-background-1: linear-gradient(to bottom, black 0%, rgba(58, 58, 58, 0.1) 100%);
-	--content-background-2: linear-gradient(to bottom, rgb(99, 52, 84) 51%, rgb(51, 21, 42) 51%, rgb(51, 21, 42) 100%);
-	--content-background-3: linear-gradient(to bottom, rgb(51, 21, 42) 0%, rgba(58, 58, 58, 0.1) 100%);
-	--content-color-1: rgb(97, 50, 95);
-	--content-color-2: rgb(59, 31, 50);
-	--content-color-3: rgb(20, 11, 14);
-	--default-color-1: black;
-	--default-color-2: white;
-	--default-color-3: gray;
-	--font-color-1: #e0dfdf;
-	--font-color-2: #242424;
 	--font-size-1: 1rem;
 	--font-size-2: 1.2rem;
 	--font-size-3: 1.5rem;
 	--font-size-4: 0.8rem;
-	--scroll-color-background: rgb(31, 31, 31);
+	--scroll-color-background: #030303;
 	--scroll-color-body: #47545a;
-	--scroll-color-border: rgb(224, 224, 224);
-	--status-color-success: rgb(91, 185, 91);
-	--status-color-warning: rgb(196, 190, 105);
-	--status-color-danger: rgb(214, 101, 101);
+	--scroll-color-border: #e0e0e0;
+	--status-color-success: #5bb95b;
+	--status-color-warning: #c4be69;
+	--status-color-danger: #d66565;
+}
+
+body[data-theme='dark'] {
+	--content-background: #221333b3;
+	--content-shadow: 0 0 10px #ed9ec5;
+	--border-color-1: #af5efc;
+	--border-color-2: #342042;
+	--border-color-3: #19091f;
+	--btn-blur-background: linear-gradient(to bottom, #7149a5 51%, #402158 51%, #402158 100%);
+	--btn-focus-background: rgb(40, 15, 50);
+	--default-color-1: #000000;
+	--default-color-2: #808080;
+	--default-color-3: #ffffff;
+	--element-background-1: linear-gradient(to bottom, #000000 0%, #3a3a3a1a 100%);
+	--element-background-2: linear-gradient(to bottom, #633454 51%, #33152a 51%, #33152a 100%);
+	--element-background-3: linear-gradient(to bottom, #33152a 0%, #3a3a3a1a 100%);
+	--element-color-1: #61325f;
+	--element-color-2: #3b1f32;
+	--element-color-3: #140b0e;
+	--font-color-1: #e0dfdf;
+	--font-color-2: #242424;
+	--modal-background: #140b0e;
+	--modal-shadow: 0 0 10px #ed9e9e;
+	--navbar-background: linear-gradient(
+		135deg,
+		#000000 5%,
+		#140b0e 10%,
+		#3b1f32 30%,
+		#61325f 40%,
+		#3b1f32 55%,
+		#140b0e 80%,
+		#000000 100%
+	);
+}
+body[data-theme='light'] {
+	--content-background: #f0e8fae1;
+	--content-shadow: 0 0 10px #ed9ec5;
+	--border-color-1: #6b3a99;
+	--border-color-2: #342042;
+	--border-color-3: #19091f;
+	--btn-blur-background: linear-gradient(to bottom, #baa1da 51%, #594469 51%, #594469 100%);
+	--btn-focus-background: rgb(109, 71, 122);
+	--default-color-1: #ffffff;
+	--default-color-2: #464545;
+	--default-color-3: #000000;
+	--element-background-1: linear-gradient(to bottom, #ffeaea 0%, #00000000 100%);
+	--element-background-2: linear-gradient(to bottom, #633454 51%, #33152a 51%, #33152a 100%);
+	--element-background-3: linear-gradient(to bottom, #33152a 0%, #3a3a3a1a 100%);
+	--element-color-1: #1b0e1b;
+	--element-color-2: #3b1f32;
+	--element-color-3: #140b0e;
+	--font-color-1: #000000;
+	--font-color-2: #e6e6e6;
+	--modal-background: #140b0e;
+	--modal-shadow: 0 0 10px #ed9e9e;
+	--navbar-background: linear-gradient(
+		135deg,
+		#f8f2ff 5%,
+		#ecdfe9 10%,
+		#ccb3c5 30%,
+		#ceb1c4 40%,
+		#ccb3c5 55%,
+		#ecdfe9 80%,
+		#f8f2ff 100%
+	);
 }
