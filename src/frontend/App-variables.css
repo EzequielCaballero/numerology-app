@@ -34,7 +34,6 @@ body[data-theme='dark'] {
 	--modal-background: #140b0e;
 	--modal-shadow: 0 0 10px #ed9e9e;
 	--navbar-active-link: #af5efc;
-	--navbar-hover-link: #ffffff;
 	--navbar-background: linear-gradient(
 		135deg,
 		#000000 5%,
@@ -45,6 +44,8 @@ body[data-theme='dark'] {
 		#140b0e 80%,
 		#000000 100%
 	);
+	--navbar-hover-link: #ffffff;
+	--navbar-theme-switch: #c9bf68;
 }
 body[data-theme='light'] {
 	--content-background: #fafae8e1;
@@ -68,7 +69,6 @@ body[data-theme='light'] {
 	--modal-background: #fafaef;
 	--modal-shadow: 0 0 10px #ede19e;
 	--navbar-active-link: #f8ea67;
-	--navbar-hover-link: #ffffff;
 	--navbar-background: linear-gradient(
 		135deg,
 		#fffaf2 5%,
@@ -79,4 +79,6 @@ body[data-theme='light'] {
 		#ece9df 80%,
 		#fffaf2 100%
 	);
+	--navbar-hover-link: #ffffff;
+	--navbar-theme-switch: #342042;
 }

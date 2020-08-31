@@ -5,7 +5,9 @@ import SVGIconDelete from './icon/delete';
 import SVGIconEdit from './icon/edit';
 import SVGIconEmail from './icon/email';
 import SVGIconHome from './icon/home';
+import SVGIconMoon from './icon/moon';
 import SVGIconSave from './icon/save';
+import SVGIconSun from './icon/sun';
 import SVGIconSwitch from './icon/switch';
 import SVGIconTrash from './icon/trash';
 import SVGIconView from './icon/view';
@@ -19,7 +21,9 @@ const _SVG_CATALOG = {
 	iconEdit: SVGIconEdit,
 	iconEmail: SVGIconEmail,
 	iconHome: SVGIconHome,
+	iconMoon: SVGIconMoon,
 	iconSave: SVGIconSave,
+	iconSun: SVGIconSun,
 	iconSwitch: SVGIconSwitch,
 	iconTrash: SVGIconTrash,
 	iconView: SVGIconView,

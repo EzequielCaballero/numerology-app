@@ -18,3 +18,24 @@
 		opacity: 1;
 	}
 }
+
+@keyframes blurred-in {
+	0% {
+		transform-origin: 50% 0%;
+		-webkit-filter: blur(40px);
+		filter: blur(40px);
+		opacity: 0;
+	}
+	20% {
+		transform-origin: 50% 50%;
+		-webkit-filter: blur(20px);
+		filter: blur(20px);
+		opacity: 0.5;
+	}
+	100% {
+		transform-origin: 50% 50%;
+		-webkit-filter: blur(0);
+		filter: blur(0);
+		opacity: 1;
+	}
+}

@@ -13,31 +13,27 @@
 	text-decoration: none;
 }
 
-.nav-change-theme #svg_logo_mandala {
-	border-radius: 50%;
-	box-shadow: 0 0 5px var(--border-color-1);
-	height: 40px;
-	padding: 3px;
-	width: 40px;
+.nav-change-theme svg {
+	height: 30px;
+	width: 30px;
+	animation: blurred-in 0.35s linear;
 }
 
-.nav-change-theme #svg_logo_mandala,
-.nav-change-theme #svg_logo_mandala path,
-.nav-change-theme:hover #svg_logo_mandala path {
-	transition: stroke 0.4s linear, box-shadow 0.4s linear;
+.nav-change-theme:hover svg path {
+	transition: fill 0.4s linear;
 }
 
-.nav-change-theme #svg_logo_mandala path {
-	stroke: var(--default-color-2);
+.nav-change-theme svg path {
+	fill: var(--navbar-theme-switch);
 }
 
-.nav-change-theme:hover #svg_logo_mandala path {
-	stroke: var(--default-color-3);
+.nav-change-theme:hover svg path {
+	fill: var(--default-color-3);
 }
 
 .nav-custom > .nav-change-theme {
 	display: inline-block;
-	padding: 5px 0 0 10px;
+	padding: 10px 0 0 10px;
 }
 
 .nav-custom > .nav-custom-btn {
@@ -55,8 +51,8 @@
 }
 
 .nav-custom > .nav-custom-links > button:hover {
-	border-bottom: 1.5px solid var(--navbar-hover-link);
-	border-radius: 0.20rem;
+	border-bottom: 2px solid var(--navbar-hover-link);
+	border-radius: 0.15rem;
 }
 
 .nav-custom > .nav-custom-links > button.active-route {
