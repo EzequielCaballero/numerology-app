@@ -81,6 +81,7 @@ body::-webkit-scrollbar-thumb {
 	color: var(--font-color-1);
 	margin: 1rem;
 	text-align: center;
+	transition: background-color 0.4s linear;
 }
 
 /* BUTTON action */
@@ -90,7 +91,7 @@ button:focus,
 button:hover {
 	background: none;
 	border: none;
-	color: white;
+	color: var(--default-color-3);
 	outline: none !important;
 	text-decoration: none;
 }

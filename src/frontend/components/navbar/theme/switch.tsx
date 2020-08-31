@@ -1,9 +1,9 @@
 import React from 'react';
-import { useSetupContext } from '../../../provider/setup';
+import { useContextSetup } from '../../../provider/setup';
 import SVGSelector from '../../svg/selector';
 
 export const NavbarThemeSwitch: React.FunctionComponent = () => {
-	const { switchTheme } = useSetupContext();
+	const { switchTheme } = useContextSetup();
 
 	return (
 		<div className="nav-change-theme">

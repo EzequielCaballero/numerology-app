@@ -80,7 +80,7 @@ div[id^='record-detail-'] {
 	border: solid var(--border-color-3);
 	border-radius: 0 0 20px 20px;
 	display: block;
-	font-size: 0.85em;
+	font-size: 0.9em;
 	height: 0px;
 	margin-bottom: 0.5rem;
 	overflow-y: hidden;

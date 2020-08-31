@@ -11,8 +11,7 @@ type ContextProps = {
 };
 
 const ContextSetup = React.createContext<ContextProps>(undefined!);
-
-export const useSetupContext = () => useContext(ContextSetup);
+export const useContextSetup = () => useContext(ContextSetup);
 
 export const ProviderSetup: React.FunctionComponent = ({ children }) => {
 	const [ theme, setTheme ] = useState<Theme>(Theme.Dark);

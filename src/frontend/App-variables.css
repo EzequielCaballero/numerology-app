@@ -18,7 +18,7 @@ body[data-theme='dark'] {
 	--border-color-1: #af5efc;
 	--border-color-2: #342042;
 	--border-color-3: #19091f;
-	--btn-blur-background: linear-gradient(to bottom, #7149a5 51%, #402158 51%, #402158 100%);
+	--btn-blur-background: linear-gradient(to bottom, #7149a5 51%, #2f1841 51%, #2f1841 100%);
 	--btn-focus-background: rgb(40, 15, 50);
 	--default-color-1: #000000;
 	--default-color-2: #808080;
@@ -33,6 +33,8 @@ body[data-theme='dark'] {
 	--font-color-2: #242424;
 	--modal-background: #140b0e;
 	--modal-shadow: 0 0 10px #ed9e9e;
+	--navbar-active-link: #af5efc;
+	--navbar-hover-link: #ffffff;
 	--navbar-background: linear-gradient(
 		135deg,
 		#000000 5%,
@@ -45,34 +47,36 @@ body[data-theme='dark'] {
 	);
 }
 body[data-theme='light'] {
-	--content-background: #f0e8fae1;
-	--content-shadow: 0 0 10px #ed9ec5;
-	--border-color-1: #6b3a99;
-	--border-color-2: #342042;
-	--border-color-3: #19091f;
-	--btn-blur-background: linear-gradient(to bottom, #baa1da 51%, #594469 51%, #594469 100%);
-	--btn-focus-background: rgb(109, 71, 122);
+	--content-background: #fafae8e1;
+	--content-shadow: 0 0 10px #ede19e;
+	--border-color-1: #9c933a;
+	--border-color-2: #424020;
+	--border-color-3: #1f1c09;
+	--btn-blur-background: linear-gradient(to bottom, #eee7ad 51%, #b6b275 51%, #b6b275 100%);
+	--btn-focus-background: #cec578;
 	--default-color-1: #ffffff;
 	--default-color-2: #464545;
 	--default-color-3: #000000;
-	--element-background-1: linear-gradient(to bottom, #ffeaea 0%, #00000000 100%);
-	--element-background-2: linear-gradient(to bottom, #633454 51%, #33152a 51%, #33152a 100%);
-	--element-background-3: linear-gradient(to bottom, #33152a 0%, #3a3a3a1a 100%);
-	--element-color-1: #1b0e1b;
-	--element-color-2: #3b1f32;
-	--element-color-3: #140b0e;
+	--element-background-1: linear-gradient(to bottom, #fff8ea 0%, #00000000 100%);
+	--element-background-2: linear-gradient(to bottom, #fcefc7 51%, #dacf93 51%, #dacf93 100%);
+	--element-background-3: linear-gradient(to bottom, #d6cb8d 0%, #f8e6ac 100%);
+	--element-color-1: #fafae8;
+	--element-color-2: #e4e4c7;
+	--element-color-3: #c4c49b;
 	--font-color-1: #000000;
 	--font-color-2: #e6e6e6;
-	--modal-background: #140b0e;
-	--modal-shadow: 0 0 10px #ed9e9e;
+	--modal-background: #fafaef;
+	--modal-shadow: 0 0 10px #ede19e;
+	--navbar-active-link: #f8ea67;
+	--navbar-hover-link: #ffffff;
 	--navbar-background: linear-gradient(
 		135deg,
-		#f8f2ff 5%,
-		#ecdfe9 10%,
-		#ccb3c5 30%,
-		#ceb1c4 40%,
-		#ccb3c5 55%,
-		#ecdfe9 80%,
-		#f8f2ff 100%
+		#fffaf2 5%,
+		#ece9df 10%,
+		#ccc8b3 30%,
+		#cecab1 40%,
+		#ccc8b3 55%,
+		#ece9df 80%,
+		#fffaf2 100%
 	);
 }
