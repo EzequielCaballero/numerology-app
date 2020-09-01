@@ -1,6 +1,6 @@
 import React from 'react';
 import { IPerson, TNumbers } from '../../../../../backend/entity/iperson';
-import { TRecord } from '../../../../../backend/services/calculator';
+import { TRecord } from '../../../../../backend/services/core/calculator';
 import './record.css';
 
 type TProps = {

@@ -1,5 +1,5 @@
 import Convertor from './convertor';
-import { TStage, TKarma } from '../entity/iperson';
+import { TStage, TKarma } from '../../entity/iperson';
 
 export type TRecord = {
 	name: string[];

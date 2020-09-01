@@ -1,6 +1,6 @@
 import { TName, TBirth } from './validator';
-import alphabetKeys from '../data/alphabet_keys.json';
-import monthKeys from '../data/month_keys.json';
+import alphabetKeys from '../../data/alphabet_keys.json';
+import monthKeys from '../../data/month_keys.json';
 
 class Convertor {
 	public static CleanString(value: string): string {

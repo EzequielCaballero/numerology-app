@@ -1,9 +1,9 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { RoutePath } from '../../../backend/sitemap/routes';
-import Convertor from '../../../backend/services/convertor';
-import URLHandler from '../../../backend/services/urlhandler';
-import StorageHandler, { TResult } from '../../../backend/services/storagehandler';
+import Convertor from '../../../backend/services/core/convertor';
+import HandlerURL from '../../../backend/services/handler/url';
+import HandlerStorage, { TResult } from '../../../backend/services/handler/storage';
 import Headline from '../../components/headline/headline';
 import ModalMessage, { TModal } from '../../components/modal/modal';
 import SVGSelector from '../../components/svg/selector';
@@ -18,7 +18,7 @@ class History extends React.Component<RouteComponentProps, TState> {
 	constructor(props: RouteComponentProps) {
 		super(props);
 		this.state = {
-			results: StorageHandler.getAllResultsStored() as TResult[],
+			results: HandlerStorage.getAllResultsStored() as TResult[],
 			modal: {
 				text: {
 					title: '',
@@ -34,7 +34,7 @@ class History extends React.Component<RouteComponentProps, TState> {
 	}
 
 	public componentDidMount() {
-		StorageHandler.deleteInvalidKeyValues();
+		HandlerStorage.deleteInvalidKeyValues();
 	}
 
 	private setModalContent = (title: string, msg: string[]): void => {
@@ -73,15 +73,15 @@ class History extends React.Component<RouteComponentProps, TState> {
 	};
 
 	private deleteItemHistory = (key: string): void => {
-		StorageHandler.deleteResult(key);
-		this.setState({ results: StorageHandler.getAllResultsStored() as TResult[] });
+		HandlerStorage.deleteResult(key);
+		this.setState({ results: HandlerStorage.getAllResultsStored() as TResult[] });
 	};
 
 	private goToResultView = (result: TResult): void => {
 		this.props.history.push({
 			state: RoutePath.History,
 			pathname: RoutePath.COutput,
-			search: URLHandler.generateURLwithParams(result.name, result.birth)
+			search: HandlerURL.generateURLwithParams(result.name, result.birth)
 		});
 	};
 

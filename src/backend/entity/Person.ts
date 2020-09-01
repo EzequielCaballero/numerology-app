@@ -1,7 +1,7 @@
 import { IPerson, TNumbers, TKarma, TStage } from './iperson';
-import Convertor from '../services/convertor';
-import Calculator, { TRecord } from '../services/calculator';
-import Validator, { TName, TBirth } from '../services/validator';
+import Convertor from '../services/core/convertor';
+import Calculator, { TRecord } from '../services/core/calculator';
+import Validator, { TName, TBirth } from '../services/core/validator';
 
 class Person implements IPerson {
 	fullname: string[];

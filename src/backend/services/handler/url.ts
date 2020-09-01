@@ -1,5 +1,5 @@
-import { TName, TBirth } from './validator';
-import Convertor from './convertor';
+import { TName, TBirth } from '../core/validator';
+import Convertor from '../core/convertor';
 
 enum URLparams {
 	firstname = 'firstname',
@@ -7,20 +7,20 @@ enum URLparams {
 	birth = 'birth'
 }
 
-class URLHandler {
+class HandlerURL {
 	private static search: URLSearchParams;
 
 	public static setLocation = (location: string): void => {
-		URLHandler.search = new URLSearchParams(location);
+		HandlerURL.search = new URLSearchParams(location);
 	};
 
 	public static getParamName = (): TName => {
 		let param: TName = { firstName: [ '' ], lastName: [ '' ] };
-		const _firstname: string = URLHandler.search.get(URLparams.firstname)
-			? URLHandler.search.get(URLparams.firstname) as string
+		const _firstname: string = HandlerURL.search.get(URLparams.firstname)
+			? HandlerURL.search.get(URLparams.firstname) as string
 			: '';
-		const _lastname: string = URLHandler.search.get(URLparams.lastname)
-			? URLHandler.search.get(URLparams.lastname) as string
+		const _lastname: string = HandlerURL.search.get(URLparams.lastname)
+			? HandlerURL.search.get(URLparams.lastname) as string
 			: '';
 
 		if (_firstname !== '' && _lastname !== '') {
@@ -35,8 +35,8 @@ class URLHandler {
 
 	public static getParamBirth = (): TBirth => {
 		let param: TBirth = { birthYear: 0, birthMonth: 0, birthDay: 0 };
-		const _birth: string = URLHandler.search.get(URLparams.birth)
-			? URLHandler.search.get(URLparams.birth) as string
+		const _birth: string = HandlerURL.search.get(URLparams.birth)
+			? HandlerURL.search.get(URLparams.birth) as string
 			: '';
 
 		if (_birth !== '') {
@@ -59,4 +59,4 @@ class URLHandler {
 	}
 }
 
-export default URLHandler;
+export default HandlerURL;

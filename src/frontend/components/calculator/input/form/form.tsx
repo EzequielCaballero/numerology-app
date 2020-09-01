@@ -2,7 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { TName, TBirth } from '../../../../../backend/services/validator';
+import { TName, TBirth } from '../../../../../backend/services/core/validator';
 import SVGSelector from '../../../svg/selector';
 import './form.css';
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import { RouteComponentProps, Redirect } from 'react-router-dom';
 import { RoutePath } from '../../../../backend/sitemap/routes';
-import { TRecord } from '../../../../backend/services/calculator';
-import Convertor from '../../../../backend/services/convertor';
-import Validator, { TName, TBirth } from '../../../../backend/services/validator';
-import URLHandler from '../../../../backend/services/urlhandler';
-import StorageHandler from '../../../../backend/services/storagehandler';
 import Person from '../../../../backend/entity/person';
+import { TRecord } from '../../../../backend/services/core/calculator';
+import Convertor from '../../../../backend/services/core/convertor';
+import Validator, { TName, TBirth } from '../../../../backend/services/core/validator';
+import HandlerURL from '../../../../backend/services/handler/url';
+import HandlerStorage from '../../../../backend/services/handler/storage';
 import Headline from '../../../components/headline/headline';
 import ModalMessage, { TModal } from '../../../components/modal/modal';
 import CalculatorOutputPanel from '../../../components/calculator/output/panel/panel';
@@ -28,9 +28,9 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 
 	constructor(props: RouteComponentProps) {
 		super(props);
-		URLHandler.setLocation(this.props.location.search);
-		this.nameParam = URLHandler.getParamName();
-		this.birthParam = URLHandler.getParamBirth();
+		HandlerURL.setLocation(this.props.location.search);
+		this.nameParam = HandlerURL.getParamName();
+		this.birthParam = HandlerURL.getParamBirth();
 		this.person = new Person(this.nameParam, this.birthParam);
 		this.record = this.person.calculateValues();
 		this.state = {
@@ -51,8 +51,8 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 	}
 
 	public componentDidMount() {
-		StorageHandler.deleteInvalidKeyValues();
-		if (!StorageHandler.isResultStored(this.nameParam, this.birthParam)) this.setState({ isSaveActive: true });
+		HandlerStorage.deleteInvalidKeyValues();
+		if (!HandlerStorage.isResultStored(this.nameParam, this.birthParam)) this.setState({ isSaveActive: true });
 	}
 
 	private switchOutput = (): void => {
@@ -88,7 +88,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 	};
 
 	private handleSaveResult = (): void => {
-		if (StorageHandler.isSavingAllowed()) {
+		if (HandlerStorage.isResultSavingAllowed()) {
 			let newMsg: string[] = [ '' ];
 			newMsg.push('El resultado será guardado en tu navegador.');
 			this.setModalContent('Guardar resultado', newMsg);
@@ -97,7 +97,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 		} else {
 			let newMsg: string[] = [ '' ];
 			newMsg.push('Número máximo de resultados guardados alcanzado.');
-			newMsg.push(`Límite: ${StorageHandler.getMaxNumberSaves()}.`);
+			newMsg.push(`Límite: ${HandlerStorage.getMaxNumberSaves()}.`);
 			this.setModalContent('Límite de guardado.', newMsg);
 			this.setModalProperties(false);
 			this.showModal(true);
@@ -106,7 +106,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 
 	private saveResult = (): void => {
 		try {
-			StorageHandler.saveResult(this.nameParam, this.birthParam);
+			HandlerStorage.saveResult(this.nameParam, this.birthParam);
 			this.setState({ isSaveActive: false });
 		} catch (error) {
 			console.error(`Error saving result in localstorage. Detail: ${error}`);
@@ -116,7 +116,7 @@ class CalculatorOutput extends React.Component<RouteComponentProps, TState> {
 	private goToCalculatorInput = (): void => {
 		this.props.history.push({
 			pathname: RoutePath.CInput,
-			search: URLHandler.generateURLwithParams(this.nameParam, this.birthParam)
+			search: HandlerURL.generateURLwithParams(this.nameParam, this.birthParam)
 		});
 	};
 

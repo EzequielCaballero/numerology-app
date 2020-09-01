@@ -1,4 +1,4 @@
-import { TName, TBirth } from './validator';
+import { TName, TBirth } from '../core/validator';
 
 export type TResult = {
 	key: string;
@@ -6,17 +6,19 @@ export type TResult = {
 	birth: TBirth;
 };
 
-class StorageHandler {
-	private static readonly KEYNAME: string = 'result';
-	private static readonly MAX_NUMBER_SAVES: number = 6;
+class HandlerStorage {
+	private static readonly KEY_RESULT: string = 'result';
+	private static readonly KEY_THEME: string = 'theme';
+	private static readonly MAX_NUMBER_RESULTS: number = 15;
 
+	//#region RESULT
 	public static getMaxNumberSaves(): number {
-		return this.MAX_NUMBER_SAVES;
+		return this.MAX_NUMBER_RESULTS;
 	}
 
-	private static validateKeyStored(k: string): boolean {
-		const rule = `^(${this.KEYNAME})_(\\d+)$`;
-		let regex = new RegExp(rule);
+	private static validateKeyResultStored(k: string): boolean {
+		const resultRule = `^(${this.KEY_RESULT})_(\\d+)$`;
+		let regex = new RegExp(resultRule);
 		return regex.test(k);
 	}
 
@@ -41,8 +43,8 @@ class StorageHandler {
 		}
 	}
 
-	public static isKeyStored(idKey: number): boolean {
-		const key: string = `${this.KEYNAME}_${idKey}`;
+	public static isKeyResultStored(idKey: number): boolean {
+		const key: string = `${this.KEY_RESULT}_${idKey}`;
 		return Object.keys(localStorage).filter((k: string) => k === key).length > 0;
 	}
 
@@ -55,8 +57,8 @@ class StorageHandler {
 		return matches.length > 0;
 	}
 
-	public static isSavingAllowed(): boolean {
-		return this.getAllKeysStored().length < this.MAX_NUMBER_SAVES;
+	public static isResultSavingAllowed(): boolean {
+		return this.getAllKeyResultStored().length < this.MAX_NUMBER_RESULTS;
 	}
 
 	public static getResultStored(key: string): TResult | boolean {
@@ -69,15 +71,15 @@ class StorageHandler {
 		}
 	}
 
-	private static getAllKeysStored(): string[] {
-		let keys: string[] = Object.keys(localStorage).filter((k: string) => this.validateKeyStored(k));
+	private static getAllKeyResultStored(): string[] {
+		let keys: string[] = Object.keys(localStorage).filter((k: string) => this.validateKeyResultStored(k));
 		return keys.sort((a, b) => parseInt(b.split('_')[1]) - parseInt(a.split('_')[1]));
 	}
 
 	public static getAllResultsStored(): TResult[] | boolean {
 		try {
 			let results: TResult[] = [];
-			const keys: string[] = this.getAllKeysStored();
+			const keys: string[] = this.getAllKeyResultStored();
 
 			keys.forEach((k: string) => {
 				let resultStored: TResult | boolean = this.getResultStored(k);
@@ -93,7 +95,7 @@ class StorageHandler {
 		try {
 			let newId: number = Date.now();
 			const newSearch: TResult = {
-				key: `${this.KEYNAME}_${newId}`,
+				key: `${this.KEY_RESULT}_${newId}`,
 				name,
 				birth
 			};
@@ -111,12 +113,33 @@ class StorageHandler {
 			return false;
 		}
 	}
+	//#endregion
+
+	//#region THEME
+
+	public static getTheme(): string | null {
+		let theme = window.localStorage.getItem(this.KEY_THEME);
+		if (theme === 'dark' || theme === 'light') return theme;
+		return null;
+	}
+
+	public static saveTheme(theme: string): void {
+		try {
+			window.localStorage.setItem(this.KEY_THEME, theme);
+		} catch (error) {
+			throw new Error(error);
+		}
+	}
+
+	//#endregion
 
 	public static deleteInvalidKeyValues(): boolean {
 		try {
-			const keysInvalid = Object.keys(localStorage).filter((k: string) => !this.validateKeyStored(k));
-			const keysValid = Object.keys(localStorage).filter((k: string) => this.validateKeyStored(k));
-			keysInvalid.forEach((k: string) => this.deleteResult(k));
+			const keysInvalid = Object.keys(localStorage).filter((k: string) => !this.validateKeyResultStored(k));
+			const keysValid = Object.keys(localStorage).filter((k: string) => this.validateKeyResultStored(k));
+			keysInvalid.forEach((k: string) => {
+				if (k !== this.KEY_THEME) this.deleteResult(k);
+			});
 			keysValid.forEach((k: string) => {
 				if (!this.getResultStored(k)) this.deleteResult(k);
 			});
@@ -127,4 +150,4 @@ class StorageHandler {
 	}
 }
 
-export default StorageHandler;
+export default HandlerStorage;

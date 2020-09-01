@@ -1,8 +1,8 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { RoutePath } from '../../../../backend/sitemap/routes';
-import Validator, { TName, TBirth } from '../../../../backend/services/validator';
-import URLHandler from '../../../../backend/services/urlhandler';
+import Validator, { TName, TBirth } from '../../../../backend/services/core/validator';
+import HandlerURL from '../../../../backend/services/handler/url';
 import Headline from '../../../components/headline/headline';
 import ModalMessage, { TModal } from '../../../components/modal/modal';
 import CalculatorInputForm from '../../../components/calculator/input/form/form';
@@ -22,9 +22,9 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 
 	constructor(props: RouteComponentProps) {
 		super(props);
-		URLHandler.setLocation(this.props.location.search);
-		this.nameParam = URLHandler.getParamName();
-		this.birthParam = URLHandler.getParamBirth();
+		HandlerURL.setLocation(this.props.location.search);
+		this.nameParam = HandlerURL.getParamName();
+		this.birthParam = HandlerURL.getParamBirth();
 		this.state = {
 			name: this.nameParam,
 			birth: this.birthParam,
@@ -165,7 +165,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 		this.props.history.push({
 			state: RoutePath.CInput,
 			pathname: RoutePath.COutput,
-			search: URLHandler.generateURLwithParams(this.state.name, this.state.birth)
+			search: HandlerURL.generateURLwithParams(this.state.name, this.state.birth)
 		});
 	};
 

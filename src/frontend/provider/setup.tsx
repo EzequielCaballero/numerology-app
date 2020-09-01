@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
+import HandlerStorage from '../../backend/services/handler/storage';
+import HandlerBrowserPrefers from '../../backend/services/handler/browserprefers';
 
 enum Theme {
 	Dark = 'dark',
@@ -6,7 +8,7 @@ enum Theme {
 }
 
 type ContextProps = {
-	theme: Theme;
+	theme: Theme | null;
 	switchTheme: () => void;
 };
 
@@ -14,16 +16,18 @@ const ContextSetup = React.createContext<ContextProps>(undefined!);
 export const useContextSetup = () => useContext(ContextSetup);
 
 export const ProviderSetup: React.FunctionComponent = ({ children }) => {
-	const [ theme, setTheme ] = useState<Theme>(Theme.Dark);
+	const [ theme, setTheme ] = useState<Theme | null>(null);
 
 	const switchTheme = () => {
-		setTheme(theme === Theme.Dark ? Theme.Light : Theme.Dark);
+		const newTheme: Theme = theme === Theme.Dark ? Theme.Light : Theme.Dark;
+		HandlerStorage.saveTheme(newTheme);
+		setTheme(newTheme);
 	};
 
 	useEffect(
 		() => {
-			if (theme === undefined) {
-				setTheme(Theme.Dark);
+			if (theme === null) {
+				setTheme((HandlerStorage.getTheme() as Theme) || HandlerBrowserPrefers.getBrowserTheme());
 			}
 		},
 		[ theme ]
