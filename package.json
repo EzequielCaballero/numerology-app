@@ -13,6 +13,7 @@
 		"@types/react-helmet": "^6.1.0",
 		"@types/react-router-dom": "^5.1.5",
 		"bootstrap": "^4.4.1",
+		"node-polyglot": "^2.4.0",
 		"react": "^16.13.1",
 		"react-bootstrap": "^1.0.0",
 		"react-dom": "^16.13.1",
