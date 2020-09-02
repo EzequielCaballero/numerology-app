@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SVGIconDelete: React.FunctionComponent = () => {
+export const SVGIconDelete: React.FunctionComponent = () => {
 	return (
 		<svg
 			version="1.1"
@@ -14,5 +14,3 @@ const SVGIconDelete: React.FunctionComponent = () => {
 		</svg>
 	);
 };
-
-export default SVGIconDelete;

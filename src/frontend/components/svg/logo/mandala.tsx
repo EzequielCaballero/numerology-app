@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SVGLogoMandala: React.FunctionComponent = () => {
+export const SVGLogoMandala: React.FunctionComponent = () => {
 	return (
 		<svg version="1.1" id="svg_logo_mandala" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 400 400">
 		<g id="mandala">
@@ -1901,5 +1901,3 @@ const SVGLogoMandala: React.FunctionComponent = () => {
 		</svg>
 	);
 };
-
-export default SVGLogoMandala;

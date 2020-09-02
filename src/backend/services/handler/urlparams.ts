@@ -1,26 +1,26 @@
-import { TName, TBirth } from '../core/validator';
-import Convertor from '../core/convertor';
+import { TName, TBirth } from '../../entity/iperson';
+import { Convertor } from '../core/convertor';
 
-enum URLparams {
+enum Params {
 	firstname = 'firstname',
 	lastname = 'lastname',
 	birth = 'birth'
 }
 
-class HandlerURL {
+export class URLParams {
 	private static search: URLSearchParams;
 
 	public static setLocation = (location: string): void => {
-		HandlerURL.search = new URLSearchParams(location);
+		URLParams.search = new URLSearchParams(location);
 	};
 
 	public static getParamName = (): TName => {
 		let param: TName = { firstName: [ '' ], lastName: [ '' ] };
-		const _firstname: string = HandlerURL.search.get(URLparams.firstname)
-			? HandlerURL.search.get(URLparams.firstname) as string
+		const _firstname: string = URLParams.search.get(Params.firstname)
+			? URLParams.search.get(Params.firstname) as string
 			: '';
-		const _lastname: string = HandlerURL.search.get(URLparams.lastname)
-			? HandlerURL.search.get(URLparams.lastname) as string
+		const _lastname: string = URLParams.search.get(Params.lastname)
+			? URLParams.search.get(Params.lastname) as string
 			: '';
 
 		if (_firstname !== '' && _lastname !== '') {
@@ -30,21 +30,19 @@ class HandlerURL {
 			};
 		}
 
-		return Convertor.CleanName(param);
+		return Convertor.cleanName(param);
 	};
 
 	public static getParamBirth = (): TBirth => {
-		let param: TBirth = { birthYear: 0, birthMonth: 0, birthDay: 0 };
-		const _birth: string = HandlerURL.search.get(URLparams.birth)
-			? HandlerURL.search.get(URLparams.birth) as string
-			: '';
+		let param: TBirth = { year: 0, month: 0, day: 0 };
+		const _birth: string = URLParams.search.get(Params.birth) ? URLParams.search.get(Params.birth) as string : '';
 
 		if (_birth !== '') {
 			let _birthParts: number[] = _birth.split('-').map(Number);
 			param = {
-				birthYear: _birthParts[0],
-				birthMonth: _birthParts[1],
-				birthDay: _birthParts[2]
+				year: _birthParts[0],
+				month: _birthParts[1],
+				day: _birthParts[2]
 			};
 		}
 
@@ -54,9 +52,7 @@ class HandlerURL {
 	public static generateURLwithParams(name: TName, birth: TBirth): string {
 		const _firstname = name.firstName.join('-').toLowerCase();
 		const _lastname = name.lastName.join('-').toLowerCase();
-		const _birth = `${birth.birthYear}-${birth.birthMonth}-${birth.birthDay}`;
+		const _birth = `${birth.year}-${birth.month}-${birth.day}`;
 		return `?firstname=${_firstname}&lastname=${_lastname}&birth=${_birth}`;
 	}
 }
-
-export default HandlerURL;

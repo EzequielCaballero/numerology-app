@@ -1,10 +1,10 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { RoutePath } from '../../../backend/sitemap/routes';
-import SVGSelector from '../../components/svg/selector';
+import { SVGSelector } from '../../components/svg/selector';
 import './home.css';
 
-class Home extends React.Component<RouteComponentProps> {
+export class Home extends React.Component<RouteComponentProps> {
 	private goToCalculator = () => {
 		this.props.history.push(RoutePath.CInput);
 	};
@@ -36,5 +36,3 @@ class Home extends React.Component<RouteComponentProps> {
 		);
 	}
 }
-
-export default Home;

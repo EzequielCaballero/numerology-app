@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SVGIconSun: React.FunctionComponent = () => {
+export const SVGIconSun: React.FunctionComponent = () => {
 	return (
 		<svg version="1.1" id="svg_icon_sun" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 400 400">
 			<path d="M296.1,199.7c0,54.3-42.9,98.3-95.7,98.3c-52.9,0-95.7-44-95.7-98.3s42.9-98.3,95.7-98.3C253.2,101.4,296.1,145.4,296.1,199.7z" />
@@ -15,5 +15,3 @@ const SVGIconSun: React.FunctionComponent = () => {
 		</svg>
 	);
 };
-
-export default SVGIconSun;

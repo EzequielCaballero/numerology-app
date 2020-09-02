@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SVGIconSave: React.FunctionComponent = () => {
+export const SVGIconSave: React.FunctionComponent = () => {
 	return (
 		<svg id="svg_icon_save" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 			<path d="M294.6,134h36.4c1.1,0,2-4.1,2-9.2V49.7h-40.3v75.1C292.6,129.9,293.5,134,294.6,134z" />
@@ -10,5 +10,3 @@ const SVGIconSave: React.FunctionComponent = () => {
 		</svg>
 	);
 };
-
-export default SVGIconSave;

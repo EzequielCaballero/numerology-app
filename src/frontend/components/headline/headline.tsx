@@ -1,12 +1,12 @@
 import React from 'react';
-import SVGSelector from '../svg/selector';
+import { SVGSelector } from '../svg/selector';
 import './headline.css';
 
 type TProps = {
 	title: string;
 };
 
-const Header: React.FunctionComponent<TProps> = ({ title }) => {
+export const Headline: React.FunctionComponent<TProps> = ({ title }) => {
 	return (
 		<div className="headline-content">
 			<SVGSelector name="logoMandala" />
@@ -19,5 +19,3 @@ const Header: React.FunctionComponent<TProps> = ({ title }) => {
 		</div>
 	);
 };
-
-export default Header;

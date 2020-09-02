@@ -1,12 +1,12 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { RoutePath } from '../../../backend/sitemap/routes';
-import Convertor from '../../../backend/services/core/convertor';
-import HandlerURL from '../../../backend/services/handler/url';
-import HandlerStorage, { TResult } from '../../../backend/services/handler/storage';
-import Headline from '../../components/headline/headline';
-import ModalMessage, { TModal } from '../../components/modal/modal';
-import SVGSelector from '../../components/svg/selector';
+import { Convertor } from '../../../backend/services/core/convertor';
+import { URLParams } from '../../../backend/services/handler/urlparams';
+import { LocalStorage, TResult } from '../../../backend/services/handler/localstorage';
+import { Headline } from '../../components/headline/headline';
+import { ModalDialog, TModal } from '../../components/modal/modal';
+import { SVGSelector } from '../../components/svg/selector';
 import './history.css';
 
 type TState = {
@@ -14,11 +14,11 @@ type TState = {
 	modal: TModal;
 };
 
-class History extends React.Component<RouteComponentProps, TState> {
+export class History extends React.Component<RouteComponentProps, TState> {
 	constructor(props: RouteComponentProps) {
 		super(props);
 		this.state = {
-			results: HandlerStorage.getAllResultsStored() as TResult[],
+			results: LocalStorage.getAllResultsStored() as TResult[],
 			modal: {
 				text: {
 					title: '',
@@ -34,7 +34,7 @@ class History extends React.Component<RouteComponentProps, TState> {
 	}
 
 	public componentDidMount() {
-		HandlerStorage.deleteInvalidKeyValues();
+		LocalStorage.deleteInvalidResults();
 	}
 
 	private setModalContent = (title: string, msg: string[]): void => {
@@ -73,15 +73,15 @@ class History extends React.Component<RouteComponentProps, TState> {
 	};
 
 	private deleteItemHistory = (key: string): void => {
-		HandlerStorage.deleteResult(key);
-		this.setState({ results: HandlerStorage.getAllResultsStored() as TResult[] });
+		LocalStorage.deleteResult(key);
+		this.setState({ results: LocalStorage.getAllResultsStored() as TResult[] });
 	};
 
 	private goToResultView = (result: TResult): void => {
 		this.props.history.push({
 			state: RoutePath.History,
 			pathname: RoutePath.COutput,
-			search: HandlerURL.generateURLwithParams(result.name, result.birth)
+			search: URLParams.generateURLwithParams(result.name, result.birth)
 		});
 	};
 
@@ -90,7 +90,7 @@ class History extends React.Component<RouteComponentProps, TState> {
 			<div className="box">
 				<div className="box-content">
 					{/* MODAL */}
-					<ModalMessage
+					<ModalDialog
 						text={this.state.modal.text}
 						properties={this.state.modal.properties}
 						action={this.state.modal.action}
@@ -109,8 +109,8 @@ class History extends React.Component<RouteComponentProps, TState> {
 						{this.state.results.map((result) => (
 							<div key={result.key} className="history-item">
 								<div className="history-item-person">
-									<p className="history-item-fullname">{Convertor.FormatNameToString(result.name)}</p>
-									<p className="history-item-birth">{Convertor.FormatDateToString(result.birth)}</p>
+									<p className="history-item-fullname">{Convertor.formatNameToString(result.name)}</p>
+									<p className="history-item-birth">{Convertor.formatDateToString(result.birth)}</p>
 								</div>
 								<div>
 									<button
@@ -138,5 +138,3 @@ class History extends React.Component<RouteComponentProps, TState> {
 		);
 	}
 }
-
-export default History;

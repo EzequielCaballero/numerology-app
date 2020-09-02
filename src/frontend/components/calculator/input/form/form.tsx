@@ -2,8 +2,8 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { TName, TBirth } from '../../../../../backend/services/core/validator';
-import SVGSelector from '../../../svg/selector';
+import { TName, TBirth } from '../../../../../backend/entity/iperson';
+import { SVGSelector } from '../../../svg/selector';
 import './form.css';
 
 type TProps = {
@@ -17,7 +17,7 @@ type TProps = {
 	handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 };
 
-const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TProps) => {
+export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TProps) => {
 	const {
 		name,
 		birth,
@@ -97,30 +97,30 @@ const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TProps) => 
 				<Form.Label>Fecha de nacimiento</Form.Label>
 				<InputGroup className="mb-3 form-input-date">
 					<Form.Control
-						name="birthDay"
+						name="day"
 						type="number"
 						placeholder="Día"
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1"
 						max="31"
-						value={birth.birthDay === 0 ? '' : birth.birthDay}
+						value={birth.day === 0 ? '' : birth.day}
 					/>
 					<Form.Control
-						name="birthMonth"
+						name="month"
 						type="number"
 						placeholder="Mes"
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1"
 						max="12"
-						value={birth.birthMonth === 0 ? '' : birth.birthMonth}
+						value={birth.month === 0 ? '' : birth.month}
 					/>
 					<Form.Control
-						name="birthYear"
+						name="year"
 						type="number"
 						placeholder="Año"
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1000"
-						value={birth.birthYear === 0 ? '' : birth.birthYear}
+						value={birth.year === 0 ? '' : birth.year}
 					/>
 				</InputGroup>
 			</Form.Group>
@@ -135,21 +135,11 @@ const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TProps) => 
 				</div>
 				<div className="form-output-values">
 					<span>
-						{name.firstName[0] !== '' && name.lastName[0] !== '' ? (
-							`${name.firstName.map((item) => item).join(' ')} 
-            				 ${name.lastName.map((item) => item).join(' ')}`
-						) : (
-							'...'
-						)}
+						{`${name.firstName.map((item) => item).join(' ')} 
+            				 ${name.lastName.map((item) => item).join(' ')}`}
 					</span>
 					<br />
-					<span>
-						{birth.birthDay !== 0 && birth.birthMonth !== 0 && birth.birthYear !== 0 ? (
-							`${birth.birthDay}/${birth.birthMonth}/${birth.birthYear}`
-						) : (
-							'...'
-						)}
-					</span>
+					<span>{`${birth.day}/${birth.month}/${birth.year}`}</span>
 				</div>
 			</div>
 			<div className="form-actions">
@@ -163,5 +153,3 @@ const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TProps) => 
 		</Form>
 	);
 };
-
-export default CalculatorInputForm;

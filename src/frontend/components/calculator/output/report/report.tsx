@@ -1,14 +1,12 @@
 import React from 'react';
-import IPerson from '../../../../../backend/entity/person';
+import { IPerson } from '../../../../../backend/entity/iperson';
 import './report.css';
 
 type TProps = {
 	person: IPerson;
 };
 
-const CalculatorOutputReport: React.FunctionComponent<TProps> = (props: TProps) => {
-	const { person } = props;
-
+export const CalculatorOutputReport: React.FunctionComponent<TProps> = ({ person }) => {
 	return (
 		<div className="output-report">
 			<h3>Análisis de resultados</h3>
@@ -48,5 +46,3 @@ const CalculatorOutputReport: React.FunctionComponent<TProps> = (props: TProps) 
 		</div>
 	);
 };
-
-export default CalculatorOutputReport;

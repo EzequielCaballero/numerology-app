@@ -15,7 +15,7 @@ export type TModal = {
 	action: (response: boolean, identifier?: string) => void;
 };
 
-const ModalMessage: React.FunctionComponent<TModal> = ({ text, properties, action }) => {
+export const ModalDialog: React.FunctionComponent<TModal> = ({ text, properties, action }) => {
 	const formatTextContent = (): Array<JSX.Element> => {
 		return text.msg.map((text, index) => (
 			<p className="modal-text" key={index}>
@@ -58,5 +58,3 @@ const ModalMessage: React.FunctionComponent<TModal> = ({ text, properties, actio
 		</Modal>
 	);
 };
-
-export default ModalMessage;

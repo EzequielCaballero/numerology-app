@@ -1,7 +1,7 @@
 import React from 'react';
 import './about.css';
 
-class About extends React.Component {
+export class About extends React.Component {
 	public render(): React.ReactNode {
 		return (
 			<div className="box">
@@ -12,5 +12,3 @@ class About extends React.Component {
 		);
 	}
 }
-
-export default About;

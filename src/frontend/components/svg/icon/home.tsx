@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SVGIconHome: React.FunctionComponent = () => {
+export const SVGIconHome: React.FunctionComponent = () => {
 	return (
 		<svg id="svg_icon_home" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 			<g transform="translate(0,448)">
@@ -13,5 +13,3 @@ const SVGIconHome: React.FunctionComponent = () => {
 		</svg>
 	);
 };
-
-export default SVGIconHome;

@@ -3,7 +3,7 @@ import { RouteComponentProps } from 'react-router-dom';
 import { RoutePath } from '../../../backend/sitemap/routes';
 import './err404.css';
 
-const Err404: React.FunctionComponent<RouteComponentProps> = ({ history }) => {
+export const Err404: React.FunctionComponent<RouteComponentProps> = ({ history }) => {
 	const backToHome = () => {
 		history.push(RoutePath.Home);
 	};
@@ -19,5 +19,3 @@ const Err404: React.FunctionComponent<RouteComponentProps> = ({ history }) => {
 		</div>
 	);
 };
-
-export default Err404;

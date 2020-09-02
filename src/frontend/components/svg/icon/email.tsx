@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SVGIconEmail: React.FunctionComponent = () => {
+export const SVGIconEmail: React.FunctionComponent = () => {
 	return (
 		<svg viewBox="0 0 400 400">
 			<title>Email</title>
@@ -32,5 +32,3 @@ const SVGIconEmail: React.FunctionComponent = () => {
 		</svg>
 	);
 };
-
-export default SVGIconEmail;

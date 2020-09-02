@@ -1,13 +1,24 @@
+export type TName = {
+	firstName: string[];
+	lastName: string[];
+};
+
+export type TBirth = {
+	year: number;
+	month: number;
+	day: number;
+};
+
 export type TNumbers = {
 	image: number;
 	essence: number;
 	mission: number;
-	natal_path: number;
-	potential_number: number;
-	personal_key: number;
-	personal_year: number;
-	personal_month: number;
-	age_digit: number;
+	natalPath: number;
+	potentialNumber: number;
+	personalKey: number;
+	personalYear: number;
+	personalMonth: number;
+	ageDigit: number;
 };
 
 export type TStage = {
@@ -21,12 +32,12 @@ export type TKarma = {
 	essence: number;
 	mission: number;
 	path: number;
-	possible_karmas: number[];
+	possible: number[];
 };
 
 export interface IPerson {
-	fullname: string[];
-	birthdate: number[];
+	name: TName;
+	birth: TBirth;
 	age: number;
 	numbers: TNumbers;
 	stages: TStage[];

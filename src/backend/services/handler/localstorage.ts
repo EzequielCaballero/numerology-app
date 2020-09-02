@@ -1,4 +1,4 @@
-import { TName, TBirth } from '../core/validator';
+import { TName, TBirth } from '../../entity/iperson';
 
 export type TResult = {
 	key: string;
@@ -6,7 +6,7 @@ export type TResult = {
 	birth: TBirth;
 };
 
-class HandlerStorage {
+export class LocalStorage {
 	private static readonly KEY_RESULT: string = 'result';
 	private static readonly KEY_THEME: string = 'theme';
 	private static readonly MAX_NUMBER_RESULTS: number = 15;
@@ -33,9 +33,9 @@ class HandlerStorage {
 				if (typeof (result as TResult).key === 'string')
 					if (Array.isArray((result as TResult).name.firstName))
 						if (Array.isArray((result as TResult).name.lastName))
-							if (typeof (result as TResult).birth.birthYear === 'number')
-								if (typeof (result as TResult).birth.birthMonth === 'number')
-									if (typeof (result as TResult).birth.birthDay === 'number') isValid = true;
+							if (typeof (result as TResult).birth.year === 'number')
+								if (typeof (result as TResult).birth.month === 'number')
+									if (typeof (result as TResult).birth.day === 'number') isValid = true;
 			}
 			return isValid;
 		} catch (error) {
@@ -113,6 +113,23 @@ class HandlerStorage {
 			return false;
 		}
 	}
+
+	public static deleteInvalidResults(): boolean {
+		try {
+			const keysInvalid = Object.keys(localStorage).filter((k: string) => !this.validateKeyResultStored(k));
+			const keysValid = Object.keys(localStorage).filter((k: string) => this.validateKeyResultStored(k));
+			keysInvalid.forEach((k: string) => {
+				if (k !== this.KEY_THEME) this.deleteResult(k);
+			});
+			keysValid.forEach((k: string) => {
+				if (!this.getResultStored(k)) this.deleteResult(k);
+			});
+			return true;
+		} catch (error) {
+			return false;
+		}
+	}
+
 	//#endregion
 
 	//#region THEME
@@ -132,22 +149,4 @@ class HandlerStorage {
 	}
 
 	//#endregion
-
-	public static deleteInvalidKeyValues(): boolean {
-		try {
-			const keysInvalid = Object.keys(localStorage).filter((k: string) => !this.validateKeyResultStored(k));
-			const keysValid = Object.keys(localStorage).filter((k: string) => this.validateKeyResultStored(k));
-			keysInvalid.forEach((k: string) => {
-				if (k !== this.KEY_THEME) this.deleteResult(k);
-			});
-			keysValid.forEach((k: string) => {
-				if (!this.getResultStored(k)) this.deleteResult(k);
-			});
-			return true;
-		} catch (error) {
-			return false;
-		}
-	}
 }
-
-export default HandlerStorage;

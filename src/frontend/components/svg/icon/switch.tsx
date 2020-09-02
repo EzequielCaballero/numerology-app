@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SVGIconSwitch: React.FunctionComponent = () => {
+export const SVGIconSwitch: React.FunctionComponent = () => {
 	return (
 		<svg
 			id="svg_icon_switch"
@@ -15,5 +15,3 @@ const SVGIconSwitch: React.FunctionComponent = () => {
 		</svg>
 	);
 };
-
-export default SVGIconSwitch;

@@ -8,7 +8,7 @@ type TProps = {
 	record: TRecord;
 };
 
-const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person, record }) => {
+export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person, record }) => {
 	const getTitle = (key: string): string => {
 		switch (key) {
 			case 'image':
@@ -17,17 +17,17 @@ const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person, recor
 				return 'Esencia';
 			case 'mission':
 				return 'Misión';
-			case 'natal_path':
+			case 'natalPath':
 				return 'Sendero natal';
-			case 'potential_number':
+			case 'potentialNumber':
 				return 'Número potencial';
-			case 'personal_key':
+			case 'personalKey':
 				return 'Clave personal';
-			case 'personal_year':
+			case 'personalYear':
 				return 'Año personal';
-			case 'personal_month':
+			case 'personalMonth':
 				return 'Mes personal';
-			case 'age_digit':
+			case 'ageDigit':
 				return 'Digito de edad';
 			case 'stages':
 				return 'Etapas';
@@ -59,34 +59,34 @@ const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person, recor
 					text.push(JSON.stringify(record.mission[i]));
 				}
 				break;
-			case 'natal_path':
+			case 'natalPath':
 				text.push(JSON.stringify(record.birth));
 				for (let i = 0; i < record.path.length; i++) {
 					text.push(JSON.stringify(record.path[i]));
 				}
 				break;
-			case 'potential_number':
+			case 'potentialNumber':
 				text.push(
-					`${person.numbers.mission} + ${person.numbers.natal_path} = ${person.numbers.potential_number}`
+					`${person.numbers.mission} + ${person.numbers.natalPath} = ${person.numbers.potentialNumber}`
 				);
 				break;
-			case 'personal_key':
-				text.push(`${person.birthdate[2]} -> ${person.numbers.personal_key}`);
+			case 'personalKey':
+				text.push(`${person.birth.month} -> ${person.numbers.personalKey}`);
 				break;
-			case 'personal_year':
+			case 'personalYear':
 				text.push(
-					`${person.birthdate[2]} + ${person.birthdate[1]} + ${new Date().getFullYear()} = ${person.numbers
-						.personal_year}`
+					`${person.birth.month} + ${person.birth.year} + ${new Date().getFullYear()} = ${person.numbers
+						.personalYear}`
 				);
 				break;
-			case 'personal_month':
+			case 'personalMonth':
 				text.push(
-					`${person.numbers.personal_year} + ${new Date().getMonth() + 1} = ${person.numbers.personal_month}`
+					`${person.numbers.personalYear} + ${new Date().getMonth() + 1} = ${person.numbers.personalMonth}`
 				);
 				text.push('(año personal + mes actual)');
 				break;
-			case 'age_digit':
-				text.push(`${person.age} + ${person.age + 1} = ${person.numbers.age_digit}`);
+			case 'ageDigit':
+				text.push(`${person.age} + ${person.age + 1} = ${person.numbers.ageDigit}`);
 				text.push('(edad actual + edad próxima)');
 				break;
 			case 'stages':
@@ -99,7 +99,7 @@ const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person, recor
 				text.push(`Misión: ${person.karmas.mission}`);
 				text.push(`Sendero: ${person.karmas.path}`);
 				text.push('---');
-				text.push(`Números faltantes: ${person.karmas.possible_karmas}`);
+				text.push(`Números faltantes: ${person.karmas.possible}`);
 				break;
 			default:
 				break;
@@ -184,5 +184,3 @@ const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person, recor
 		</div>
 	);
 };
-
-export default CalculatorOutputRecord;

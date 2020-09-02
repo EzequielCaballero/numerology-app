@@ -1,10 +1,9 @@
-//PUBLIC VIEWS
-import Home from '../../frontend/pages/home/home';
-import CalculatorInput from '../../frontend/pages/calculator/input/input';
-import CalculatorOutput from '../../frontend/pages/calculator/output/output';
-import History from '../../frontend/pages/history/history';
-import About from '../../frontend/pages/about/about';
-import Contact from '../../frontend/pages/contact/contact';
+import { Home } from '../../frontend/views/home/home';
+import { CalculatorInput } from '../../frontend/views/calculator/input/input';
+import { CalculatorOutput } from '../../frontend/views/calculator/output/output';
+import { History } from '../../frontend/views/history/history';
+import { About } from '../../frontend/views/about/about';
+import { Contact } from '../../frontend/views/contact/contact';
 
 export enum RoutePath {
 	Home = '/home',
@@ -22,7 +21,7 @@ type Route = {
 	component: React.ComponentClass<any>;
 };
 
-const Routes: Route[] = [
+export const Routes: Route[] = [
 	{
 		key: 'Home',
 		path: '/(|home)',
@@ -60,5 +59,3 @@ const Routes: Route[] = [
 		component: Contact
 	}
 ];
-
-export default Routes;

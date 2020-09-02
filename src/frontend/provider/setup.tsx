@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import HandlerStorage from '../../backend/services/handler/storage';
-import HandlerBrowserPrefers from '../../backend/services/handler/browserprefers';
+import { LocalStorage } from '../../backend/services/handler/localstorage';
+import { BrowserConfig } from '../../backend/services/handler/browserconfig';
 
 enum Theme {
 	Dark = 'dark',
@@ -20,14 +20,14 @@ export const ProviderSetup: React.FunctionComponent = ({ children }) => {
 
 	const switchTheme = () => {
 		const newTheme: Theme = theme === Theme.Dark ? Theme.Light : Theme.Dark;
-		HandlerStorage.saveTheme(newTheme);
+		LocalStorage.saveTheme(newTheme);
 		setTheme(newTheme);
 	};
 
 	useEffect(
 		() => {
 			if (theme === null) {
-				setTheme((HandlerStorage.getTheme() as Theme) || HandlerBrowserPrefers.getBrowserTheme());
+				setTheme((LocalStorage.getTheme() as Theme) || BrowserConfig.getTheme());
 			}
 		},
 		[ theme ]

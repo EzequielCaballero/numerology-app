@@ -1,10 +1,12 @@
 import React from 'react';
-import SVGSelector from '../../../svg/selector';
+import { TName, TBirth } from '../../../../../backend/entity/iperson';
+import { Convertor } from '../../../../../backend/services/core/convertor';
+import { SVGSelector } from '../../../svg/selector';
 import './panel.css';
 
 type TProps = {
-	name: string;
-	birth: string;
+	name: TName;
+	birth: TBirth;
 	showReport: boolean;
 	isSaveActive: boolean;
 	switchOutput: () => void;
@@ -13,7 +15,7 @@ type TProps = {
 	goToHistory: () => void;
 };
 
-const CalculatorOutputPanel: React.FunctionComponent<TProps> = ({
+export const CalculatorOutputPanel: React.FunctionComponent<TProps> = ({
 	name,
 	birth,
 	showReport,
@@ -44,11 +46,9 @@ const CalculatorOutputPanel: React.FunctionComponent<TProps> = ({
 				)}
 			</div>
 			<div className="input-person">
-				<p id="input-person-name">{name}</p>
-				<p id="input-person-date">{birth}</p>
+				<p id="input-person-name">{Convertor.formatNameToString(name)}</p>
+				<p id="input-person-date">{Convertor.formatDateToString(birth)}</p>
 			</div>
 		</div>
 	);
 };
-
-export default CalculatorOutputPanel;

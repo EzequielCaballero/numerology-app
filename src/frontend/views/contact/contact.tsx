@@ -1,7 +1,7 @@
 import React from 'react';
 import './contact.css';
 
-class Contact extends React.Component {
+export class Contact extends React.Component {
 	public render(): React.ReactNode {
 		return (
 			<div className="box">
@@ -12,5 +12,3 @@ class Contact extends React.Component {
 		);
 	}
 }
-
-export default Contact;

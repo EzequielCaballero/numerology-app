@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SVGLogoGithub: React.FunctionComponent = () => {
+export const SVGLogoGithub: React.FunctionComponent = () => {
 	return (
 		<svg id="svg_logo_github" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
 			<title>Github</title>
@@ -10,5 +10,3 @@ const SVGLogoGithub: React.FunctionComponent = () => {
 		</svg>
 	);
 };
-
-export default SVGLogoGithub;

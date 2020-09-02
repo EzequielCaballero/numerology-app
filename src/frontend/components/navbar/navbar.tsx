@@ -6,7 +6,7 @@ import { NavbarLinkList } from './link/list';
 import { NavbarToggleMenu } from './toggle/menu';
 import './navbar.css';
 
-const Navbar: React.FunctionComponent = () => {
+export const Navbar: React.FunctionComponent = () => {
 	const history = useHistory();
 	const location = useLocation();
 
@@ -37,5 +37,3 @@ const Navbar: React.FunctionComponent = () => {
 		</div>
 	);
 };
-
-export default Navbar;

@@ -1,19 +1,19 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 //COMPONENTS
-import Head from './components/head/head';
-import Navbar from './components/navbar/navbar';
-import Footer from './components/footer/footer';
-import Err404 from './components/err404/err404';
-import Routes from '../backend/sitemap/routes';
+import { Head } from './components/head/head';
+import { Navbar } from './components/navbar/navbar';
+import { Footer } from './components/footer/footer';
+import { Err404 } from './components/err404/err404';
+import { Routes } from '../backend/sitemap/routes';
 //BASIC STYLE
-import './App-variables.css';
-import './App-style.css';
-import './App-responsive.css';
-import './App-animation.css';
+import './app/variables.css';
+import './app/styles.css';
+import './app/responsive.css';
+import './app/animation.css';
 import { ProviderSetup } from './provider/setup';
 
-const App: React.FC = (): JSX.Element => {
+export const App: React.FC = (): JSX.Element => {
 	return (
 		<ProviderSetup>
 			<div className="site">
@@ -36,5 +36,3 @@ const App: React.FC = (): JSX.Element => {
 		</ProviderSetup>
 	);
 };
-
-export default App;

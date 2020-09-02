@@ -1,9 +1,9 @@
-import { TName, TBirth } from './validator';
 import alphabetKeys from '../../data/alphabet_keys.json';
 import monthKeys from '../../data/month_keys.json';
+import { TName, TBirth } from '../../entity/iperson';
 
-class Convertor {
-	public static CleanString(value: string): string {
+export class Convertor {
+	public static cleanString(value: string): string {
 		return (
 			value
 				//Remove empty spaces
@@ -12,7 +12,7 @@ class Convertor {
 				.replace(/[^[A-Za-zÀ-ÖØ-öø-ÿ]/g, '')
 		);
 	}
-	public static CleanStringDeeper(value: string): string {
+	public static cleanStringDeeper(value: string): string {
 		return (
 			value
 				//Normalize string
@@ -25,37 +25,37 @@ class Convertor {
 				.toUpperCase()
 		);
 	}
-	public static CleanName(name: TName): TName {
+	public static cleanName(name: TName): TName {
 		let nameCleaned: TName = JSON.parse(JSON.stringify(name));
-		nameCleaned.firstName = name.firstName.map((subname) => Convertor.CleanString(subname));
-		nameCleaned.lastName = name.lastName.map((subname) => Convertor.CleanString(subname));
+		nameCleaned.firstName = name.firstName.map((subname) => this.cleanString(subname));
+		nameCleaned.lastName = name.lastName.map((subname) => this.cleanString(subname));
 		return nameCleaned;
 	}
-	public static FormatNameToArray(name: TName): string[] {
+	public static formatNameToArray(name: TName): string[] {
 		let _fullname = name.firstName.concat(name.lastName);
 
 		for (let i = 0; i < _fullname.length; i++) {
 			const subname = _fullname[i];
-			_fullname[i] = Convertor.CleanStringDeeper(subname);
+			_fullname[i] = this.cleanStringDeeper(subname);
 		}
 
 		return _fullname;
 	}
-	public static FormatNameToString(name: TName): string {
+	public static formatNameToString(name: TName): string {
 		let fullname: string[] = name.firstName.concat(name.lastName);
 		return fullname.map((name: string) => name.toLowerCase()).join(' ');
 	}
-	public static FormatDateToArray(date: TBirth): number[] {
-		const birth: Date = new Date(date.birthYear, date.birthMonth, date.birthDay);
+	public static formatDateToArray(date: TBirth): number[] {
+		const birth: Date = new Date(date.year, date.month, date.day);
 		let dateValues: number[] = [ birth.getFullYear(), birth.getMonth(), birth.getDate() ];
 		return dateValues;
 	}
-	public static FormatDateToString(date: TBirth): string {
-		const birth: Date = new Date(date.birthYear, date.birthMonth, date.birthDay);
+	public static formatDateToString(date: TBirth): string {
+		const birth: Date = new Date(date.year, date.month, date.day);
 		return `${('0' + birth.getDate()).slice(-2)}/${('0' + birth.getMonth()).slice(-2)}/${birth.getFullYear()}`;
 	}
 
-	public static TakeNameLetters(nameParts: string[]): string[][] {
+	public static takeNameLetters(nameParts: string[]): string[][] {
 		let onlyLetters: string[][] = [];
 		for (let i = 0; i < nameParts.length; i++) {
 			const subname = nameParts[i].match(/[a-zA-Z]/gi);
@@ -63,7 +63,7 @@ class Convertor {
 		}
 		return onlyLetters;
 	}
-	public static TakeNameVowels(nameParts: string[]): string[][] {
+	public static takeNameVowels(nameParts: string[]): string[][] {
 		let onlyVowels: string[][] = [];
 		for (let i = 0; i < nameParts.length; i++) {
 			const subname = nameParts[i].match(/[aeiou]/gi);
@@ -71,7 +71,7 @@ class Convertor {
 		}
 		return onlyVowels;
 	}
-	public static TakeNameConsonants(nameParts: string[]): string[][] {
+	public static takeNameConsonants(nameParts: string[]): string[][] {
 		let onlyConsonants: string[][] = [];
 		for (let i = 0; i < nameParts.length; i++) {
 			const subname = nameParts[i].match(/[^aeiou]/gi);
@@ -80,55 +80,55 @@ class Convertor {
 		return onlyConsonants;
 	}
 
-	public static MatchAlphabetKeys(nameChars: string[][]): number[][] {
+	public static matchAlphabetKeys(nameChars: string[][]): number[][] {
 		//Match each alphabetic value received with the correspond numeric key
 		const alphabet = alphabetKeys.alphabet;
 		let nameNumbers: number[][] = [];
 
 		for (let subname of nameChars) {
 			let subnameNumber: number[] = subname.map((letter: string) =>
-				this.GetNumerologyPosition(alphabet.indexOf(letter) + 1)
+				this.getNumerologyPosition(alphabet.indexOf(letter) + 1)
 			);
 			nameNumbers.push(subnameNumber);
 		}
 		return nameNumbers;
 	}
-	public static MatchMonthKeys(birthParts: number[]): number {
+	public static matchMonthKeys(birthParts: number[]): number {
 		//Match only the day of birth with the specific personal key month
 		let matchValue = monthKeys.month[birthParts[1] - 1][birthParts[2] - 1];
 		return matchValue;
 	}
-	public static GetNumerologyPosition(alphabetPosition: number): number {
+	public static getNumerologyPosition(alphabetPosition: number): number {
 		let position: number = alphabetPosition;
 		if (alphabetPosition > 9 && alphabetPosition < 19) position = alphabetPosition - 9;
 		if (alphabetPosition > 18) position = alphabetPosition - 18;
 		return position;
 	}
 
-	public static ReduceNestedArray(nestedArray: number[][]): number[] {
+	public static reduceNestedArray(nestedArray: number[][]): number[] {
 		let reducedArray: number[] = [];
 		for (let i = 0; i < nestedArray.length; i++) {
-			reducedArray.push(this.ReduceArray(nestedArray[i]));
+			reducedArray.push(this.reduceArray(nestedArray[i]));
 		}
 		return reducedArray;
 	}
-	public static ReduceArray(arrayReceived: number[]): number {
+	public static reduceArray(arrayReceived: number[]): number {
 		let reducedArray: number = arrayReceived.reduce((p, c) => p + c);
 		return reducedArray;
 	}
-	public static ReduceValueElements(arrayReceived: number[], isRestricted: boolean): number[] {
-		let newArray: number[] = arrayReceived.map((element) => this.ReduceValue(element, isRestricted));
+	public static reduceValueElements(arrayReceived: number[], isRestricted: boolean): number[] {
+		let newArray: number[] = arrayReceived.map((element) => this.reduceValue(element, isRestricted));
 		return newArray;
 	}
-	public static ReduceValue(valueReceived: number, isRestricted: boolean): number {
+	public static reduceValue(valueReceived: number, isRestricted: boolean): number {
 		let value: number = valueReceived;
 
-		while (this.CanReduce(value, isRestricted)) {
+		while (this.canReduce(value, isRestricted)) {
 			value = value.toString().split('').map(Number).reduce((p, c) => p + c);
 		}
 		return value;
 	}
-	public static CanReduce(value: number, isRestricted: boolean): boolean {
+	public static canReduce(value: number, isRestricted: boolean): boolean {
 		let flag: boolean = false;
 		if (value > 9) {
 			if (isRestricted) {
@@ -138,5 +138,3 @@ class Convertor {
 		return flag;
 	}
 }
-
-export default Convertor;

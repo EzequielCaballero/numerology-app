@@ -1,11 +1,12 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { RoutePath } from '../../../../backend/sitemap/routes';
-import Validator, { TName, TBirth } from '../../../../backend/services/core/validator';
-import HandlerURL from '../../../../backend/services/handler/url';
-import Headline from '../../../components/headline/headline';
-import ModalMessage, { TModal } from '../../../components/modal/modal';
-import CalculatorInputForm from '../../../components/calculator/input/form/form';
+import { TName, TBirth } from '../../../../backend/entity/iperson';
+import { Validator } from '../../../../backend/services/core/validator';
+import { URLParams } from '../../../../backend/services/handler/urlparams';
+import { Headline } from '../../../components/headline/headline';
+import { ModalDialog, TModal } from '../../../components/modal/modal';
+import { CalculatorInputForm } from '../../../components/calculator/input/form/form';
 import TestConfig from '../../../../tests/App.test.config.json';
 import './input.css';
 
@@ -16,15 +17,15 @@ type TState = {
 };
 // type StateKeys = keyof TState;
 
-class CalculatorInput extends React.Component<RouteComponentProps, TState> {
+export class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 	private nameParam: TName;
 	private birthParam: TBirth;
 
 	constructor(props: RouteComponentProps) {
 		super(props);
-		HandlerURL.setLocation(this.props.location.search);
-		this.nameParam = HandlerURL.getParamName();
-		this.birthParam = HandlerURL.getParamBirth();
+		URLParams.setLocation(this.props.location.search);
+		this.nameParam = URLParams.getParamName();
+		this.birthParam = URLParams.getParamBirth();
 		this.state = {
 			name: this.nameParam,
 			birth: this.birthParam,
@@ -53,9 +54,9 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 			lastName: [ TestConfig.data.name[2] ]
 		};
 		const testBirth: TBirth = {
-			birthDay: TestConfig.data.birth[0],
-			birthMonth: TestConfig.data.birth[1],
-			birthYear: TestConfig.data.birth[2]
+			year: TestConfig.data.birth[0],
+			month: TestConfig.data.birth[1],
+			day: TestConfig.data.birth[2]
 		};
 
 		this.setState({
@@ -84,7 +85,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 		try {
 			e.preventDefault();
 			const { name, value } = e.target;
-			const maxLength: number = name === 'birthYear' ? 4 : 2;
+			const maxLength: number = name === 'year' ? 4 : 2;
 			let newState: TBirth = this.state.birth;
 			newState[name as keyof TBirth] = value.length <= maxLength ? Number(value) : Number(value.slice(0, -1));
 			this.setState({ birth: newState });
@@ -116,9 +117,9 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 			lastName: [ '' ]
 		};
 		let birth: TBirth = {
-			birthDay: 0,
-			birthMonth: 0,
-			birthYear: 0
+			day: 0,
+			month: 0,
+			year: 0
 		};
 		this.setState({ name, birth });
 	};
@@ -126,7 +127,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 	private handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		e.stopPropagation();
-		if (Validator.ValidateName(this.state.name) && Validator.ValidateDate(this.state.birth)) this.goToResultView();
+		if (Validator.validateName(this.state.name) && Validator.validateDate(this.state.birth)) this.goToResultView();
 		else {
 			let newMsg: string[] = [];
 			newMsg.push('Por favor revisar los campos mandatorios');
@@ -165,7 +166,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 		this.props.history.push({
 			state: RoutePath.CInput,
 			pathname: RoutePath.COutput,
-			search: HandlerURL.generateURLwithParams(this.state.name, this.state.birth)
+			search: URLParams.generateURLwithParams(this.state.name, this.state.birth)
 		});
 	};
 
@@ -174,7 +175,7 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 			<div className="box">
 				<div className="box-content">
 					{/* MODAL */}
-					<ModalMessage
+					<ModalDialog
 						text={this.state.modal.text}
 						properties={this.state.modal.properties}
 						action={this.state.modal.action}
@@ -199,5 +200,3 @@ class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 		);
 	}
 }
-
-export default CalculatorInput;
