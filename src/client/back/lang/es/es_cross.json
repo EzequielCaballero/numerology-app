@@ -1,0 +1,20 @@
+{
+	"head": {
+		"lang": "es",
+		"description": "Calculadora para la obtención de números pitagóricos",
+		"title": "Numerología pitagórica"
+	},
+	"navbar": {
+		"lang": "Español",
+		"menu": [ "Inicio", "Calculadora", "Historial", "¿Cómo funciona?", "Contacto" ]
+	},
+	"err404": {
+		"msg": "Ups... la página solicitada no existe",
+		"btn": "Volver al inicio"
+	},
+	"footer": {
+		"prefix": "Creado por",
+		"author": "Ezequiel Caballero",
+		"year": "2020"
+	}
+}

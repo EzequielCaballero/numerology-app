@@ -1,0 +1,85 @@
+{
+	"headline": {
+		"subtitle": "Results"
+	},
+	"panel": {
+		"edit": "Edit",
+		"option": [ "Calculation", "Report" ],
+		"save": [ "Save", "Saved result" ]
+	},
+	"record": {
+		"action": {
+			"expand": "Expand",
+			"collapse": "Collapse"
+		},
+		"detail": {
+			"image": {
+				"name": "Image",
+				"msg": "Full name: extract only the consonants."
+			},
+			"essence": {
+				"name": "Essence",
+				"msg": "Full name: extract only the vowels."
+			},
+			"mission": {
+				"name": "Mission",
+				"msg": "Full name: extract all the letters."
+			},
+			"natalPath": {
+				"name": "Natal path",
+				"msg": "Birthdate taken as base."
+			},
+			"potentialNumber": {
+				"name": "Potential number",
+				"msg": "Mission + natal path."
+			},
+			"personalKey": {
+				"name": "Personal key",
+				"msg": "Static value based on birth day."
+			},
+			"personalYear": {
+				"name": "Personal year",
+				"msg": "Birth (day + month) + current year."
+			},
+			"personalMonth": {
+				"name": "Personal month",
+				"msg": "Personal year + current month."
+			},
+			"ageDigit": {
+				"name": "Age digit",
+				"msg": "Current age + next age (+1)."
+			},
+			"stages": {
+				"name": "Stages",
+				"base": "Start: from 0 to (36 - natal path).",
+				"duration": "Stages duration: 9 years.",
+				"part": [
+					"result = month + day",
+					"result = day + year",
+					"result = 1st stage + 2nd stage",
+					"result = month + year"
+				],
+				"msg": "Birthdate as base."
+			},
+			"karmas": {
+				"name": "Karmas",
+				"part": [ "Essence", "Mission", "Path", "Potential karmas" ],
+				"msg": "Based on values showed up before reduce | 13/14/16/19",
+				"extra": "Missing numbers (1-9) during calculation of mission + natal path."
+			}
+		}
+	},
+	"report": {
+		"title": "Numerology study"
+	},
+	"modal": {
+		"save": {
+			"title": "Save result",
+			"msg": "The result will be saved in your browser"
+		},
+		"error": {
+			"title": "Warning",
+			"msg": "Maximum number of saves reached"
+		}
+	}
+}

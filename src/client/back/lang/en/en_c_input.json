@@ -1,0 +1,25 @@
+{
+	"headline": {
+		"subtitle": "Calculator"
+	},
+	"form": {
+		"name": {
+			"title": "Fullname",
+			"field": [ "Firstname", "Lastname" ]
+		},
+		"birth": {
+			"title": "Birthdate",
+			"format": "MM/DD/YYYY",
+			"field": [ "Day", "Month", "Year" ]
+		},
+		"expand": "Input values",
+		"btn": "Calculate",
+		"trash": "Clean"
+	},
+	"modal": {
+		"alert": {
+			"title": "Wrong input values",
+			"msg": [ "Please review mandatory fields", "Name | Lastname | Birthdate" ]
+		}
+	}
+}

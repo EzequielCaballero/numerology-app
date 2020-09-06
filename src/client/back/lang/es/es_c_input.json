@@ -1,0 +1,25 @@
+{
+	"headline": {
+		"subtitle": "Calculadora"
+	},
+	"form": {
+		"name": {
+			"title": "Nombre completo",
+			"field": [ "Nombre", "Apellido" ]
+		},
+		"birth": {
+			"title": "Fecha de nacimiento",
+			"format": "DD/MM/YYYY",
+			"field": [ "Día", "Mes", "Año" ]
+		},
+		"expand": "Valores ingresados",
+		"btn": "Calcular",
+		"trash": "Limpiar"
+	},
+	"modal": {
+		"alert": {
+			"title": "Valores de entrada incorrectos",
+			"msg": [ "Por favor revisar los campos mandatorios", "Nombre | Apellido | Fecha de nacimiento" ]
+		}
+	}
+}

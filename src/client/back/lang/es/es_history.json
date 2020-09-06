@@ -1,0 +1,19 @@
+{
+	"headline": {
+		"subtitle": "Historial"
+	},
+	"action": {
+		"view": "Ver",
+		"delete": "Eliminar"
+	},
+	"list": {
+		"with": "Lista de resultados guardados",
+		"without": "No hay resultados guardados"
+	},
+	"modal": {
+		"delete": {
+			"title": "Eliminar resultado",
+			"msg": "El resultado seleccionado será eliminado de su navegador"
+		}
+	}
+}

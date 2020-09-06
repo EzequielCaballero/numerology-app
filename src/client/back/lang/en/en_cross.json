@@ -1,0 +1,20 @@
+{
+	"head": {
+		"lang": "en",
+		"description": "Calculator for obtaining Pythagorean numbers",
+		"title": "Pythagorean numerology"
+	},
+	"navbar": {
+		"lang": "English",
+		"menu": [ "Home", "Calculator", "History", "How works?", "Contact" ]
+	},
+	"err404": {
+		"msg": "Ups... the requested page doesn't exist",
+		"btn": "Back to home"
+	},
+	"footer": {
+		"prefix": "Created by",
+		"author": "Ezequiel Caballero",
+		"year": "2020"
+	}
+}

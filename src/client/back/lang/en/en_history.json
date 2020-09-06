@@ -1,0 +1,19 @@
+{
+	"headline": {
+		"subtitle": "History"
+	},
+	"action": {
+		"view": "View",
+		"delete": "Delete"
+	},
+	"list": {
+		"with": "List of saved results",
+		"without": "No saved results"
+	},
+	"modal": {
+		"delete": {
+			"title": "Delete result",
+			"msg": "The selected result will be deleted from your browser"
+		}
+	}
+}
