@@ -4,16 +4,17 @@ import './headline.css';
 
 type TProps = {
 	title: string;
+	subtitle: string;
 };
 
-export const Headline: React.FunctionComponent<TProps> = ({ title }) => {
+export const Headline: React.FunctionComponent<TProps> = ({ title, subtitle }) => {
 	return (
 		<div className="headline-content">
 			<SVGSelector name="logoMandala" />
 			<div className="headline-content-text">
-				<p>Numerología pitagórica</p>
+				<p>{title}</p>
 				<p>
-					<strong>{title}</strong>
+					<strong>{subtitle.toUpperCase()}</strong>
 				</p>
 			</div>
 		</div>

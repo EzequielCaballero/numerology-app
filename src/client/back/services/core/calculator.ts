@@ -11,7 +11,9 @@ export type TRecord = {
 };
 
 export class Calculator {
-	//RECORD
+	private static readonly _KARMAS = [ 13, 14, 16, 19 ];
+	private static readonly _STAGE_BASE = 36; // 9*4
+	private static readonly _STAGE_DURATION = 9;
 	private static _record: TRecord = {
 		name: [],
 		birth: [],
@@ -21,7 +23,6 @@ export class Calculator {
 		path: []
 	};
 
-	//METHODS
 	public static calculateValues(person: IPerson): IPerson {
 		const fullname = Convertor.formatNameToArray(person.name);
 		const birthdate = Convertor.formatDateToArray(person.birth);
@@ -176,31 +177,29 @@ export class Calculator {
 		return finalValue;
 	}
 	private static calculateStages(birthParts: number[], path: number): TStage[] {
-		const base_number: number = 36;
-		const default_duration: number = 9;
 		const birthReduced: number[] = Convertor.reduceValueElements(birthParts, true);
 		let stages: TStage[] = [];
 		//STAGE 1
 		const stage_1: TStage = {
 			num: 1,
 			from: 0,
-			to: base_number - path,
-			value: Convertor.reduceValue(birthReduced[1] + birthReduced[0], true)
+			to: this._STAGE_BASE - path,
+			value: Convertor.reduceValue(birthReduced[1] + birthReduced[2], true)
 		};
 		stages.push(stage_1);
 		//STAGE 2
 		const stage_2: TStage = {
 			num: 2,
 			from: stages[0].to + 1,
-			to: stages[0].to + 1 + default_duration,
-			value: Convertor.reduceValue(birthReduced[0] + birthReduced[2], true)
+			to: stages[0].to + 1 + this._STAGE_DURATION,
+			value: Convertor.reduceValue(birthReduced[2] + birthReduced[0], true)
 		};
 		stages.push(stage_2);
 		//STAGE 3
 		const stage_3: TStage = {
 			num: 3,
 			from: stages[1].to + 1,
-			to: stages[1].to + 1 + default_duration,
+			to: stages[1].to + 1 + this._STAGE_DURATION,
 			value: Convertor.reduceValue(stages[0].value + stages[1].value, true)
 		};
 		stages.push(stage_3);
@@ -209,14 +208,14 @@ export class Calculator {
 			num: 4,
 			from: stages[2].to + 1,
 			to: 0,
-			value: Convertor.reduceValue(birthReduced[1] + birthReduced[2], true)
+			value: Convertor.reduceValue(birthReduced[1] + birthReduced[0], true)
 		};
 		stages.push(stage_4);
 
 		return stages;
 	}
 	private static calculateKarmas(): TKarma {
-		let karmas: number[] = [ 13, 14, 16, 19 ];
+		let karmas: number[] = this._KARMAS;
 		let matchIndex: number = -1;
 		let matchKarmas: TKarma = {
 			essence: 0,

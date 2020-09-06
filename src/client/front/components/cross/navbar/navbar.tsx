@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { RoutePath } from '../../../../back/sitemap/routes';
+import { NavbarLangSwitch } from './lang/switch';
 import { NavbarThemeSwitch } from './theme/switch';
 import { NavbarLinkList } from './link/list';
 import { NavbarToggleMenu } from './toggle/menu';
@@ -32,6 +33,7 @@ export const Navbar: React.FunctionComponent = () => {
 	return (
 		<div className="nav-custom">
 			<NavbarThemeSwitch />
+			<NavbarLangSwitch />
 			<NavbarToggleMenu />
 			<NavbarLinkList changeView={changeView} />
 		</div>

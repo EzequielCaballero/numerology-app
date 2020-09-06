@@ -7,11 +7,12 @@ import { Calculator, TRecord } from '../../../../back/services/core/calculator';
 import { Validator } from '../../../../back/services/core/validator';
 import { URLParams } from '../../../../back/services/handler/urlparams';
 import { LocalStorage } from '../../../../back/services/handler/localstorage';
+import { ConsumerSetup } from '../../../context/setup';
 import { Headline } from '../../../components/headline/headline';
 import { ModalDialog, TModal } from '../../../components/modal/modal';
-import { CalculatorOutputPanel } from '../../../components/calculator/output/panel/panel';
-import { CalculatorOutputRecord } from '../../../components/calculator/output/record/record';
-import { CalculatorOutputReport } from '../../../components/calculator/output/report/report';
+import { CalculatorOutputPanel } from './panel/panel';
+import { CalculatorOutputRecord } from './record/record';
+import { CalculatorOutputReport } from './report/report';
 import './output.css';
 
 type TState = {
@@ -37,11 +38,8 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 			isSaveActive: false,
 			showReport: false,
 			modal: {
-				text: {
-					title: '',
-					msg: [ '' ]
-				},
 				properties: {
+					type: 'save',
 					isActive: false,
 					isInteractive: false
 				},
@@ -60,15 +58,9 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 		this.setState({ showReport: !prevState });
 	};
 
-	private setModalContent = (title: string, msg: string[]): void => {
+	private setModalProperties = (type: string, isInteractive: boolean, identifier?: string): void => {
 		let modal: TModal = this.state.modal;
-		modal.text.title = title;
-		modal.text.msg = msg;
-		this.setState({ modal });
-	};
-
-	private setModalProperties = (isInteractive: boolean, identifier?: string): void => {
-		let modal: TModal = this.state.modal;
+		modal.properties.type = type;
 		modal.properties.isInteractive = isInteractive;
 		if (identifier) modal.properties.actionIdentifier = identifier;
 		this.setState({ modal });
@@ -89,17 +81,10 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 
 	private handleSaveResult = (): void => {
 		if (LocalStorage.isResultSavingAllowed()) {
-			let newMsg: string[] = [ '' ];
-			newMsg.push('El resultado será guardado en tu navegador.');
-			this.setModalContent('Guardar resultado', newMsg);
-			this.setModalProperties(true);
+			this.setModalProperties('save', true);
 			this.showModal(true);
 		} else {
-			let newMsg: string[] = [ '' ];
-			newMsg.push('Número máximo de resultados guardados alcanzado.');
-			newMsg.push(`Límite: ${LocalStorage.getMaxNumberSaves()}.`);
-			this.setModalContent('Límite de guardado.', newMsg);
-			this.setModalProperties(false);
+			this.setModalProperties('error', false);
 			this.showModal(true);
 		}
 	};
@@ -133,34 +118,40 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 
 		return (
 			<div className="box">
-				<div className="box-content">
-					{/* MODAL */}
-					<ModalDialog
-						text={this.state.modal.text}
-						properties={this.state.modal.properties}
-						action={this.state.modal.action}
-					/>
-					{/* HEADLINE */}
-					<Headline title="RESULTADOS" />
-					{/* CALCULATOR OUTPUT */}
-					<div className="calculator-output">
-						<CalculatorOutputPanel
-							name={this.nameParam}
-							birth={this.birthParam}
-							showReport={this.state.showReport}
-							isSaveActive={this.state.isSaveActive}
-							switchOutput={this.switchOutput}
-							handleSaveResult={this.handleSaveResult}
-							goToCalculatorInput={this.goToCalculatorInput}
-							goToHistory={this.goToHistory}
-						/>
-						{!this.state.showReport ? (
-							<CalculatorOutputRecord person={this.person} record={this.record} />
-						) : (
-							<CalculatorOutputReport person={this.person} />
-						)}
-					</div>
-				</div>
+				<ConsumerSetup>
+					{({ translate }) => (
+						<div className="box-content">
+							{/* MODAL */}
+							<ModalDialog properties={this.state.modal.properties} action={this.state.modal.action}>
+								<p>{translate.t(`coutput.modal.${this.state.modal.properties.type}.title`)}</p>
+								<p>{translate.t(`coutput.modal.${this.state.modal.properties.type}.msg`)}</p>
+							</ModalDialog>
+							{/* HEADLINE */}
+							<Headline
+								title={translate.t('cross.head.title')}
+								subtitle={translate.t('coutput.headline.subtitle')}
+							/>
+							{/* CALCULATOR OUTPUT */}
+							<div className="calculator-output">
+								<CalculatorOutputPanel
+									name={this.nameParam}
+									birth={this.birthParam}
+									showReport={this.state.showReport}
+									isSaveActive={this.state.isSaveActive}
+									switchOutput={this.switchOutput}
+									handleSaveResult={this.handleSaveResult}
+									goToCalculatorInput={this.goToCalculatorInput}
+									goToHistory={this.goToHistory}
+								/>
+								{!this.state.showReport ? (
+									<CalculatorOutputRecord person={this.person} record={this.record} />
+								) : (
+									<CalculatorOutputReport person={this.person} />
+								)}
+							</div>
+						</div>
+					)}
+				</ConsumerSetup>
 			</div>
 		);
 	}

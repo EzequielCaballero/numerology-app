@@ -3,30 +3,23 @@
 	font-weight: bold;
 }
 
-.home-quote {
+.home-quote p > span:first-child {
 	font-size: var(--font-size-1);
 	font-style: italic;
 }
 
-.home-content #svg_logo_mandala {
+.home-quote p > span:last-child {
+	font-size: var(--font-size-4);
+}
+
+.home-content button > #svg_logo_mandala {
 	animation: element-spin infinite reverse 20s linear;
-	height: 30vmin;
-	margin: 1rem;
+	height: 135px;
+	opacity: 0.4;
 	pointer-events: none;
+	width: 125px;
 }
 
-.home-content #svg_logo_mandala > path[id^='number'] {
-	stroke: var(--default-color-3);
-}
-
-.home-content #svg_logo_mandala > g > g[id='mandala-outline'] > g > path {
-	stroke: var(--element-color-1);
-}
-
-.home-content #svg_logo_mandala > g > g[id='mandala-outline'] > g[id='mandala-outline-2'] > path {
-	stroke: var(--default-color-3);
-}
-
-.home-content #svg_logo_mandala > g > g[id='mandala-baseline'] > g > g > path {
+.home-content button > #svg_logo_mandala path {
 	stroke: var(--default-color-3);
 }

@@ -93,6 +93,7 @@ button:hover {
 	border: none;
 	color: var(--default-color-3);
 	outline: none !important;
+	padding: 0;
 	text-decoration: none;
 }
 
@@ -119,4 +120,18 @@ button:hover {
 	border-right: 2px solid var(--default-color-3);
 	border-bottom: 2px solid var(--default-color-3);
 	border-radius: 0.3rem;
+	padding: .375rem .75rem;
+}
+
+/* BUTTON circle */
+
+.btn-circle {
+	background: var(--btn-circle-background);
+	border-radius: 50%;
+}
+
+.btn-circle:focus,
+.btn-circle:hover {
+	background: var(--btn-focus-background);
+	border-radius: 50%;
 }

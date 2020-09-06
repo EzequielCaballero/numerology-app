@@ -1,37 +1,38 @@
 .nav-custom {
 	background: var(--navbar-background);
+	border-bottom: 2px solid var(--element-color-1);
 	height: 50px;
 	position: fixed;
 	width: 100%;
 	z-index: 1;
 }
 
-.nav-custom > .nav-change-theme > button,
+.nav-custom > .nav-switch > button,
 .nav-custom > .nav-custom-links > button {
 	background: none;
 	border: none;
 	text-decoration: none;
 }
 
-.nav-change-theme svg {
+.nav-switch svg {
 	height: 30px;
 	width: 30px;
 	animation: blurred-in 0.35s linear;
 }
 
-.nav-change-theme:hover svg path {
+.nav-switch:hover svg path {
 	transition: fill 0.4s linear;
 }
 
-.nav-change-theme svg path {
+.nav-switch svg path {
 	fill: var(--navbar-theme-switch);
 }
 
-.nav-change-theme:hover svg path {
+.nav-switch:hover svg path {
 	fill: var(--default-color-3);
 }
 
-.nav-custom > .nav-change-theme {
+.nav-custom > .nav-switch {
 	display: inline-block;
 	padding: 10px 0 0 10px;
 }

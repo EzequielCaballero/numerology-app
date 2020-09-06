@@ -4,9 +4,10 @@ import { RoutePath } from '../../../../back/sitemap/routes';
 import { TName, TBirth } from '../../../../back/entity/iperson';
 import { Validator } from '../../../../back/services/core/validator';
 import { URLParams } from '../../../../back/services/handler/urlparams';
+import { ConsumerSetup } from '../../../context/setup';
 import { Headline } from '../../../components/headline/headline';
 import { ModalDialog, TModal } from '../../../components/modal/modal';
-import { CalculatorInputForm } from '../../../components/calculator/input/form/form';
+import { CalculatorInputForm } from './form/form';
 import TestConfig from '../../../../../tests/App.test.config.json';
 import './input.css';
 
@@ -30,11 +31,8 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 			name: this.nameParam,
 			birth: this.birthParam,
 			modal: {
-				text: {
-					title: '',
-					msg: [ '' ]
-				},
 				properties: {
+					type: 'alert',
 					isActive: false,
 					isInteractive: false
 				},
@@ -129,20 +127,9 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 		e.stopPropagation();
 		if (Validator.validateName(this.state.name) && Validator.validateDate(this.state.birth)) this.goToResultView();
 		else {
-			let newMsg: string[] = [];
-			newMsg.push('Por favor revisar los campos mandatorios');
-			newMsg.push('Nombre | Apellido | Fecha de nacimiento');
-			this.setModalContent('Información incorrecta', newMsg);
 			this.setModalProperties(false);
 			this.showModal(true);
 		}
-	};
-
-	private setModalContent = (title: string, msg: string[]): void => {
-		let modal: TModal = this.state.modal;
-		modal.text.title = title;
-		modal.text.msg = msg;
-		this.setState({ modal });
 	};
 
 	private setModalProperties = (isInteractive: boolean, identifier?: string): void => {
@@ -159,7 +146,7 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 	};
 
 	private handleModalResponse = (response: boolean): void => {
-		this.showModal(false);
+		this.showModal(response);
 	};
 
 	private goToResultView = (): void => {
@@ -173,29 +160,39 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 	public render(): React.ReactNode {
 		return (
 			<div className="box">
-				<div className="box-content">
-					{/* MODAL */}
-					<ModalDialog
-						text={this.state.modal.text}
-						properties={this.state.modal.properties}
-						action={this.state.modal.action}
-					/>
+				<ConsumerSetup>
+					{({ translate }) => (
+						<div className="box-content">
+							{/* MODAL */}
+							<ModalDialog properties={this.state.modal.properties} action={this.state.modal.action}>
+								<p>{translate.t('cinput.modal.alert.title')}</p>
+								<p>
+									<span>{translate.t('cinput.modal.alert.msg.0')}:</span>
+									<br />
+									<i>{translate.t('cinput.modal.alert.msg.1')}</i>
+								</p>
+							</ModalDialog>
 
-					{/* HEADLINE */}
-					<Headline title="CALCULADORA" />
+							{/* HEADLINE */}
+							<Headline
+								title={translate.t('cross.head.title')}
+								subtitle={translate.t('cinput.headline.subtitle')}
+							/>
 
-					{/* CALCULATOR FORM */}
-					<CalculatorInputForm
-						name={this.state.name}
-						birth={this.state.birth}
-						handleInputName={this.handleInputName}
-						handleInputDate={this.handleInputDate}
-						handleAddName={this.handleAddName}
-						handleRemoveName={this.handleRemoveName}
-						handleCleanInputs={this.handleCleanInputs}
-						handleSubmit={this.handleSubmit}
-					/>
-				</div>
+							{/* CALCULATOR FORM */}
+							<CalculatorInputForm
+								name={this.state.name}
+								birth={this.state.birth}
+								handleInputName={this.handleInputName}
+								handleInputDate={this.handleInputDate}
+								handleAddName={this.handleAddName}
+								handleRemoveName={this.handleRemoveName}
+								handleCleanInputs={this.handleCleanInputs}
+								handleSubmit={this.handleSubmit}
+							/>
+						</div>
+					)}
+				</ConsumerSetup>
 			</div>
 		);
 	}

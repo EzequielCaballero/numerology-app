@@ -70,7 +70,6 @@ MOBILE
 	}
 	.nav-custom > .nav-custom-links {
 		background: var(--element-color-3);
-		border-bottom: 3px solid var(--element-color-1);
 		display: block;
 		height: 0px;
 		left: 0px;

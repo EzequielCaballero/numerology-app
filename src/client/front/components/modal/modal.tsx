@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
+import { useContextSetup } from '../../context/setup';
 import './modal.css';
 
 export type TModal = {
-	text: {
-		title: string;
-		msg: string[];
-	};
 	properties: {
+		type: string;
 		isActive: boolean;
 		isInteractive: boolean;
 		actionIdentifier?: string;
@@ -15,14 +13,8 @@ export type TModal = {
 	action: (response: boolean, identifier?: string) => void;
 };
 
-export const ModalDialog: React.FunctionComponent<TModal> = ({ text, properties, action }) => {
-	const formatTextContent = (): Array<JSX.Element> => {
-		return text.msg.map((text, index) => (
-			<p className="modal-text" key={index}>
-				{text.trim()}
-			</p>
-		));
-	};
+export const ModalDialog: React.FunctionComponent<TModal> = ({ children, properties, action }) => {
+	const { translate } = useContextSetup();
 
 	useEffect(
 		() => {
@@ -37,13 +29,10 @@ export const ModalDialog: React.FunctionComponent<TModal> = ({ text, properties,
 
 	return (
 		<Modal id="app-modal" show={properties.isActive} onHide={() => action(false)}>
-			<Modal.Header id="app-modal-header">
-				<Modal.Title id="app-modal-title">{text.title}</Modal.Title>
-			</Modal.Header>
-			<Modal.Body id="app-modal-body">{formatTextContent()}</Modal.Body>
+			<Modal.Body id="app-modal-body">{children}</Modal.Body>
 			<Modal.Footer id="app-modal-footer">
 				<button id="app-modal-btn-cancel" className="btn-action-outline" onClick={() => action(false)}>
-					{properties.isInteractive ? 'Cancelar' : 'Cerrar'}
+					{properties.isInteractive ? translate.t('modal.btn.cancel') : translate.t('modal.btn.close')}
 				</button>
 				{properties.isInteractive && (
 					<button
@@ -51,7 +40,7 @@ export const ModalDialog: React.FunctionComponent<TModal> = ({ text, properties,
 						className="btn-action"
 						onClick={() => action(true, properties.actionIdentifier)}
 					>
-						Aceptar
+						{translate.t('modal.btn.accept')}
 					</button>
 				)}
 			</Modal.Footer>

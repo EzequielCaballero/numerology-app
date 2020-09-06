@@ -7,9 +7,46 @@ export type TResult = {
 };
 
 export class LocalStorage {
-	private static readonly KEY_RESULT: string = 'result';
+	private static readonly KEY_LANG: string = 'lang';
 	private static readonly KEY_THEME: string = 'theme';
+	private static readonly KEY_RESULT: string = 'result';
 	private static readonly MAX_NUMBER_RESULTS: number = 15;
+
+	//#region LANG
+
+	public static getLang(): string | null {
+		let lang = window.localStorage.getItem(this.KEY_LANG);
+		if (lang === 'en' || lang === 'es') return lang;
+		return null;
+	}
+
+	public static saveLang(lang: string): void {
+		try {
+			window.localStorage.setItem(this.KEY_LANG, lang);
+		} catch (error) {
+			throw new Error(error);
+		}
+	}
+
+	//#endregion
+
+	//#region THEME
+
+	public static getTheme(): string | null {
+		let theme = window.localStorage.getItem(this.KEY_THEME);
+		if (theme === 'dark' || theme === 'light') return theme;
+		return null;
+	}
+
+	public static saveTheme(theme: string): void {
+		try {
+			window.localStorage.setItem(this.KEY_THEME, theme);
+		} catch (error) {
+			throw new Error(error);
+		}
+	}
+
+	//#endregion
 
 	//#region RESULT
 	public static getMaxNumberSaves(): number {
@@ -127,24 +164,6 @@ export class LocalStorage {
 			return true;
 		} catch (error) {
 			return false;
-		}
-	}
-
-	//#endregion
-
-	//#region THEME
-
-	public static getTheme(): string | null {
-		let theme = window.localStorage.getItem(this.KEY_THEME);
-		if (theme === 'dark' || theme === 'light') return theme;
-		return null;
-	}
-
-	public static saveTheme(theme: string): void {
-		try {
-			window.localStorage.setItem(this.KEY_THEME, theme);
-		} catch (error) {
-			throw new Error(error);
 		}
 	}
 

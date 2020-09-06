@@ -18,7 +18,7 @@
 }
 
 .headline-content-text > p:first-child {
-	font-size: var(--font-size-2);
+	font-size: var(--font-size-4);
 }
 
 .headline-content-text > p:last-child {

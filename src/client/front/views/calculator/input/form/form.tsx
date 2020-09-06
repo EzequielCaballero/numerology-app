@@ -3,7 +3,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import { TName, TBirth } from '../../../../../back/entity/iperson';
-import { SVGSelector } from '../../../svg/selector';
+import { useContextSetup } from '../../../../context/setup';
+import { SVGSelector } from '../../../../components/svg/selector';
 import './form.css';
 
 type TProps = {
@@ -18,6 +19,7 @@ type TProps = {
 };
 
 export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TProps) => {
+	const { translate } = useContextSetup();
 	const {
 		name,
 		birth,
@@ -37,7 +39,7 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 			noValidate
 		>
 			<Form.Group id="form_name">
-				<Form.Label>Nombre completo</Form.Label>
+				<Form.Label>* {translate.t('cinput.form.name.title')}</Form.Label>
 				<InputGroup className="mb-3 form-input-name">
 					<InputGroup.Prepend>
 						<Button variant="outline-danger" onClick={() => handleRemoveName('firstName')}>
@@ -52,7 +54,7 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 							name={`firstName-${index}`}
 							type="text"
 							maxLength={30}
-							placeholder={`Nombre-${index + 1}...`}
+							placeholder={`${translate.t('cinput.form.name.field.0')}-${index + 1}...`}
 							onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputName(event)}
 							value={subname}
 						/>
@@ -79,7 +81,7 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 							name={`lastName-${index}`}
 							type="text"
 							maxLength={30}
-							placeholder={`Apellido-${index + 1}...`}
+							placeholder={`${translate.t('cinput.form.name.field.1')}-${index + 1}...`}
 							onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputName(event)}
 							value={subname}
 						/>
@@ -94,12 +96,12 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 				</InputGroup>
 			</Form.Group>
 			<Form.Group id="form_date">
-				<Form.Label>Fecha de nacimiento</Form.Label>
+				<Form.Label>* {translate.t('cinput.form.birth.title')}</Form.Label>
 				<InputGroup className="mb-3 form-input-date">
 					<Form.Control
 						name="day"
 						type="number"
-						placeholder="Día"
+						placeholder={translate.t('cinput.form.birth.field.0')}
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1"
 						max="31"
@@ -108,7 +110,7 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 					<Form.Control
 						name="month"
 						type="number"
-						placeholder="Mes"
+						placeholder={translate.t('cinput.form.birth.field.1')}
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1"
 						max="12"
@@ -117,23 +119,23 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 					<Form.Control
 						name="year"
 						type="number"
-						placeholder="Año"
+						placeholder={translate.t('cinput.form.birth.field.2')}
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1000"
 						value={birth.year === 0 ? '' : birth.year}
 					/>
 				</InputGroup>
 			</Form.Group>
-			<div className="form-output">
-				<input type="checkbox" id="form-output-check" />
-				<div className="form-output-header">
-					<span>Valores ingresados</span>
+			<div className="form-preview">
+				<input type="checkbox" id="form-preview-check" />
+				<div className="form-preview-header">
+					<span>{translate.t('cinput.form.expand')}</span>
 
-					<label className="form-output-check-btn" htmlFor="form-output-check">
+					<label className="form-preview-check-btn" htmlFor="form-preview-check">
 						<span>{'>'}</span>
 					</label>
 				</div>
-				<div className="form-output-values">
+				<div className="form-preview-values">
 					<span>
 						{`${name.firstName.map((item) => item).join(' ')} 
             				 ${name.lastName.map((item) => item).join(' ')}`}
@@ -144,9 +146,12 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 			</div>
 			<div className="form-actions">
 				<button className="btn-action" type="submit">
-					Calcular
+					{translate.t('cinput.form.btn')}
 				</button>
-				<button onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleCleanInputs(e)}>
+				<button
+					onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleCleanInputs(e)}
+					title={translate.t('cinput.form.trash')}
+				>
 					<SVGSelector name="iconTrash" />
 				</button>
 			</div>

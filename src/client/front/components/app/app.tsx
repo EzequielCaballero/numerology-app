@@ -1,17 +1,15 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-//COMPONENTS
-import { Routes } from './back/sitemap/routes';
-import { Head } from './front/components/cross/head/head';
-import { Navbar } from './front/components/cross/navbar/navbar';
-import { Footer } from './front/components/cross/footer/footer';
-import { Err404 } from './front/components/err404/err404';
-//BASIC STYLE
-import './front/app/variables.css';
-import './front/app/styles.css';
-import './front/app/responsive.css';
-import './front/app/animation.css';
-import { ProviderSetup } from './front/provider/setup';
+import { Routes } from '../../../back/sitemap/routes';
+import { Head } from '../cross/head/head';
+import { Navbar } from '../cross/navbar/navbar';
+import { Footer } from '../cross/footer/footer';
+import { Err404 } from '../cross/err404/err404';
+import './css/variables.css';
+import './css/styles.css';
+import './css/responsive.css';
+import './css/animation.css';
+import { ProviderSetup } from '../../context/setup';
 
 export const App: React.FC = (): JSX.Element => {
 	return (

@@ -1,5 +1,6 @@
 import React from 'react';
 import { IPerson } from '../../../../../back/entity/iperson';
+import { useContextSetup } from '../../../../context/setup';
 import './report.css';
 
 type TProps = {
@@ -7,9 +8,10 @@ type TProps = {
 };
 
 export const CalculatorOutputReport: React.FunctionComponent<TProps> = ({ person }) => {
+	const { translate } = useContextSetup();
 	return (
 		<div className="output-report">
-			<h3>Análisis de resultados</h3>
+			<h3>{translate.t('coutput.report.title')}</h3>
 			<h5>IMAGEN | {person.numbers.image}</h5>
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et

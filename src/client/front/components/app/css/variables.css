@@ -19,6 +19,7 @@ body[data-theme='dark'] {
 	--border-color-2: #342042;
 	--border-color-3: #19091f;
 	--btn-blur-background: linear-gradient(to bottom, #7149a5 51%, #2f1841 51%, #2f1841 100%);
+	--btn-circle-background: linear-gradient(135deg, #6c3794 0%, #110718 100%);
 	--btn-focus-background: rgb(40, 15, 50);
 	--default-color-1: #000000;
 	--default-color-2: #808080;
@@ -54,6 +55,7 @@ body[data-theme='light'] {
 	--border-color-2: #424020;
 	--border-color-3: #1f1c09;
 	--btn-blur-background: linear-gradient(to bottom, #eee7ad 51%, #b6b275 51%, #b6b275 100%);
+	--btn-circle-background: linear-gradient(135deg, #eee7ad 0%, #5c5924 100%);
 	--btn-focus-background: #cec578;
 	--default-color-1: #ffffff;
 	--default-color-2: #464545;
@@ -66,7 +68,7 @@ body[data-theme='light'] {
 	--element-color-3: #c4c49b;
 	--font-color-1: #000000;
 	--font-color-2: #e6e6e6;
-	--modal-background: #fafaef;
+	--modal-background: #ebebd1;
 	--modal-shadow: 0 0 10px #ede19e;
 	--navbar-active-link: #f8ea67;
 	--navbar-background: linear-gradient(

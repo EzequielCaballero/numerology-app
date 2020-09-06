@@ -3,6 +3,16 @@
 	margin-top: 1rem;
 }
 
+#form_name,
+#form_date {
+	text-align: left;
+}
+
+#form_name > label,
+#form_date > label {
+	font-size: var(--font-size-4);
+}
+
 #form_name .form-control,
 #form_date .form-control {
 	background: var(--default-color-1);
@@ -19,9 +29,9 @@ input[name^="lastName"] {
 	text-transform: capitalize;
 }
 
-/* OUTPUT */
+/* PREVIEW */
 
-.form-output {
+.form-preview {
 	background: var(--element-background-1);
 	border-top: 1px solid var(--border-color-1);
 	border-radius: 15px 15px 0px 0px;
@@ -32,11 +42,11 @@ input[name^="lastName"] {
 	padding: 5px;
 }
 
-#form-output-check {
+#form-preview-check {
 	display: none;
 }
 
-.form-output-check-btn {
+.form-preview-check-btn {
 	border-radius: 50%;
 	cursor: pointer;
 	font-size: var(--font-size-1);
@@ -47,7 +57,7 @@ input[name^="lastName"] {
 	transition: transform .3s ease, top .3s ease;
 }
 
-.form-output-values {
+.form-preview-values {
 	border-radius: 0px 0px 15px 15px;
 	display: block;
 	height: 0px;
@@ -58,20 +68,20 @@ input[name^="lastName"] {
 	-ms-overflow-style: none;
 }
 
-.form-output-values::-webkit-scrollbar {
+.form-preview-values::-webkit-scrollbar {
 	display: none;
 }
 
-#form-output-check:not(:checked) ~ .form-output-values {
+#form-preview-check:not(:checked) ~ .form-preview-values {
 	height: 0px;
 }
 
-#form-output-check:checked ~ .form-output-values {
+#form-preview-check:checked ~ .form-preview-values {
 	height: 55px;
 	overflow-y: auto;
 }
 
-#form-output-check:checked ~ .form-output-header .form-output-check-btn {
+#form-preview-check:checked ~ .form-preview-header .form-preview-check-btn {
 	transform: rotate(-90deg);
 }
 

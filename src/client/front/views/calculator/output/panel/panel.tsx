@@ -1,7 +1,8 @@
 import React from 'react';
 import { TName, TBirth } from '../../../../../back/entity/iperson';
 import { Convertor } from '../../../../../back/services/core/convertor';
-import { SVGSelector } from '../../../svg/selector';
+import { useContextSetup } from '../../../../context/setup';
+import { SVGSelector } from '../../../../components/svg/selector';
 import './panel.css';
 
 type TProps = {
@@ -25,22 +26,23 @@ export const CalculatorOutputPanel: React.FunctionComponent<TProps> = ({
 	goToCalculatorInput,
 	goToHistory
 }) => {
+	const { translate } = useContextSetup();
 	return (
 		<div className="output-panel">
 			<div className="output-option">
-				<button onClick={goToCalculatorInput}>
+				<button onClick={goToCalculatorInput} title={translate.t('coutput.panel.edit')}>
 					<SVGSelector name="iconEdit" />
 				</button>
 				<button className="btn-action" onClick={switchOutput}>
-					{showReport ? 'Cálculo' : 'Reporte'}
+					{showReport ? translate.t('coutput.panel.option.0') : translate.t('coutput.panel.option.1')}
 					<SVGSelector name="iconSwitch" />
 				</button>
 				{isSaveActive ? (
-					<button onClick={handleSaveResult}>
+					<button onClick={handleSaveResult} title={translate.t('coutput.panel.save.0')}>
 						<SVGSelector name="iconSave" />
 					</button>
 				) : (
-					<button onClick={goToHistory} title="Resultado guardado">
+					<button onClick={goToHistory} title={translate.t('coutput.panel.save.1')}>
 						<SVGSelector name="iconCheck" />
 					</button>
 				)}

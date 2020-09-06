@@ -1,21 +1,22 @@
 #app-modal .modal-content {
 	background: var(--modal-background);
 	border: none;
+	border-radius: 1rem;
 	box-shadow: var(--modal-shadow);
 	color: var(--font-color-1);
 }
 
-#app-modal-header,
 #app-modal-body,
 #app-modal-footer {
 	border: none;
 }
 
-#app-modal-title {
-	margin: 0 auto;
+#app-modal-body {
+	margin: 1rem;
+	padding: 1rem 1rem 0.5rem 1rem;
 }
 
-#app-modal-body {
-	border-top: 0.5rem solid var(--border-color-2);
-	padding: 1rem 1rem 0.5rem 1rem;
+#app-modal-body > p:first-child {
+	border-bottom: 2px solid var(--element-color-1);
+	font-style: italic;
 }
