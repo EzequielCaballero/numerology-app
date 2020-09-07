@@ -93,7 +93,6 @@ button:hover {
 	border: none;
 	color: var(--default-color-3);
 	outline: none !important;
-	padding: 0;
 	text-decoration: none;
 }
 
@@ -128,6 +127,7 @@ button:hover {
 .btn-circle {
 	background: var(--btn-circle-background);
 	border-radius: 50%;
+	padding: 0;
 }
 
 .btn-circle:focus,
