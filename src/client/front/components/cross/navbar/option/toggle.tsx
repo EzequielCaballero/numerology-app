@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const NavbarToggleMenu: React.FunctionComponent = () => {
+export const NavbarToggle: React.FunctionComponent = () => {
 	return (
 		<React.Fragment>
 			<input type="checkbox" id="nav-custom-check" />

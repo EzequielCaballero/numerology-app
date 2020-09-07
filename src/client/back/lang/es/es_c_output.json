@@ -4,7 +4,7 @@
 	},
 	"panel": {
 		"edit": "Editar",
-		"option": [ "Cálculo", "Reporte" ],
+		"switcher": [ "Cálculo", "Reporte" ],
 		"save": [ "Guardar", "Resultado guardado" ]
 	},
 	"record": {
@@ -65,7 +65,7 @@
 				"name": "Karmas",
 				"part": [ "Esencia", "Misión", "Sendero", "Karmas potenciales" ],
 				"msg": "Basado en valores que aparecen antes de reducir | 13/14/16/19",
-				"extra": "Números faltantes (1-9) durante calculo de misión + sendero natal."
+				"extra": "Números faltantes (1-9) durante cálculo de misión + sendero natal."
 			}
 		}
 	},

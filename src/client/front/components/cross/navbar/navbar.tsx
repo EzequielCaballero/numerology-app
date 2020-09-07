@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { RoutePath } from '../../../../back/sitemap/routes';
-import { NavbarLangSwitch } from './lang/switch';
-import { NavbarThemeSwitch } from './theme/switch';
-import { NavbarLinkList } from './link/list';
-import { NavbarToggleMenu } from './toggle/menu';
+import { NavbarLang } from './option/lang';
+import { NavbarTheme } from './option/theme';
+import { NavbarLinks } from './option/links';
+import { NavbarToggle } from './option/toggle';
 import './navbar.css';
 
 export const Navbar: React.FunctionComponent = () => {
@@ -32,10 +32,11 @@ export const Navbar: React.FunctionComponent = () => {
 
 	return (
 		<div className="nav-custom">
-			<NavbarThemeSwitch />
-			<NavbarLangSwitch />
-			<NavbarToggleMenu />
-			<NavbarLinkList changeView={changeView} />
+			<NavbarTheme />
+			<span className="navbar-separator" />
+			<NavbarLang />
+			<NavbarToggle />
+			<NavbarLinks changeView={changeView} />
 		</div>
 	);
 };

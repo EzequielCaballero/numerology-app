@@ -22,7 +22,7 @@ body[data-theme='dark'] {
 	--btn-circle-background: linear-gradient(135deg, #6c3794 0%, #110718 100%);
 	--btn-focus-background: rgb(40, 15, 50);
 	--default-color-1: #000000;
-	--default-color-2: #808080;
+	--default-color-2: #a09e9e;
 	--default-color-3: #ffffff;
 	--element-background-1: linear-gradient(to bottom, #000000 0%, #3a3a3a1a 100%);
 	--element-background-2: linear-gradient(to bottom, #633454 51%, #33152a 51%, #33152a 100%);
@@ -46,7 +46,7 @@ body[data-theme='dark'] {
 		#000000 100%
 	);
 	--navbar-hover-link: #ffffff;
-	--navbar-theme-switch: #c9bf68;
+	--navbar-theme-switch: #ecd684;
 }
 body[data-theme='light'] {
 	--content-background: #fafae8e1;
@@ -63,14 +63,14 @@ body[data-theme='light'] {
 	--element-background-1: linear-gradient(to bottom, #fff8ea 0%, #00000000 100%);
 	--element-background-2: linear-gradient(to bottom, #fcefc7 51%, #dacf93 51%, #dacf93 100%);
 	--element-background-3: linear-gradient(to bottom, #d6cb8d 0%, #f8e6ac 100%);
-	--element-color-1: #fafae8;
+	--element-color-1: #d6d695;
 	--element-color-2: #e4e4c7;
-	--element-color-3: #c4c49b;
+	--element-color-3: #f0f0dd;
 	--font-color-1: #000000;
 	--font-color-2: #e6e6e6;
 	--modal-background: #ebebd1;
 	--modal-shadow: 0 0 10px #ede19e;
-	--navbar-active-link: #f8ea67;
+	--navbar-active-link: #a0985c;
 	--navbar-background: linear-gradient(
 		135deg,
 		#fffaf2 5%,

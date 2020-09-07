@@ -1,17 +1,11 @@
 /* PANEL */
 
 .output-option {
-	align-items: center;
+	align-items: flex-start;
 	display: grid;
-	grid-template-columns: 1fr 3fr 1fr;
-	grid-gap: 5px;
+	grid-template-columns: 1fr 2fr 1fr;
+	gap: 5px;
 	margin: 0 1rem 0 1rem;
-}
-
-#svg_icon_switch {
-	height: 15px;
-	width: 15px;
-	margin-left: 5px;
 }
 
 #svg_icon_edit {
@@ -32,7 +26,6 @@
 
 #svg_icon_edit,
 #svg_icon_save,
-#svg_icon_switch,
 #svg_icon_check > g {
 	fill: var(--border-color-1);
 }
@@ -45,6 +38,33 @@
 #svg_icon_save:hover,
 #svg_icon_check:hover > g {
 	fill: var(--default-color-3);
+}
+
+/* SWITCHER VIEW */
+
+#switcher-output:checked + .switcher-label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+#switcher-output:checked + .switcher-label {
+	background-color: var(--element-color-1);
+}
+
+.output-option .switcher-label {
+	background: var(--element-color-2);
+	border-color: var(--border-color-1);
+	color: var(--default-color-3);
+	width: 150px;
+}
+
+.output-option .switcher-label:after {
+	border: 2px solid var(--element-color-1);
+	background: var(--default-color-3);
+}
+
+.output-option .switcher-label:active:after {
+	width: 135px;
 }
 
 /* INPUT PERSON */

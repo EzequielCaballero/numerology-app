@@ -14,6 +14,13 @@
 	text-decoration: none;
 }
 
+.navbar-separator {
+	border-left: 2px solid var(--default-color-2);
+	border-radius: 50%;
+	padding: 10px 0;
+}
+
+/* THEME SWITCHER */
 .nav-switch svg {
 	height: 30px;
 	width: 30px;
@@ -32,18 +39,54 @@
 	fill: var(--default-color-3);
 }
 
-.nav-custom > .nav-switch {
-	display: inline-block;
-	padding: 10px 0 0 10px;
+/* LANG SWITCHER */
+
+#switcher-lang:checked + .switcher-label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
 }
 
-.nav-custom > .nav-custom-btn {
+#switcher-lang:checked + .switcher-label {
+	background-color: var(--element-color-2);
+	text-align: left;
+}
+
+.lang .switcher-label {
+	background: var(--element-background-2);
+	border-color: var(--border-color-2);
+	color: var(--font-color-1);
+	font-style: normal;
+	text-align: right;
+	width: 70px;
+}
+
+.lang .switcher-label:after {
+	border: 1px solid var(--border-color-1);
+	background: var(--element-color-1);
+}
+
+.lang .switcher-label:active:after {
+	width: 55px;
+}
+
+/* GENERAL SWITCH */
+
+.nav-custom > .nav-switch {
+	display: inline-block;
+	margin: 10px 10px 0 10px;
+}
+
+/* LINKS */
+
+.nav-custom > .nav-custom-btn,
+.nav-custom > #nav-custom-check {
 	display: none;
 }
 
 .nav-custom > .nav-custom-links {
 	float: right;
 	font-size: 1.1rem;
+	margin-right: 10px;
 }
 
 .nav-custom > .nav-custom-links > button {
@@ -59,8 +102,4 @@
 .nav-custom > .nav-custom-links > button.active-route {
 	border-bottom: 3px solid var(--navbar-active-link);
 	border-radius: 0.20rem;
-}
-
-.nav-custom > #nav-custom-check {
-	display: none;
 }

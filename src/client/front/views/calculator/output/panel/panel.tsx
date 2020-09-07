@@ -3,6 +3,7 @@ import { TName, TBirth } from '../../../../../back/entity/iperson';
 import { Convertor } from '../../../../../back/services/core/convertor';
 import { useContextSetup } from '../../../../context/setup';
 import { SVGSelector } from '../../../../components/svg/selector';
+import { Switcher } from '../../../../components/switcher/switcher';
 import './panel.css';
 
 type TProps = {
@@ -30,21 +31,37 @@ export const CalculatorOutputPanel: React.FunctionComponent<TProps> = ({
 	return (
 		<div className="output-panel">
 			<div className="output-option">
-				<button onClick={goToCalculatorInput} title={translate.t('coutput.panel.edit')}>
-					<SVGSelector name="iconEdit" />
-				</button>
-				<button className="btn-action" onClick={switchOutput}>
-					{showReport ? translate.t('coutput.panel.option.0') : translate.t('coutput.panel.option.1')}
-					<SVGSelector name="iconSwitch" />
-				</button>
+				<span>
+					<button onClick={goToCalculatorInput} title={translate.t('coutput.panel.edit')}>
+						<SVGSelector name="iconEdit" />
+					</button>
+				</span>
+				<span>
+					{/* {showReport ? translate.t('coutput.panel.switcher.0') : translate.t('coutput.panel.switcher.1')} */}
+					<Switcher
+						identifier="switcher-output"
+						title={
+							showReport ? (
+								translate.t('coutput.panel.switcher.0')
+							) : (
+								translate.t('coutput.panel.switcher.1')
+							)
+						}
+						action={switchOutput}
+					/>
+				</span>
 				{isSaveActive ? (
-					<button onClick={handleSaveResult} title={translate.t('coutput.panel.save.0')}>
-						<SVGSelector name="iconSave" />
-					</button>
+					<span>
+						<button onClick={handleSaveResult} title={translate.t('coutput.panel.save.0')}>
+							<SVGSelector name="iconSave" />
+						</button>
+					</span>
 				) : (
-					<button onClick={goToHistory} title={translate.t('coutput.panel.save.1')}>
-						<SVGSelector name="iconCheck" />
-					</button>
+					<span>
+						<button onClick={goToHistory} title={translate.t('coutput.panel.save.1')}>
+							<SVGSelector name="iconCheck" />
+						</button>
+					</span>
 				)}
 			</div>
 			<div className="input-person">
