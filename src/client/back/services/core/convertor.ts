@@ -46,13 +46,13 @@ export class Convertor {
 		return fullname.map((name: string) => name.toLowerCase()).join(' ');
 	}
 	public static formatDateToArray(date: TBirth): number[] {
-		const birth: Date = new Date(date.year, date.month, date.day);
-		let dateValues: number[] = [ birth.getFullYear(), birth.getMonth(), birth.getDate() ];
+		//const birth: Date = new Date(date.year, date.month, date.day);
+		let dateValues: number[] = [ date.year, date.month, date.day ];
 		return dateValues;
 	}
 	public static formatDateToString(date: TBirth): string {
-		const birth: Date = new Date(date.year, date.month, date.day);
-		return `${('0' + birth.getDate()).slice(-2)}/${('0' + birth.getMonth()).slice(-2)}/${birth.getFullYear()}`;
+		//const birth: Date = new Date(date.year, date.month, date.day);
+		return `${date.day}/${date.month}/${date.year}`;
 	}
 
 	public static takeNameLetters(nameParts: string[]): string[][] {
@@ -95,7 +95,9 @@ export class Convertor {
 	}
 	public static matchMonthKeys(birthParts: number[]): number {
 		//Match only the day of birth with the specific personal key month
-		let matchValue = monthKeys.month[birthParts[1] - 1][birthParts[2] - 1];
+		const indexMonth = birthParts[1] - 1;
+		const indexDay = birthParts[2] - 1;
+		let matchValue = monthKeys.month[indexMonth][indexDay];
 		return matchValue;
 	}
 	public static getNumerologyPosition(alphabetPosition: number): number {
