@@ -8,8 +8,7 @@
 			"field": [ "Nombre", "Apellido" ]
 		},
 		"birth": {
-			"title": "Fecha de nacimiento",
-			"format": "DD/MM/YYYY",
+			"title": "Fecha de nacimiento (dd/mm/yyyy)",
 			"field": [ "Día", "Mes", "Año" ]
 		},
 		"expand": "Valores ingresados",

@@ -8,8 +8,7 @@
 			"field": [ "Firstname", "Lastname" ]
 		},
 		"birth": {
-			"title": "Birthdate",
-			"format": "MM/DD/YYYY",
+			"title": "Birthdate (dd/mm/yyyy)",
 			"field": [ "Day", "Month", "Year" ]
 		},
 		"expand": "Input values",

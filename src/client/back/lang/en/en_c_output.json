@@ -15,15 +15,15 @@
 		"detail": {
 			"image": {
 				"name": "Image",
-				"msg": "Full name: extract only the consonants."
+				"msg": "The consonants of the name are extracted."
 			},
 			"essence": {
 				"name": "Essence",
-				"msg": "Full name: extract only the vowels."
+				"msg": "The vowels of the name are extracted."
 			},
 			"mission": {
 				"name": "Mission",
-				"msg": "Full name: extract all the letters."
+				"msg": "All letters of the name are extracted."
 			},
 			"natalPath": {
 				"name": "Natal path",
@@ -47,12 +47,13 @@
 			},
 			"ageDigit": {
 				"name": "Age digit",
-				"msg": "Current age + next age (+1)."
+				"msg": "Current age + next age."
 			},
 			"stages": {
 				"name": "Stages",
-				"base": "Start: from 0 to (36 - natal path).",
-				"duration": "Stages duration: 9 years.",
+				"total": "Total: 4 stages.",
+				"duration": "Middle duration: 9 years.",
+				"base": "Start: from 0 age to (36 - natal path).",
 				"part": [
 					"result = month + day",
 					"result = day + year",

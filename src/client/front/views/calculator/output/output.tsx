@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouteComponentProps, Redirect } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import { RoutePath } from '../../../../back/sitemap/routes';
 import { Person } from '../../../../back/entity/person';
 import { TName, TBirth } from '../../../../back/entity/iperson';
@@ -16,6 +16,7 @@ import { CalculatorOutputReport } from './report/report';
 import './output.css';
 
 type TState = {
+	isInputOk: boolean;
 	isSaveActive: boolean;
 	showReport: boolean;
 	modal: TModal;
@@ -32,10 +33,11 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 		URLParams.setLocation(this.props.location.search);
 		this.nameParam = URLParams.getParamName();
 		this.birthParam = URLParams.getParamBirth();
-		this.person = Calculator.calculateValues(new Person(this.nameParam, this.birthParam));
+		this.person = new Person(this.nameParam, this.birthParam);
 		this.record = Calculator.getRecord();
 		this.state = {
-			isSaveActive: false,
+			isInputOk: false,
+			isSaveActive: true,
 			showReport: false,
 			modal: {
 				properties: {
@@ -50,7 +52,18 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 
 	public componentDidMount() {
 		LocalStorage.deleteInvalidResults();
-		if (!LocalStorage.isResultStored(this.nameParam, this.birthParam)) this.setState({ isSaveActive: true });
+		if (LocalStorage.isResultStored(this.nameParam, this.birthParam)) this.setState({ isSaveActive: false });
+
+		if (Validator.validateName(this.nameParam) && Validator.validateDate(this.birthParam)) {
+			this.person = Calculator.calculateValues(this.person);
+			this.record = Calculator.getRecord();
+			this.setState({ isInputOk: true });
+		} else {
+			this.props.history.push({
+				pathname: RoutePath.CInput,
+				search: ''
+			});
+		}
 	}
 
 	private switchOutput = (): void => {
@@ -113,9 +126,6 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 	};
 
 	public render(): React.ReactNode {
-		if (!Validator.validateName(this.nameParam) || !Validator.validateDate(this.birthParam))
-			return <Redirect from={this.props.location.pathname} exact to={RoutePath.CInput} />;
-
 		return (
 			<div className="box">
 				<ConsumerSetup>

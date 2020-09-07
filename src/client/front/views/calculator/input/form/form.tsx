@@ -122,6 +122,7 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 						placeholder={translate.t('cinput.form.birth.field.2')}
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1000"
+						max="9999"
 						value={birth.year === 0 ? '' : birth.year}
 					/>
 				</InputGroup>
@@ -141,7 +142,10 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
             				 ${name.lastName.map((item) => item).join(' ')}`}
 					</span>
 					<br />
-					<span>{`${birth.day}/${birth.month}/${birth.year}`}</span>
+					<span>
+						{(birth.day !== 0 || birth.month !== 0 || birth.year !== 0) &&
+							`${`0${birth.day}`.slice(-2)}/${`0${birth.month}`.slice(-2)}/${birth.year}`}
+					</span>
 				</div>
 			</div>
 			<div className="form-actions">

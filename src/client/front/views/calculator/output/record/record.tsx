@@ -101,9 +101,11 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 			<div id="record-detail-stages" className="output-record-detail">
 				<i>*{translate.t('coutput.record.detail.stages.msg')}</i>
 				<br />
-				<i>*{translate.t('coutput.record.detail.stages.base')}</i>
+				<i>*{translate.t('coutput.record.detail.stages.total')}</i>
 				<br />
 				<i>*{translate.t('coutput.record.detail.stages.duration')}</i>
+				<br />
+				<i>*{translate.t('coutput.record.detail.stages.base')}</i>
 				{person.stages.map((s, i) => (
 					<p key={s.num}>
 						<span>{`${s.num}° | ${s.from} -> ${s.to === 0 ? '∞' : s.to} = ${s.value}`}</span>

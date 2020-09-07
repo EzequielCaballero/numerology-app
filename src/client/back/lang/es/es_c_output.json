@@ -15,15 +15,15 @@
 		"detail": {
 			"image": {
 				"name": "Imagen",
-				"msg": "Nombre completo: extrae las consonantes."
+				"msg": "Se extraen las consonantes del nombre."
 			},
 			"essence": {
 				"name": "Esencia",
-				"msg": "Nombre completo: extrae las vocales."
+				"msg": "Se extraen las vocales del nombre."
 			},
 			"mission": {
 				"name": "Misión",
-				"msg": "Nombre completo: extrae todas las letras."
+				"msg": "Se extraen todas las letras del nombre."
 			},
 			"natalPath": {
 				"name": "Sendero natal",
@@ -47,12 +47,13 @@
 			},
 			"ageDigit": {
 				"name": "Digito de edad",
-				"msg": "Edad actual + edad futura (+1)."
+				"msg": "Edad actual + edad futura."
 			},
 			"stages": {
 				"name": "Etapas",
-				"base": "Inicio: de 0 a (36 - sendero natal).",
-				"duration": "Duración de etapas: 9 años.",
+				"total": "Total: 4 etapas.",
+				"duration": "Duración media: 9 años.",
+				"base": "Inicio: desde edad 0 a (36 - sendero natal).",
 				"part": [
 					"resultado = mes + día",
 					"resultado = día + año",
@@ -70,7 +71,7 @@
 		}
 	},
 	"report": {
-		"title": "Estudio numerológico"
+		"title": "Estudio de numerología"
 	},
 	"modal": {
 		"save": {
