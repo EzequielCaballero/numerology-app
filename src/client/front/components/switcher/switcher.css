@@ -1,0 +1,28 @@
+.custom-switcher > input[type="checkbox"] {
+	display: none;
+}
+
+.switcher-label {
+	border-radius: 100px;
+	border: 2px solid;
+	cursor: pointer;
+	height: 30px;
+	margin-bottom: 0;
+	position: relative;
+}
+
+.switcher-label:after {
+	background: var(--default-color-3);
+	border-radius: 90px;
+	content: '';
+	height: 20px;
+	left: 5px;
+	position: absolute;
+	top: 3px;
+	transition: 0.3s;
+	width: 20px;
+}
+
+.switcher-label > span {
+	margin: 0 10px;
+}
