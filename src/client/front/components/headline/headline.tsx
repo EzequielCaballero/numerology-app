@@ -1,4 +1,6 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+import { RoutePath } from '../../../back/sitemap/routes';
 import { SVGSelector } from '../svg/selector';
 import './headline.css';
 
@@ -8,9 +10,17 @@ type TProps = {
 };
 
 export const Headline: React.FunctionComponent<TProps> = ({ title, subtitle }) => {
+	const history = useHistory();
+
+	const backToHome = () => {
+		history.push(RoutePath.Home);
+	};
+
 	return (
 		<div className="headline-content">
-			<SVGSelector name="logoMandala" />
+			<button onClick={() => backToHome()}>
+				<SVGSelector name="logoMandala" />
+			</button>
 			<div className="headline-content-text">
 				<p>{title}</p>
 				<p>
