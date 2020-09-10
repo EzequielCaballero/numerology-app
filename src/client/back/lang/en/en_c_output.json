@@ -51,22 +51,25 @@
 			},
 			"stages": {
 				"name": "Stages",
+				"base": "Birthdate as base.",
 				"total": "Total: 4 stages.",
 				"duration": "Middle duration: 9 years.",
-				"base": "Start: from 0 age to (36 - natal path).",
-				"part": [
-					"result = month + day",
-					"result = day + year",
-					"result = 1st stage + 2nd stage",
-					"result = month + year"
-				],
-				"msg": "Birthdate as base."
+				"start": "Start: from 0 age to (36 - natal path).",
+				"stage": "Stage %{num}° | %{from} -> %{to} = %{result}",
+				"result": [
+					"(result = month + day)",
+					"(result = day + year)",
+					"(result = 1st + 2nd stage)",
+					"(result = month + year)"
+				]
 			},
 			"karmas": {
 				"name": "Karmas",
 				"part": [ "Essence", "Mission", "Path", "Potential karmas" ],
 				"msg": "Based on values showed up before reduce | 13/14/16/19",
-				"extra": "Missing numbers (1-9) during calculation of mission + natal path."
+				"extra": "Missing numbers (1-9) during calculation of mission + natal path.",
+				"k_empty": "Without karmas",
+				"pk_empty": "none"
 			}
 		}
 	},
@@ -74,13 +77,13 @@
 		"title": "Numerology study"
 	},
 	"modal": {
-		"save": {
+		"action": {
 			"title": "Save result",
 			"msg": "The result will be saved in your browser"
 		},
 		"error": {
 			"title": "Warning",
-			"msg": "Maximum number of saves reached"
+			"msg": "Maximum number of saves reached: %{limit}."
 		}
 	}
 }

@@ -41,7 +41,7 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 			showReport: false,
 			modal: {
 				properties: {
-					type: 'save',
+					type: 'action',
 					isActive: false,
 					isInteractive: false
 				},
@@ -94,7 +94,7 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 
 	private handleSaveResult = (): void => {
 		if (LocalStorage.isResultSavingAllowed()) {
-			this.setModalProperties('save', true);
+			this.setModalProperties('action', true);
 			this.showModal(true);
 		} else {
 			this.setModalProperties('error', false);
@@ -134,7 +134,11 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 							{/* MODAL */}
 							<ModalDialog properties={this.state.modal.properties} action={this.state.modal.action}>
 								<p>{translate.t(`coutput.modal.${this.state.modal.properties.type}.title`)}</p>
-								<p>{translate.t(`coutput.modal.${this.state.modal.properties.type}.msg`)}</p>
+								<p>
+									{translate.t(`coutput.modal.${this.state.modal.properties.type}.msg`, {
+										limit: LocalStorage.getMaxNumberSaves()
+									})}
+								</p>
 							</ModalDialog>
 							{/* HEADLINE */}
 							<Headline

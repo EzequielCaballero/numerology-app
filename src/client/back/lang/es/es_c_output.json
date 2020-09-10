@@ -51,22 +51,25 @@
 			},
 			"stages": {
 				"name": "Etapas",
+				"base": "Fecha de nacimiento como base.",
 				"total": "Total: 4 etapas.",
 				"duration": "Duración media: 9 años.",
-				"base": "Inicio: desde edad 0 a (36 - sendero natal).",
-				"part": [
-					"resultado = mes + día",
-					"resultado = día + año",
-					"resultado = 1ra etapa + 2da etapa",
-					"resultado = mes + año"
-				],
-				"msg": "Fecha de nacimiento como base."
+				"start": "Inicio: desde edad 0 a (36 - sendero natal).",
+				"stage": "Etapa %{num}° | %{from} -> %{to} = %{result}",
+				"result": [
+					"(resultado = mes + día)",
+					"(resultado = día + año)",
+					"(resultado = 1ra + 2da etapa)",
+					"(resultado = mes + año)"
+				]
 			},
 			"karmas": {
 				"name": "Karmas",
 				"part": [ "Esencia", "Misión", "Sendero", "Karmas potenciales" ],
 				"msg": "Basado en valores que aparecen antes de reducir | 13/14/16/19",
-				"extra": "Números faltantes (1-9) durante cálculo de misión + sendero natal."
+				"extra": "Números faltantes (1-9) durante cálculo de misión + sendero natal.",
+				"k_empty": "Sin karmas",
+				"pk_empty": "ninguno"
 			}
 		}
 	},
@@ -74,13 +77,13 @@
 		"title": "Estudio de numerología"
 	},
 	"modal": {
-		"save": {
+		"action": {
 			"title": "Guardar resultado",
 			"msg": "El resultado será guardado en su navegador."
 		},
 		"error": {
 			"title": "Advertencia",
-			"msg": "Número máximo de resultados guardados alcanzado."
+			"msg": "Número máximo de resultados guardados alcanzado: %{limit}."
 		}
 	}
 }

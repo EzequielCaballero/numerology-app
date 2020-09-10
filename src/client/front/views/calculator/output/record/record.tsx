@@ -99,18 +99,27 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 				</span>
 			</div>
 			<div id="record-detail-stages" className="output-record-detail">
-				<i>*{translate.t('coutput.record.detail.stages.msg')}</i>
+				<i>*{translate.t('coutput.record.detail.stages.base')}</i>
 				<br />
 				<i>*{translate.t('coutput.record.detail.stages.total')}</i>
 				<br />
 				<i>*{translate.t('coutput.record.detail.stages.duration')}</i>
 				<br />
-				<i>*{translate.t('coutput.record.detail.stages.base')}</i>
+				<i>*{translate.t('coutput.record.detail.stages.start')}</i>
+				<br />
+				<br />
 				{person.stages.map((s, i) => (
 					<p key={s.num}>
-						<span>{`${s.num}° | ${s.from} -> ${s.to === 0 ? '∞' : s.to} = ${s.value}`}</span>
+						<span>
+							{translate.t(`coutput.record.detail.stages.stage`, {
+								num: s.num,
+								from: s.from,
+								to: s.to === 0 ? '∞' : s.to,
+								result: s.value
+							})}
+						</span>
 						<br />
-						<i>{translate.t(`coutput.record.detail.stages.part.${i}`)}</i>
+						<i>{translate.t(`coutput.record.detail.stages.result.${i}`)}</i>
 					</p>
 				))}
 			</div>
@@ -131,19 +140,30 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 			</div>
 			<div id="record-detail-karmas" className="output-record-detail">
 				<i>*{translate.t('coutput.record.detail.karmas.msg')}</i>
-				<p>
-					{translate.t('coutput.record.detail.karmas.part.0')}: <span>{person.karmas.essence}</span>
-				</p>
-				<p>
-					{translate.t('coutput.record.detail.karmas.part.1')}: <span>{person.karmas.mission}</span>
-				</p>
-				<p>
-					{translate.t('coutput.record.detail.karmas.part.2')}: <span>{person.karmas.path}</span>
-				</p>
+				{person.karmas.essence !== 0 && person.karmas.mission !== 0 && person.karmas.path !== 0 ? (
+					<p>
+						{translate.t('coutput.record.detail.karmas.part.0')}: <span>{person.karmas.essence}</span>
+						<br />
+						{translate.t('coutput.record.detail.karmas.part.1')}: <span>{person.karmas.mission}</span>
+						<br />
+						{translate.t('coutput.record.detail.karmas.part.2')}: <span>{person.karmas.path}</span>
+					</p>
+				) : (
+					<p>
+						<strong>{translate.t('coutput.record.detail.karmas.k_empty')}</strong>
+					</p>
+				)}
+
 				<i>*{translate.t('coutput.record.detail.karmas.extra')}</i>
 				<p>
 					{translate.t('coutput.record.detail.karmas.part.3')}:{' '}
-					<span>{person.karmas.possible.join(', ')}</span>
+					<span>
+						{person.karmas.possible.length > 0 ? (
+							person.karmas.possible.join(', ')
+						) : (
+							translate.t('coutput.record.detail.karmas.pk_empty')
+						)}
+					</span>
 				</p>
 			</div>
 		</div>
