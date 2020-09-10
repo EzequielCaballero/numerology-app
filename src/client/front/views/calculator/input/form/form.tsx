@@ -10,6 +10,9 @@ import './form.css';
 type TProps = {
 	name: TName;
 	birth: TBirth;
+	submitted: boolean;
+	validName: boolean[];
+	validBirth: boolean;
 	handleInputName: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	handleInputDate: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	handleAddName: (keyName: string) => void;
@@ -23,6 +26,9 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 	const {
 		name,
 		birth,
+		submitted,
+		validName,
+		validBirth,
 		handleInputName,
 		handleInputDate,
 		handleAddName,
@@ -57,6 +63,8 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 							placeholder={`${translate.t('cinput.form.name.field.0')}-${index + 1}...`}
 							onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputName(event)}
 							value={subname}
+							isValid={validName[0] && submitted}
+							isInvalid={!validName[0] && submitted}
 						/>
 					))}
 					<InputGroup.Append>
@@ -84,6 +92,8 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 							placeholder={`${translate.t('cinput.form.name.field.1')}-${index + 1}...`}
 							onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputName(event)}
 							value={subname}
+							isValid={validName[1] && submitted}
+							isInvalid={!validName[1] && submitted}
 						/>
 					))}
 					<InputGroup.Append>
@@ -106,6 +116,8 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 						min="1"
 						max="31"
 						value={birth.day === 0 ? '' : birth.day}
+						isValid={validBirth && submitted}
+						isInvalid={!validBirth && submitted}
 					/>
 					<Form.Control
 						name="month"
@@ -115,6 +127,8 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 						min="1"
 						max="12"
 						value={birth.month === 0 ? '' : birth.month}
+						isValid={validBirth && submitted}
+						isInvalid={!validBirth && submitted}
 					/>
 					<Form.Control
 						name="year"
@@ -124,6 +138,8 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 						min="1000"
 						max="9999"
 						value={birth.year === 0 ? '' : birth.year}
+						isValid={validBirth && submitted}
+						isInvalid={!validBirth && submitted}
 					/>
 				</InputGroup>
 			</Form.Group>

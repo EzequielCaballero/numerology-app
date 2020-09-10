@@ -12,13 +12,29 @@ export class Validator {
 		}
 	}
 
+	public static validateNameParts(name: TName): boolean[] {
+		let validation = [ false, false ];
+		try {
+			if (name.firstName[0] !== '') {
+				validation[0] = true;
+			}
+			if (name.lastName[0] !== '') {
+				validation[1] = true;
+			}
+			return validation;
+		} catch (error) {
+			console.error(`Error validating fullname input. Detail: ${error}`);
+			return validation;
+		}
+	}
+
 	public static validateDate(date: TBirth): boolean {
 		try {
 			let validation = false;
 			const formatDate = new Date(`${date.year}/${date.month}/${date.day}`);
 			if (date.day === formatDate.getDate()) {
 				if (date.month === formatDate.getMonth() + 1) {
-					if (date.year === formatDate.getFullYear()) validation = true;
+					if (date.year === formatDate.getFullYear() && date.year >= 1000) validation = true;
 				}
 			}
 			return validation;

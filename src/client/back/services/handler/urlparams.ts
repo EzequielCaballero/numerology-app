@@ -23,7 +23,12 @@ export class URLParams {
 			? URLParams.search.get(Params.lastname) as string
 			: '';
 
-		if (_firstname !== '' && _lastname !== '') {
+		if (
+			_firstname !== '' &&
+			_lastname !== '' &&
+			_firstname.split('-').length <= 3 &&
+			_lastname.split('-').length <= 3
+		) {
 			param = {
 				firstName: _firstname.split('-'),
 				lastName: _lastname.split('-')
@@ -37,7 +42,7 @@ export class URLParams {
 		let param: TBirth = { year: 0, month: 0, day: 0 };
 		const _birth: string = URLParams.search.get(Params.birth) ? URLParams.search.get(Params.birth) as string : '';
 
-		if (_birth !== '') {
+		if (_birth !== '' && _birth.split('-').length === 3) {
 			let _birthParts: number[] = _birth.split('-').map(Number);
 			param = {
 				year: _birthParts[0],

@@ -16,8 +16,12 @@
 #form_name .form-control,
 #form_date .form-control {
 	background: var(--default-color-1);
-	border: 1px solid var(--default-color-3);
+	/* border: 1px solid var(--default-color-3); */
 	color: var(--font-color-1);
+}
+
+.form-control {
+	border: 1px solid var(--default-color-3);
 }
 
 .form-input-date .form-control {

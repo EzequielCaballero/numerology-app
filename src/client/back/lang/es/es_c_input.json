@@ -16,9 +16,11 @@
 		"trash": "Limpiar"
 	},
 	"modal": {
-		"alert": {
+		"error": {
 			"title": "Valores de entrada incorrectos",
-			"msg": [ "Por favor revisar los campos mandatorios", "Nombre | Apellido | Fecha de nacimiento" ]
+			"msg": "Por favor revisar los campos mandatorios",
+			"name_field": [ "Nombre", "Apellido" ],
+			"birth_field": "Fecha de nacimiento"
 		}
 	}
 }

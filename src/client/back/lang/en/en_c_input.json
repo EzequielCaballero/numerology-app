@@ -16,9 +16,11 @@
 		"trash": "Clean"
 	},
 	"modal": {
-		"alert": {
+		"error": {
 			"title": "Wrong input values",
-			"msg": [ "Please review mandatory fields", "Name | Lastname | Birthdate" ]
+			"msg": "Please review the following fields",
+			"name_field": [ "Firstname", "Lastname" ],
+			"birth_field": "Birthdate"
 		}
 	}
 }

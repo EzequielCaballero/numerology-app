@@ -38,6 +38,9 @@ MOBILE
 /*Portrait*/
 
 @media only screen and (max-width: 600px) {
+	.box {
+		width: 100%;
+	}
 	.box-content {
 		max-width: 375px;
 		padding: 1rem 0.5rem;

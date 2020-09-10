@@ -14,9 +14,11 @@ import './input.css';
 type TState = {
 	name: TName;
 	birth: TBirth;
+	validName: boolean[];
+	validBirth: boolean;
+	submitted: boolean;
 	modal: TModal;
 };
-// type StateKeys = keyof TState;
 
 export class CalculatorInput extends React.Component<RouteComponentProps, TState> {
 	private nameParam: TName;
@@ -30,9 +32,12 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 		this.state = {
 			name: this.nameParam,
 			birth: this.birthParam,
+			submitted: false,
+			validName: [ false, false ],
+			validBirth: false,
 			modal: {
 				properties: {
-					type: 'alert',
+					type: '',
 					isActive: false,
 					isInteractive: false
 				},
@@ -73,7 +78,7 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 			newState[keyState as keyof TName][indexValue] = value
 				.replace(/\s/g, '')
 				.replace(/[^[A-Za-zÀ-ÖØ-öø-ÿ]/g, '');
-			this.setState({ name: newState });
+			this.setState({ name: newState }, () => this.state.submitted && this.validateInput(name));
 		} catch (error) {
 			console.log(error);
 		}
@@ -86,10 +91,19 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 			const maxLength: number = name === 'year' ? 4 : 2;
 			let newState: TBirth = this.state.birth;
 			newState[name as keyof TBirth] = value.length <= maxLength ? Number(value) : Number(value.slice(0, -1));
-			this.setState({ birth: newState });
+			this.setState({ birth: newState }, () => this.state.submitted && this.validateInput(name));
 		} catch (error) {
 			console.log(error);
 		}
+	};
+
+	private validateInput = (field: string): void => {
+		const regexName = /firstname|lastname/i;
+		const regexBirth = /day|month|year/i;
+
+		if (regexName.test(field)) this.setState({ validName: Validator.validateNameParts(this.state.name) });
+
+		if (regexBirth.test(field)) this.setState({ validBirth: Validator.validateDate(this.state.birth) });
 	};
 
 	private handleAddName = (field: string): void => {
@@ -125,8 +139,13 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 	private handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		e.stopPropagation();
+		this.setState({ submitted: true });
 		if (Validator.validateName(this.state.name) && Validator.validateDate(this.state.birth)) this.goToResultView();
 		else {
+			this.setState({
+				validName: Validator.validateNameParts(this.state.name),
+				validBirth: Validator.validateDate(this.state.birth)
+			});
 			this.setModalProperties(false);
 			this.showModal(true);
 		}
@@ -165,11 +184,21 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 						<div className="box-content">
 							{/* MODAL */}
 							<ModalDialog properties={this.state.modal.properties} action={this.state.modal.action}>
-								<p>{translate.t('cinput.modal.alert.title')}</p>
+								<p>{translate.t('cinput.modal.error.title')}</p>
 								<p>
-									<span>{translate.t('cinput.modal.alert.msg.0')}:</span>
+									<span>{translate.t('cinput.modal.error.msg')}:</span>
 									<br />
-									<i>{translate.t('cinput.modal.alert.msg.1')}</i>
+									{this.state.validName.map((n, i) => {
+										return (
+											!n && (
+												<i key={`valid-name-${i}`}>
+													-{translate.t(`cinput.modal.error.name_field.${i}`)}
+												</i>
+											)
+										);
+									})}
+									<br />
+									{!this.state.validBirth && <i>-{translate.t(`cinput.modal.error.birth_field`)}</i>}
 								</p>
 							</ModalDialog>
 
@@ -183,6 +212,9 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 							<CalculatorInputForm
 								name={this.state.name}
 								birth={this.state.birth}
+								submitted={this.state.submitted}
+								validName={this.state.validName}
+								validBirth={this.state.validBirth}
 								handleInputName={this.handleInputName}
 								handleInputDate={this.handleInputDate}
 								handleAddName={this.handleAddName}
