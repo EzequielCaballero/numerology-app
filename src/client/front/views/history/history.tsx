@@ -86,7 +86,7 @@ export class History extends React.Component<RouteComponentProps, TState> {
 							</ModalDialog>
 							{/* HEADLINE */}
 							<Headline
-								title={translate.t('cross.head.title')}
+								title={translate.t('cross.head.title_short')}
 								subtitle={translate.t('history.headline.subtitle')}
 							/>
 							{/* HISTORY */}

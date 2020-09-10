@@ -1,8 +1,9 @@
 {
 	"head": {
 		"lang": "es",
-		"description": "Calculadora para la obtención de números pitagóricos",
-		"title": "Numerología pitagórica"
+		"description": "¿Querés saber más de vos?, encontrá respuestas gracias a nuestra calculadora pitagórica. ¡Prueba gratis!",
+		"title_long": "Destino numérico => numerología pitagórica",
+		"title_short": "Numerología pitagórica"
 	},
 	"navbar": {
 		"lang": "Español",

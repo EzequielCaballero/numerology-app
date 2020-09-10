@@ -20,7 +20,7 @@ body[data-theme='dark'] {
 	--border-color-3: #19091f;
 	--btn-blur-background: linear-gradient(to bottom, #7149a5 51%, #2f1841 51%, #2f1841 100%);
 	--btn-circle-background: linear-gradient(135deg, #6c3794 0%, #110718 100%);
-	--btn-focus-background: rgb(40, 15, 50);
+	--btn-focus-background: #280f32;
 	--default-color-1: #000000;
 	--default-color-2: #a09e9e;
 	--default-color-3: #ffffff;

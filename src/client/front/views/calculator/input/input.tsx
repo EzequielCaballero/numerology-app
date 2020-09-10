@@ -204,7 +204,7 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 
 							{/* HEADLINE */}
 							<Headline
-								title={translate.t('cross.head.title')}
+								title={translate.t('cross.head.title_short')}
 								subtitle={translate.t('cinput.headline.subtitle')}
 							/>
 

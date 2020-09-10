@@ -17,8 +17,8 @@ export const Head: React.FunctionComponent = () => {
 		<Helmet>
 			<html lang={translate.locale()} />
 			<meta name="description" content={translate.t('cross.head.description')} />
-			<meta name="theme-color" content={theme === 'dark' ? '#000000' : '#ffffff'} />
-			<title>{translate.t('cross.head.title')}</title>
+			<meta name="theme-color" content={theme === 'dark' ? '#3b1f32' : '#ffffff'} />
+			<title>{translate.t('cross.head.title_long')}</title>
 			<body data-theme={theme} />
 			<style type="text/css">{`.site { background-image: url(${background}) }`}</style>
 		</Helmet>

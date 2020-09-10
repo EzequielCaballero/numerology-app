@@ -1,8 +1,9 @@
 {
 	"head": {
 		"lang": "en",
-		"description": "Calculator for obtaining Pythagorean numbers",
-		"title": "Pythagorean numerology"
+		"description": "Do you want to know more about yourself? Find answers thanks to our Pythagorean calculator. Free trial!",
+		"title_long": "Numerical destiny => pythagorean numerology",
+		"title_short": "Pythagorean numerology"
 	},
 	"navbar": {
 		"lang": "English",
