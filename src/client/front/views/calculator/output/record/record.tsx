@@ -140,7 +140,7 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 			</div>
 			<div id="record-detail-karmas" className="output-record-detail">
 				<i>*{translate.t('coutput.record.detail.karmas.msg')}</i>
-				{person.karmas.essence !== 0 && person.karmas.mission !== 0 && person.karmas.path !== 0 ? (
+				{person.karmas.essence !== 0 || person.karmas.mission !== 0 || person.karmas.path !== 0 ? (
 					<p>
 						{translate.t('coutput.record.detail.karmas.part.0')}: <span>{person.karmas.essence}</span>
 						<br />
