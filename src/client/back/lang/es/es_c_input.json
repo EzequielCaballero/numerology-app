@@ -11,6 +11,8 @@
 			"title": "Fecha de nacimiento (dd/mm/yyyy)",
 			"field": [ "Día", "Mes", "Año" ]
 		},
+		"add_field": [ "Agregar otro campo nombre", "Agregar otro campo apellido" ],
+		"remove_field": [ "Quitar campo nombre", "Quitar campo apellido" ],
 		"expand": "Valores ingresados",
 		"btn": "Calcular",
 		"trash": "Limpiar"

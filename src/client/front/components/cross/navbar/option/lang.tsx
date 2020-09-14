@@ -18,7 +18,9 @@ export const NavbarLang: React.FunctionComponent = () => {
 
 	return (
 		<div className="nav-switch lang">
-			<Switcher identifier="switcher-lang" title={langSwitch} action={switchLang} />
+			<button aria-label={translate.t('cross.navbar.language')}>
+				<Switcher identifier="switcher-lang" title={langSwitch} action={switchLang} />
+			</button>
 		</div>
 	);
 };

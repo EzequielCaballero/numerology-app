@@ -48,7 +48,11 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 				<Form.Label>* {translate.t('cinput.form.name.title')}</Form.Label>
 				<InputGroup className="mb-3 form-input-name">
 					<InputGroup.Prepend>
-						<Button variant="outline-danger" onClick={() => handleRemoveName('firstName')}>
+						<Button
+							aria-label={translate.t('cinput.form.remove_field.0')}
+							variant="outline-danger"
+							onClick={() => handleRemoveName('firstName')}
+						>
 							<span id="remove-field" role="img" aria-label="removeField">
 								-
 							</span>
@@ -60,6 +64,7 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 							name={`firstName-${index}`}
 							type="text"
 							maxLength={30}
+							aria-label={`${translate.t('cinput.form.name.field.0')}-${index + 1}...`}
 							placeholder={`${translate.t('cinput.form.name.field.0')}-${index + 1}...`}
 							onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputName(event)}
 							value={subname}
@@ -68,7 +73,11 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 						/>
 					))}
 					<InputGroup.Append>
-						<Button variant="outline-success" onClick={() => handleAddName('firstName')}>
+						<Button
+							aria-label={translate.t('cinput.form.add_field.0')}
+							variant="outline-success"
+							onClick={() => handleAddName('firstName')}
+						>
 							<span id="add-field" role="img" aria-label="addField">
 								+
 							</span>
@@ -77,7 +86,11 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 				</InputGroup>
 				<InputGroup className="mb-3 form-input-name">
 					<InputGroup.Prepend>
-						<Button variant="outline-danger" onClick={() => handleRemoveName('lastName')}>
+						<Button
+							aria-label={translate.t('cinput.form.remove_field.1')}
+							variant="outline-danger"
+							onClick={() => handleRemoveName('lastName')}
+						>
 							<span id="remove-field" role="img" aria-label="removeField">
 								-
 							</span>
@@ -89,6 +102,7 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 							name={`lastName-${index}`}
 							type="text"
 							maxLength={30}
+							aria-label={`${translate.t('cinput.form.name.field.1')}-${index + 1}...`}
 							placeholder={`${translate.t('cinput.form.name.field.1')}-${index + 1}...`}
 							onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputName(event)}
 							value={subname}
@@ -97,7 +111,11 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 						/>
 					))}
 					<InputGroup.Append>
-						<Button variant="outline-success" onClick={() => handleAddName('lastName')}>
+						<Button
+							aria-label={translate.t('cinput.form.add_field.1')}
+							variant="outline-success"
+							onClick={() => handleAddName('lastName')}
+						>
 							<span id="add-field" role="img" aria-label="addField">
 								+
 							</span>
@@ -111,6 +129,7 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 					<Form.Control
 						name="day"
 						type="number"
+						aria-label={translate.t('cinput.form.birth.field.0')}
 						placeholder={translate.t('cinput.form.birth.field.0')}
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1"
@@ -122,6 +141,7 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 					<Form.Control
 						name="month"
 						type="number"
+						aria-label={translate.t('cinput.form.birth.field.1')}
 						placeholder={translate.t('cinput.form.birth.field.1')}
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1"
@@ -133,6 +153,7 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 					<Form.Control
 						name="year"
 						type="number"
+						aria-label={translate.t('cinput.form.birth.field.2')}
 						placeholder={translate.t('cinput.form.birth.field.2')}
 						onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputDate(event)}
 						min="1000"
@@ -169,8 +190,9 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 					{translate.t('cinput.form.btn')}
 				</button>
 				<button
-					onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleCleanInputs(e)}
+					aria-label={translate.t('cinput.form.trash')}
 					title={translate.t('cinput.form.trash')}
+					onClick={(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => handleCleanInputs(e)}
 				>
 					<SVGSelector name="iconTrash" />
 				</button>

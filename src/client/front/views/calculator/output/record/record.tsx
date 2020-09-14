@@ -179,10 +179,18 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 	return (
 		<div className="output-record">
 			<div className="output-record-switch-expand">
-				<button onClick={() => switchChecksStatus(true)} title={translate.t('coutput.record.action.expand')}>
+				<button
+					aria-label={translate.t('coutput.record.action.expand')}
+					title={translate.t('coutput.record.action.expand')}
+					onClick={() => switchChecksStatus(true)}
+				>
 					<span>{'<>'}</span>
 				</button>
-				<button onClick={() => switchChecksStatus(false)} title={translate.t('coutput.record.action.collapse')}>
+				<button
+					aria-label={translate.t('coutput.record.action.collapse')}
+					title={translate.t('coutput.record.action.collapse')}
+					onClick={() => switchChecksStatus(false)}
+				>
 					<span>{'><'}</span>
 				</button>
 			</div>

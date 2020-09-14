@@ -28,7 +28,11 @@ export class Home extends React.Component<RouteComponentProps> {
 										<span>- {translate.t('home.quote.author')}</span>
 									</p>
 								</div>
-								<button className="btn-circle" onClick={() => this.goToCalculator()}>
+								<button
+									aria-label={translate.t('home.btn')}
+									className="btn-circle"
+									onClick={() => this.goToCalculator()}
+								>
 									<SVGSelector name="logoMandala" />
 								</button>
 							</div>

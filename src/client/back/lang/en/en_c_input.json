@@ -11,6 +11,8 @@
 			"title": "Birthdate (dd/mm/yyyy)",
 			"field": [ "Day", "Month", "Year" ]
 		},
+		"add_field": [ "Add another name field", "Add another lastname field" ],
+		"remove_field": [ "Remove name field", "Remove lastname field" ],
 		"expand": "Input values",
 		"btn": "Calculate",
 		"trash": "Clean"

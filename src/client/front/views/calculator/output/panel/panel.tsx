@@ -32,7 +32,11 @@ export const CalculatorOutputPanel: React.FunctionComponent<TProps> = ({
 		<div className="output-panel">
 			<div className="output-option">
 				<span>
-					<button onClick={goToCalculatorInput} title={translate.t('coutput.panel.edit')}>
+					<button
+						aria-label="Edit input"
+						title={translate.t('coutput.panel.edit')}
+						onClick={goToCalculatorInput}
+					>
 						<SVGSelector name="iconEdit" />
 					</button>
 				</span>
@@ -52,13 +56,21 @@ export const CalculatorOutputPanel: React.FunctionComponent<TProps> = ({
 				</span>
 				{isSaveActive ? (
 					<span>
-						<button onClick={handleSaveResult} title={translate.t('coutput.panel.save.0')}>
+						<button
+							aria-label={translate.t('coutput.panel.save.0')}
+							title={translate.t('coutput.panel.save.0')}
+							onClick={handleSaveResult}
+						>
 							<SVGSelector name="iconSave" />
 						</button>
 					</span>
 				) : (
 					<span>
-						<button onClick={goToHistory} title={translate.t('coutput.panel.save.1')}>
+						<button
+							aria-label={translate.t('coutput.panel.save.1')}
+							title={translate.t('coutput.panel.save.1')}
+							onClick={goToHistory}
+						>
 							<SVGSelector name="iconCheck" />
 						</button>
 					</span>

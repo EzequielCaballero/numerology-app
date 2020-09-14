@@ -110,8 +110,9 @@ export class History extends React.Component<RouteComponentProps, TState> {
 										</div>
 										<div>
 											<button
-												className="history-item-action"
+												aria-label={translate.t('history.action.view')}
 												title={translate.t('history.action.view')}
+												className="history-item-action"
 												onClick={() => this.goToResultView(result)}
 											>
 												<SVGSelector name="iconView" />
@@ -119,8 +120,9 @@ export class History extends React.Component<RouteComponentProps, TState> {
 										</div>
 										<div>
 											<button
-												className="history-item-action"
+												aria-label={translate.t('history.action.delete')}
 												title={translate.t('history.action.delete')}
+												className="history-item-action"
 												onClick={() => this.handleDeleteItemHistory(result.key)}
 											>
 												<SVGSelector name="iconDelete" />

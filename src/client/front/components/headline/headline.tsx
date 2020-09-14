@@ -18,7 +18,7 @@ export const Headline: React.FunctionComponent<TProps> = ({ title, subtitle }) =
 
 	return (
 		<div className="headline-content">
-			<button onClick={() => backToHome()}>
+			<button aria-label="Home" onClick={() => backToHome()}>
 				<SVGSelector name="logoMandala" />
 			</button>
 			<div className="headline-content-text">
