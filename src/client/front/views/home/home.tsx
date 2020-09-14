@@ -18,7 +18,7 @@ export class Home extends React.Component<RouteComponentProps> {
 						<div className="box-content">
 							<div className="home-header">
 								<p>{`${translate.t('home.title')} 👋`}</p>
-								<p>{translate.t('home.subtitle')}</p>
+								<h1>{translate.t('home.subtitle')}</h1>
 							</div>
 							<div className="home-content">
 								<div className="home-quote">

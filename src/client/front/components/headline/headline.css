@@ -17,11 +17,11 @@
 	stroke: var(--default-color-3);
 }
 
-.headline-content-text > p:first-child {
+.headline-content-text > p {
 	font-size: var(--font-size-4);
 }
 
-.headline-content-text > p:last-child {
+.headline-content-text > h1 {
 	font-size: var(--font-size-3);
 }
 

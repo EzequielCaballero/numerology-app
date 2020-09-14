@@ -68,7 +68,7 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 	};
 
 	const numbers: Array<JSX.Element> = Object.keys(person.numbers).map((item) => (
-		<div key={item} title={item}>
+		<div key={item}>
 			<input type="checkbox" name="check-record-item" id={`check-record-item-${item}`} />
 			<div className="output-record-item">
 				<span className="record-title">{translate.t(`coutput.record.detail.${item}.name`)}</span>
@@ -87,7 +87,7 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 	));
 
 	const stages: JSX.Element = (
-		<div title="stages">
+		<div>
 			<input type="checkbox" name="check-record-item" id="check-record-item-stages" />
 			<div className="output-record-item">
 				<span className="record-title">{translate.t('coutput.record.detail.stages.name')}</span>
@@ -127,7 +127,7 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 	);
 
 	const karmas: JSX.Element = (
-		<div title="karmas">
+		<div>
 			<input type="checkbox" name="check-record-item" id="check-record-item-karmas" />
 			<div className="output-record-item">
 				<span className="record-title">{translate.t('coutput.record.detail.karmas.name')}</span>

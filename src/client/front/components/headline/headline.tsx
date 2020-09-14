@@ -23,9 +23,9 @@ export const Headline: React.FunctionComponent<TProps> = ({ title, subtitle }) =
 			</button>
 			<div className="headline-content-text">
 				<p>{title}</p>
-				<p>
+				<h1>
 					<strong>{subtitle.toUpperCase()}</strong>
-				</p>
+				</h1>
 			</div>
 		</div>
 	);
