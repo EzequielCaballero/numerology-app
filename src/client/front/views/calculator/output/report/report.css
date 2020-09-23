@@ -1,12 +1,52 @@
 .output-report {
 	animation: showup 2s ease-in;
-	background: var(--element-color-2);
-	border: 2px solid var(--default-color-1);
-	border-radius: 20px;
-	padding: 1.5rem;
+	padding: 0.5rem;
 }
 
-.output-report > p {
+.output-report > h4 {
+	background: var(--element-background-1);
+	border-top: 1px solid var(--border-color-1);
+	border-radius: 50%;
+	padding: 15px 10px 5px 10px;
+	text-shadow: 2px 0 0 var(--default-color-1);
+}
+
+.report-category {
+	background: var(--element-background-3);
+	border-top: 1px solid var(--border-color-1);
+	border-radius: 10%;
+	margin-bottom: 0.5rem;
 	padding: 1rem;
-	text-align: justify;
+}
+
+.report-title {
+	font-size: var(--font-size-3);
+	text-shadow: 2px 0 0 var(--default-color-1);
+}
+
+.report-value {
+	font-size: var(--font-size-2);
+	border-bottom: 2px solid var(--default-color-3);
+	border-radius: 50%;
+	margin: 0 auto;
+	padding: 0.25em;
+	text-shadow: 1px 0 0 var(--default-color-1);
+	width: 25%;
+}
+
+.report-value-karma {
+	text-align: center;
+}
+
+p[data-result-value="11"],
+p[data-result-value="22"],
+p[data-result-value="33"] {
+	font-weight: 700;
+	text-shadow: var(--number-highlight);
+}
+
+.report-description {
+	font-style: italic;
+	margin-top: 10px;
+	text-align: left;
 }
