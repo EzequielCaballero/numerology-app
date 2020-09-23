@@ -32,7 +32,11 @@ export const ModalDialog: React.FunctionComponent<TModal> = ({ children, propert
 			<Modal.Body id="app-modal-body">{children}</Modal.Body>
 			<Modal.Footer id="app-modal-footer">
 				<button id="app-modal-btn-cancel" className="btn-action-outline" onClick={() => action(false)}>
-					{properties.isInteractive ? translate.t('modal.btn.cancel') : translate.t('modal.btn.close')}
+					{properties.isInteractive ? (
+						translate.t('cross.modal.btn.cancel')
+					) : (
+						translate.t('cross.modal.btn.close')
+					)}
 				</button>
 				{properties.isInteractive && (
 					<button
@@ -40,7 +44,7 @@ export const ModalDialog: React.FunctionComponent<TModal> = ({ children, propert
 						className="btn-action"
 						onClick={() => action(true, properties.actionIdentifier)}
 					>
-						{translate.t('modal.btn.accept')}
+						{translate.t('cross.modal.btn.accept')}
 					</button>
 				)}
 			</Modal.Footer>

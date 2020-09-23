@@ -32,7 +32,7 @@ export type TKarma = {
 	essence: number;
 	mission: number;
 	path: number;
-	possible: number[];
+	potential: number[];
 };
 
 export interface IPerson {

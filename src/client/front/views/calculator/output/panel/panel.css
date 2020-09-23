@@ -55,6 +55,7 @@
 	background: var(--element-color-2);
 	border-color: var(--border-color-1);
 	color: var(--default-color-3);
+	text-shadow: 2px 1px 0 var(--default-color-1);
 	width: 150px;
 }
 

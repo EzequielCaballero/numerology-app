@@ -45,7 +45,7 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 				);
 				break;
 			case 'personalKey':
-				text.push(`${person.birth.month} -> ${person.numbers.personalKey}`);
+				text.push(`${person.birth.day} -> ${person.numbers.personalKey}`);
 				break;
 			case 'personalYear':
 				text.push(
@@ -71,8 +71,12 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 		<div key={item}>
 			<input type="checkbox" name="check-record-item" id={`check-record-item-${item}`} />
 			<div className="output-record-item">
-				<span className="record-title">{translate.t(`coutput.record.detail.${item}.name`)}</span>
-				<span className="record-value">{person.numbers[item as keyof TNumbers]}</span>
+				<span className="record-title">
+					<i>{translate.t(`core.${item}.title`)}</i>
+				</span>
+				<span className="record-value" data-result-value={person.numbers[item as keyof TNumbers]}>
+					{person.numbers[item as keyof TNumbers]}
+				</span>
 				<span>
 					<label className="record-expand" htmlFor={`check-record-item-${item}`}>
 						{'>'}
@@ -80,7 +84,7 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 				</span>
 			</div>
 			<div id={`record-detail-${item}`} className="output-record-detail">
-				<i>*{translate.t(`coutput.record.detail.${item}.msg`)}</i>
+				<i>*{translate.t(`core.${item}.calc.base`)}</i>
 				{getNumbersDetail(item)}
 			</div>
 		</div>
@@ -90,7 +94,7 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 		<div>
 			<input type="checkbox" name="check-record-item" id="check-record-item-stages" />
 			<div className="output-record-item">
-				<span className="record-title">{translate.t('coutput.record.detail.stages.name')}</span>
+				<span className="record-title">{translate.t('core.stages.title')}</span>
 				<span className="record-value">***</span>
 				<span>
 					<label className="record-expand" htmlFor="check-record-item-stages">
@@ -99,19 +103,19 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 				</span>
 			</div>
 			<div id="record-detail-stages" className="output-record-detail">
-				<i>*{translate.t('coutput.record.detail.stages.base')}</i>
+				<i>*{translate.t('core.stages.calc.base')}</i>
 				<br />
-				<i>*{translate.t('coutput.record.detail.stages.total')}</i>
+				<i>*{translate.t('core.stages.calc.total')}</i>
 				<br />
-				<i>*{translate.t('coutput.record.detail.stages.duration')}</i>
+				<i>*{translate.t('core.stages.calc.duration')}</i>
 				<br />
-				<i>*{translate.t('coutput.record.detail.stages.start')}</i>
+				<i>*{translate.t('core.stages.calc.start')}</i>
 				<br />
 				<br />
 				{person.stages.map((s, i) => (
 					<p key={s.num}>
 						<span>
-							{translate.t(`coutput.record.detail.stages.stage`, {
+							{translate.t(`core.stages.calc.stage_result`, {
 								num: s.num,
 								from: s.from,
 								to: s.to === 0 ? '∞' : s.to,
@@ -119,7 +123,7 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 							})}
 						</span>
 						<br />
-						<i>{translate.t(`coutput.record.detail.stages.result.${i}`)}</i>
+						<i>{translate.t(`core.stages.calc.result.${i}`)}</i>
 					</p>
 				))}
 			</div>
@@ -130,7 +134,7 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 		<div>
 			<input type="checkbox" name="check-record-item" id="check-record-item-karmas" />
 			<div className="output-record-item">
-				<span className="record-title">{translate.t('coutput.record.detail.karmas.name')}</span>
+				<span className="record-title">{translate.t('core.karmas.title')}</span>
 				<span className="record-value">***</span>
 				<span>
 					<label className="record-expand" htmlFor="check-record-item-karmas">
@@ -139,29 +143,29 @@ export const CalculatorOutputRecord: React.FunctionComponent<TProps> = ({ person
 				</span>
 			</div>
 			<div id="record-detail-karmas" className="output-record-detail">
-				<i>*{translate.t('coutput.record.detail.karmas.msg')}</i>
+				<i>*{translate.t('core.karmas.calc.base')}</i>
 				{person.karmas.essence !== 0 || person.karmas.mission !== 0 || person.karmas.path !== 0 ? (
 					<p>
-						{translate.t('coutput.record.detail.karmas.part.0')}: <span>{person.karmas.essence}</span>
+						{translate.t('core.karmas.calc.part.0')}: <span>{person.karmas.essence}</span>
 						<br />
-						{translate.t('coutput.record.detail.karmas.part.1')}: <span>{person.karmas.mission}</span>
+						{translate.t('core.karmas.calc.part.1')}: <span>{person.karmas.mission}</span>
 						<br />
-						{translate.t('coutput.record.detail.karmas.part.2')}: <span>{person.karmas.path}</span>
+						{translate.t('core.karmas.calc.part.2')}: <span>{person.karmas.path}</span>
 					</p>
 				) : (
 					<p>
-						<strong>{translate.t('coutput.record.detail.karmas.k_empty')}</strong>
+						<strong>{translate.t('core.karmas.calc.k_empty')}</strong>
 					</p>
 				)}
 
-				<i>*{translate.t('coutput.record.detail.karmas.extra')}</i>
+				<i>*{translate.t('core.karmas.calc.potential')}</i>
 				<p>
-					{translate.t('coutput.record.detail.karmas.part.3')}:{' '}
+					{translate.t('core.karmas.calc.part.3')}:{' '}
 					<span>
-						{person.karmas.possible.length > 0 ? (
-							person.karmas.possible.join(', ')
+						{person.karmas.potential.length > 0 ? (
+							person.karmas.potential.join(', ')
 						) : (
-							translate.t('coutput.record.detail.karmas.pk_empty')
+							translate.t('core.karmas.calc.pk_empty')
 						)}
 					</span>
 				</p>

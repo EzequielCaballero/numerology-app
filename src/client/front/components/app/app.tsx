@@ -4,7 +4,7 @@ import { Routes } from '../../../back/sitemap/routes';
 import { Head } from '../cross/head/head';
 import { Navbar } from '../cross/navbar/navbar';
 import { Footer } from '../cross/footer/footer';
-import { Err404 } from '../cross/err404/err404';
+import { Err404 } from '../err404/err404';
 import './css/variables.css';
 import './css/styles.css';
 import './css/responsive.css';

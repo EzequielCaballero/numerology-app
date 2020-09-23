@@ -16,7 +16,7 @@ export class Person implements IPerson {
 		ageDigit: 0
 	};
 	stages: TStage[] = [];
-	karmas: TKarma = { essence: 0, mission: 0, path: 0, possible: [] };
+	karmas: TKarma = { essence: 0, mission: 0, path: 0, potential: [] };
 
 	constructor(name: TName, birth: TBirth) {
 		this.name = name;

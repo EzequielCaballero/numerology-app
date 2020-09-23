@@ -42,7 +42,7 @@ export class Calculator {
 		person.numbers.personalMonth = Calculator.calculatePersonalMonth(person.numbers.personalYear);
 		person.numbers.ageDigit = Calculator.calculateAgeDigit(person.age);
 		person.karmas = Calculator.calculateKarmas();
-		person.karmas.possible = Calculator.calculatePossibleKarmas();
+		person.karmas.potential = Calculator.calculatePossibleKarmas();
 		person.stages = Calculator.calculateStages(birthdate, person.numbers.natalPath);
 		return person;
 	}
@@ -149,7 +149,7 @@ export class Calculator {
 		return path;
 	}
 	private static calculatePersonalKey(birthParts: number[]): number {
-		const personalKey: number = Convertor.matchMonthKeys(birthParts);
+		const personalKey: number = Convertor.matchPersonalKeys(birthParts);
 		return personalKey;
 	}
 	private static calculatePotential(mission: number, path: number): number {
@@ -221,7 +221,7 @@ export class Calculator {
 			essence: 0,
 			mission: 0,
 			path: 0,
-			possible: []
+			potential: []
 		};
 
 		//Essence (before reduce)

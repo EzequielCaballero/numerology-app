@@ -1,0 +1,29 @@
+{
+	"headline": {
+		"subtitle": "Results"
+	},
+	"panel": {
+		"edit": "Edit",
+		"switcher": [ "Calculation", "Report" ],
+		"save": [ "Save", "Saved result" ]
+	},
+	"record": {
+		"action": {
+			"expand": "Expand",
+			"collapse": "Collapse"
+		}
+	},
+	"report": {
+		"title": "Numerological report"
+	},
+	"modal": {
+		"action": {
+			"title": "Save result",
+			"msg": "The result will be saved in your browser"
+		},
+		"error": {
+			"title": "Warning",
+			"msg": "Maximum number of saves reached: %{limit}."
+		}
+	}
+}

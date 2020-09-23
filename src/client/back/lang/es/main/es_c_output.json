@@ -1,0 +1,29 @@
+{
+	"headline": {
+		"subtitle": "Resultados"
+	},
+	"panel": {
+		"edit": "Editar",
+		"switcher": [ "Cálculo", "Informe" ],
+		"save": [ "Guardar", "Resultado guardado" ]
+	},
+	"record": {
+		"action": {
+			"expand": "Expandir",
+			"collapse": "Colapsar"
+		}
+	},
+	"report": {
+		"title": "Informe numerológico"
+	},
+	"modal": {
+		"action": {
+			"title": "Guardar resultado",
+			"msg": "El resultado será guardado en su navegador."
+		},
+		"error": {
+			"title": "Advertencia",
+			"msg": "Número máximo de resultados guardados alcanzado: %{limit}."
+		}
+	}
+}

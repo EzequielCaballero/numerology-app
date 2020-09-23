@@ -8,6 +8,7 @@
 /* GLOBAL EXPAND */
 
 .output-record-switch-expand {
+	background: var(--element-background-1);
 	border-radius: 20px 20px 0 0;
 	border-top: 1px var(--border-color-1) solid;
 	border-bottom: none;
@@ -25,29 +26,37 @@
 .output-record-item {
 	align-items: center;
 	background: var(--element-background-2);
-	border: 2px solid var(--border-color-3);
+	border: 1px solid var(--element-color-1);
 	border-bottom: 0;
 	border-radius: 20px 20px 0 0;
 	display: grid;
-	grid-template-columns: 2fr 1fr 1fr;
+	grid-template-columns: 3fr 1fr 1fr;
 	gap: 5px;
 	padding: 2px;
 	text-align: center;
 }
 
 .record-title {
-	font-style: italic;
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .record-value {
 	font-size: var(--font-size-2);
 	font-weight: bolder;
+	text-shadow: 1px 0 0 var(--default-color-1);
+}
+
+span[data-result-value="11"],
+span[data-result-value="22"],
+span[data-result-value="33"] {
+	font-weight: 700;
+	text-shadow: var(--number-highlight);
 }
 
 .record-expand {
 	color: var(--default-color-3);
 	cursor: pointer;
+	font-size: var(--font-size-1);
 	font-style: normal;
 	font-weight: bolder;
 	transform: rotate(90deg);
@@ -78,8 +87,8 @@ input[id^='check-record-item']:checked ~ .output-record-item span > label.record
 
 div .output-record-detail {
 	background: var(--element-background-3);
-	border: 0 2px 0 2px;
-	border: solid var(--border-color-3);
+	border: 0 2px 0 1px;
+	border: solid var(--element-color-3);
 	border-radius: 0 0 20px 20px;
 	display: block;
 	font-size: 0.9em;

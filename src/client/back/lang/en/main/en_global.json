@@ -1,0 +1,30 @@
+{
+	"head": {
+		"lang": "en",
+		"description": "Do you want to know more about yourself? Find answers thanks to our free pythagorean calculator and numerology report.",
+		"title_long": "Numerical destiny | pythagorean numerology app",
+		"title_short": "Pythagorean numerology"
+	},
+	"navbar": {
+		"lang": "English",
+		"menu": [ "Home", "Calculator", "History", "How works?", "Contact" ],
+		"theme": "Change theme",
+		"language": "Change language to spanish"
+	},
+	"footer": {
+		"prefix": "Created by",
+		"author": "Ezequiel Caballero",
+		"year": "2020"
+	},
+	"modal": {
+		"btn": {
+			"close": "Close",
+			"cancel": "Cancel",
+			"accept": "Accept"
+		}
+	},
+	"err404": {
+		"msg": "Ups... the requested page doesn't exist",
+		"btn": "Back to home"
+	}
+}

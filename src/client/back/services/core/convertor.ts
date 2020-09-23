@@ -1,5 +1,5 @@
 import alphabetKeys from '../../data/alphabet_keys.json';
-import monthKeys from '../../data/month_keys.json';
+import personalKeys from '../../data/personal_keys.json';
 import { TName, TBirth } from '../../entity/iperson';
 
 export class Convertor {
@@ -93,11 +93,11 @@ export class Convertor {
 		}
 		return nameNumbers;
 	}
-	public static matchMonthKeys(birthParts: number[]): number {
+	public static matchPersonalKeys(birthParts: number[]): number {
 		//Match only the day of birth with the specific personal key month
 		const indexMonth = birthParts[1] - 1;
 		const indexDay = birthParts[2] - 1;
-		let matchValue = monthKeys.month[indexMonth][indexDay];
+		let matchValue = personalKeys.month[indexMonth][indexDay];
 		return matchValue;
 	}
 	public static getNumerologyPosition(alphabetPosition: number): number {

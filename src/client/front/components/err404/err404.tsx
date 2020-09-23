@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import { RoutePath } from '../../../../back/sitemap/routes';
-import { useContextSetup } from '../../../context/setup';
+import { RoutePath } from '../../../back/sitemap/routes';
+import { useContextSetup } from '../../context/setup';
 import './err404.css';
 
 export const Err404: React.FunctionComponent<RouteComponentProps> = ({ history }) => {

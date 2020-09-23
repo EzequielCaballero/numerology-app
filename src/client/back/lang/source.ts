@@ -10,7 +10,19 @@ export default {
 		history: EN.History,
 		about: EN.About,
 		contact: EN.Contact,
-		modal: EN.Modal
+		core: {
+			image: EN.Image,
+			essence: EN.Essence,
+			mission: EN.Mission,
+			natalPath: EN.NatalPath,
+			potentialNumber: EN.PotentialNumber,
+			personalKey: EN.PersonalKey,
+			personalYear: EN.PersonalYear,
+			personalMonth: EN.PersonalMonth,
+			ageDigit: EN.AgeDigit,
+			stages: EN.Stages,
+			karmas: EN.Karmas
+		}
 	},
 	es: {
 		cross: ES.Cross,
@@ -20,6 +32,18 @@ export default {
 		history: ES.History,
 		about: ES.About,
 		contact: ES.Contact,
-		modal: ES.Modal
+		core: {
+			image: ES.Image,
+			essence: ES.Essence,
+			mission: ES.Mission,
+			natalPath: ES.NatalPath,
+			potentialNumber: ES.PotentialNumber,
+			personalKey: ES.PersonalKey,
+			personalYear: ES.PersonalYear,
+			personalMonth: ES.PersonalMonth,
+			ageDigit: ES.AgeDigit,
+			stages: ES.Stages,
+			karmas: ES.Karmas
+		}
 	}
 };
