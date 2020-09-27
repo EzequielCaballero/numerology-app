@@ -4,6 +4,7 @@
 	--font-size-2: 1.2rem;
 	--font-size-3: 1.5rem;
 	--font-size-4: 0.8rem;
+	--footer-color: #5e5e5e;
 	--scroll-color-background: #030303;
 	--scroll-color-body: #47545a;
 	--scroll-color-border: #e0e0e0;
@@ -63,7 +64,7 @@ body[data-theme='light'] {
 	--default-color-3: #000000;
 	--element-background-1: linear-gradient(to bottom, #fff8ea 0%, #00000000 100%);
 	--element-background-2: linear-gradient(to bottom, #fcefc7 51%, #dacf93 51%, #b1a66c 100%);
-	--element-background-3: linear-gradient(to bottom, #d6cb8d 0%, #f8e6ac 100%);
+	--element-background-3: linear-gradient(to bottom, #e5da99 0%, #f8e6ac52 100%);
 	--element-color-1: #d6d695;
 	--element-color-2: #e4e4c7;
 	--element-color-3: #f0f0dd;

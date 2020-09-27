@@ -14,7 +14,7 @@
 
 .footer-title {
 	align-self: flex-end;
-	color: var(--default-color-2);
+	color: var(--footer-color);
 	font-style: italic;
 	display: flex;
 	margin-bottom: 0;
