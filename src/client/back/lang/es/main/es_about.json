@@ -33,7 +33,7 @@
 			"question": "¿Cómo funciona la aplicación?",
 			"answer": [
 				"La principal función que ofrece la aplicación es una calculadora, la cual a partir de los datos ingresados por el usuario (nombre completo + fecha de nacimiento) realiza el correspondiente análisis según las reglas asociadas a cada aspecto de la persona, ofreciendo detalle de cómo se obtuvieron y una breve descripción de cada uno de ellos a través de un informe.",
-				"La base de cálculo en el caso del nombre es la siguiente:",
+				"La base de cálculo en el caso del nombre es la siguiente (cada letra tiene su número correspondiente):",
 				"Se ofrece también soporte en idioma Inglés / Español y cambio de tema Oscuro / Claro, así como la posibilidad de almacenar los resultados en el navegador personal del usuario."
 			]
 		},

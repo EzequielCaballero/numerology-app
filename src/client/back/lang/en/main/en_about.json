@@ -33,7 +33,7 @@
 			"question": "How does the application work?",
 			"answer": [
 				"The main function offered by the application is a calculator, which, based on the data entered by the user (full name + date of birth), performs the corresponding analysis according to the rules associated with each aspect of the person, offering details of how it was obtained and a brief description of each of them through a report.",
-				"The calculation basis in the case of the name is as follows:",
+				"The calculation basis in the case of the name is as follows (each letter has its corresponding number):",
 				"It also offers support in English / Spanish language and change of Dark / Light theme, as well as the possibility of storing the results in the user's personal browser."
 			]
 		},

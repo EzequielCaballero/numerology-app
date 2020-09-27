@@ -13,7 +13,7 @@
 	"modal": {
 		"delete": {
 			"title": "Eliminar resultado",
-			"msg": "El resultado seleccionado será eliminado de su navegador"
+			"msg": "El resultado seleccionado será eliminado del navegador."
 		}
 	}
 }

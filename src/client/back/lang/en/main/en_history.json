@@ -13,7 +13,7 @@
 	"modal": {
 		"delete": {
 			"title": "Delete result",
-			"msg": "The selected result will be deleted from your browser"
+			"msg": "The selected result will be deleted from the browser."
 		}
 	}
 }

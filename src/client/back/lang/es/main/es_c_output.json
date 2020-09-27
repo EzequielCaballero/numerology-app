@@ -14,12 +14,13 @@
 		}
 	},
 	"report": {
-		"title": "Informe numerológico"
+		"title": "Informe numerológico",
+		"contact": "Quiero saber más..."
 	},
 	"modal": {
 		"action": {
 			"title": "Guardar resultado",
-			"msg": "El resultado será guardado en su navegador."
+			"msg": "El resultado será guardado en el navegador."
 		},
 		"error": {
 			"title": "Advertencia",

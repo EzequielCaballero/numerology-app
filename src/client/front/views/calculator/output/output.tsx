@@ -125,6 +125,13 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 		});
 	};
 
+	private goToContact = (): void => {
+		this.props.history.push({
+			pathname: RoutePath.Contact,
+			search: ''
+		});
+	};
+
 	public render(): React.ReactNode {
 		return (
 			<div className="box">
@@ -160,7 +167,7 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 								{!this.state.showReport ? (
 									<CalculatorOutputRecord person={this.person} record={this.record} />
 								) : (
-									<CalculatorOutputReport person={this.person} />
+									<CalculatorOutputReport person={this.person} redirect={this.goToContact} />
 								)}
 							</div>
 						</div>

@@ -5,9 +5,10 @@ import './report.css';
 
 type TProps = {
 	person: IPerson;
+	redirect: () => void;
 };
 
-export const CalculatorOutputReport: React.FunctionComponent<TProps> = ({ person }) => {
+export const CalculatorOutputReport: React.FunctionComponent<TProps> = ({ person, redirect }) => {
 	const { translate } = useContextSetup();
 
 	const numbers: Array<JSX.Element> = Object.keys(person.numbers).map((item) => (
@@ -160,7 +161,7 @@ export const CalculatorOutputReport: React.FunctionComponent<TProps> = ({ person
 				)}
 			</div>
 			{person.karmas.potential.length > 0 && (
-				<div className="report-description">
+				<div className="report-description extra">
 					<p>
 						<span className="report-title">{translate.t(`core.karmas.report.potential.title`)}</span>
 						<br />
@@ -193,6 +194,9 @@ export const CalculatorOutputReport: React.FunctionComponent<TProps> = ({ person
 			{numbers}
 			{stages}
 			{karmas}
+			<button className="btn-action contacto" onClick={redirect}>
+				{translate.t('coutput.report.contact')}
+			</button>
 		</div>
 	);
 };

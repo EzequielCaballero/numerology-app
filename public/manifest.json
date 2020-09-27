@@ -1,6 +1,6 @@
 {
-	"short_name": "Numerology app",
-	"name": "Numerology app for personal purposes",
+	"short_name": "Destino numérico",
+	"name": "Pythagorean numerology app",
 	"icons": [
 		{
 			"src": "favicon.ico",
@@ -20,6 +20,7 @@
 	],
 	"start_url": ".",
 	"display": "standalone",
+	"orientation": "portrait",
 	"theme_color": "#000000",
-	"background_color": "none"
+	"background_color": "transparent"
 }

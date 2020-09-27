@@ -14,12 +14,13 @@
 		}
 	},
 	"report": {
-		"title": "Numerological report"
+		"title": "Numerological report",
+		"contact": "I want to know more..."
 	},
 	"modal": {
 		"action": {
 			"title": "Save result",
-			"msg": "The result will be saved in your browser"
+			"msg": "The result will be saved in the browser."
 		},
 		"error": {
 			"title": "Warning",
