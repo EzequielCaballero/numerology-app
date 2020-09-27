@@ -2,7 +2,7 @@ import React from 'react';
 
 export const SVGIconEmail: React.FunctionComponent = () => {
 	return (
-		<svg viewBox="0 0 400 400">
+		<svg id="svg_icon_email" viewBox="0 0 400 400">
 			<title>Email</title>
 			<g id="g7" transform="matrix(0.65359477,0,0,0.75131971,0,-2.4038314)">
 				<g id="_x37__18_">

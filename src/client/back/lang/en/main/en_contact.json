@@ -1,1 +1,13 @@
-{}
+{
+	"title": "Hey there!",
+	"subtitle": [
+		"Thanks for visiting our website.",
+		"Are you interested in obtaining a more detailed and personal numerological study?"
+	],
+	"msg": [
+		"We offer as an additional service the preparation of a study from a personal interview.",
+		"You can send us an email for more information to:",
+		"Questions or suggestions are also welcome."
+	],
+	"email": "destino.numerico@hotmail.com"
+}
