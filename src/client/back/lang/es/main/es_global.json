@@ -7,7 +7,7 @@
 	},
 	"navbar": {
 		"lang": "Español",
-		"menu": [ "Inicio", "Calculadora", "Historial", "¿Cómo funciona?", "Contacto" ],
+		"menu": [ "Inicio", "Calculadora", "Historial", "Información", "Contacto" ],
 		"theme": "Cambiar tema",
 		"language": "Cambiar idioma a inglés"
 	},

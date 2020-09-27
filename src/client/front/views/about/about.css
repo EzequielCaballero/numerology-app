@@ -1,1 +1,91 @@
+.about-content {
+	margin-top: 0.5rem;
+	padding: 0.5rem;
+}
 
+.about-content > h5 {
+	background: var(--element-background-1);
+	border-top: 1px solid var(--border-color-1);
+	border-top-left-radius: 50%;
+	border-top-right-radius: 50%;
+	margin: 0 0.10rem;
+	padding: 15px 10px 10px 10px;
+	text-shadow: 2px 0 0 var(--default-color-1);
+}
+
+.about-item {
+	background: var(--element-background-3);
+	border-radius: 25px;
+	margin: 0.5rem 0 1rem 0;
+}
+
+.about-question {
+	background: var(--element-color-3);
+	border-top: 1px solid var(--border-color-1);
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+	cursor: pointer;
+	font-size: var(--font-size-2);
+	margin: 0 auto;
+	padding: 0.5rem;
+	text-shadow: 2px 0 0 var(--default-color-1);
+	transition: all .3s ease;
+	width: 100%;
+}
+
+.about-question > span {
+	font-style: normal;
+	float: right;
+	padding: 0 0.5rem;
+	transform: rotate(90deg);
+	transition: transform .3s ease, top .3s ease;
+}
+
+.about-answer {
+	border-top: 2px solid var(--element-color-1);
+	border-bottom: 1px solid var(--border-color-1);
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+	font-style: italic;
+	height: 0;
+	overflow-y: hidden;
+	padding: 0 1rem;
+	text-align: left;
+	transition: all .5s ease;
+}
+
+.about-answer-4-table {
+	margin: 0 auto;
+}
+
+.about-answer-4-table tbody > tr {
+	border: 2px solid var(--default-color-3);
+}
+
+.about-answer-4-table tbody tr > th,
+.about-answer-4-table tbody tr > td {
+	border: 1px solid var(--default-color-3);
+	text-align: center;
+	padding: 5px;
+}
+
+input[id^='check-question-'] {
+	display: none;
+}
+
+input[id^='check-question-']:not(:checked) ~ div[id^='about-answer-'] {
+	height: 0;
+}
+
+input[id^='check-question-']:checked ~ div[id^='about-answer-'] {
+	height: auto;
+	padding: 1rem;
+}
+
+input[id^='check-question-']:checked ~ label.about-question {
+	background: var(--element-background-2);
+}
+
+input[id^='check-question-']:checked ~ label.about-question > span {
+	transform: rotate(-90deg);
+}
