@@ -33,12 +33,12 @@
 			"question": "¿Cómo funciona la aplicación?",
 			"answer": [
 				"La principal función que ofrece la aplicación es una calculadora, la cual a partir de los datos ingresados por el usuario (nombre completo + fecha de nacimiento) realiza el correspondiente análisis según las reglas asociadas a cada aspecto de la persona, ofreciendo detalle de cómo se obtuvieron y una breve descripción de cada uno de ellos a través de un informe.",
-				"La base de cálculo en el caso del nombre es la siguiente (cada letra tiene su número correspondiente):",
+				"La base del cálculo en el caso del nombre es la siguiente (cada letra tiene su número correspondiente):",
 				"Se ofrece también soporte en idioma Inglés / Español y cambio de tema Oscuro / Claro, así como la posibilidad de almacenar los resultados en el navegador personal del usuario."
 			]
 		},
 		"5": {
-			"question": "¿Cómo puedo obtener más información?",
+			"question": "¿Dónde consigo más información?",
 			"answer": [
 				"Se advierte que esta aplicación no pretende reemplazar el estudio numerológico desarrollado por un/a especialista.",
 				"Herramientas como la entrevista personal son necesarias para un análisis más detallado dado que una persona es única y como tal, debe atenderse a toda su constitucionalidad numerológica para hacer un estudio completo y preciso de posibilidades y darle así indicaciones certeras las cuales no cubre esta aplicación.",
