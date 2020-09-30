@@ -1,6 +1,3 @@
-/* OUTPUT CONTENT */
-
 .calculator-output {
 	animation: showup 2s ease-in;
-	margin-top: 0.5rem;
 }

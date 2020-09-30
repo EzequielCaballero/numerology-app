@@ -201,27 +201,28 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 									{!this.state.validBirth && <i>-{translate.t(`cinput.modal.error.birth_field`)}</i>}
 								</p>
 							</ModalDialog>
+							<div className="calculator-input">
+								{/* HEADLINE */}
+								<Headline
+									title={translate.t('cross.head.title_short')}
+									subtitle={translate.t('cinput.headline.subtitle')}
+								/>
 
-							{/* HEADLINE */}
-							<Headline
-								title={translate.t('cross.head.title_short')}
-								subtitle={translate.t('cinput.headline.subtitle')}
-							/>
-
-							{/* CALCULATOR FORM */}
-							<CalculatorInputForm
-								name={this.state.name}
-								birth={this.state.birth}
-								submitted={this.state.submitted}
-								validName={this.state.validName}
-								validBirth={this.state.validBirth}
-								handleInputName={this.handleInputName}
-								handleInputDate={this.handleInputDate}
-								handleAddName={this.handleAddName}
-								handleRemoveName={this.handleRemoveName}
-								handleCleanInputs={this.handleCleanInputs}
-								handleSubmit={this.handleSubmit}
-							/>
+								{/* CALCULATOR FORM */}
+								<CalculatorInputForm
+									name={this.state.name}
+									birth={this.state.birth}
+									submitted={this.state.submitted}
+									validName={this.state.validName}
+									validBirth={this.state.validBirth}
+									handleInputName={this.handleInputName}
+									handleInputDate={this.handleInputDate}
+									handleAddName={this.handleAddName}
+									handleRemoveName={this.handleRemoveName}
+									handleCleanInputs={this.handleCleanInputs}
+									handleSubmit={this.handleSubmit}
+								/>
+							</div>
 						</div>
 					)}
 				</ConsumerSetup>

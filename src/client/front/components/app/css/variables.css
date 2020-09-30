@@ -5,6 +5,7 @@
 	--font-size-3: 1.5rem;
 	--font-size-4: 0.8rem;
 	--footer-color: #474747;
+	--footer-background: black;
 	--scroll-color-background: #030303;
 	--scroll-color-body: #47545a;
 	--scroll-color-border: #e0e0e0;
@@ -26,7 +27,7 @@ body[data-theme='dark'] {
 	--default-color-2: #a09e9e;
 	--default-color-3: #ffffff;
 	--element-background-1: linear-gradient(to bottom, #000000 0%, #3a3a3a1a 100%);
-	--element-background-2: linear-gradient(to bottom, #633454 51%, #240f1d 51%, #240f1d 100%);
+	--element-background-2: linear-gradient(to bottom, #663255 51%, #250f21 51%, #240f15 100%);
 	--element-background-3: linear-gradient(to bottom, #2c101d 0%, #3a3a3a00 100%);
 	--element-color-1: #481c5c;
 	--element-color-2: #3d1e57;
@@ -48,32 +49,32 @@ body[data-theme='dark'] {
 		#000000 100%
 	);
 	--navbar-hover-link: #ffffff;
-	--navbar-theme-switch: #fcdda4f3;
+	--navbar-theme-switch: #fcdf82f3;
 	--number-highlight: 0 -2px 10px #ff0, 2px 2px 2px #ce593700;
 }
 body[data-theme='light'] {
-	--content-background: #fde9c5d0;
-	--content-shadow: 0 0 10px #edcb9e;
+	--content-background: #ffe0aaa9;
+	--content-shadow: 0 0 10px #fca93d;
 	--border-color-1: #b15b15;
 	--border-color-2: #dbaf6c;
 	--border-color-3: #fab14b;
-	--btn-circle-background: linear-gradient(135deg, #fcf5b2 0%, #be855f 60%, #552a0e 100%);
+	--btn-circle-background: linear-gradient(135deg, #fcf5b2 0%, #a06238 60%, #44220b 100%);
 	--btn-blur-background: linear-gradient(to bottom, #fae1ab 41%, #c79770 70%, #8b5a32 100%);
-	--btn-focus-background: #ffe0a7;
+	--btn-focus-background: #fad38c;
 	--default-color-1: #ffffff;
 	--default-color-2: #5e5e5e;
 	--default-color-3: #000000;
 	--element-background-1: linear-gradient(to bottom, #faf3cb 0%, #00000000 100%);
 	--element-background-2: linear-gradient(to bottom, #f8e5b0 41%, #d6ae7f 75%, #a5632e 100%);
-	--element-background-3: linear-gradient(to bottom, #fdf0cc 0%, #fcf3d700 100%);
+	--element-background-3: linear-gradient(to bottom, #fce8a5 0%, #fcf3d700 100%);
 	--element-color-1: #f0cf9d;
 	--element-color-2: #e6d1ab;
 	--element-color-3: #fae6b0;
 	--element-color-4: #fcf1e1;
 	--font-color-1: #000000;
 	--font-color-2: #e6e6e6;
-	--modal-background: #ecd3ac;
-	--modal-shadow: 0 0 10px #ede19e;
+	--modal-background: #f7e6ae;
+	--modal-shadow: 0 0 10px #edcb9e;
 	--navbar-active-link: #c28222;
 	--navbar-background: linear-gradient(
 		135deg,

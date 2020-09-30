@@ -2,7 +2,6 @@
 	border-bottom: 2px solid var(--border-color-1);
 	display: flex;
 	justify-content: center;
-	margin: 0 1rem 0 1rem;
 }
 
 .headline-content #svg_logo_mandala {

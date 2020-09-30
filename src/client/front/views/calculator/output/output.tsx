@@ -147,13 +147,14 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 									})}
 								</p>
 							</ModalDialog>
-							{/* HEADLINE */}
-							<Headline
-								title={translate.t('cross.head.title_short')}
-								subtitle={translate.t('coutput.headline.subtitle')}
-							/>
-							{/* CALCULATOR OUTPUT */}
 							<div className="calculator-output">
+								{/* HEADLINE */}
+								<Headline
+									title={translate.t('cross.head.title_short')}
+									subtitle={translate.t('coutput.headline.subtitle')}
+								/>
+								{/* CALCULATOR OUTPUT */}
+
 								<CalculatorOutputPanel
 									name={this.nameParam}
 									birth={this.birthParam}

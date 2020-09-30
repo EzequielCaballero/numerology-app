@@ -71,7 +71,8 @@ body::-webkit-scrollbar-thumb {
 .box {
 	align-self: center;
 	animation: showup 2s ease-in;
-	margin: 0 auto;
+	margin: 1rem;
+	width: 100%;
 }
 
 .box-content {
@@ -79,7 +80,8 @@ body::-webkit-scrollbar-thumb {
 	border-radius: 1rem;
 	box-shadow: var(--content-shadow);
 	color: var(--font-color-1);
-	margin: 1rem;
+	margin: 0 auto;
+	padding: 1.5rem 1rem;
 	text-align: center;
 	transition: background-color 0.4s linear;
 }

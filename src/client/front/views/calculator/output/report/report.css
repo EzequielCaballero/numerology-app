@@ -1,6 +1,5 @@
 .output-report {
 	animation: showup 2s ease-in;
-	padding: 0.5rem;
 }
 
 .output-report > h4 {
@@ -8,7 +7,6 @@
 	border-top: 1px solid var(--border-color-1);
 	border-top-left-radius: 50%;
 	border-top-right-radius: 50%;
-	margin: 0 0.5rem;
 	padding: 15px 10px 10px 10px;
 	text-shadow: 2px 0 0 var(--default-color-1);
 }

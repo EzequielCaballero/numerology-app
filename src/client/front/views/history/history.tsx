@@ -84,18 +84,23 @@ export class History extends React.Component<RouteComponentProps, TState> {
 								<p>{translate.t('history.modal.delete.title')}</p>
 								<p>{translate.t('history.modal.delete.msg')}</p>
 							</ModalDialog>
-							{/* HEADLINE */}
-							<Headline
-								title={translate.t('cross.head.title_short')}
-								subtitle={translate.t('history.headline.subtitle')}
-							/>
-							{/* HISTORY */}
-							<div className="history">
+							<div className="history-content">
+								{/* HEADLINE */}
+								<Headline
+									title={translate.t('cross.head.title_short')}
+									subtitle={translate.t('history.headline.subtitle')}
+								/>
+								{/* HISTORY */}
+
 								<div className="history-title">
 									{this.state.results.length > 0 ? (
 										<i>{translate.t('history.list.with')}</i>
 									) : (
-										<i>{translate.t('history.list.without')}</i>
+										<div>
+											<i>{translate.t('history.list.without')}</i>
+											<br />
+											<SVGSelector name="iconSave" />
+										</div>
 									)}
 								</div>
 								{this.state.results.map((result) => (

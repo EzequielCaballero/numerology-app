@@ -10,14 +10,15 @@ export class About extends React.Component {
 				<ConsumerSetup>
 					{({ translate }) => (
 						<div className="box-content">
-							{/* HEADLINE */}
-							<Headline
-								title={translate.t('cross.head.title_short')}
-								subtitle={translate.t('about.headline.subtitle')}
-							/>
-
-							{/* CONTENT */}
 							<div className="about-content">
+								{/* HEADLINE */}
+								<Headline
+									title={translate.t('cross.head.title_short')}
+									subtitle={translate.t('about.headline.subtitle')}
+								/>
+
+								{/* CONTENT */}
+
 								<h5>{translate.t('about.title')}</h5>
 								<div className="about-item">
 									<input id="check-question-1" type="checkbox" />

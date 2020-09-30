@@ -10,10 +10,6 @@
 	margin-top: 10px;
 }
 
-.contact-content {
-	margin: 1rem;
-}
-
 .contact-content > p:first-child {
 	background: var(--element-background-1);
 	border: 1px solid var(--border-color-1);

@@ -1,15 +1,21 @@
 .history-title {
-	padding-top: 1rem;
+	padding: 1rem;
+}
+
+.history-title #svg_icon_save {
+	height: 150px;
+	width: 150px;
+	opacity: 0.5;
 }
 
 .history-item {
+	align-items: center;
 	background: var(--element-background-1);
 	border-radius: 20px;
 	display: grid;
 	grid-template-columns: 3fr 1fr 1fr;
 	grid-gap: 5px;
-	align-items: center;
-	margin: 1rem;
+	margin: 0.5rem 0;
 	padding: 5px;
 	text-align: center;
 }
