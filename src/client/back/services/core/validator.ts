@@ -31,10 +31,13 @@ export class Validator {
 	public static validateDate(date: TBirth): boolean {
 		try {
 			let validation = false;
+			const today = new Date();
 			const formatDate = new Date(`${date.year}/${date.month}/${date.day}`);
 			if (date.day === formatDate.getDate()) {
 				if (date.month === formatDate.getMonth() + 1) {
-					if (date.year === formatDate.getFullYear() && date.year >= 1000) validation = true;
+					if (date.year === formatDate.getFullYear() && date.year >= 1000) {
+						if (formatDate <= today) validation = true;
+					}
 				}
 			}
 			return validation;
