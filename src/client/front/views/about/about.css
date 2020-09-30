@@ -14,13 +14,13 @@
 }
 
 .about-item {
-	background: var(--element-background-3);
-	border-radius: 25px;
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
 	margin: 0.5rem 0 1rem 0;
 }
 
 .about-question {
-	background: var(--element-color-3);
+	background: var(--element-background-1);
 	border-top: 1px solid var(--border-color-1);
 	border-top-left-radius: 25px;
 	border-top-right-radius: 25px;
@@ -42,10 +42,7 @@
 }
 
 .about-answer {
-	border-top: 2px solid var(--element-color-1);
-	border-bottom: 1px solid var(--border-color-1);
-	border-bottom-left-radius: 25px;
-	border-bottom-right-radius: 25px;
+	background: var(--element-background-3);
 	font-style: italic;
 	height: 0;
 	overflow-y: hidden;

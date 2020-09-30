@@ -15,8 +15,7 @@
 
 #form_name .form-control,
 #form_date .form-control {
-	background: var(--default-color-1);
-	/* border: 1px solid var(--default-color-3); */
+	background: var(--element-color-4);
 	color: var(--font-color-1);
 }
 

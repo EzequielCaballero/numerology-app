@@ -17,6 +17,6 @@
 }
 
 #app-modal-body > p:first-child {
-	border-bottom: 2px solid var(--element-color-1);
+	border-bottom: 2px solid var(--border-color-1);
 	font-style: italic;
 }
