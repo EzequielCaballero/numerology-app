@@ -15,7 +15,7 @@ LAPTOP
 
 @media only screen and (min-width: 1024px) and (max-width: 1365px) {
 	.box-content {
-		width: 600px;
+		width: 700px;
 		padding: 1.5rem 1rem;
 	}
 }
@@ -24,9 +24,9 @@ LAPTOP
 TABLET
 *******/
 
-@media only screen and (min-width: 551px) and (max-width: 1023px) {
+@media only screen and (min-width: 601px) and (max-width: 1023px) {
 	.box-content {
-		width: 500px;
+		width: 550px;
 		padding: 1.5rem 1rem;
 	}
 }
@@ -37,14 +37,14 @@ MOBILE
 
 /*Portrait*/
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 600px) {
 	.box {
 		width: 100%;
 	}
 	.box-content {
 		max-width: 375px;
 		padding: 1rem 0.5rem;
-		margin: 0.5rem;
+		margin: 0.5rem auto;
 	}
 	.about-question {
 		font-size: var(--font-size-1);
