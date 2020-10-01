@@ -2,7 +2,6 @@
 
 .footer-box {
 	align-items: center;
-	background: var(--footer-background);
 	flex-direction: row;
 	font-size: var(--font-size-4);
 	display: flex;
