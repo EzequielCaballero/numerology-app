@@ -20,7 +20,7 @@
 }
 
 .form-control {
-	border: 1px solid var(--default-color-3);
+	border: 1px solid var(--border-color-1);
 }
 
 .form-input-date .form-control {
@@ -30,6 +30,14 @@
 input[name^="firstName"],
 input[name^="lastName"] {
 	text-transform: capitalize;
+}
+
+#add-field {
+	color: var(--form-field-add);
+}
+
+#remove-field {
+	color: var(--form-field-remove);
 }
 
 /* PREVIEW */
@@ -97,7 +105,7 @@ input[name^="lastName"] {
 }
 
 #svg_icon_trash {
-	fill: var(--status-color-danger);
+	fill: var(--form-field-remove);
 	height: 30px;
 	width: 25px;
 }
