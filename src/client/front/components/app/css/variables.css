@@ -55,7 +55,7 @@ body[data-theme='dark'] {
 body[data-theme='light'] {
 	--content-background: #ffe0aaa9;
 	--content-shadow: 0 0 10px #fca93d;
-	--border-color-1: #b15b15;
+	--border-color-1: #662f02;
 	--border-color-2: #dbaf6c;
 	--border-color-3: #fab14b;
 	--btn-circle-background: linear-gradient(135deg, #fcf5b2 0%, #a06238 60%, #44220b 100%);
