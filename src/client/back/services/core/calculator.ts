@@ -248,7 +248,7 @@ export class Calculator {
 		//Find missing number
 		missingNumbers = numbers.filter((num: number) => reducedArray.indexOf(num) === -1);
 
-		if (missingNumbers.length === 0) missingNumbers = [ 0 ];
+		if (missingNumbers.length === 0) missingNumbers = [];
 
 		return missingNumbers;
 	}
