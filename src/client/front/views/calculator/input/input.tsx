@@ -125,7 +125,7 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 	private handleCleanInputs = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
 		e.preventDefault();
 		let name: TName = {
-			firstName: [ '' ],
+			firstName: [ '', '' ],
 			lastName: [ '' ]
 		};
 		let birth: TBirth = {

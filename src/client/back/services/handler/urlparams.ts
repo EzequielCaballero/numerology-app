@@ -15,7 +15,7 @@ export class URLParams {
 	};
 
 	public static getParamName = (): TName => {
-		let param: TName = { firstName: [ '' ], lastName: [ '' ] };
+		let param: TName = { firstName: [ '', '' ], lastName: [ '' ] };
 		const _firstname: string = URLParams.search.get(Params.firstname)
 			? URLParams.search.get(Params.firstname) as string
 			: '';
