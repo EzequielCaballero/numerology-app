@@ -9,9 +9,6 @@
 	--scroll-color-background: #030303;
 	--scroll-color-body: #47545a;
 	--scroll-color-border: #e0e0e0;
-	--status-color-success: #5bb95b;
-	--status-color-warning: #c4be69;
-	--status-color-danger: #d66565;
 }
 
 body[data-theme='dark'] {
@@ -33,10 +30,9 @@ body[data-theme='dark'] {
 	--element-color-2: #3d1e57;
 	--element-color-3: #1b0c11;
 	--element-color-4: #14091b;
+	--element-shadow: 0px 17px 12px -16px rgba(129, 39, 170, 0.3);
 	--font-color-1: #e0dfdf;
 	--font-color-2: #242424;
-	--form-field-add: #36b436;
-	--form-field-remove: #a83737;
 	--modal-background: #140b0e;
 	--modal-shadow: 0 0 10px #ed9e9e;
 	--navbar-active-link: #af5efc;
@@ -53,6 +49,9 @@ body[data-theme='dark'] {
 	--navbar-hover-link: #ffffff;
 	--navbar-theme-switch: #fcdf82f3;
 	--number-highlight: 0 -2px 10px #ff0, 2px 2px 2px #ce593700;
+	--status-color-success: #36b436;
+	--status-color-warning: #c4be69;
+	--status-color-danger: #a83737;
 }
 body[data-theme='light'] {
 	--content-background: #ffe0aaa9;
@@ -66,17 +65,16 @@ body[data-theme='light'] {
 	--default-color-1: #ffffff;
 	--default-color-2: #5e5e5e;
 	--default-color-3: #000000;
-	--element-background-1: linear-gradient(to bottom, #faf3cb 0%, #00000000 100%);
-	--element-background-2: linear-gradient(to bottom, #f7e2a9ec 41%, #d6ae7f 75%, #a5632e 100%);
-	--element-background-3: linear-gradient(to bottom, #f7e9bc 0%, #fcf3d700 100%);
-	--element-color-1: #f0cf9d;
+	--element-background-1: linear-gradient(to bottom, #fce5b5 0%, #00000000 100%);
+	--element-background-2: linear-gradient(to bottom, #f7d5a9ec 41%, #d6ae7f 75%, #a5632e 100%);
+	--element-background-3: linear-gradient(to bottom, #faeec6 0%, #fcf3d700 100%);
+	--element-color-1: #f7dbb1;
 	--element-color-2: #e6d1ab;
-	--element-color-3: #fae6b0;
+	--element-color-3: #fdf0cd;
 	--element-color-4: #fcf0cc;
+	--element-shadow: 0px 17px 13px -12px rgba(0, 0, 0, 0.6);
 	--font-color-1: #000000;
 	--font-color-2: #e6e6e6;
-	--form-field-add: #187918;
-	--form-field-remove: #a83c3c;
 	--modal-background: #f7e6ae;
 	--modal-shadow: 0 0 10px #edcb9e;
 	--navbar-active-link: #c28222;
@@ -93,4 +91,7 @@ body[data-theme='light'] {
 	--navbar-hover-link: #ffffff;
 	--navbar-theme-switch: #320f4dd3;
 	--number-highlight: 0 -2px 10px rgb(204, 117, 3), 2px 2px 3px #ff9d8094, 2px 2px 3px #ce5a371f;
+	--status-color-success: #187918;
+	--status-color-warning: #a8a025;
+	--status-color-danger: #a83c3c;
 }

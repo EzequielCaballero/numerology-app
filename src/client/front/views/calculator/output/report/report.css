@@ -4,10 +4,10 @@
 
 .output-report > h4 {
 	background: var(--element-background-1);
-	border-top: 1px solid var(--border-color-1);
-	border-top-left-radius: 50%;
-	border-top-right-radius: 50%;
-	padding: 15px 10px 10px 10px;
+	border-radius: 20px 20px 0 0;
+	border-top: 2px var(--border-color-2) solid;
+	border-bottom: none;
+	padding: 15px 10px 0px 10px;
 	text-shadow: 2px 0 0 var(--default-color-1);
 }
 
@@ -15,6 +15,7 @@
 	background: var(--element-background-3);
 	border-top: 1px solid var(--border-color-1);
 	border-radius: 25px;
+	box-shadow: var(--element-shadow);
 	margin-bottom: 0.5rem;
 	padding: 1rem;
 }
@@ -51,10 +52,14 @@ p[data-result-value="33"] {
 	text-align: left;
 }
 
+.report-description.extra {
+	margin-top: 1rem;
+}
+
 .report-description.extra p > .report-title {
-	border-top: 1px solid var(--border-color-1);
-	border-radius: 10px;
-	padding: 5px 10px 0 0;
+	border-bottom: 2px solid var(--element-color-1);
+	/* border-radius: 30%; */
+	padding: 0 0 1px 0;
 }
 
 .btn-action.contacto {

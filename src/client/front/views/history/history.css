@@ -2,11 +2,17 @@
 	min-height: 300px;
 }
 
-.history-title {
-	padding: 1rem;
+.history-content > h5 {
+	background: var(--element-background-3);
+	border-top: 1px solid var(--border-color-1);
+	border-radius: 50%;
+	margin: 1rem auto;
+	padding: 15px 10px 10px 10px;
+	text-shadow: 2px 0 0 var(--default-color-1);
+	width: 75%;
 }
 
-.history-title #svg_icon_save {
+.history-content #svg_icon_save {
 	height: 150px;
 	width: 150px;
 	opacity: 0.5;
@@ -16,6 +22,7 @@
 	align-items: center;
 	background: var(--element-background-1);
 	border-radius: 20px;
+	box-shadow: var(--element-shadow);
 	display: grid;
 	grid-template-columns: 3fr 1fr 1fr;
 	grid-gap: 5px;

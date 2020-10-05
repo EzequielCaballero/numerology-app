@@ -100,17 +100,15 @@ button:hover {
 
 .btn-action {
 	background: var(--btn-blur-background);
-	border-top: 2px solid transparent;
-	border-left: 2px solid transparent;
-	border-radius: 0.25rem;
-	padding: .375rem .75rem;
+	border-radius: 5px;
+	padding: 7px;
 }
 
 .btn-action-outline {
 	background: none;
 	border: 1px solid var(--default-color-3);
-	border-radius: 0.25rem;
-	padding: .375rem .75rem;
+	border-radius: 5px;
+	padding: 6px;
 }
 
 .btn-action:focus,
@@ -120,8 +118,8 @@ button:hover {
 	background: var(--btn-focus-background);
 	border-right: 2px solid var(--default-color-3);
 	border-bottom: 2px solid var(--default-color-3);
-	border-radius: 0.3rem;
-	padding: .375rem .75rem;
+	border-radius: 5px;
+	padding: 7px 5px 5px 7px;
 }
 
 /* BUTTON circle */

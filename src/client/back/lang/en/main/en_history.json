@@ -2,13 +2,13 @@
 	"headline": {
 		"subtitle": "History"
 	},
+	"list": {
+		"title": "Saved results",
+		"empty": "*There is no results saved."
+	},
 	"action": {
 		"view": "View",
 		"delete": "Delete"
-	},
-	"list": {
-		"with": "List of saved results",
-		"without": "No saved results"
 	},
 	"modal": {
 		"delete": {

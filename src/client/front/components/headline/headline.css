@@ -1,5 +1,4 @@
 .headline-content {
-	border-bottom: 2px solid var(--border-color-1);
 	display: flex;
 	justify-content: center;
 }
@@ -16,19 +15,20 @@
 	stroke: var(--default-color-3);
 }
 
-.headline-content-text > p {
-	font-size: var(--font-size-4);
-}
-
-.headline-content-text > h1 {
-	font-size: var(--font-size-3);
-}
-
 .headline-content-text {
 	align-self: center;
+	border-bottom: 2px solid var(--border-color-2);
+	border-radius: 25px;
+	box-shadow: var(--element-shadow);
+	padding: 0 10px;
 	text-align: left;
 }
 
 .headline-content-text > p {
+	font-size: var(--font-size-4);
 	margin: 0;
+}
+
+.headline-content-text > h1 {
+	font-size: var(--font-size-3);
 }
