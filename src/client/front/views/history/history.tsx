@@ -91,18 +91,14 @@ export class History extends React.Component<RouteComponentProps, TState> {
 									subtitle={translate.t('history.headline.subtitle')}
 								/>
 								{/* HISTORY */}
-
-								<div className="history-title">
-									{this.state.results.length > 0 ? (
-										<i>{translate.t('history.list.with')}</i>
-									) : (
-										<div>
-											<i>{translate.t('history.list.without')}</i>
-											<br />
-											<SVGSelector name="iconSave" />
-										</div>
-									)}
-								</div>
+								<h5>{translate.t('history.list.title')}</h5>
+								{this.state.results.length === 0 && (
+									<div>
+										<SVGSelector name="iconSave" />
+										<br />
+										<i>{translate.t('history.list.empty')}</i>
+									</div>
+								)}
 								{this.state.results.map((result) => (
 									<div key={result.key} className="history-item">
 										<div className="history-item-person">

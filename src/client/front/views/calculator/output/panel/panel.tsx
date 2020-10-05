@@ -30,6 +30,10 @@ export const CalculatorOutputPanel: React.FunctionComponent<TProps> = ({
 	const { translate } = useContextSetup();
 	return (
 		<div className="output-panel">
+			<div className="input-person">
+				<p id="input-person-name">{Convertor.formatNameToString(name)}</p>
+				<p id="input-person-date">{Convertor.formatDateToString(birth)}</p>
+			</div>
 			<div className="output-option">
 				<span>
 					<button
@@ -75,10 +79,6 @@ export const CalculatorOutputPanel: React.FunctionComponent<TProps> = ({
 						</button>
 					</span>
 				)}
-			</div>
-			<div className="input-person">
-				<p id="input-person-name">{Convertor.formatNameToString(name)}</p>
-				<p id="input-person-date">{Convertor.formatDateToString(birth)}</p>
 			</div>
 		</div>
 	);

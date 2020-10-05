@@ -16,11 +16,11 @@ export class Home extends React.Component<RouteComponentProps> {
 				<ConsumerSetup>
 					{({ translate }) => (
 						<div className="box-content">
-							<div className="home-header">
-								<p>{`${translate.t('home.title')} 👋`}</p>
-								<h1>{translate.t('home.subtitle')}</h1>
-							</div>
 							<div className="home-content">
+								<div className="home-header">
+									<p>{`${translate.t('home.title')} 👋`}</p>
+									<h1>{translate.t('home.subtitle')}</h1>
+								</div>
 								<div className="home-quote">
 									<p>
 										<span>{translate.t('home.quote.phrase')}</span>
