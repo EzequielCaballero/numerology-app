@@ -93,7 +93,7 @@ button:focus,
 button:hover {
 	background: none;
 	border: none;
-	color: var(--default-color-3);
+	color: var(--font-color-1);
 	outline: none !important;
 	text-decoration: none;
 }

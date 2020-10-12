@@ -49,20 +49,16 @@
 	transform: translateX(-100%);
 }
 
-#switcher-output:checked + .switcher-label {
-	background-color: var(--element-color-1);
-}
-
 .output-option .switcher-label {
-	background: var(--element-color-2);
+	background: var(--element-background-2);
 	border-color: var(--border-color-1);
 	color: var(--default-color-3);
-	text-shadow: 2px 1px 0 var(--element-color-3);
+	font-weight: 600;
 	width: 150px;
 }
 
 .output-option .switcher-label:after {
-	background: var(--element-color-3);
+	background: var(--element-color-2);
 	border: 1px solid var(--default-color-3);
 }
 

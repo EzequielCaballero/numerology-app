@@ -27,21 +27,27 @@ export const CalculatorOutputReport: React.FunctionComponent<TProps> = ({ person
 				{item === 'essence' && (
 					<div>
 						<p>
-							<strong>{translate.t(`core.${item}.report.aspects.0`)}: </strong>
+							<span className="report-value-aspect">
+								{translate.t(`core.${item}.report.aspects.0`)}:{' '}
+							</span>
 							<span>
 								{translate.t(`core.${item}.report.${person.numbers[item as keyof TNumbers]}.0`)}
 							</span>
 						</p>
 
 						<p>
-							<strong>{translate.t(`core.${item}.report.aspects.1`)}: </strong>
+							<span className="report-value-aspect">
+								{translate.t(`core.${item}.report.aspects.1`)}:{' '}
+							</span>
 							<span>
 								{translate.t(`core.${item}.report.${person.numbers[item as keyof TNumbers]}.1`)}
 							</span>
 						</p>
 
 						<p>
-							<strong>{translate.t(`core.${item}.report.aspects.2`)}: </strong>
+							<span className="report-value-aspect">
+								{translate.t(`core.${item}.report.aspects.2`)}:{' '}
+							</span>
 							<span>
 								{translate.t(`core.${item}.report.${person.numbers[item as keyof TNumbers]}.2`)}
 							</span>
@@ -52,14 +58,18 @@ export const CalculatorOutputReport: React.FunctionComponent<TProps> = ({ person
 				{item === 'personalKey' && (
 					<div>
 						<p>
-							<strong>{translate.t(`core.${item}.report.aspects.0`)}: </strong>
+							<span className="report-value-aspect">
+								{translate.t(`core.${item}.report.aspects.0`)}:{' '}
+							</span>
 							<span>
 								{translate.t(`core.${item}.report.${person.numbers[item as keyof TNumbers]}.0`)}
 							</span>
 						</p>
 
 						<p>
-							<strong>{translate.t(`core.${item}.report.aspects.1`)}: </strong>
+							<span className="report-value-aspect">
+								{translate.t(`core.${item}.report.aspects.1`)}:{' '}
+							</span>
 							<span>
 								{translate.t(`core.${item}.report.${person.numbers[item as keyof TNumbers]}.1`)}
 							</span>
@@ -71,14 +81,18 @@ export const CalculatorOutputReport: React.FunctionComponent<TProps> = ({ person
 					<div>
 						<i>{translate.t(`core.${item}.report.${person.numbers[item as keyof TNumbers]}.0`)}</i>
 						<p>
-							<strong>{translate.t(`core.${item}.report.aspects.1`)}: </strong>
+							<span className="report-value-aspect">
+								{translate.t(`core.${item}.report.aspects.1`)}:{' '}
+							</span>
 							<span>
 								{translate.t(`core.${item}.report.${person.numbers[item as keyof TNumbers]}.1`)}
 							</span>
 						</p>
 
 						<p>
-							<strong>{translate.t(`core.${item}.report.aspects.2`)}: </strong>
+							<span className="report-value-aspect">
+								{translate.t(`core.${item}.report.aspects.2`)}:{' '}
+							</span>
 							<span>
 								{translate.t(`core.${item}.report.${person.numbers[item as keyof TNumbers]}.2`)}
 							</span>
@@ -108,14 +122,14 @@ export const CalculatorOutputReport: React.FunctionComponent<TProps> = ({ person
 				{person.stages.map((s, i) => (
 					<div key={s.num}>
 						<p>
-							<strong>
+							<span className="report-value-aspect">
 								{translate.t(`core.stages.calc.stage`, {
 									num: s.num,
 									from: s.from,
 									to: s.to === 0 ? '∞' : s.to
 								})}
 								{` = `}
-							</strong>
+							</span>
 							<span className="report-value">{s.value}</span>
 						</p>
 						<p>{translate.t(`core.stages.report.${s.value}`)}</p>
@@ -145,13 +159,17 @@ export const CalculatorOutputReport: React.FunctionComponent<TProps> = ({ person
 									<span> {translate.t(`core.karmas.calc.part.${i}`)}</span>
 								</p>
 								<p>
-									<strong>{translate.t(`core.karmas.report.aspects.0`)}: </strong>
+									<span className="report-value-aspect">
+										{translate.t(`core.karmas.report.aspects.0`)}:{' '}
+									</span>
 									<span>
 										{translate.t(`core.karmas.report.${person.karmas[item as keyof TKarma]}.0`)}
 									</span>
 								</p>
 								<p>
-									<strong>{translate.t(`core.karmas.report.aspects.1`)}: </strong>
+									<span className="report-value-aspect">
+										{translate.t(`core.karmas.report.aspects.1`)}:{' '}
+									</span>
 									<span>
 										{translate.t(`core.karmas.report.${person.karmas[item as keyof TKarma]}.1`)}
 									</span>
@@ -174,11 +192,15 @@ export const CalculatorOutputReport: React.FunctionComponent<TProps> = ({ person
 								<span className="report-value">{item}</span>
 							</p>
 							<p>
-								<strong>{translate.t(`core.karmas.report.aspects.0`)}: </strong>
+								<span className="report-value-aspect">
+									{translate.t(`core.karmas.report.aspects.0`)}:{' '}
+								</span>
 								<span>{translate.t(`core.karmas.report.potential.${item}.0`)}</span>
 							</p>
 							<p>
-								<strong>{translate.t(`core.karmas.report.aspects.1`)}: </strong>
+								<span className="report-value-aspect">
+									{translate.t(`core.karmas.report.aspects.1`)}:{' '}
+								</span>
 								<span>{translate.t(`core.karmas.report.potential.${item}.1`)}</span>
 							</p>
 						</div>

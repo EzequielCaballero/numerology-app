@@ -17,24 +17,31 @@ export class Home extends React.Component<RouteComponentProps> {
 					{({ translate }) => (
 						<div className="box-content">
 							<div className="home-content">
-								<div className="home-header">
-									<p>{`${translate.t('home.title')} 👋`}</p>
-									<h1>{translate.t('home.subtitle')}</h1>
-								</div>
-								<div className="home-quote">
-									<p>
+								<div className="home-description">
+									<div className="home-header">
+										<h2>{`${translate.t('home.headline.subtitle')} 👋`}</h2>
+										<i>{translate.t('cross.head.title_short')}</i>
+									</div>
+									<div className="home-intro">
+										<p>
+											<span>{translate.t('cross.head.description.0')}</span>
+											<br />
+											<span>{translate.t('cross.head.description.1')}</span>
+										</p>
+										<button
+											aria-label={translate.t('home.btn')}
+											className="btn-circle"
+											onClick={() => this.goToCalculator()}
+										>
+											<SVGSelector name="logoMandala" />
+										</button>
+									</div>
+									<p className="home-quote">
 										<span>{translate.t('home.quote.phrase')}</span>
 										<br />
 										<span>- {translate.t('home.quote.author')}</span>
 									</p>
 								</div>
-								<button
-									aria-label={translate.t('home.btn')}
-									className="btn-circle"
-									onClick={() => this.goToCalculator()}
-								>
-									<SVGSelector name="logoMandala" />
-								</button>
 							</div>
 						</div>
 					)}

@@ -8,7 +8,7 @@
 	border-radius: 50%;
 	margin: 1rem auto;
 	padding: 15px 10px 10px 10px;
-	text-shadow: 2px 0 0 var(--default-color-1);
+	text-shadow: var(--font-shadow);
 	width: 75%;
 }
 

@@ -8,7 +8,7 @@
 	border-top: 2px var(--border-color-2) solid;
 	border-bottom: none;
 	padding: 15px 10px 0px 10px;
-	text-shadow: 2px 0 0 var(--default-color-1);
+	text-shadow: var(--font-shadow);
 }
 
 .report-category {
@@ -22,7 +22,7 @@
 
 .report-title {
 	font-size: var(--font-size-3);
-	text-shadow: 2px 0 0 var(--default-color-1);
+	text-shadow: var(--font-shadow);
 }
 
 .report-value {
@@ -31,8 +31,14 @@
 	border-radius: 50%;
 	margin: 0 auto;
 	padding: 0.25em;
-	text-shadow: 1px 0 0 var(--default-color-1);
+	text-shadow: var(--font-shadow);
 	width: 25%;
+}
+
+.report-value-aspect {
+	font-style: normal;
+	font-weight: 600;
+	text-shadow: var(--font-shadow);
 }
 
 .report-value-karma {
@@ -58,7 +64,6 @@ p[data-result-value="33"] {
 
 .report-description.extra p > .report-title {
 	border-bottom: 2px solid var(--element-color-1);
-	/* border-radius: 30%; */
 	padding: 0 0 1px 0;
 }
 

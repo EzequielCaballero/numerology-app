@@ -1,4 +1,8 @@
-.contact-header #svg_icon_email {
+.contact-header > h4 {
+	margin-top: 10px;
+}
+
+.contact-msg #svg_icon_email {
 	animation: blurred-in 0.5s linear;
 	fill: var(--default-color-3);
 	height: 50px;
@@ -6,23 +10,21 @@
 	width: 50px;
 }
 
-.contact-header > h4 {
-	margin-top: 10px;
-}
-
-.contact-content > p:first-child {
+.contact-msg > p:first-child {
 	background: var(--element-background-1);
 	border: 1px solid var(--border-color-1);
 	border-radius: 25px;
+	box-shadow: var(--element-shadow);
 	padding: 1rem;
 }
 
-.contact-content > p:nth-child(3) {
+.contact-msg > p:nth-child(3) {
 	background: var(--element-color-3);
 	border-radius: 25px;
+	box-shadow: var(--element-shadow);
 	padding: 0.5rem;
 }
 
-.contact-content > p:last-child {
+.contact-msg > p:last-child {
 	font-size: var(--font-size-4);
 }

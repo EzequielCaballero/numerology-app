@@ -1,7 +1,10 @@
 {
 	"head": {
 		"lang": "en",
-		"description": "Do you want to know more about yourself? Find answers thanks to our free pythagorean calculator and numerology report.",
+		"description": [
+			"Do you want to know more about yourself?",
+			"Find answers thanks to our free pythagorean calculator and numerology report."
+		],
 		"title_long": "Destino numérico | pythagorean numerology app",
 		"title_short": "Pythagorean numerology"
 	},

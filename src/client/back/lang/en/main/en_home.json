@@ -1,6 +1,7 @@
 {
-	"title": "Welcome!",
-	"subtitle": "Pythagorean numerology",
+	"headline": {
+		"subtitle": "Welcome!"
+	},
 	"quote": {
 		"phrase": "\"Happiness consists of being able to unite the beginning with the end\"",
 		"author": "Pythagoras of Samos (569 – 475 BC)"

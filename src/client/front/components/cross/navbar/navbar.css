@@ -47,7 +47,6 @@
 }
 
 #switcher-lang:checked + .switcher-label {
-	background-color: var(--element-color-2);
 	text-align: left;
 }
 
@@ -62,7 +61,7 @@
 
 .lang .switcher-label:after {
 	border: 1px solid var(--border-color-1);
-	background: var(--element-color-1);
+	background: var(--element-color-3);
 }
 
 .lang .switcher-label:active:after {
@@ -90,6 +89,7 @@
 }
 
 .nav-custom > .nav-custom-links > button {
+	color: var(--font-color-1);
 	display: inline-block;
 	padding: 12px 10px 12px 10px;
 }

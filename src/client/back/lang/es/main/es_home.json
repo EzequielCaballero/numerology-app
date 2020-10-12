@@ -1,6 +1,7 @@
 {
-	"title": "¡Bienvenido!",
-	"subtitle": "Numerología pitagórica",
+	"headline": {
+		"subtitle": "¡Bienvenido!"
+	},
 	"quote": {
 		"phrase": "\"La felicidad consiste en poder unir el principio con el fin\"",
 		"author": "Pitágoras de Samos (569 – 475 AC)"

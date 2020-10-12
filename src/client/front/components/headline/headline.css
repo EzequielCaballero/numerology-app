@@ -1,9 +1,10 @@
 .headline-content {
 	display: flex;
 	justify-content: center;
+	margin-bottom: 0.5rem;
 }
 
-.headline-content #svg_logo_mandala {
+.headline-content button > #svg_logo_mandala {
 	animation: element-spin infinite reverse 20s linear;
 	height: 65px;
 	margin: 10px;
@@ -11,16 +12,18 @@
 	width: 65px;
 }
 
-.headline-content #svg_logo_mandala path {
-	stroke: var(--default-color-3);
+.headline-content button > #svg_logo_mandala path {
+	stroke: var(--font-color-1);
 }
 
 .headline-content-text {
 	align-self: center;
+	background: var(--element-background-4);
 	border-bottom: 2px solid var(--border-color-2);
 	border-radius: 25px;
 	box-shadow: var(--element-shadow);
-	padding: 0 10px;
+	color: var(--font-color-1);
+	padding: 0.5rem 2rem 0 2rem;
 	text-align: left;
 }
 
@@ -30,5 +33,6 @@
 }
 
 .headline-content-text > h1 {
+	text-align: center;
 	font-size: var(--font-size-3);
 }

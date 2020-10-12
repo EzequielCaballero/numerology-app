@@ -35,14 +35,15 @@
 	text-align: center;
 }
 
-.record-title {
+.record-title > i {
+	font-style: normal;
 	font-weight: 500;
 }
 
 .record-value {
 	font-size: var(--font-size-2);
 	font-weight: bolder;
-	text-shadow: 1px 0 0 var(--default-color-1);
+	text-shadow: var(--font-shadow);
 }
 
 span[data-result-value="11"],
@@ -68,6 +69,7 @@ input[id^='check-record-item'] {
 
 input[id^='check-record-item']:not(:checked) ~ div[id^='record-detail-'] {
 	height: 0;
+	padding: 0;
 }
 
 input[id^='check-record-item']:checked ~ div[id^='record-detail-'] {
@@ -86,7 +88,7 @@ input[id^='check-record-item']:checked ~ .output-record-item span > label.record
 
 div .output-record-detail {
 	background: var(--element-background-3);
-	border: 1px solid var(--element-color-3);
+	border: 1px solid var(--border-color-2);
 	border-radius: 0 0 20px 20px;
 	box-shadow: var(--element-shadow);
 	display: block;
@@ -94,7 +96,7 @@ div .output-record-detail {
 	height: 0px;
 	margin-bottom: 0.5rem;
 	overflow-y: hidden;
-	padding: 0 0.5rem;
+	padding: 0.5rem 0 0.5rem 0.5rem;
 	text-align: left;
 	transition: all .3s ease;
 }
