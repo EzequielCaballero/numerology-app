@@ -4,7 +4,7 @@
 	},
 	"panel": {
 		"edit": "Editar",
-		"switcher": [ "Cálculo", "Informe" ],
+		"switcher": [ "Informe", "Cálculo" ],
 		"save": [ "Guardar", "Resultado guardado" ]
 	},
 	"record": {

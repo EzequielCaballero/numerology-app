@@ -50,9 +50,9 @@ export const CalculatorOutputPanel: React.FunctionComponent<TProps> = ({
 						identifier="switcher-output"
 						title={
 							showReport ? (
-								translate.t('coutput.panel.switcher.0')
-							) : (
 								translate.t('coutput.panel.switcher.1')
+							) : (
+								translate.t('coutput.panel.switcher.0')
 							)
 						}
 						action={switchOutput}

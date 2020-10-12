@@ -38,7 +38,7 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 		this.state = {
 			isInputOk: false,
 			isSaveActive: true,
-			showReport: false,
+			showReport: true,
 			modal: {
 				properties: {
 					type: 'action',
@@ -165,10 +165,10 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 									goToCalculatorInput={this.goToCalculatorInput}
 									goToHistory={this.goToHistory}
 								/>
-								{!this.state.showReport ? (
-									<CalculatorOutputRecord person={this.person} record={this.record} />
-								) : (
+								{this.state.showReport ? (
 									<CalculatorOutputReport person={this.person} redirect={this.goToContact} />
+								) : (
+									<CalculatorOutputRecord person={this.person} record={this.record} />
 								)}
 							</div>
 						</div>

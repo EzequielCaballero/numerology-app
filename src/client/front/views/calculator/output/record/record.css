@@ -24,7 +24,7 @@
 
 .output-record-item {
 	align-items: center;
-	background: var(--element-background-2);
+	background: var(--element-background-4);
 	border: 1px solid var(--element-color-1);
 	border-bottom: 0;
 	border-radius: 20px 20px 0 0;
