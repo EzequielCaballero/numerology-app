@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { Routes } from '../../../back/sitemap/routes';
+import { ScrollToTop } from '../../hooks/scrolltotop';
 import { Head } from '../cross/head/head';
 import { Navbar } from '../cross/navbar/navbar';
 import { Footer } from '../cross/footer/footer';
@@ -15,6 +16,7 @@ export const App: React.FC = (): JSX.Element => {
 	return (
 		<ProviderSetup>
 			<div className="site">
+				<ScrollToTop />
 				<Head />
 				<header className="site-header">
 					<Navbar />
