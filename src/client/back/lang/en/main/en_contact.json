@@ -2,15 +2,28 @@
 	"headline": {
 		"subtitle": "Contact"
 	},
-	"title": "Hey there!",
-	"subtitle": [
-		"Thanks for visiting our website.",
-		"Are you interested in obtaining a more detailed and personal numerological study?"
+	"intro": [
+		"Hey there!",
+		"Thanks for visiting us"
 	],
 	"msg": [
-		"We offer as an additional service the preparation of a study from a personal interview.",
-		"You can send us an email for more information to:",
-		"Questions or suggestions are also welcome."
+		"Are you interested in obtaining a more detailed and personal numerological study?",
+		"We offer as an additional service the preparation of a study from a personal interview."
 	],
+	"form":{
+		"field": ["Name", "Email", "Message"],
+		"error": ["Please enter a value", "Please enter a valid email address"],
+		"btn": "Send"
+	},
+	"modal": {
+		"success": {
+			"title": "New contact sent",
+			"msg": "Thanks for your message! We will reach you as soon as possible."
+		},
+		"error":{
+			"title": "New contact not sent",
+			"msg": "Sorry, an error occurred. Please retry later."
+		}
+	},
 	"email": "destino.numerico@hotmail.com"
 }

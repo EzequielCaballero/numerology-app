@@ -1,0 +1,90 @@
+#contact-form {
+	margin: 1rem;
+}
+
+#contact-form > div {
+	position: relative;
+}
+
+#contact-form div > label.lbl-input-contact {
+	bottom: 0;
+	color: var(--font-color-3);
+	left: 0;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	position: absolute;
+	top: 10px;
+	transition: 0.3s;
+	width: 100%;
+}
+
+#contact-form div > label.lbl-input-contact-error {
+	bottom: 0;
+	color: var(--status-color-danger);
+	left: 0;
+	margin-top: 10px;
+	margin-bottom: 40px;
+	position: absolute;
+	top: 10px;
+	transition: 0.3s;
+	width: 100%;
+}
+
+#contact-form div > input,
+#contact-form div > textarea {
+	background: var(--element-background-4);
+	border: 2px solid var(--element-color-1);
+	border-radius: 15px;
+	color: var(--font-color-1);
+	left: 0;
+	margin-top: 10px;
+	outline: 0;
+	padding: 0.5rem;
+	padding-top: 30px;
+	position: relative;
+	top: 0;
+	width: 100%;
+}
+
+#contact-form div > textarea {
+	overflow: hidden;
+	resize: none;
+	white-space: pre-line;
+}
+
+/* FOCUS | VALID */
+#contact-form div > input:focus + label.lbl-input-contact,
+#contact-form div > textarea:focus + label.lbl-input-contact,
+#contact-form div > input:valid + label.lbl-input-contact,
+#contact-form div > textarea:valid + label.lbl-input-contact {
+	background: var(--element-color-1);
+	border: none;
+	bottom: 100%;
+	color: var(--font-color-1);
+	font-size: 70%;
+	margin-bottom: -25px;
+	text-transform: uppercase;
+	top: 0;
+}
+
+#contact-form button {
+	margin-top: 10px;
+	position: relative;
+	width: 100%;
+}
+
+#contact-form button > #svg_spinner_rotary {
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	top: 8px;
+	right: 75px;
+	transition: 0.3s;
+	width: 100%;
+}
+
+#contact-form button:disabled,
+#contact-form button:disabled:focus {
+	opacity: 0.7;
+	background: var(--btn-focus-background);
+}

@@ -1,9 +1,19 @@
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
+import { RoutePath } from '../../../back/sitemap/routes';
 import { ConsumerSetup } from '../../context/setup';
 import { Headline } from '../../components/headline/headline';
 import './about.css';
 
-export class About extends React.Component {
+export class About extends React.Component<RouteComponentProps> {
+
+	private goToContact = (): void => {
+		this.props.history.push({
+			pathname: RoutePath.Contact,
+			search: ''
+		});
+	};
+
 	public render(): React.ReactNode {
 		return (
 			<div className="box">
@@ -182,11 +192,10 @@ export class About extends React.Component {
 										<p>{translate.t('about.faq.5.answer.1')}</p>
 										<p>
 											{translate.t('about.faq.5.answer.2')}
-											<a href={`mailto:${translate.t('contact.email')}`}>
-												{' '}
-												<strong>{translate.t('contact.email')}</strong>
-											</a>
 										</p>
+										<button className="btn-action contacto" onClick={this.goToContact}>
+											{translate.t('about.faq.5.answer.3')}
+										</button>
 									</div>
 								</div>
 							</div>

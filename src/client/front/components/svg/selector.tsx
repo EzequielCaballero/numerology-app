@@ -13,6 +13,7 @@ import { SVGIconTrash } from './icon/trash';
 import { SVGIconView } from './icon/view';
 import { SVGLogoMandala } from './logo/mandala';
 import { SVGLogoGithub } from './logo/github';
+import { SVGSpinnerRotary } from './spinner/rotary';
 
 const _SVG_CATALOG = {
 	iconBack: SVGIconBack,
@@ -28,7 +29,8 @@ const _SVG_CATALOG = {
 	iconTrash: SVGIconTrash,
 	iconView: SVGIconView,
 	logoMandala: SVGLogoMandala,
-	logoGithub: SVGLogoGithub
+	logoGithub: SVGLogoGithub,
+	spinnerRotary: SVGSpinnerRotary
 };
 
 type TProps = {

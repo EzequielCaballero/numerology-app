@@ -2,15 +2,28 @@
 	"headline": {
 		"subtitle": "Contacto"
 	},
-	"title": "Hola!",
-	"subtitle": [
-		"Gracias por visitar nuestro sitio web.",
-		"¿Te interesa obtener un estudio numerológico más detallado y personal?"
+	"intro": [
+		"Hola!",
+		"Gracias por visitarnos"
 	],
 	"msg": [
-		"Ofrecemos como servicio adicional la elaboración de un estudio a partir de una entrevista personal.",
-		"Puedes enviarnos un email para obtener más información a:",
-		"Dudas o sugerencias también son bienvenidas."
+		"¿Te interesa obtener un estudio numerológico más detallado y personal?",
+		"Ofrecemos como servicio adicional la elaboración de un estudio a partir de una entrevista personal."
 	],
+	"form":{
+		"field": ["Nombre", "Email", "Mensaje"],
+		"error": ["Por favor ingrese un valor", "Por favor ingrese un email válido"],
+		"btn": "Enviar"
+	},
+	"modal": {
+		"success": {
+			"title": "Nuevo contacto enviado",
+			"msg": "¡Gracias por tu mensaje! Nos contactaremos a la brevedad."
+		},
+		"error":{
+			"title": "Nuevo contacto no enviado",
+			"msg": "Lo sentimos, ocurrió un error. Por favor intenta más tarde."
+		}
+	},
 	"email": "destino.numerico@hotmail.com"
 }
