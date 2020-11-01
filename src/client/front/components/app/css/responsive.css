@@ -7,14 +7,14 @@ DESKTOP
 		width: 1300px;
 	}
 	.home-content,
-	.contact-content,
 	.calculator-input {
 		margin: 1rem auto;
 		width: 550px;
 	}
 	.calculator-output,
 	.history-content,
-	.about-content {
+	.about-content,
+	.contact-content {
 		margin: 1rem auto;
 		width: 800px;
 	}
@@ -70,12 +70,12 @@ MOBILE
 		max-width: 600px;
 		padding: 1rem 0.5rem;
 	}
-	.about-question > span {
-		display: none;
-	}
 	.home-intro {
 		display: inline-block;
 		text-align: center;
+	}
+	.about-question > span {
+		display: none;
 	}
 }
 

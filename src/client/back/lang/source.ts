@@ -1,7 +1,7 @@
 import * as EN from './en';
 import * as ES from './es';
 
-export default {
+export const LanguageText = {
 	en: {
 		cross: EN.Cross,
 		home: EN.Home,

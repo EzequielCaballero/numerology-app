@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import Polyglot from 'node-polyglot';
-import LanguageText from '../../back/lang/source';
+import { LanguageText } from '../../back/lang/source';
 import { LocalStorage } from '../../back/services/handler/localstorage';
 import { BrowserConfig } from '../../back/services/handler/browserconfig';
 

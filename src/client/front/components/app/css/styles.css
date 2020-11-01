@@ -34,6 +34,16 @@ body::-webkit-scrollbar-thumb {
 	border-radius: 6px;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
 /* SITE PARTS */
 .site {
 	background-color: var(--global-background);
@@ -134,16 +144,4 @@ button:hover {
 .btn-circle:hover {
 	background: var(--btn-focus-background);
 	border-radius: 50%;
-}
-
-/* INPUT TYPE NUMBER */
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-
-input[type=number] {
-	-moz-appearance: textfield;
 }

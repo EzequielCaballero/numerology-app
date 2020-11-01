@@ -19,7 +19,7 @@ export class Home extends React.Component<RouteComponentProps> {
 							<div className="home-content">
 								<div className="home-description">
 									<div className="home-header">
-										<h2>{`${translate.t('home.headline.subtitle')} 👋`}</h2>
+										<h2>{translate.t('home.headline.subtitle')}</h2>
 										<i>{translate.t('cross.head.title_short')}</i>
 									</div>
 									<div className="home-intro">

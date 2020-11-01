@@ -63,7 +63,7 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 							key={`firstName-${index}`}
 							name={`firstName-${index}`}
 							type="text"
-							maxLength={30}
+							maxLength={20}
 							aria-label={`${translate.t('cinput.form.name.field.0')}-${index + 1}...`}
 							placeholder={`${translate.t('cinput.form.name.field.0')}-${index + 1}...`}
 							onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputName(event)}
@@ -101,7 +101,7 @@ export const CalculatorInputForm: React.FunctionComponent<TProps> = (props: TPro
 							key={`lastName-${index}`}
 							name={`lastName-${index}`}
 							type="text"
-							maxLength={30}
+							maxLength={20}
 							aria-label={`${translate.t('cinput.form.name.field.1')}-${index + 1}...`}
 							placeholder={`${translate.t('cinput.form.name.field.1')}-${index + 1}...`}
 							onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputName(event)}
