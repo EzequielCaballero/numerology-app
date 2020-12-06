@@ -39,7 +39,6 @@ export const ContactForm: React.FunctionComponent<TProps> = ({ contact, form, ha
                        maxLength={30}
                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInput(event)}
                        required
-                       disabled={form.sent}
                 />
                 <label className="lbl-input-contact" htmlFor="input-contact-name">*{translate.t('contact.form.field.0')}</label>
                 {
@@ -60,7 +59,6 @@ export const ContactForm: React.FunctionComponent<TProps> = ({ contact, form, ha
                        maxLength={40}
                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInput(event)} 
                        required
-                       disabled={form.sent}
                 />
                 <label className="lbl-input-contact" htmlFor="input-contact-email">*{translate.t('contact.form.field.1')}</label>
                 {
@@ -81,7 +79,6 @@ export const ContactForm: React.FunctionComponent<TProps> = ({ contact, form, ha
                           maxLength={120}
                           onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => handleInput(event)} 
                           required
-                          disabled={form.sent}
                 />
                 <label className="lbl-input-contact" htmlFor="input-contact-message">*{translate.t('contact.form.field.2')}</label>
                 {
