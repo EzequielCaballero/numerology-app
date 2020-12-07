@@ -60,9 +60,13 @@ TABLET
 MOBILE
 *******/
 
-/*Portrait*/
+/* Portrait */
 
 @media only screen and (max-width: 600px) {
+	.site {
+		/* Workaround: avoid background jump when navbar hides */
+		background-size: contain;
+	}
 	.box {
 		margin: 0.5rem;
 	}
@@ -79,9 +83,9 @@ MOBILE
 	}
 }
 
-/* MOBILE NAVBAR */
+/* Navbar */
+
 @media only screen and (max-width: 700px) {
-	/* NAVBAR */
 	.nav-custom > .nav-custom-btn {
 		display: inline-block;
 		position: absolute;
