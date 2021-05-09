@@ -1,0 +1,60 @@
+{
+	"title": "Clave personal",
+	"subtitle": "La síntesis del potencial Ser",
+	"description": "Marcado por la fecha de nacimiento, es el cara/cruz de cómo la persona puede manifestar sus cualidades.",
+	"calc": {
+		"base": "Valor estático basado en el día de nacimiento (ya pre-calculado)."
+	},
+	"report": {
+		"aspects": [ "Aspecto positivo", "Aspecto negativo" ],
+		"1": [
+			"persona optimista, con don de mando, original, emprendedora, sanamente solitaria.",
+			"persona mandona, restrictiva, ermitaña, solitaria negativa, testaruda."
+		],
+		"2": [
+			"persona pacificadora, diplomática, armoniosa, estética, natural.",
+			"mártir de la familia, sometimiento a ultranza."
+		],
+		"3": [
+			"persona expresiva, artística, creativa, leal a sí misma, talentosa.",
+			"persona indecisa, necesidad de aprobación, dispersión de talentos."
+		],
+		"4": [
+			"persona constructiva, constante, organizada.",
+			"persona insatisfecha, prejuiciosa, sexualidad cerrada, vacio interno."
+		],
+		"5": [
+			"persona curiosa, sexualidad fuerte, inquieta, dinámica.",
+			"persona reprimida, negatividad de libido, estática, inmóvil."
+		],
+		"6": [
+			"persona amorosa, atenta, dedicada, armónica.",
+			"persona conflictuada, infantil, celosa, discutidora, apegada negativamente al hogar natal."
+		],
+		"7": [
+			"persona confiada en sí misma, certera, perceptiva.",
+			"persona con falta de confianza, con luchas y obstáculos constantes."
+		],
+		"8": [
+			"equilibrio emocional, expansión económica, vejez asegurada en lo material.",
+			"inestabilidad emocional, logros escasos, limitación material, tendrá, pero sólo lo imprescindible."
+		],
+		"9": [
+			"servicial, espontaneidad, dedicación amorosa a sí mismo y a terceros.",
+			"posibles cuestiones amorosas desafortunadas. Traiciones y decepciones de sus pares de género."
+		],
+		"10": [
+			"persona optimista, con don de mando, original, emprendedora, sanamente solitaria.",
+			"persona mandona, restrictiva, ermitaña, solitaria negativa, testaruda."
+		],
+		"11": [ "altruismo, notoriedad, desapego de su historia, elevación.", "vacilación extrema y constante." ],
+		"12": [
+			"expresividad, sociabilidad, lealtad vincular.",
+			"problemas con el mando, conflictos con la autoridad, falta de tacto y antipatía."
+		],
+		"13": [
+			"fuerza dominante positiva, independencia natural, sana audacia.",
+			"adversión negativa a ser manejados o dominados, manipulador, toman lo que desean sin limitación."
+		]
+	}
+}

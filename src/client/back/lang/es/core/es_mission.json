@@ -1,0 +1,23 @@
+{
+	"title": "Misión",
+	"subtitle": "Propósito o destino en la vida",
+	"description": "Simboliza qué debemos aprender en nuestra relación con el mundo.",
+	"calc": {
+		"base": "Se extraen todas las letras del nombre."
+	},
+	"report": {
+		"aspects": [],
+		"1": "Ser uno mismo ante el mundo. Creatividad, originalidad, autonomía, capacidad de mando, energía, liderazgo, cumplidor en sus objetivos.",
+		"2": "Aprender a establecer sanas sociedades, no pelearse con uno mismo. Dar lugar al niño interior, a la expresión espontánea, tener tacto, diplomacia, mediar cuando sea requerido, no someter a otros ni a uno mismo.",
+		"3": "Ser leal a uno mismo, ante los demás, no dar vueltas, descubrir la propia verdad y transitarla, encontrar un vehículo auto expresivo, vivir haciendo a pesar de los supuestos impedimentos.",
+		"4": "Romper la estructura que se trae de la infancia, vencer prejuicios, construir lo propio en el mundo de lo material, de la acción real, aprender constancia y dedicación.",
+		"5": "Soltar la historia, encontrar el lado más placentero y divertido de la vida, dar al alma y placer a través del cuerpo y viceversa.",
+		"6": "Sexualidad libre, sana, abierta, sin prejuicios, actividad constante, acción constante, soltarse de verdad.",
+		"7": "Aprender a estar solo sin sentirse solo, estar orgulloso de lo que se es, perfeccionarse para ser el mejor que uno pueda ser sin compararse, con confianza en uno, sin aislarse.",
+		"8": "Autorizarse a lo que la autoridad familiar no habilitó. Equilibrio entre el adentro y el afuera. Ser dueño de uno mismo en lo económico, preferentemente de forma autónoma.",
+		"9": "Dar sin esperar, hacer por el placer de hacer, más allá de lo que le sea devuelto, tanto en lo emocional como en lo material.",
+		"11": "Soltar el pasado, dejar de depender de la mirada ajena, ni tampoco vivir pendiente de lo que hacen los demás. Darse permiso a ir detrás de lo que el alma plenamente desea, sin aceptar nada por menos.",
+		"22": "Romper límites geográficos y emocionales, apuntar alto, proyectar por encima de lo común, trascender lo habitual aún en las pequeñas cosas.",
+		"33": ""
+	}
+}

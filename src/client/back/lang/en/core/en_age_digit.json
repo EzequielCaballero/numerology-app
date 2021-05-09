@@ -1,0 +1,23 @@
+{
+	"title": "Age digit",
+	"subtitle": "The numerological influence according to age",
+	"description": "It is an indication of what a certain year of your life generally holds.",
+	"calc": {
+		"base": "Current age + next age."
+	},
+	"report": {
+		"aspects": [],
+		"1": "This year will be a period of new interests, it is auspicious for a start in a new direction. Here new ideas, new occupations will benefit.",
+		"2": "This number located in the age digit place has a vibration that can be limiting or inspiring, it depends on personal choice. Normally they induce the change of home, business or society.",
+		"3": "Here the influence determines a social (bonding, relational) or artistic (creative, work) beginning. The way to determine this course will be by looking at the personal year.",
+		"4": "It indicates more a year of routine than action, it will be conducive to putting matters in order.",
+		"5": "It points out changes that can occur in all order of life, that is, moving, changing jobs, interior changes, etc.",
+		"6": "This number advises to think very hard before making a determination. It can lead to relationship modifications in the home, which sometimes lead to separation or divorce.",
+		"7": "It is a good period for occult science studies and meditation. It is a time of rethinking and introspection while keeping an eye on health and finances.",
+		"8": "Year with positive influence on financial matters. Ideal for closing business deals.",
+		"9": "It signals the closing of a period and the imminent beginning of a journey in a new direction.",
+		"11": "It offers inspiration, peace, and it will give you the possibility of projecting yourself as long as you live according to your own aspirations, without giving up your own desires.",
+		"22": "",
+		"33": ""
+	}
+}

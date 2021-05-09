@@ -1,0 +1,67 @@
+{
+	"title": "Esencia",
+	"subtitle": "El Ser de uno",
+	"description": "Constituye las herramientas y capacidades con las que potencialmente contamos para afrontar nuestros desafíos. La alternancia entre positividad, negatividad, y destructividad, depende de cómo la persona esté transitando su vida y realizando los aprendizajes que le tocan.",
+	"calc": {
+		"base": "Se extraen las vocales del nombre."
+	},
+	"report": {
+		"aspects": [ "Aspecto positivo", "Aspecto negativo", "Aspecto destructivo" ],
+		"1": [
+			"capacidad de ser uno, creativo, original, darse el primer lugar, sentirse muy bien con uno mismo, liderazgo, auto dependencia emocional.",
+			"despersonalización, salirse de uno en busca de ser otro para atraer cariño. Profunda soledad del corazón, que no se va por mas rodeado que esté. Aislamiento.",
+			"tiranía, extremo egocentrismo, manipulación, matonismo."
+		],
+		"2": [
+			"tacto, diplomacia, capacidad natural de asociarse. Sano criterio para mediar. Armonía, servicio, pacificador natural.",
+			"sometimiento, escisión, timidez, ceder terreno para ser querido, indecisión constante, hipersensibilidad, intromisión en vida ajena.",
+			"crueldad, constante fluctuación emocional del júbilo a la depresión, dualidad patológica, profunda división del yo niño con el yo adulto."
+		],
+		"3": [
+			"lealtad a sí mismo. Auto expresión, natural sociabilidad, espontaneidad, gran sentido creativo-artístico.",
+			"fundamentalismo, chismerío, baja expresividad, deslealtad consigo mismo, necesidad de aprobación, dispersión de talentos, inconstancia.",
+			"intolerancia, estafa, hipocresía a ultranza, vehemencia y violencia verbal en la manifestación de ideas."
+		],
+		"4": [
+			"ordenado, trabajador, constante, dedicado, constructivo de lo propio rompiendo encierros vinculares iniciales.",
+			"estrechez mental, encierro emocional, prejuicios, limitación en la construcción de lo material, tendencia a controlar, culpa sexual.",
+			"insatisfacción, falta de plenitud en el alma, violencia, exceso de control sobre si y los demás, crueldad, prejuicio extremo, seria represión sexual."
+		],
+		"5": [
+			"libertad, dinamismo, liderazgo, versatilidad, adaptabilidad al cambio, apertura sexual, mente abierta, sana curiosidad, sano transgresor. Desapego.",
+			"limitación, temor a mostrarse en la intimidad, irresponsabilidad, libertinaje, dilaciones, amores que empiezan con pasión y terminan con decepción.",
+			"drogas, malevolencia, bebidas, líder negativo, transgresor infame y negativo, destructor."
+		],
+		"6": [
+			"parentalidad (padre/madre) natural, serena capacidad de decidir, madurez, amorosidad, sentido estético de belleza y armonía, capacidad pedagógica.",
+			"ansiedad, testarudez, inmadurez, negativa idealización, deseo de no crecer, ligazón extrema a la infancia, no despegar de la familia natal.",
+			"obstinación, celos enfermizos, posesividad a ultranza, infantilismo extremo, cinismo, tiranía domestica."
+		],
+		"7": [
+			"confianza en sí mismo, intelecto positivo, adquisición rápida de conocimientos, capacidad de introspección, búsqueda del más allá de lo que se ve.",
+			"escepticismo, búsqueda de perfección, falta de confianza en sí mismo, exceso de orden, desconfianza, aislamiento emocional, exceso de razonamiento.",
+			"encierro emocional, retracción del yo, terror a la traición, perfeccionismo a ultranza, obsesión enfermiza, exigencia extrema."
+		],
+		"8": [
+			"capacidad laboral natural, equilibrio entre el ser y el hacer, aptitud para liderar, negociar, atraer oportunidades, autoridad, pragmatismo.",
+			"impaciencia, excesivo materialismo, tensión, intriga, búsqueda material incesante, desencuentro entre el ser y el hacer.",
+			"opresión, venganza, estafa por la búsqueda de satisfacción material, injusticia, torpeza, vicios."
+		],
+		"9": [
+			"compasión, amor universal, hacer por el placer de hacer, sanador natural, gran intuición, sano brujo.",
+			"fuerte resentimiento, desconfianza, malas elecciones amorosas, hacer por recibir, decepción de todo y de todos.",
+			"amargura, falsedad extrema por temor al rechazo, dejadez, egoísmo."
+		],
+		"11": [
+			"intuición, inspiración, elevación, desapego de comunes miserias humanas, sano idealismo, capacidad de ir detrás de sus deseos sin aceptar menos.",
+			"pesada carga del pasado, carencia de aspiración, dualidad, vacilación, no comprensión, sometimiento.",
+			"miseria, maldad, encierro total, degradación de sí mismo, deshonestidad."
+		],
+		"22": [
+			"sano deseo de poder y trascendencia, sentido, capacidad de soltar encierros emocionales de la infancia, rompiendo limites, saliendo geográfica y emocionalmente de los mismos.",
+			"estructura, limitación, estrechez, inferioridad.",
+			"estafa, temeridad, encierro patológico, depresión, incapacidad extrema en lo material y emocional."
+		],
+		"33": [ "", "", "" ]
+	}
+}

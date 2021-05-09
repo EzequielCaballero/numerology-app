@@ -1,0 +1,34 @@
+{
+	"title": "Stages",
+	"subtitle": "The cycles of Being",
+	"description": "Every person goes through this life in an order and that order has a rhythm and that rhythm is divided into 4 stages, each one with its lesson / objective according to the number that governs it.",
+	"calc": {
+		"base": "Birthdate as base.",
+		"total": "Total: 4 stages.",
+		"duration": "Middle duration: 9 years.",
+		"start": "Start: from 0 age to (36 - natal path).",
+		"stage": "Stage %{num}° | %{from} -> %{to}",
+		"stage_result": "Stage %{num}° | %{from} -> %{to} = %{result}",
+		"result": [
+			"(result = month + day)",
+			"(result = day + year)",
+			"(result = 1st + 2nd stage)",
+			"(result = month + year)"
+		]
+	},
+	"report": {
+		"aspects": [],
+		"1": "Delineate, strengthen, and reinforce the self.",
+		"2": "To associate fundamentally with oneself, establishing a union between the child and the adult.",
+		"3": "Finding yourself with your own truth, listening to yourself, to set aside the approval of others.",
+		"4": "Break the confinement, destroy the insane prejudices.",
+		"5": "Enable yourself to the world, transit curiosities, know freedom.",
+		"6": "Finish umbilical conditioning, conviction in deciding and facing consequences. Work on emotional dependence.",
+		"7": "Break the limitations that the father / mother figure imposed. Build confidence in yourself.",
+		"8": "Authorize yourself, repair the affections left by the family bond, go out into the world as soon as possible.",
+		"9": "Finding the desire and working on doing for oneself, to eliminate the consequences left by the overprotection or the strong and conflicting emotional experiences lived at this stage.",
+		"11": "Quickly learn the differentiation between your own desire and that of others, to eliminate the level of demand and the pressures that the home imposed.",
+		"22": "Formalize a quick exit through the construction of economic incomes or material acquisition.",
+		"33": ""
+	}
+}

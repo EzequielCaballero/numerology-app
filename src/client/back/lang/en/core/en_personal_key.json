@@ -1,0 +1,54 @@
+{
+	"title": "Personal key",
+	"subtitle": "The synthesis of the potential Being",
+	"description": "Marked by the date of birth, it is the face / cross of how our qualities can be manifested.",
+	"calc": {
+		"base": "Static value based on the day of birth (already pre-calculated)."
+	},
+	"report": {
+		"aspects": [ "Positive aspect", "Negative aspect" ],
+		"1": [
+			"optimistic, gift of command, original, entrepreneur, healthily lonely.",
+			"bossy, restrictive, hermit, negative loner, stubborn."
+		],
+		"2": [
+			"pacifying, diplomatic, harmonious, aesthetic, natural.",
+			"martyr of the family, submission at all costs."
+		],
+		"3": [
+			"expressive, artistic, creative, self-loyal, talented.",
+			"indecisive, need for approval, dispersion of talents."
+		],
+		"4": [
+			"constructive, constant, organized.",
+			"dissatisfied, prejudiced, closed sexuality, internal emptiness."
+		],
+		"5": [ "curious, strong sexuality, restless, dynamic.", "repressed, libido negativity, static, immobile." ],
+		"6": [
+			"loving, attentive, dedicated, harmonious.",
+			"conflicted, childish, jealous, argumentative, negatively attached to the native home."
+		],
+		"7": [ "confident, accurate, perceptive.", "lacking confidence, in constant struggles and obstacles." ],
+		"8": [
+			"emotional balance, economic expansion, materially assured old age.",
+			"emotional instability, limited achievements, material limitation, you will have, but only what is essential."
+		],
+		"9": [
+			"helpful, spontaneity, loving dedication to self and others.",
+			"possible unfortunate love affairs. Betrayals and disappointments of their gender peers."
+		],
+		"10": [
+			"optimistic, gift of command, original, entrepreneur, healthily lonely.",
+			"bossy, restrictive, hermit, negative loner, stubborn."
+		],
+		"11": [ "altruism, notoriety, detachment from its history, elevation.", "extreme and constant hesitation." ],
+		"12": [
+			"expressiveness, sociability, emotional loyalty.",
+			"problems with command, conflicts with authority, lack of tact and antipathy."
+		],
+		"13": [
+			"positive dominant force, natural independence, healthy boldness.",
+			"negative adversity to be managed or dominated, manipulative, they take what they want without limitation."
+		]
+	}
+}

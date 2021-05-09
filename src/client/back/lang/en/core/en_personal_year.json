@@ -1,0 +1,67 @@
+{
+	"title": "Personal year",
+	"subtitle": "The annual numerological influence",
+	"description": "Its influence indicates what kinds of experiences we can experience during the current year.",
+	"calc": {
+		"base": "Birth (day + month) + current year."
+	},
+	"report": {
+		"aspects": [ "Distinction", "Positive aspect", "Negative aspect" ],
+		"1": [
+			"Year of beginnings.",
+			"a year one is a year of meeting with oneself, of strengthening the I, of beginning studies, work or couples.",
+			"a year not taken advantage of, will bring a lot of loneliness and isolation for the person."
+		],
+		"2": [
+			"Year of ties.",
+			"it will bring good bonds, strengthening of relationships and also improvement of what started the previous year.",
+			"it symbolizes a deep crisis in most of the bonds that the person has, including the bond with himself. If so, it will be a year of dualities, crisis, separations or conflicts."
+		],
+		"3": [
+			"Year of expansion.",
+			"life draws curtains so that truths appear, and a change takes place, which must come from your decision. It is a year to earn money with less effort, to open the circle of relationships, have fun, expand.",
+			"It will be a year of dispersion and non-concretion, thus losing all the good that the year offers."
+		],
+		"4": [
+			"Year of construction.",
+			"It will be a year of much construction, evolution and expansion, of putting things in order. It is to debug issues that could remain from the encounter with your truths from the previous one.",
+			"It will require a great deal of effort for a barely small achievement, which will not give satisfactions equivalent to the effort made."
+		],
+		"5": [
+			"Year of freedom.",
+			"the freedom of the individual, detachment, destructuring is strengthened. Ideal for short trips, removals, end of relations.",
+			"it may be a time that leads to poorly constituted couples or that brings economic losses or bad business transactions. Nothing should stay the same in a year 5."
+		],
+		"6": [
+			"Year of maturity.",
+			"it will bring new loves, pregnancies, reunions with very satisfactory affections, strengthening of bonds, house arrangements or home purchase.",
+			"it may bring conflicts at the family level and affective bonds in general."
+		],
+		"7": [
+			"Year of improvement.",
+			"improvement in quality of life in all aspects, less burden from the past, excellent for studies, specialize or start therapy.",
+			"it tends to sink the person who not let go, and can aggravate symptoms such as depression or phobias as well as lead to existential rethinking."
+		],
+		"8": [
+			"Year of opening.",
+			"feeling fulfilled and in balance between feel and do. The year demands avoiding lockdown, changing job, improving income.",
+			"changes forced by material interest can have the opposite effect on the emotional."
+		],
+		"9": [
+			"Year of endings.",
+			"transformation, release of burdens, strengthening of bonds that are maintained.",
+			"Inaction will make life change or end aspects of your life in a drastic way. Your own health or that of relatives may be affected."
+		],
+		"11": [
+			"Year to shine.",
+			"growth, improvement, achievement of goals.",
+			"you will have a time full of tension and pressure, tied to silly details and getting into dead ends."
+		],
+		"22": [
+			"Year of release.",
+			"winning streak by taking risks, liberation and breaking schemes, expansion, ideal for taking trips.",
+			"It will lead to closures, narrowing of possibilities, loss of expansion, sadness, feeling of being depressed."
+		],
+		"33": [ "", "", "" ]
+	}
+}

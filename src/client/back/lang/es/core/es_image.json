@@ -1,0 +1,23 @@
+{
+	"title": "Imagen",
+	"subtitle": "Cómo nos ven los demás",
+	"description": "Es lo que la gente percibe de nosotros, una sensación, la primera impresión.",
+	"calc": {
+		"base": "Se extraen las consonantes del nombre."
+	},
+	"report": {
+		"aspects": [],
+		"1": "Persona soberbia, alguien que parece agrandada para los otros y que en consecuencia sobresale.",
+		"2": "Una persona a la que todo el mundo le va a pedir consejos, mediadora.",
+		"3": "Confiable, creíble su palabra, muy locuaz, muy sociable, muy ejecutiva. Resalta su honestidad, presta a confianza, un amigo.",
+		"4": "Constante, férreo en sus principios. Formal.",
+		"5": "Líder, alguien versátil, dinámico.",
+		"6": "Figura parental (madre o padre), inspira a proyectar un futuro junto a la persona.",
+		"7": "Inaccesible, con una especie de campo de fuerza que repele. Infunde un halo de misterio.",
+		"8": "Persona capacitada, con don de mando, ejecutiva con perfil de liderazgo para manejar equipos.",
+		"9": "Modelo a seguir, todos van a esa persona, tiene un magnetismo natural, un hermano universal.",
+		"11": "Nivel guía, alguien que puede guiar con opiniones y/o consejos fundados. Carece de prejuicios evidentes.",
+		"22": "Persona ambiciosa, no conformista, que busca más y ejecuta en consecuencia.",
+		"33": "Maestro ascendido."
+	}
+}

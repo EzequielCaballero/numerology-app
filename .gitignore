@@ -9,10 +9,6 @@
 # production
 /build
 
-# core language
-/src/client/back/lang/es/core*
-/src/client/back/lang/en/core*
-
 # misc
 .DS_Store
 .env.local

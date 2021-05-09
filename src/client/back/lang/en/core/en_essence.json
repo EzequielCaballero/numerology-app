@@ -1,0 +1,67 @@
+{
+	"title": "Essence",
+	"subtitle": "The Being of one",
+	"description": "It constitutes the tools and capacities that we potentially have to face our challenges. The alternation between positivity, negativity, and destructiveness, depends on how the person is going through her life and carrying out the learning that touched her.",
+	"calc": {
+		"base": "The vowels of the name are extracted."
+	},
+	"report": {
+		"aspects": [ "Positive aspect", "Negative aspect", "Destructive aspect" ],
+		"1": [
+			"ability to be one, creative, original, put yourself first, feel very good about yourself, leadership, emotional self-dependence.",
+			"depersonalization, leaving one in search of being another to attract affection. Deep loneliness of the heart, which does not leave no matter how surrounded it is. Isolation.",
+			"tyranny, extreme self-centeredness, manipulation, bullying."
+		],
+		"2": [
+			"tact, diplomacy, natural ability to associate. Sound criterion to mediate. Harmony, service, natural peacemaker.",
+			"submission, split, shyness, giving ground to be loved, constant indecision, hypersensitivity, intrusion in the life of others.",
+			"cruelty, constant emotional fluctuation from joy to depression, pathological duality, deep division of the child self with the adult self."
+		],
+		"3": [
+			"loyalty to himself. Self expression, natural sociability, spontaneity, great creative-artistic sense.",
+			"fundamentalism, gossip, low expressiveness, disloyalty to oneself, need for approval, dispersion of talents, inconstancy.",
+			"intolerance, fraud, extreme hypocrisy, vehemence and verbal violence in the expression of ideas."
+		],
+		"4": [
+			"orderly, hard-working, constant, dedicated, constructive of one's own, breaking initial ties.",
+			"narrow-mindedness, emotional closure, prejudices, limitation in the construction of the material, tendency to control, sexual guilt.",
+			"dissatisfaction, lack of fullness in the soul, violence, excess control over oneself and others, cruelty, extreme prejudice, serious sexual repression."
+		],
+		"5": [
+			"freedom, dynamism, leadership, versatility, adaptability to change, sexual openness, open mind, healthy curiosity, healthy transgressor. Detachment.",
+			"limitation, fear of showing intimacy, irresponsibility, debauchery, procrastination, loves that begin with passion and end with disappointment.",
+			"drugs, malevolence, drinks, negative leader, nefarious and negative transgressor, destroyer."
+		],
+		"6": [
+			"natural parenting (father / mother), serene decision-making ability, maturity, loving-kindness, aesthetic sense of beauty and harmony, pedagogical ability.",
+			"anxiety, stubbornness, immaturity, negative idealization, desire not to grow up, extreme attachment to childhood, not detach from the native family.",
+			"stubbornness, unhealthy jealousy, extreme possessiveness, extreme infantilism, cynicism, domestic tyranny."
+		],
+		"7": [
+			"self-confidence, positive intellect, rapid acquisition of knowledge, capacity for introspection, search for the beyond of what is seen.",
+			"skepticism, search for perfection, lack of self-confidence, excess of order, mistrust, emotional isolation, excess of reasoning.",
+			"emotional confinement, withdrawal of the self, terror of betrayal, extreme perfectionism, unhealthy obsession, extreme demand."
+		],
+		"8": [
+			"natural work capacity, balance between being and doing, aptitude to lead, negotiate, attract opportunities, authority, pragmatism.",
+			"impatience, excessive materialism, tension, intrigue, incessant material search, misunderstanding between being and doing.",
+			"oppression, revenge, fraud in the pursuit of material satisfaction, injustice, clumsiness, vices."
+		],
+		"9": [
+			"compassion, universal love, doing for the pleasure of doing, natural healer, great intuition, healthy sorcerer.",
+			"strong resentment, mistrust, bad love choices, making to receive, disappointment of everything and everyone.",
+			"bitterness, extreme falsehood for fear of rejection, neglect, selfishness."
+		],
+		"11": [
+			"intuition, inspiration, elevation, detachment from common human miseries, healthy idealism, ability to go after your desires without accepting less.",
+			"heavy burden of the past, lack of aspiration, duality, hesitation, lack of understanding, submission.",
+			"misery, wickedness, total confinement, degradation of himself, dishonesty."
+		],
+		"22": [
+			"healthy desire for power and transcendence, meaning, ability to release emotional confinements of childhood, breaking boundaries, geographically and emotionally leaving them.",
+			"structure, limitation, narrowness, inferiority.",
+			"scam, recklessness, pathological confinement, depression, extreme material and emotional disability."
+		],
+		"33": [ "", "", "" ]
+	}
+}

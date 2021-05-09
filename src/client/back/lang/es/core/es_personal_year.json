@@ -1,0 +1,67 @@
+{
+	"title": "Año personal",
+	"subtitle": "La influencia numerológica anual",
+	"description": "Su influencia indica qué tipo de experiencias podemos llegar a experimentar durante el año en curso.",
+	"calc": {
+		"base": "Nacimiento (día + mes) + año actual."
+	},
+	"report": {
+		"aspects": [ "Distinción", "Aspecto positivo", "Aspecto negativo" ],
+		"1": [
+			"Año de inicios.",
+			"un año uno es un año de encuentro con uno mismo, de fortalecimiento del YO, de comienzo para estudios, trabajo o parejas.",
+			"un año uno no aprovechado, traerá mucha soledad y aislamiento para la persona."
+		],
+		"2": [
+			"Año de  vínculos.",
+			"traerá buenos vínculos, afianzamiento de relaciones y además mejoramiento de lo iniciado el año anterior.",
+			"simboliza una crisis profunda en la mayoría o todos los vínculos que la persona tiene, incluso el vínculo consigo mismo. De ser así, será un año de dualidades, de crisis, de separaciones o de conflictos."
+		],
+		"3": [
+			"Año de expansión.",
+			"la vida corre telones para que aparezcan verdades, y se produzca un cambio, que debe venir de su decisión. Es un año para ganar dinero con menos esfuerzo, para abrir el círculo de relaciones, divertirse, expandirse.",
+			"será un año de dispersión y de no concreción, perdiendo así todo lo bueno que el año brinda."
+		],
+		"4": [
+			"Año de construcción.",
+			"será un año de mucha construcción, evolución y expansión, de poner orden las cosas. Es para depurar cuestiones que pudieron quedar del encuentro con tus verdades del anterior.",
+			"demandará muchísimo esfuerzo para un logro apenas pequeño, que no dará satisfacciones equivalentes al esfuerzo realizado."
+		],
+		"5": [
+			"Año de libertad.",
+			"se afianza la libertad del individuo, desapego, desestructuramiento. Ideal para viajes cortos, mudanzas, final de relaciones.",
+			"puede que sea un tiempo que se lleve parejas mal constituidas o que traiga pérdidas económicas o malas transacciones comerciales. Nada debe quedar igual en un año 5."
+		],
+		"6": [
+			"Año de madurez.",
+			"traerá nuevos amores, embarazos, reuniones con afectos muy satisfactorios, afianzamiento de vínculos, arreglos de la casa o compra de vivienda.",
+			"puede que traiga conflictos a nivel familiar y vínculos afectivos en general."
+		],
+		"7": [
+			"Año de perfeccionamiento.",
+			"mejora en la calidad de vida en todos los aspectos, menos carga del pasado, excelente para estudios, especializarse o iniciar terapia.",
+			"tiende a hundir a la persona que no suelta, y puede agravar síntomas como depresión o fobias asi como llevar a replanteos existenciales."
+		],
+		"8": [
+			"Año de apertura.",
+			"sentirse realizado y en equilibrio entre el sentir y el hacer. El año demanda evitar el encierro, cambiar de trabajo, mejorar ingresos.",
+			"cambios forzados por interés material pueden traer el efecto contrario en lo emocional."
+		],
+		"9": [
+			"Año de finales.",
+			"transformación, liberación de cargas, fortalecimiento de vínculos que se mantengan.",
+			"la inacción hará que la vida cambie o termine aspectos de su vida de una forma drástica. Puede verse afectada la salud propia o de allegados."
+		],
+		"11": [
+			"Año para brillar.",
+			"crecimiento, superación, concreción de metas.",
+			"lo pasará lleno de tensiones y presiones, atado a detalles tontos y metiéndose en callejones sin salida."
+		],
+		"22": [
+			"Año de liberación.",
+			"racha ganadora al tomar riesgos, liberación y ruptura de esquemas, expansión, ideal para emprender viajes.",
+			"dará lugar a encierros, achicamiento de posibilidades, perdida de expansión, tristezas, sensación de deprimirse."
+		],
+		"33": [ "", "", "" ]
+	}
+}

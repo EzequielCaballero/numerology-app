@@ -1,0 +1,72 @@
+{
+	"title": "Karmas",
+	"subtitle": "Lo que se trae, lo que se debe pagar",
+	"description": "Es una deuda contraída con el alma a ser pagada en conductas emocionales y cuya morosidad genera consecuencias en el presente.",
+	"calc": {
+		"base": "Basado en valores que aparecen antes de reducir (13|14|16|19)",
+		"part": [ "Esencia", "Misión", "Sendero", "N° faltante" ],
+		"potential": "Karma potencial basado en los números faltantes (1-9) durante cálculo de misión + sendero natal.",
+		"k_empty": "Sin karmas",
+		"pk_empty": "ninguno"
+	},
+	"report": {
+		"aspects": [ "Deuda", "Acción" ],
+		"13": [
+			"se trata de personas que se han sobre adaptado o que han crecido bajo severos prejuicios sobre la sexualidad y libertad en general.",
+			"demanda la necesidad de una gran transformación, de un importante renacimiento, de volver a empezar."
+		],
+		"14": [
+			"frecuentemente no entienden las motivaciones ajenas ni las propias, actúan de un modo y piensan de otro y van detrás de cosas que al conseguirlas tampoco les producen plena felicidad.",
+			"demanda aceptación y templanza, es decir, recibir lo que pasa, entender y comprender no solo el \"por qué\" sino más bien el \"para qué\"."
+		],
+		"16": [
+			"la persona pasa siempre por lo mismo. Solo debe desear algo para que cuando lo está por alcanzar o lo alcanzó, lo pierda, se le vaya, se le rompa, como si fuera agua que se escurre entre sus manos.",
+			"demanda optimismo, tener confianza en uno mismo y desapego de lo material."
+		],
+		"19": [
+			"suelen ser personas manipuladoras, esto significa que a través del poder o de la dominación o de constituirse en víctimas manipulan la acción de los otros para que haga su voluntad.",
+			"demanda paz, ausencia de dominación hacia el otro, obrar con buena voluntad sin intensiones egoístas."
+		],
+		"potential": {
+			"title": "Karma potencial",
+			"subtitle": "La lección kármica",
+			"description": "Se trata de una deuda contraída en esta vida y se manifiesta en los números faltantes al calcular nuestra esencia, misión o sendero.",
+			"1": [
+				"carencia de iniciativa, ambición, originalidad e independencia, esto significa que se deja constantemente de lado.",
+				"deberá aprender a tomar decisiones de forma contundente e iniciar por sí mismo cosas nuevas. Autorizándose a ser quien siente ser."
+			],
+			"2": [
+				"timidez hasta el punto de eludir compañías. Fracasa al ahorrar tiempo y dinero.",
+				"deberá reconocer y acompañar a su niño interior que no pudo ser."
+			],
+			"3": [
+				"inexpresividad, piensa mejor de lo que puede decir.",
+				"deberá comenzar a expresarse a través de cualquier medio creativo o artístico pero sobre todo con la palabra."
+			],
+			"4": [
+				"aversión al trabajo, a la atención por los detalles, la dedicación y el orden.",
+				"deberá aprender constancia y dedicación en la construcción de lo propio (material y/o emocional), sin eludir el esfuerzo que demande."
+			],
+			"5": [
+				"temor al cambio, falta de comprensión y curiosidad por las nuevas experiencias.",
+				"deberá aprender a ser libre, curioso, pragmático, versátil."
+			],
+			"6": [
+				"resistencia a la creación de vínculos que demandan alta responsabilidad, como formar una familia.",
+				"deberá tomar una decisión y sostenerla con acciones, madurar, eludir el capricho y la eterna demanda."
+			],
+			"7": [
+				"desequilibrio y falta de comprensión entre lo material y lo espiritual.",
+				"deberá aprender a no prejuzgar, a no sacar conclusiones sin antes un previo análisis."
+			],
+			"8": [
+				"dependencia en lo económico y emocional.",
+				"deberá aprender a ser dueño de sus emociones, a desarrollar aptitudes para organizar y dirigir un emprendimiento propio."
+			],
+			"9": [
+				"egoísmo e interés al obrar en pos de otros.",
+				"deberá aprender a ser servicial, desinteresado, sin esperar compensación alguna."
+			]
+		}
+	}
+}

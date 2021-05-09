@@ -1,0 +1,23 @@
+{
+	"title": "Mes personal",
+	"subtitle": "La influencia numerológica mensual",
+	"description": "Siempre dependiente del año personal, indica potenciales experiencias durante el mes en curso.",
+	"calc": {
+		"base": "Año personal + mes actual."
+	},
+	"report": {
+		"aspects": [],
+		"1": "Inicio, comienzos, fuerza para hacer un cambio, momento de profundizar en yo mismo",
+		"2": "Tiempo de asociarse, de relacionarse mejor uno con lo iniciado.",
+		"3": "Sociabilidad, apertura, esparcimiento, encuentro con verdades con respecto a la influencia dominante (el año personal).",
+		"4": "Es un mes positivo para fundar, construir algo nuevo, dentro de lo que la influencia anual indique.",
+		"5": "Este mes propone cambios, movimientos finales para comienzos nuevos. Demanda movimiento, viajes, ventas, salidas, moviliza la sexualidad, la curiosidad.",
+		"6": "Momento que posibilita encuentros amorosos, ya sea en una nueva relación o con familia, amigos, gente conocida. Es bueno para exaltar actividades dentro del campo pedagógico o artístico.",
+		"7": "Introspección, meterse hacia adentro, buscar sus deseos del alma, soltar mandatos, lo que inhibe de manifestarte libremente, ya sea en su pareja, trabajo, familia o en lo que el año personal indique.",
+		"8": "Buen mes para el dinero, vendrá algo extra o se irá algo extra… todo depende de cómo esté viviendo.",
+		"9": "Cierres, finales, reciclamiento de cuestiones, situaciones diversas, éste mes pide que no deje pasar más tiempo sin terminar lo que haya que terminar de una vez.",
+		"11": "Este mes invita a elevar su espiritualidad, no alterar su rumbo por lo material, no traicionar su alma.",
+		"22": "Mes ideal para ir por más como viajes al exterior, romper una limitación, salir de un encierro emocional, ampliar un negocio o pedir un aumento.",
+		"33": ""
+	}
+}

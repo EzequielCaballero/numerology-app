@@ -1,0 +1,23 @@
+{
+	"title": "Dígito de edad",
+	"subtitle": "La influencia numerológica según la edad",
+	"description": "Es un indicio de qué depara en general un determinado año de su vida.",
+	"calc": {
+		"base": "Edad actual + edad próxima."
+	},
+	"report": {
+		"aspects": [],
+		"1": "Este año será un período de nuevos intereses, es propicio para un inicio en una nueva dirección. Aquí se verán beneficiadas nuevas ideas, nuevas ocupaciones.",
+		"2": "Este número ubicado en el lugar de dígito de edad tiene una vibración que puede ser limitativa o inspiradora, depende de la elección personal. Normalmente induce al cambio de vivienda, negocio o sociedad.",
+		"3": "Aquí la influencia determina un comienzo social (vincular, relacional) o artístico (creativo, laboral). La manera de determinar este curso será observando el año personal.",
+		"4": "Indica más un año de rutina que de acción, será propicio para poner los asuntos en orden.",
+		"5": "Señala cambios que pueden darse en todo orden de la vida, es decir, mudanza, cambio de trabajo, cambio interior, etc.",
+		"6": "Este número aconseja pensar muy bien antes de tomar una determinación. Puede derivar en modificaciones vinculares en el hogar, que a veces, conducen a separación o divorcio.",
+		"7": "Es un buen período para los estudios de ciencias ocultas y la meditación. Es un tiempo de replanteo e introspección vigilando la salud y las finanzas.",
+		"8": "Año con influencia positiva en lo financiero. Ideal para cerrar tratos comerciales.",
+		"9": "Señala el cierre de un período y el inicio inminente de un trayecto en una nueva dirección.",
+		"11": "Ofrece inspiración, paz, y dará la posibilidad de proyectarse siempre que se viva según sus propias aspiraciones, sin resignar los deseos propios.",
+		"22": "",
+		"33": ""
+	}
+}

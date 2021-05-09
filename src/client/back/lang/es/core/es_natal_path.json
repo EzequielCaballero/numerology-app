@@ -1,0 +1,23 @@
+{
+	"title": "Sendero natal",
+	"subtitle": "El origen y el hogar",
+	"description": "Nos indica de qué manera la estructura vincular y el potencial \"Ser\" fueron afectados en el hogar y la forma en que se deberá recorrer la vida, para reparar esa afectación y aprender lo que se vino a aprender.",
+	"calc": {
+		"base": "Fecha de nacimiento tomada como base."
+	},
+	"report": {
+		"aspects": [],
+		"1": "Aprender a ser uno mismo, no dejarse de lado en los vínculos, no ser intolerante, no reprimirse, tomar la iniciativa, fortalecer el yo.",
+		"2": "Aprender a establecer sanas sociedades, primero con uno mismo, cultivar el tacto en los vínculos, la diplomacia.",
+		"3": "Lealtad consigo mismo en la vincularidad, desprenderse de la necesidad de aprobación, aprender a ser amorosamente directo, sin rodeos, ser fiel a uno.",
+		"4": "Salir del encierro emocional y de los prejucios que fueron establecidos en la infancia, construir lo propio en el campo vincular.",
+		"5": "Soltar el pasado totalmente. Encontrar en la vincularidad placer para el cuerpo y el alma, distensión.",
+		"6": "Cortar el grueso cordón umbilical emocional que lo une al hogar donde nació, a través de conflictos que lo dejaron demandante en los afectos, celoso, caprichoso, posesivo, discutidor, aniñado, histérico, reclamante.",
+		"7": "Aprender de la seguridad y confianza en la vincularidad, saber estar solo y no estar con alguien para no estarlo. Deberá construir confianza en si mismo, no subestimandose.",
+		"8": "Habilitarse al mundo, ser con sus afectos lo es en su interior. Aceptarse, adueñarse de si mismo sin temor a ser rechazado cuando exponga su sentir por más extravagante que pudiera resultar.",
+		"9": "Evitar el dar para recibir, hacer \"por uno para el otro\" y no \"por el otro para uno\". Obrar con el otro sin esperar nada a cambio.",
+		"11": "Permitirse ir por lo que se desea de verdad sin aceptar nada por debajo de ello. Soltar la carga emocional que quedó del pasado, de no valer, de dudar a la hora de proyectarse.",
+		"22": "Salir, salirse de lo emocional hogareño, de lo geográfico hogareño, de lo limitativo del hogar, en fin, romper toda estructura y limitación heredada.",
+		"33": ""
+	}
+}

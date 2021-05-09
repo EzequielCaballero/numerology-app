@@ -1,0 +1,23 @@
+{
+	"title": "Image",
+	"subtitle": "How do others see us",
+	"description": "It is what people perceive of us, a feeling, the first impression.",
+	"calc": {
+		"base": "The consonants of the name are extracted."
+	},
+	"report": {
+		"aspects": [],
+		"1": "Proud, someone who seems arrogant to others and who therefore stands out.",
+		"2": "A person that everyone will ask for advice, mediator.",
+		"3": "Reliable, credible his word, very talkative, very sociable, very executive. Highlight your honesty, lend trust, a friend.",
+		"4": "Steadfast, solid in his principles. Formal.",
+		"5": "Leader, someone versatile, dynamic.",
+		"6": "Parental figure (mother or father), inspires to project a future with the person.",
+		"7": "Inaccessible, with a kind of force field that repels. It instills a halo of mystery.",
+		"8": "Trained, with a gift of command, an executive person with a leadership profile to manage teams.",
+		"9": "Role model, everyone goes to that person, he has a natural magnetism, a universal brother.",
+		"11": "Guide level, someone who can guide with informed opinions and / or advice. It lacks obvious prejudices.",
+		"22": "Ambitious, non-conformist, who seeks more and executes accordingly.",
+		"33": "Ascended master."
+	}
+}

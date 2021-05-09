@@ -1,0 +1,23 @@
+{
+	"title": "Personal month",
+	"subtitle": "The monthly numerological influence",
+	"description": "Always dependent on the personal year, it indicates potential experiences during the current month.",
+	"calc": {
+		"base": "Personal year + current month."
+	},
+	"report": {
+		"aspects": [],
+		"1": "Start, beginnings, strength to make a change, time to delve into yourself",
+		"2": "Time to associate, to better relate to what has started.",
+		"3": "Sociability, openness, relaxation, encounter with truths regarding the dominant influence (the personal year).",
+		"4": "It is a positive month to found, to build something new, within what the annual influence indicates.",
+		"5": "This month proposes changes, final moves for new beginnings. It demands movement, travel, sales, outings, it mobilizes sexuality, curiosity.",
+		"6": "Moment that makes love encounters possible, either in a new relationship or with family, friends, known people. It is good for exalting activities within the pedagogical or artistic field.",
+		"7": "Introspection, getting inside, looking for your soul's desires, releasing mandates, which inhibits you from manifesting yourself freely, whether in your partner, work, family or whatever the personal year indicates.",
+		"8": "Good month for money, something extra will come or something extra will go ... it all depends on how you are living.",
+		"9": "Closures, endings, recycling of issues, various situations, this month asks that you do not let more time go by without finishing what has to be finished at once.",
+		"11": "This month invites you to elevate your spirituality, not to alter your course for the material, not to betray your soul.",
+		"22": "Ideal month to go for more such as trips abroad, break a limitation, get out of an emotional lockdown, expand a business or ask for a raise.",
+		"33": ""
+	}
+}

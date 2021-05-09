@@ -1,0 +1,34 @@
+{
+	"title": "Etapas",
+	"subtitle": "Los ciclos del Ser",
+	"description": "Toda persona transita esta vida en un orden y ese orden tiene un ritmo y ese ritmo se divide en 4 etapas, cada una con su lección/objetivo según el número que la rige.",
+	"calc": {
+		"base": "Fecha de nacimiento como base.",
+		"total": "Total: 4 etapas.",
+		"duration": "Duración media: 9 años.",
+		"start": "Inicio: desde edad 0 a (36 - sendero natal).",
+		"stage": "Etapa %{num}° | %{from} -> %{to}",
+		"stage_result": "Etapa %{num}° | %{from} -> %{to} = %{result}",
+		"result": [
+			"(resultado = mes + día)",
+			"(resultado = día + año)",
+			"(resultado = 1ra + 2da etapa)",
+			"(resultado = mes + año)"
+		]
+	},
+	"report": {
+		"aspects": [],
+		"1": "Delinear, fortalecer, y reforzar el yo.",
+		"2": "Asociarse fundamentalmente con uno mismo, estableciendo una unión entre el niño y el adulto.",
+		"3": "Encontrarse con su propia verdad, escucharse, para dejar de lado la aprobación de los demás.",
+		"4": "Romper el encierro, destruir los prejuicios insanos.",
+		"5": "Habilitarse al mundo, transitar curiosidades, conocer la libertad.",
+		"6": "Terminar el condicionamiento umbilical, convicción al decidir y afrontar las consecuencias. Trabajar la dependencia emocional.",
+		"7": "Romper las limitaciones que la figura paterna/materna impuso. Construir confianza en uno mismo.",
+		"8": "Autorizarse, reparar las afecciones que dejó el vínculo familiar, salir al mundo lo antes posible.",
+		"9": "Encontrar el deseo y obrar en el hacer por uno mismo, para eliminar las consecuencias que dejaron la sobreprotección o las fuertes y conflictivas experiencias emotivas vividas en esta etapa.",
+		"11": "Aprender rápidamente la diferenciación entre deseo propio y ajeno, para eliminar el nivel de exigencia y las presiones que el hogar impuso.",
+		"22": "Formalizar una salida rápida mediante la construcción de ingresos económicos o adquisición material.",
+		"33": ""
+	}
+}

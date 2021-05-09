@@ -1,0 +1,72 @@
+{
+	"title": "Karmas",
+	"subtitle": "What is brought in, what must be paid",
+	"description": "It is a debt contracted with the soul to be paid in emotional behaviors and whose delinquency generates consequences in the present.",
+	"calc": {
+		"base": "Based on values showed up before reduce (13|14|16|19)",
+		"part": [ "Essence", "Mission", "Path", "Missing N°" ],
+		"potential": "Potential karma based on missing numbers (1-9) during calculation of mission + natal path.",
+		"k_empty": "Without karmas",
+		"pk_empty": "none"
+	},
+	"report": {
+		"aspects": [ "Debt", "Action" ],
+		"13": [
+			"these are people who have become over-adapted or who have grown up under severe prejudice about sexuality and freedom in general.",
+			"it demands the need for a great transformation, a major rebirth, to start over."
+		],
+		"14": [
+			"frequently they do not understand the motivations of others or their own, they act in one way and think in another and go after things that do not produce full happiness when they achieve them.",
+			"It demands acceptance and temperance, that is, to receive what is happening, to understand and comprehend not only the \"why\" but rather the \"for what\"."
+		],
+		"16": [
+			"the person always goes through the same thing. You only have to want something so that when you are about to reach it or have reached it, you lose it, it goes away, it breaks, as if it were water that runs through your hands.",
+			"it demands optimism, self-confidence and detachment from the material."
+		],
+		"19": [
+			"they are usually manipulative people, this means that through power or domination or by becoming victims they manipulate the action of others to do their will.",
+			"it demands peace, absence of domination towards the other, to act with good will without selfish intentions."
+		],
+		"potential": {
+			"title": "Potential karma",
+			"subtitle": "The karmic lesson",
+			"description": "It is a debt contracted in this life and it is manifested in the missing numbers when calculating our essence, mission or natal path.",
+			"1": [
+				"lack of initiative, ambition, originality and independence, this means that it is constantly put aside.",
+				"must learn to make convincing decisions and start new things yourself. Empowering yourself to be who you feel you are."
+			],
+			"2": [
+				"shyness to the point of avoiding company. Fail to save time and money.",
+				"must recognize and accompany your inner child that could not be."
+			],
+			"3": [
+				"blankness, thinks better than he can say.",
+				"must begin to express yourself through any creative or artistic medium, but above all with words."
+			],
+			"4": [
+				"aversion to work, to attention for detail, to dedication and order.",
+				"must learn perseverance and dedication in the construction of your own (material and / or emotional), without avoiding the effort that it demands."
+			],
+			"5": [
+				"fear of change, lack of understanding and curiosity about new experiences.",
+				"must learn to be free, curious, pragmatic, versatile."
+			],
+			"6": [
+				"resistance to the creation of bonds that demand high responsibility, like forming a family.",
+				"must make a decision and sustain it with actions, mature, elude whim and eternal demand."
+			],
+			"7": [
+				"imbalance and lack of understanding between the material and the spiritual.",
+				"must learn not to prejudge, not to draw conclusions without prior analysis."
+			],
+			"8": [
+				"dependence on the economic and emotional.",
+				"must learn to be master of your emotions, to develop skills to organize and run your own business."
+			],
+			"9": [
+				"selfishness and interest when acting for others.",
+				"must learn to be serviceable, selfless, without expecting any compensation."
+			]
+		}
+	}
+}
