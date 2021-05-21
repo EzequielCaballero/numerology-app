@@ -7,6 +7,7 @@ import { SVGIconEmail } from './icon/email';
 import { SVGIconHome } from './icon/home';
 import { SVGIconMoon } from './icon/moon';
 import { SVGIconSave } from './icon/save';
+import { SVGIconShare } from './icon/share';
 import { SVGIconSun } from './icon/sun';
 import { SVGIconSwitch } from './icon/switch';
 import { SVGIconTrash } from './icon/trash';
@@ -24,6 +25,7 @@ const _SVG_CATALOG = {
 	iconHome: SVGIconHome,
 	iconMoon: SVGIconMoon,
 	iconSave: SVGIconSave,
+	iconShare: SVGIconShare,
 	iconSun: SVGIconSun,
 	iconSwitch: SVGIconSwitch,
 	iconTrash: SVGIconTrash,
