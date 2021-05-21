@@ -40,12 +40,9 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 			isSaveActive: true,
 			showReport: true,
 			modal: {
-				properties: {
-					type: 'action',
-					isActive: false,
-					isInteractive: false
-				},
-				action: this.handleModalResponse
+				type: '',
+				isActive: false,
+				isActionRequired: false
 			}
 		};
 	}
@@ -71,35 +68,26 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 		this.setState({ showReport: !prevState });
 	};
 
-	private setModalProperties = (type: string, isInteractive: boolean, identifier?: string): void => {
+	private showModal = (type: string, isActive: boolean, isActionRequired: boolean): void => {
 		let modal: TModal = this.state.modal;
-		modal.properties.type = type;
-		modal.properties.isInteractive = isInteractive;
-		if (identifier) modal.properties.actionIdentifier = identifier;
-		this.setState({ modal });
-	};
-
-	private showModal = (show: boolean): void => {
-		let modal: TModal = this.state.modal;
-		modal.properties.isActive = show;
+		modal.type = type;
+		modal.isActive = isActive;
+		modal.isActionRequired = isActionRequired;
 		this.setState({ modal });
 	};
 
 	private handleModalResponse = (response: boolean): void => {
-		this.showModal(false);
-		if (response) {
+		let modal: TModal = this.state.modal;
+		modal.isActive = false;
+		this.setState({ modal });
+		if (response && this.state.modal.type === 'save') {
 			this.saveResult();
 		}
 	};
 
 	private handleSaveResult = (): void => {
-		if (LocalStorage.isResultSavingAllowed()) {
-			this.setModalProperties('action', true);
-			this.showModal(true);
-		} else {
-			this.setModalProperties('error', false);
-			this.showModal(true);
-		}
+		if (LocalStorage.isResultSavingAllowed()) this.showModal('save', true, true);
+		else this.showModal('error', true, false);
 	};
 
 	private saveResult = (): void => {
@@ -139,13 +127,17 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 					{({ translate }) => (
 						<div className="box-content">
 							{/* MODAL */}
-							<ModalDialog properties={this.state.modal.properties} action={this.state.modal.action}>
-								<p>{translate.t(`coutput.modal.${this.state.modal.properties.type}.title`)}</p>
-								<p>
-									{translate.t(`coutput.modal.${this.state.modal.properties.type}.msg`, {
-										limit: LocalStorage.getMaxNumberSaves()
-									})}
-								</p>
+							<ModalDialog properties={this.state.modal} callBack={this.handleModalResponse}>
+								{this.state.modal.type === 'save' && 
+									<React.Fragment>
+										<p>{translate.t(`coutput.modal.${this.state.modal.type}.title`)}</p>
+										<p>
+											{translate.t(`coutput.modal.${this.state.modal.type}.msg`, {
+												limit: LocalStorage.getMaxNumberSaves()
+											})}
+										</p>
+									</React.Fragment>
+								}
 							</ModalDialog>
 							<div className="calculator-output">
 								{/* HEADLINE */}

@@ -21,12 +21,9 @@ export class History extends React.Component<RouteComponentProps, TState> {
 		this.state = {
 			results: LocalStorage.getAllResultsStored() as TResult[],
 			modal: {
-				properties: {
-					type: 'delete',
-					isActive: false,
-					isInteractive: false
-				},
-				action: this.handleModalResponse
+				type: '',
+				isActive: false,
+				isActionRequired: false
 			}
 		};
 	}
@@ -35,29 +32,26 @@ export class History extends React.Component<RouteComponentProps, TState> {
 		LocalStorage.deleteInvalidResults();
 	}
 
-	private setModalProperties = (isInteractive: boolean, identifier?: string): void => {
+	private showModal = (type: string, isActive: boolean, isActionRequired: boolean, actionKey: string): void => {
 		let modal: TModal = this.state.modal;
-		modal.properties.isInteractive = isInteractive;
-		if (identifier) modal.properties.actionIdentifier = identifier;
-		this.setState({ modal });
-	};
-
-	private showModal = (show: boolean): void => {
-		let modal: TModal = this.state.modal;
-		modal.properties.isActive = show;
+		modal.type = type;
+		modal.isActive = isActive;
+		modal.isActionRequired = isActionRequired;
+		modal.actionKey = actionKey;
 		this.setState({ modal });
 	};
 
 	private handleModalResponse = (response: boolean, identifier?: string): void => {
-		this.showModal(false);
+		let modal: TModal = this.state.modal;
+		modal.isActive = false;
+		this.setState({ modal });
 		if (response) {
 			this.deleteItemHistory(identifier as string);
 		}
 	};
 
 	private handleDeleteItemHistory = (key: string): void => {
-		this.setModalProperties(true, key);
-		this.showModal(true);
+		this.showModal('delete', true, true, key);
 	};
 
 	private deleteItemHistory = (key: string): void => {
@@ -80,9 +74,11 @@ export class History extends React.Component<RouteComponentProps, TState> {
 					{({ translate }) => (
 						<div className="box-content">
 							{/* MODAL */}
-							<ModalDialog properties={this.state.modal.properties} action={this.state.modal.action}>
-								<p>{translate.t('history.modal.delete.title')}</p>
-								<p>{translate.t('history.modal.delete.msg')}</p>
+							<ModalDialog properties={this.state.modal} callBack={this.handleModalResponse}>
+								<React.Fragment>
+									<p>{translate.t('history.modal.delete.title')}</p>
+									<p>{translate.t('history.modal.delete.msg')}</p>
+								</React.Fragment>
 							</ModalDialog>
 							<div className="history-content">
 								{/* HEADLINE */}

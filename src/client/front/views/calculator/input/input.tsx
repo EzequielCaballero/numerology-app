@@ -36,12 +36,9 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 			validName: [ false, false ],
 			validBirth: false,
 			modal: {
-				properties: {
-					type: '',
-					isActive: false,
-					isInteractive: false
-				},
-				action: this.handleModalResponse
+				type: '',
+				isActive: false,
+				isActionRequired: false
 			}
 		};
 	}
@@ -146,26 +143,22 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 				validName: Validator.validateNameParts(this.state.name),
 				validBirth: Validator.validateDate(this.state.birth)
 			});
-			this.setModalProperties(false);
-			this.showModal(true);
+			this.showModal('error', true, false);
 		}
 	};
 
-	private setModalProperties = (isInteractive: boolean, identifier?: string): void => {
+	private showModal = (type:string, isActive: boolean, isActionRequired: boolean): void => {
 		let modal: TModal = this.state.modal;
-		modal.properties.isInteractive = isInteractive;
-		if (identifier) modal.properties.actionIdentifier = identifier;
-		this.setState({ modal });
-	};
-
-	private showModal = (show: boolean): void => {
-		let modal: TModal = this.state.modal;
-		modal.properties.isActive = show;
+		modal.type = type;
+		modal.isActive = isActive;
+		modal.isActionRequired = isActionRequired;
 		this.setState({ modal });
 	};
 
 	private handleModalResponse = (response: boolean): void => {
-		this.showModal(response);
+		let modal: TModal = this.state.modal;
+		modal.isActive = false;
+		this.setState({ modal });
 	};
 
 	private goToResultView = (): void => {
@@ -183,23 +176,25 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 					{({ translate }) => (
 						<div className="box-content">
 							{/* MODAL */}
-							<ModalDialog properties={this.state.modal.properties} action={this.state.modal.action}>
-								<p>{translate.t('cinput.modal.error.title')}</p>
-								<p>
-									<span>{translate.t('cinput.modal.error.msg')}:</span>
-									<br />
-									{this.state.validName.map((n, i) => {
-										return (
-											!n && (
-												<i key={`valid-name-${i}`}>
-													-{translate.t(`cinput.modal.error.name_field.${i}`)}
-												</i>
-											)
-										);
-									})}
-									<br />
-									{!this.state.validBirth && <i>-{translate.t(`cinput.modal.error.birth_field`)}</i>}
-								</p>
+							<ModalDialog properties={this.state.modal} callBack={this.handleModalResponse}>
+								<React.Fragment>
+									<p>{translate.t('cinput.modal.error.title')}</p>
+									<p>
+										<span>{translate.t('cinput.modal.error.msg')}:</span>
+										<br />
+										{this.state.validName.map((n, i) => {
+											return (
+												!n && (
+													<i key={`valid-name-${i}`}>
+														-{translate.t(`cinput.modal.error.name_field.${i}`)}
+													</i>
+												)
+											);
+										})}
+										<br />
+										{!this.state.validBirth && <i>-{translate.t(`cinput.modal.error.birth_field`)}</i>}
+									</p>
+								</React.Fragment>
 							</ModalDialog>
 							<div className="calculator-input">
 								{/* HEADLINE */}

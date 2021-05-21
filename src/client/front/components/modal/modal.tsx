@@ -4,16 +4,18 @@ import { useContextSetup } from '../../context/setup';
 import './modal.css';
 
 export type TModal = {
-	properties: {
-		type: string;
-		isActive: boolean;
-		isInteractive: boolean;
-		actionIdentifier?: string;
-	};
-	action: (response: boolean, identifier?: string) => void;
+	type: string;
+	isActive: boolean;
+	isActionRequired: boolean;
+	actionKey?: string;
 };
 
-export const ModalDialog: React.FunctionComponent<TModal> = ({ children, properties, action }) => {
+type TProps = {
+	properties: TModal;
+	callBack: (response: boolean, actionKey?:string) => void;
+}
+
+export const ModalDialog: React.FunctionComponent<TProps> = ({ children, properties, callBack }) => {
 	const { translate } = useContextSetup();
 
 	useEffect(
@@ -28,21 +30,21 @@ export const ModalDialog: React.FunctionComponent<TModal> = ({ children, propert
 	);
 
 	return (
-		<Modal id="app-modal" show={properties.isActive} onHide={() => action(false)}>
+		<Modal id="app-modal" show={properties.isActive} onHide={() => callBack(false)}>
 			<Modal.Body id="app-modal-body">{children}</Modal.Body>
 			<Modal.Footer id="app-modal-footer">
-				<button id="app-modal-btn-cancel" className="btn-action-outline" onClick={() => action(false)}>
-					{properties.isInteractive ? (
+				<button id="app-modal-btn-cancel" className="btn-action-outline" onClick={() => callBack(false)}>
+					{properties.isActionRequired ? (
 						translate.t('cross.modal.btn.cancel')
 					) : (
 						translate.t('cross.modal.btn.close')
 					)}
 				</button>
-				{properties.isInteractive && (
+				{properties.isActionRequired && (
 					<button
 						id="app-modal-btn-accept"
 						className="btn-action"
-						onClick={() => action(true, properties.actionIdentifier)}
+						onClick={() => callBack(true, properties.actionKey)}
 					>
 						{translate.t('cross.modal.btn.accept')}
 					</button>

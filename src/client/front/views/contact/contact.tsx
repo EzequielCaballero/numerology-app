@@ -32,12 +32,9 @@ export class Contact extends React.Component<RouteComponentProps, TState> {
 				received: false
 			},
 			modal: {
-				properties: {
-					type: 'success',
-					isActive: false,
-					isInteractive: false
-				},
-				action: this.handleModalResponse
+				type: 'success',
+				isActive: false,
+				isActionRequired: false
 			}
 		}
 	}
@@ -73,13 +70,13 @@ export class Contact extends React.Component<RouteComponentProps, TState> {
 				.then((info) => {
 					formState.received = true;
 					this.setState({ form: formState });
-					this.showModal(true, 'success');
+					this.showModal('success', true, false);
 					console.log(info);
 				})
 				.catch((error) => {
 					formState.received = true;
 					this.setState({ form: formState });
-					this.showModal(true, 'error');
+					this.showModal('error', true, false);
 					console.error(error);
 				});
 		}
@@ -137,15 +134,18 @@ export class Contact extends React.Component<RouteComponentProps, TState> {
 		});
 	};
 
-	private showModal = (show: boolean, type?: string): void => {
+	private showModal = (type: string, isActive: boolean, isActionRequired: boolean): void => {
 		let modal: TModal = this.state.modal;
-		modal.properties.isActive = show;
-		if(type) modal.properties.type = type;
+		modal.type = type;
+		modal.isActive = isActive;
+		modal.isActionRequired = isActionRequired;
 		this.setState({ modal });
 	};
 
 	private handleModalResponse = (response: boolean): void => {
-		this.showModal(response);
+		let modal: TModal = this.state.modal;
+		modal.isActive = false;
+		this.setState({ modal });
 		this.goToHome();
 	};
 
@@ -164,10 +164,10 @@ export class Contact extends React.Component<RouteComponentProps, TState> {
 						<div className="box-content">
 							<div className="contact-content">
 								{/* MODAL */}
-								<ModalDialog properties={this.state.modal.properties} action={this.state.modal.action}>
+								<ModalDialog properties={this.state.modal} callBack={this.handleModalResponse}>
 									<React.Fragment>
-										<p>{translate.t(`contact.modal.${this.state.modal.properties.type}.title`)}</p>
-										<p>{translate.t(`contact.modal.${this.state.modal.properties.type}.msg`)}</p>
+										<p>{translate.t(`contact.modal.${this.state.modal.type}.title`)}</p>
+										<p>{translate.t(`contact.modal.${this.state.modal.type}.msg`)}</p>
 									</React.Fragment>
 								</ModalDialog>
 								{/* HEADLINE */}
