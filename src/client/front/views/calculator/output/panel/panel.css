@@ -1,87 +1,96 @@
 /* PANEL */
+
 .output-panel {
-	margin: 1rem 0;
+    margin: 1rem 0;
 }
 
 .output-option {
-	align-items: flex-start;
-	display: grid;
-	grid-template-columns: 1fr 2fr 1fr;
-	gap: 5px;
+    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 2fr 3fr 1fr 1fr;
+    gap: 5px;
 }
 
 .output-option #svg_icon_edit {
-	height: 30px;
-	width: 30px;
+    height: 30px;
+    width: 30px;
 }
 
 .output-option #svg_icon_save {
-	height: 35px;
-	width: 35px;
+    height: 35px;
+    width: 35px;
 }
 
 .output-option #svg_icon_check {
-	animation: showup 2s ease-in;
-	height: 30px;
-	width: 30px;
+    animation: showup 2s ease-in;
+    height: 30px;
+    width: 30px;
+}
+
+.output-option #svg_icon_share {
+    height: 35px;
+    width: 35px;
 }
 
 .output-option #svg_icon_edit,
 .output-option #svg_icon_save,
-.output-option #svg_icon_check > g {
-	fill: var(--border-color-1);
+.output-option #svg_icon_share,
+.output-option #svg_icon_check>g {
+    fill: var(--border-color-1);
 }
 
-.output-option #svg_icon_check > circle {
-	stroke: var(--border-color-1);
+.output-option #svg_icon_check>circle {
+    stroke: var(--border-color-1);
 }
 
 .output-option #svg_icon_edit:hover,
 .output-option #svg_icon_save:hover,
-.output-option #svg_icon_check:hover > g {
-	fill: var(--default-color-3);
+.output-option #svg_icon_check:hover>g {
+    fill: var(--default-color-3);
 }
+
 
 /* SWITCHER VIEW */
 
-#switcher-output:checked + .switcher-label:after {
-	left: calc(100% - 5px);
-	transform: translateX(-100%);
+#switcher-output:checked+.switcher-label:after {
+    left: calc(100% - 5px);
+    transform: translateX(-100%);
 }
 
 .output-option .switcher-label {
-	background: var(--element-background-2);
-	border-color: var(--border-color-1);
-	color: var(--default-color-3);
-	font-weight: 600;
-	width: 150px;
+    background: var(--element-background-2);
+    border-color: var(--border-color-1);
+    color: var(--default-color-3);
+    font-weight: 600;
+    width: 150px;
 }
 
 .output-option .switcher-label:after {
-	background: var(--element-color-2);
-	border: 1px solid var(--default-color-3);
+    background: var(--element-color-2);
+    border: 1px solid var(--default-color-3);
 }
 
 .output-option .switcher-label:active:after {
-	width: 135px;
+    width: 135px;
 }
+
 
 /* INPUT PERSON */
 
 .input-person {
-	background: var(--element-background-1);
-	border-radius: 25px;
-	box-shadow: var(--element-shadow);
-	color: var(--font-color-1);
-	margin: 1rem 0;
-	padding: 5px;
+    background: var(--element-background-1);
+    border-radius: 25px;
+    box-shadow: var(--element-shadow);
+    color: var(--font-color-1);
+    margin: 1rem 0;
+    padding: 5px;
 }
 
 .input-person p {
-	font-weight: bold;
-	margin-bottom: unset;
+    font-weight: bold;
+    margin-bottom: unset;
 }
 
 #input-person-name {
-	text-transform: capitalize;
+    text-transform: capitalize;
 }

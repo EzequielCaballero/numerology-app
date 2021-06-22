@@ -13,6 +13,7 @@ type TProps = {
 	isSaveActive: boolean;
 	switchOutput: () => void;
 	handleSaveResult: () => void;
+	handleShareResult: () => void;
 	goToCalculatorInput: () => void;
 	goToHistory: () => void;
 };
@@ -24,6 +25,7 @@ export const CalculatorOutputPanel: React.FunctionComponent<TProps> = ({
 	isSaveActive,
 	switchOutput,
 	handleSaveResult,
+	handleShareResult,
 	goToCalculatorInput,
 	goToHistory
 }) => {
@@ -58,27 +60,34 @@ export const CalculatorOutputPanel: React.FunctionComponent<TProps> = ({
 						action={switchOutput}
 					/>
 				</span>
+				<span>
 				{isSaveActive ? (
-					<span>
-						<button
-							aria-label={translate.t('coutput.panel.save.0')}
-							title={translate.t('coutput.panel.save.0')}
-							onClick={handleSaveResult}
-						>
-							<SVGSelector name="iconSave" />
-						</button>
-					</span>
+					<button
+						aria-label={translate.t('coutput.panel.save.0')}
+						title={translate.t('coutput.panel.save.0')}
+						onClick={handleSaveResult}
+					>
+						<SVGSelector name="iconSave" />
+					</button>
 				) : (
-					<span>
-						<button
-							aria-label={translate.t('coutput.panel.save.1')}
-							title={translate.t('coutput.panel.save.1')}
-							onClick={goToHistory}
-						>
-							<SVGSelector name="iconCheck" />
-						</button>
-					</span>
+					<button
+						aria-label={translate.t('coutput.panel.save.1')}
+						title={translate.t('coutput.panel.save.1')}
+						onClick={goToHistory}
+					>
+						<SVGSelector name="iconCheck" />
+					</button>
 				)}
+				</span>
+				<span>
+				<button
+					aria-label={translate.t('coutput.panel.share.1')}
+					title={translate.t('coutput.panel.share.1')}
+					onClick={handleShareResult}
+				>
+					<SVGSelector name="iconShare" />
+				</button>
+				</span>
 			</div>
 		</div>
 	);

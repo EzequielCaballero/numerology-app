@@ -41,12 +41,12 @@ export class History extends React.Component<RouteComponentProps, TState> {
 		this.setState({ modal });
 	};
 
-	private handleModalResponse = (response: boolean, identifier?: string): void => {
+	private handleModalResponse = (response: boolean, actionKey?: string): void => {
 		let modal: TModal = this.state.modal;
 		modal.isActive = false;
 		this.setState({ modal });
 		if (response) {
-			this.deleteItemHistory(identifier as string);
+			this.deleteItemHistory(actionKey as string);
 		}
 	};
 

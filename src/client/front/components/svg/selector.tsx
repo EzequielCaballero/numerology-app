@@ -14,6 +14,8 @@ import { SVGIconTrash } from './icon/trash';
 import { SVGIconView } from './icon/view';
 import { SVGLogoMandala } from './logo/mandala';
 import { SVGLogoGithub } from './logo/github';
+import { SVGLogoFacebook } from './logo/facebook';
+import { SVGLogoWhatsapp } from './logo/whatsapp';
 import { SVGSpinnerRotary } from './spinner/rotary';
 
 const _SVG_CATALOG = {
@@ -32,6 +34,8 @@ const _SVG_CATALOG = {
 	iconView: SVGIconView,
 	logoMandala: SVGLogoMandala,
 	logoGithub: SVGLogoGithub,
+	logoFacebook: SVGLogoFacebook,
+	logoWhatsapp: SVGLogoWhatsapp,
 	spinnerRotary: SVGSpinnerRotary
 };
 

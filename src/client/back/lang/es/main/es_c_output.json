@@ -1,30 +1,45 @@
 {
-	"headline": {
-		"subtitle": "Resultados"
-	},
-	"panel": {
-		"edit": "Editar",
-		"switcher": [ "Informe", "Cálculo" ],
-		"save": [ "Guardar", "Resultado guardado" ]
-	},
-	"record": {
-		"action": {
-			"expand": "Expandir",
-			"collapse": "Colapsar"
-		}
-	},
-	"report": {
-		"title": "Informe numerológico",
-		"contact": "Quiero saber más..."
-	},
-	"modal": {
-		"action": {
-			"title": "Guardar resultado",
-			"msg": "El resultado será guardado en el navegador."
-		},
-		"error": {
-			"title": "Advertencia",
-			"msg": "Número máximo de resultados guardados alcanzado: %{limit}."
-		}
-	}
+    "headline": {
+        "subtitle": "Resultados"
+    },
+    "panel": {
+        "edit": "Editar",
+        "switcher": ["Informe", "Cálculo"],
+        "save": ["Guardar", "Resultado guardado"],
+        "share": ["Compartir", "Compartir resultado"]
+    },
+    "record": {
+        "action": {
+            "expand": "Expandir",
+            "collapse": "Colapsar"
+        }
+    },
+    "report": {
+        "title": "Informe numerológico",
+        "contact": "Quiero saber más..."
+    },
+    "modal": {
+        "save": {
+            "title": "Guardar resultado",
+            "msg": "El resultado será guardado en el navegador."
+        },
+        "save-error": {
+            "title": "Advertencia",
+            "msg": "Número máximo de resultados guardados alcanzado: %{limit}."
+        },
+        "share": {
+            "title": "Compartir resultado",
+            "msg": "Podes elegir una de las siguientes opciones.",
+            "input-error": "Por favor ingresa un email válido.",
+            "btn": "Enviar"
+        },
+        "share-sucess": {
+            "title": "Resultado enviado",
+            "msg": "Tu resultado ha sido enviado al email informado."
+        },
+        "share-error": {
+            "title": "Error al enviar resultado",
+            "msg": "Lo sentimos, ocurrió un error. Por favor intenta más tarde."
+        }
+    }
 }

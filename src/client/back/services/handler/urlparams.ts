@@ -60,4 +60,8 @@ export class URLParams {
 		const _birth = `${birth.year}-${birth.month}-${birth.day}`;
 		return `?firstname=${_firstname}&lastname=${_lastname}&birth=${_birth}`;
 	}
+
+	public static getCurrentURL():string{
+		return window.location.href;
+	}
 }

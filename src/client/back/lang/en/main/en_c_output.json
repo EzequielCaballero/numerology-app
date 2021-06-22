@@ -1,30 +1,45 @@
 {
-	"headline": {
-		"subtitle": "Results"
-	},
-	"panel": {
-		"edit": "Edit",
-		"switcher": [ "Report", "Calculation" ],
-		"save": [ "Save", "Saved result" ]
-	},
-	"record": {
-		"action": {
-			"expand": "Expand",
-			"collapse": "Collapse"
-		}
-	},
-	"report": {
-		"title": "Numerological report",
-		"contact": "I want to know more..."
-	},
-	"modal": {
-		"action": {
-			"title": "Save result",
-			"msg": "The result will be saved in the browser."
-		},
-		"error": {
-			"title": "Warning",
-			"msg": "Maximum number of saves reached: %{limit}."
-		}
-	}
+    "headline": {
+        "subtitle": "Results"
+    },
+    "panel": {
+        "edit": "Edit",
+        "switcher": ["Report", "Calculation"],
+        "save": ["Save", "Saved result"],
+        "share": ["Share", "Share result"]
+    },
+    "record": {
+        "action": {
+            "expand": "Expand",
+            "collapse": "Collapse"
+        }
+    },
+    "report": {
+        "title": "Numerological report",
+        "contact": "I want to know more..."
+    },
+    "modal": {
+        "save": {
+            "title": "Save result",
+            "msg": "The result will be saved in the browser."
+        },
+        "error-save": {
+            "title": "Warning",
+            "msg": "Maximum number of saves reached: %{limit}."
+        },
+        "share": {
+            "title": "Share result",
+            "msg": "You can choose between one of the following options.",
+            "input-error": "Please enter a valid email.",
+            "btn": "Send"
+        },
+        "share-sucess": {
+            "title": "Result sent",
+            "msg": "Your result has been sent to the informed email."
+        },
+        "share-error": {
+            "title": "Error sending result",
+            "msg": "Sorry, an error occurred. Please retry later."
+        }
+    }
 }

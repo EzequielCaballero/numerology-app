@@ -1,0 +1,55 @@
+.output-share-options {
+    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+}
+
+.output-share-options #svg_icon_email {
+    height: 30px;
+    width: 30px;
+}
+
+.output-share-options #svg_logo_facebook,
+.output-share-options #svg_logo_whatsapp {
+    height: 35px;
+    width: 35px;
+}
+
+.output-share-options #svg_icon_email,
+.output-share-options #svg_logo_facebook,
+.output-share-options #svg_logo_whatsapp {
+    fill: var(--default-color-3);
+}
+
+.input-share-error {
+    color: var(--status-color-danger);
+    margin: 0 auto;
+}
+
+#share-form label {
+    margin: 10px;
+    width: 20%;
+}
+
+#share-form input {
+    background: var(--element-color-2);
+    color: var(--font-color-1);
+    width: 70%;
+}
+
+#share-form button {
+    margin-left: 10px;
+    position: relative;
+    width: 100%;
+}
+
+#share-form button>#svg_spinner_rotary {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    top: 8px;
+    right: 75px;
+    transition: 0.3s;
+    width: 100%;
+}
