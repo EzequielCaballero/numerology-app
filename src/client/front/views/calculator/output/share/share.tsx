@@ -1,6 +1,7 @@
 import React, { useState }from 'react';
 import { useContextSetup } from '../../../../context/setup';
 import { SVGSelector } from '../../../../components/svg/selector';
+import { useWindowSize, TSize } from '../../../../hooks/windowsize';
 import './share.css';
 
 export type TShare = {
@@ -18,6 +19,7 @@ export const CalculatorOutputShare: React.FunctionComponent<TShare> = ({
 
     const [isEmailSelected, setIsEmailSelected] = useState(false);
     const { translate } = useContextSetup();
+    const size: TSize = useWindowSize();
 
     return(
         <div>
@@ -36,7 +38,9 @@ export const CalculatorOutputShare: React.FunctionComponent<TShare> = ({
                         </a>
                     </span>
                     <span>
-                        <a href={`whatsapp://send?text='Destino numérico | ${urlShare}'`} target="_blank" rel="noreferrer" data-action="share/whatsapp">
+                        <a href={`whatsapp://send?text='Destino numérico | ${urlShare}'`} 
+                           target="_blank" rel="noreferrer" data-action="share/whatsapp"
+                           style={{display:size.width as number <= 600 ? 'block' : 'none'}}>
                             <SVGSelector name="logoWhatsapp" />
                         </a>
                     </span>
