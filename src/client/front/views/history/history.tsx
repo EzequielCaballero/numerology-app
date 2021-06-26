@@ -83,7 +83,7 @@ export class History extends React.Component<RouteComponentProps, TState> {
 							<div className="history-content">
 								{/* HEADLINE */}
 								<Headline
-									title={translate.t('cross.head.title_short')}
+									title={translate.t('cross.headline.title')}
 									subtitle={translate.t('history.headline.subtitle')}
 								/>
 								{/* HISTORY */}

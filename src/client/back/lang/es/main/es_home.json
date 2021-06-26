@@ -1,11 +1,15 @@
 {
-	"headline": {
-		"subtitle": "¡Bienvenido!"
-	},
-	"quote": {
-		"phrase": "\"La felicidad consiste en poder unir el principio con el fin\"",
-		"author": "Pitágoras de Samos (569 – 475 AC)"
-	},
-	"description": "",
-	"btn": "Ir a la calculadora"
+    "headline": {
+        "title": "¡Bienvenido!",
+        "subtitle": "< Destino Numérico >"
+    },
+    "content": {
+        "title": "¿Querés saber más de vos?",
+        "subtitle": "Encontrá respuestas gracias a nuestra calculadora pitagórica y al informe numerológico gratuitos."
+    },
+    "quote": {
+        "phrase": "\"La felicidad consiste en poder unir el principio con el fin\"",
+        "author": "Pitágoras de Samos (569 – 475 AC)"
+    },
+    "btn": "Ir a la calculadora"
 }

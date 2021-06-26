@@ -252,7 +252,7 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 							<div className="calculator-output">
 								{/* HEADLINE */}
 								<Headline
-									title={translate.t('cross.head.title_short')}
+									title={translate.t('cross.headline.title')}
 									subtitle={translate.t('coutput.headline.subtitle')}
 								/>
 								{/* CALCULATOR OUTPUT */}

@@ -19,14 +19,14 @@ export class Home extends React.Component<RouteComponentProps> {
 							<div className="home-content">
 								<div className="home-description">
 									<div className="home-header">
-										<h2>{translate.t('home.headline.subtitle')}</h2>
-										<i>{translate.t('cross.head.title_short')}</i>
+										<h2>{translate.t('home.headline.title')}</h2>
+										<i>{translate.t('home.headline.subtitle')}</i>
 									</div>
 									<div className="home-intro">
 										<p>
-											<span>{translate.t('cross.head.description.0')}</span>
+											<span>{translate.t('home.content.title')}</span>
 											<br />
-											<span>{translate.t('cross.head.description.1')}</span>
+											<span>{translate.t('home.content.subtitle')}</span>
 										</p>
 										<button
 											aria-label={translate.t('home.btn')}

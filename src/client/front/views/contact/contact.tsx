@@ -172,7 +172,7 @@ export class Contact extends React.Component<RouteComponentProps, TState> {
 								</ModalDialog>
 								{/* HEADLINE */}
 								<Headline
-									title={translate.t('cross.head.title_short')}
+									title={translate.t('cross.headline.title')}
 									subtitle={translate.t('contact.headline.subtitle')}
 								/>
 								{/* CONTENT */}

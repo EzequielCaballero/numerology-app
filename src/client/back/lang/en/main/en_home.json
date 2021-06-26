@@ -1,11 +1,15 @@
 {
-	"headline": {
-		"subtitle": "Welcome!"
-	},
-	"quote": {
-		"phrase": "\"Happiness consists of being able to unite the beginning with the end\"",
-		"author": "Pythagoras of Samos (569 – 475 BC)"
-	},
-	"description": "",
-	"btn": "Go to calculator"
+    "headline": {
+        "title": "Welcome!",
+        "subtitle": "< Destino Numérico >"
+    },
+    "content": {
+        "title": "Do you want to know more about yourself?",
+        "subtitle": "Find answers thanks to our free pythagorean calculator and numerology report."
+    },
+    "quote": {
+        "phrase": "\"Happiness consists of being able to unite the beginning with the end\"",
+        "author": "Pythagoras of Samos (569 – 475 BC)"
+    },
+    "btn": "Go to calculator"
 }

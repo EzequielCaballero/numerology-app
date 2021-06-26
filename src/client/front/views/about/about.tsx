@@ -23,7 +23,7 @@ export class About extends React.Component<RouteComponentProps> {
 							<div className="about-content">
 								{/* HEADLINE */}
 								<Headline
-									title={translate.t('cross.head.title_short')}
+									title={translate.t('cross.headline.title')}
 									subtitle={translate.t('about.headline.subtitle')}
 								/>
 								{/* CONTENT */}
