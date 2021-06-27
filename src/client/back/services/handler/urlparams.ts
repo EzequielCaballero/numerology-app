@@ -64,4 +64,8 @@ export class URLParams {
 	public static getCurrentURL():string{
 		return window.location.href;
 	}
+
+	public static getOnlyDomain():string{
+		return window.location.hostname;
+	}
 }

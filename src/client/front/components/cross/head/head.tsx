@@ -1,5 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { URLParams } from '../../../../back/services/handler/urlparams';
 import { useImgLoader } from '../../../hooks/imgloader';
 import { useContextSetup } from '../../../context/setup';
 import _backgroundX4 from '../../../assets/background-x4.jpg';
@@ -31,6 +32,14 @@ export const Head: React.FunctionComponent<THead> = ({ page }) => {
 				<title>{translate.t(`${page}.head.title`)}</title>
 				<meta name="title" content={`${translate.t(`${page}.head.meta_title`)}`}/>
 				<meta name="description" content={`${translate.t(`${page}.head.meta_description`)}`}/>
+				<meta property="og:site_name" content="Destino Numérico" />
+				<meta property="og:title" content={`${translate.t(`${page}.head.meta_title`)}`} />
+				<meta property="og:description" content={`${translate.t(`${page}.head.meta_description`)}`} />
+				<meta name="twitter:card" content="summary" />
+				<meta name="twitter:title" content={`${translate.t(`${page}.head.meta_title`)}`} />
+				<meta name="twitter:description" content={`${translate.t(`${page}.head.meta_description`)}`} />
+				<meta property="og:image" content={`https://${URLParams.getOnlyDomain()}/assets/logoicon.png`} />
+				<meta property="og:url" content={URLParams.getCurrentURL()} />
 			</Helmet>
 		}
 		</React.Fragment>
