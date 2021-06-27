@@ -1,28 +1,33 @@
 {
-	"headline": {
-		"subtitle": "Calculator"
-	},
-	"form": {
-		"name": {
-			"title": "Fullname",
-			"field": [ "Firstname", "Lastname" ]
-		},
-		"birth": {
-			"title": "Birthdate (dd/mm/yyyy)",
-			"field": [ "Day", "Month", "Year" ]
-		},
-		"add_field": [ "Add another name field", "Add another lastname field" ],
-		"remove_field": [ "Remove name field", "Remove lastname field" ],
-		"expand": "Input values",
-		"btn": "Calculate",
-		"trash": "Clean"
-	},
-	"modal": {
-		"error": {
-			"title": "Wrong input values",
-			"msg": "Please review the following fields",
-			"name_field": [ "Firstname", "Lastname" ],
-			"birth_field": "Birthdate"
-		}
-	}
+    "head": {
+        "title": "Destino numérico | Calculator",
+        "meta_title": "Destino numérico | Pythagorean numerology calculator",
+        "meta_description": "Enter your fullname and birthdate so you can get a summary numerology analysis."
+    },
+    "headline": {
+        "subtitle": "Calculator"
+    },
+    "form": {
+        "name": {
+            "title": "Fullname",
+            "field": ["Firstname", "Lastname"]
+        },
+        "birth": {
+            "title": "Birthdate (dd/mm/yyyy)",
+            "field": ["Day", "Month", "Year"]
+        },
+        "add_field": ["Add another name field", "Add another lastname field"],
+        "remove_field": ["Remove name field", "Remove lastname field"],
+        "expand": "Input values",
+        "btn": "Calculate",
+        "trash": "Clean"
+    },
+    "modal": {
+        "error": {
+            "title": "Wrong input values",
+            "msg": "Please review the following fields",
+            "name_field": ["Firstname", "Lastname"],
+            "birth_field": "Birthdate"
+        }
+    }
 }

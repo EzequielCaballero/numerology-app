@@ -2,10 +2,14 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { RoutePath } from '../../../back/sitemap/routes';
 import { ConsumerSetup } from '../../context/setup';
+import { THead, Head } from '../../components/cross/head/head';
 import { SVGSelector } from '../../components/svg/selector';
 import './home.css';
 
+const PAGE_HEAD:THead  = { page: "home" }
+
 export class Home extends React.Component<RouteComponentProps> {
+
 	private goToCalculator = () => {
 		this.props.history.push(RoutePath.CInput);
 	};
@@ -16,6 +20,7 @@ export class Home extends React.Component<RouteComponentProps> {
 				<ConsumerSetup>
 					{({ translate }) => (
 						<div className="box-content">
+							<Head {...PAGE_HEAD} />
 							<div className="home-content">
 								<div className="home-description">
 									<div className="home-header">

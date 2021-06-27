@@ -5,10 +5,13 @@ import { Convertor } from '../../../back/services/core/convertor';
 import { URLParams } from '../../../back/services/handler/urlparams';
 import { LocalStorage, TResult } from '../../../back/services/handler/localstorage';
 import { ConsumerSetup } from '../../context/setup';
+import { THead, Head } from '../../components/cross/head/head';
 import { Headline } from '../../components/headline/headline';
 import { ModalDialog, TModal } from '../../components/modal/modal';
 import { SVGSelector } from '../../components/svg/selector';
 import './history.css';
+
+const PAGE_HEAD:THead  = { page: "history" }
 
 type TState = {
 	results: TResult[];
@@ -73,6 +76,7 @@ export class History extends React.Component<RouteComponentProps, TState> {
 				<ConsumerSetup>
 					{({ translate }) => (
 						<div className="box-content">
+							<Head {...PAGE_HEAD} />
 							{/* MODAL */}
 							<ModalDialog properties={this.state.modal} callBack={this.handleModalResponse}>
 								<React.Fragment>

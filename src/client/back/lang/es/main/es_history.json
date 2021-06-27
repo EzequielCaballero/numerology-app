@@ -1,19 +1,24 @@
 {
-	"headline": {
-		"subtitle": "Historial"
-	},
-	"list": {
-		"title": "Resultados guardados",
-		"empty": "*No hay resultados guardados."
-	},
-	"action": {
-		"view": "Ver",
-		"delete": "Eliminar"
-	},
-	"modal": {
-		"delete": {
-			"title": "Eliminar resultado",
-			"msg": "El resultado seleccionado será eliminado del navegador."
-		}
-	}
+    "head": {
+        "title": "Destino numérico | Historial",
+        "meta_title": "Destino numérico | Historial",
+        "meta_description": "Lista de resultados guardados."
+    },
+    "headline": {
+        "subtitle": "Historial"
+    },
+    "list": {
+        "title": "Resultados guardados",
+        "empty": "*No hay resultados guardados."
+    },
+    "action": {
+        "view": "Ver",
+        "delete": "Eliminar"
+    },
+    "modal": {
+        "delete": {
+            "title": "Eliminar resultado",
+            "msg": "El resultado seleccionado será eliminado del navegador."
+        }
+    }
 }

@@ -5,11 +5,14 @@ import { TName, TBirth } from '../../../../back/entity/iperson';
 import { Validator } from '../../../../back/services/core/validator';
 import { URLParams } from '../../../../back/services/handler/urlparams';
 import { ConsumerSetup } from '../../../context/setup';
+import { THead, Head } from '../../../components/cross/head/head';
 import { Headline } from '../../../components/headline/headline';
 import { ModalDialog, TModal } from '../../../components/modal/modal';
 import { CalculatorInputForm } from './form/form';
 import TestConfig from '../../../../../tests/App.test.config.json';
 import './input.css';
+
+const PAGE_HEAD:THead  = { page: "cinput" }
 
 type TState = {
 	name: TName;
@@ -175,6 +178,7 @@ export class CalculatorInput extends React.Component<RouteComponentProps, TState
 				<ConsumerSetup>
 					{({ translate }) => (
 						<div className="box-content">
+							<Head {...PAGE_HEAD} />
 							{/* MODAL */}
 							<ModalDialog properties={this.state.modal} callBack={this.handleModalResponse}>
 								<React.Fragment>

@@ -1,29 +1,34 @@
 {
-	"headline": {
-		"subtitle": "Contact"
-	},
-	"intro": [
-		"Hey there!",
-		"Thanks for visiting us"
-	],
-	"msg": [
-		"Are you interested in obtaining a more detailed and personal numerological study?",
-		"We offer as an additional service the preparation of a study from a personal interview."
-	],
-	"form":{
-		"field": ["Name", "Email", "Message"],
-		"error": ["Please enter a value", "Please enter a valid email address"],
-		"btn": "Send"
-	},
-	"modal": {
-		"success": {
-			"title": "New contact sent",
-			"msg": "Thanks for your message! We will reach you as soon as possible."
-		},
-		"error":{
-			"title": "New contact not sent",
-			"msg": "Sorry, an error occurred. Please retry later."
-		}
-	},
-	"email": "destino.numerico@hotmail.com"
+    "head": {
+        "title": "Destino numérico | Contact",
+        "meta_title": "Destino numérico | Contact",
+        "meta_description": "To answer questions or obtain more information, do not hesitate to contact us!"
+    },
+    "headline": {
+        "subtitle": "Contact"
+    },
+    "intro": [
+        "Hey there!",
+        "Thanks for visiting us"
+    ],
+    "msg": [
+        "Are you interested in obtaining a more detailed and personal numerological study?",
+        "We offer as an additional service the preparation of a study from a personal interview."
+    ],
+    "form": {
+        "field": ["Name", "Email", "Message"],
+        "error": ["Please enter a value", "Please enter a valid email address"],
+        "btn": "Send"
+    },
+    "modal": {
+        "success": {
+            "title": "New contact sent",
+            "msg": "Thanks for your message! We will reach you as soon as possible."
+        },
+        "error": {
+            "title": "New contact not sent",
+            "msg": "Sorry, an error occurred. Please retry later."
+        }
+    },
+    "email": "destino.numerico@hotmail.com"
 }

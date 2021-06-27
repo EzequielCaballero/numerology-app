@@ -1,19 +1,24 @@
 {
-	"headline": {
-		"subtitle": "History"
-	},
-	"list": {
-		"title": "Saved results",
-		"empty": "*There is no results saved."
-	},
-	"action": {
-		"view": "View",
-		"delete": "Delete"
-	},
-	"modal": {
-		"delete": {
-			"title": "Delete result",
-			"msg": "The selected result will be deleted from the browser."
-		}
-	}
+    "head": {
+        "title": "Destino numérico | History",
+        "meta_title": "Destino numérico | History",
+        "meta_description": "List of saved results."
+    },
+    "headline": {
+        "subtitle": "History"
+    },
+    "list": {
+        "title": "Saved results",
+        "empty": "*There is no results saved."
+    },
+    "action": {
+        "view": "View",
+        "delete": "Delete"
+    },
+    "modal": {
+        "delete": {
+            "title": "Delete result",
+            "msg": "The selected result will be deleted from the browser."
+        }
+    }
 }

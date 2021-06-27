@@ -1,4 +1,9 @@
 {
+    "head": {
+        "title": "Destino numérico | Resultados",
+        "meta_title": "Destino numérico | Informe y resultados",
+        "meta_description": "Resultados del estudio numerológico para %{name} | Fecha de nacimiento: {%date}."
+    },
     "headline": {
         "subtitle": "Resultados"
     },

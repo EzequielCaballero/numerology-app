@@ -1,28 +1,33 @@
 {
-	"headline": {
-		"subtitle": "Calculadora"
-	},
-	"form": {
-		"name": {
-			"title": "Nombre completo",
-			"field": [ "Nombre", "Apellido" ]
-		},
-		"birth": {
-			"title": "Fecha de nacimiento (dd/mm/yyyy)",
-			"field": [ "Día", "Mes", "Año" ]
-		},
-		"add_field": [ "Agregar otro campo nombre", "Agregar otro campo apellido" ],
-		"remove_field": [ "Quitar campo nombre", "Quitar campo apellido" ],
-		"expand": "Valores ingresados",
-		"btn": "Calcular",
-		"trash": "Limpiar"
-	},
-	"modal": {
-		"error": {
-			"title": "Valores de entrada incorrectos",
-			"msg": "Por favor revisar los campos mandatorios",
-			"name_field": [ "Nombre", "Apellido" ],
-			"birth_field": "Fecha de nacimiento"
-		}
-	}
+    "head": {
+        "title": "Destino numérico | Calculadora",
+        "meta_title": "Destino numérico | Calculadora de numerología pitagórica",
+        "meta_description": "Ingresa tu nombre y fecha de nacimiento para obtener un análisis resumido de numerología."
+    },
+    "headline": {
+        "subtitle": "Calculadora"
+    },
+    "form": {
+        "name": {
+            "title": "Nombre completo",
+            "field": ["Nombre", "Apellido"]
+        },
+        "birth": {
+            "title": "Fecha de nacimiento (dd/mm/yyyy)",
+            "field": ["Día", "Mes", "Año"]
+        },
+        "add_field": ["Agregar otro campo nombre", "Agregar otro campo apellido"],
+        "remove_field": ["Quitar campo nombre", "Quitar campo apellido"],
+        "expand": "Valores ingresados",
+        "btn": "Calcular",
+        "trash": "Limpiar"
+    },
+    "modal": {
+        "error": {
+            "title": "Valores de entrada incorrectos",
+            "msg": "Por favor revisar los campos mandatorios",
+            "name_field": ["Nombre", "Apellido"],
+            "birth_field": "Fecha de nacimiento"
+        }
+    }
 }

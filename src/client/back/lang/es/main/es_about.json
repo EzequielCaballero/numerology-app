@@ -1,50 +1,55 @@
 {
-	"headline": {
-		"subtitle": "Información"
-	},
-	"title": "Preguntas frecuentes",
-	"faq": {
-		"1": {
-			"question": "¿Qué es la numerología?",
-			"answer": [
-				"La numerología es un conjunto heterogéneo de creencias con métodos propios, una ciencia esotérica cuya base es la obtención e interpretación de valores numéricos los cuales se considera tienen un significado \"vibratorio\" para la persona.",
-				"Existen diversas escuelas/enfoques asociados a la numerología, por lo que los métodos empleados para la obtención de los números de una persona y su posterior interpretación varían.",
-				"La aplicación que estás utilizando adopta el enfoque pitagórico, el cual asume que existe un orden en todas las cosas y seres del Universo y que estamos regidos o programados por la vibración de los números a un nivel metafísico.",
-				"Su precursor, Pitágoras (569 – 475 AC), se considera que fue quien aportó las bases para un desarrollo estructurado, metódico y formal de la misma."
-			]
-		},
-		"2": {
-			"question": "¿Para qué sirve la numerología?",
-			"answer": [
-				"En nuestra eterna búsqueda de respuestas y habiendo infinidad de verdades aún ocultas, la numerología se presenta como un camino más, no como fuente única de verdad, sino para aportar desde su lugar una visión constructiva de la persona, de sus talentos, posibilidades, desafíos y potencial destino.",
-				"La numerología no es una fría cuenta con resultados lineales, sino que requiere observar con simpleza el todo, pues un individuo es en sí mismo un todo, una completitud.",
-				"No es una fecha, no es un nombre, no es una etapa, no es una herramienta, es un alma, una mente, un cuerpo, es su esencia, su imagen, su relación con el mundo, es su hogar natal y las decisiones tomadas.",
-				"La persona es en suma, un conjunto de sucesos, personas, lugares, momentos que la atravesaron y sobre todas las cosas es un ser que vino a evolucionar, es decir, a salirse de mandatos, conductas, creencias que la desviaron inicialmente de su camino, o en todo caso, que le dieron erróneas indicaciones para transitarlo.",
-				"Ten presente que los números, cómo los astros, inclinan pero no determinan. Usted es el/la arquitecto/a de su vida."
-			]
-		},
-		"3": {
-			"question": "¿Qué aspectos son considerados?",
-			"answer": [
-				"La aplicación considera 11 aspectos de la persona conforme el enfoque pitagórico adoptado. Estos son:"
-			]
-		},
-		"4": {
-			"question": "¿Cómo funciona la aplicación?",
-			"answer": [
-				"La principal función que ofrece la aplicación es una calculadora, la cual a partir de los datos ingresados por el usuario (nombre completo + fecha de nacimiento) realiza el correspondiente análisis según las reglas asociadas a cada aspecto de la persona, ofreciendo detalle de cómo se obtuvieron y una breve descripción de cada uno de ellos a través de un informe.",
-				"La base del cálculo en el caso del nombre es la siguiente (cada letra tiene su número correspondiente):",
-				"Se ofrece además soporte en idioma Inglés / Español y cambio de tema Oscuro / Claro, así como la posibilidad de almacenar los resultados en el navegador personal del usuario."
-			]
-		},
-		"5": {
-			"question": "¿Dónde consigo más información?",
-			"answer": [
-				"Se advierte que esta aplicación no pretende reemplazar el estudio numerológico desarrollado por un/a especialista.",
-				"Herramientas como la entrevista personal son necesarias para un análisis más detallado dado que una persona es única y como tal, debe atenderse a toda su constitucionalidad numerológica para hacer un estudio completo y preciso de posibilidades y darle así indicaciones certeras las cuales no cubre esta aplicación.",
-				"Si estás interesado/a en obtener más información...",
-				"Contactanos!"
-			]
-		}
-	}
+    "head": {
+        "title": "Destino numérico | Información",
+        "meta_title": "Destino numérico | Información",
+        "meta_description": "Listado de preguntas frecuentes."
+    },
+    "headline": {
+        "subtitle": "Información"
+    },
+    "title": "Preguntas frecuentes",
+    "faq": {
+        "1": {
+            "question": "¿Qué es la numerología?",
+            "answer": [
+                "La numerología es un conjunto heterogéneo de creencias con métodos propios, una ciencia esotérica cuya base es la obtención e interpretación de valores numéricos los cuales se considera tienen un significado \"vibratorio\" para la persona.",
+                "Existen diversas escuelas/enfoques asociados a la numerología, por lo que los métodos empleados para la obtención de los números de una persona y su posterior interpretación varían.",
+                "La aplicación que estás utilizando adopta el enfoque pitagórico, el cual asume que existe un orden en todas las cosas y seres del Universo y que estamos regidos o programados por la vibración de los números a un nivel metafísico.",
+                "Su precursor, Pitágoras (569 – 475 AC), se considera que fue quien aportó las bases para un desarrollo estructurado, metódico y formal de la misma."
+            ]
+        },
+        "2": {
+            "question": "¿Para qué sirve la numerología?",
+            "answer": [
+                "En nuestra eterna búsqueda de respuestas y habiendo infinidad de verdades aún ocultas, la numerología se presenta como un camino más, no como fuente única de verdad, sino para aportar desde su lugar una visión constructiva de la persona, de sus talentos, posibilidades, desafíos y potencial destino.",
+                "La numerología no es una fría cuenta con resultados lineales, sino que requiere observar con simpleza el todo, pues un individuo es en sí mismo un todo, una completitud.",
+                "No es una fecha, no es un nombre, no es una etapa, no es una herramienta, es un alma, una mente, un cuerpo, es su esencia, su imagen, su relación con el mundo, es su hogar natal y las decisiones tomadas.",
+                "La persona es en suma, un conjunto de sucesos, personas, lugares, momentos que la atravesaron y sobre todas las cosas es un ser que vino a evolucionar, es decir, a salirse de mandatos, conductas, creencias que la desviaron inicialmente de su camino, o en todo caso, que le dieron erróneas indicaciones para transitarlo.",
+                "Ten presente que los números, cómo los astros, inclinan pero no determinan. Usted es el/la arquitecto/a de su vida."
+            ]
+        },
+        "3": {
+            "question": "¿Qué aspectos son considerados?",
+            "answer": [
+                "La aplicación considera 11 aspectos de la persona conforme el enfoque pitagórico adoptado. Estos son:"
+            ]
+        },
+        "4": {
+            "question": "¿Cómo funciona la aplicación?",
+            "answer": [
+                "La principal función que ofrece la aplicación es una calculadora, la cual a partir de los datos ingresados por el usuario (nombre completo + fecha de nacimiento) realiza el correspondiente análisis según las reglas asociadas a cada aspecto de la persona, ofreciendo detalle de cómo se obtuvieron y una breve descripción de cada uno de ellos a través de un informe.",
+                "La base del cálculo en el caso del nombre es la siguiente (cada letra tiene su número correspondiente):",
+                "Se ofrece además soporte en idioma Inglés / Español y cambio de tema Oscuro / Claro, así como la posibilidad de almacenar los resultados en el navegador personal del usuario."
+            ]
+        },
+        "5": {
+            "question": "¿Dónde consigo más información?",
+            "answer": [
+                "Se advierte que esta aplicación no pretende reemplazar el estudio numerológico desarrollado por un/a especialista.",
+                "Herramientas como la entrevista personal son necesarias para un análisis más detallado dado que una persona es única y como tal, debe atenderse a toda su constitucionalidad numerológica para hacer un estudio completo y preciso de posibilidades y darle así indicaciones certeras las cuales no cubre esta aplicación.",
+                "Si estás interesado/a en obtener más información...",
+                "Contactanos!"
+            ]
+        }
+    }
 }

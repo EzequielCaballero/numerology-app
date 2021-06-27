@@ -2,9 +2,11 @@ import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { RoutePath } from '../../../back/sitemap/routes';
 import { ConsumerSetup } from '../../context/setup';
+import { THead, Head } from '../../components/cross/head/head';
 import { Headline } from '../../components/headline/headline';
 import './about.css';
 
+const PAGE_HEAD:THead  = { page: "about" }
 export class About extends React.Component<RouteComponentProps> {
 
 	private goToContact = (): void => {
@@ -20,6 +22,7 @@ export class About extends React.Component<RouteComponentProps> {
 				<ConsumerSetup>
 					{({ translate }) => (
 						<div className="box-content">
+							<Head {...PAGE_HEAD} />
 							<div className="about-content">
 								{/* HEADLINE */}
 								<Headline

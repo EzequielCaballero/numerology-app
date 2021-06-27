@@ -12,6 +12,7 @@ import { LocalStorage } from '../../../../back/services/handler/localstorage';
 import { API_CONFIG } from '../../../../back/api/config';
 import { THeader, TBody, RequestType } from '../../../../back/api/request';
 import { ConsumerSetup } from '../../../context/setup';
+import { THead, Head } from '../../../components/cross/head/head';
 import { Headline } from '../../../components/headline/headline';
 import { ModalDialog, TModal } from '../../../components/modal/modal';
 import { CalculatorOutputPanel } from './panel/panel';
@@ -19,6 +20,8 @@ import { CalculatorOutputRecord } from './record/record';
 import { CalculatorOutputReport } from './report/report';
 import { TShare, CalculatorOutputShare } from './share/share';
 import './output.css';
+
+const PAGE_HEAD:THead  = { page: "coutput" }
 
 type TState = {
 	isInputOk: boolean;
@@ -233,6 +236,7 @@ export class CalculatorOutput extends React.Component<RouteComponentProps, TStat
 				<ConsumerSetup>
 					{({ translate }) => (
 						<div className="box-content">
+							<Head {...PAGE_HEAD} />
 							{/* MODAL */}
 							<ModalDialog properties={this.state.modal} callBack={this.handleModalResponse}>
 								{this.state.modal.type !== '' && 
