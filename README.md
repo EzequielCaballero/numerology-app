@@ -1,6 +1,6 @@
 # DESTINO NUMERICO - _Numerology App_
 
-## [**HOME PAGE**](http://destinonumerico.xyz/)
+## [**HOME PAGE**](https://destinonumerico.netlify.app/home)
 
 > **SPA** application hosted by **Netlify** and using **create-react-app** + **typescript**.
 
