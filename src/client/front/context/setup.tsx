@@ -29,8 +29,8 @@ export const useContextSetup = () => useContext(ContextSetup);
 export const ConsumerSetup = ContextSetup.Consumer;
 
 export const ProviderSetup: React.FunctionComponent = ({ children }) => {
-	const [ lang, setLang ] = useState<Lang>((LocalStorage.getLang() as Lang) || BrowserConfig.getLang());
-	const [ theme, setTheme ] = useState<Theme>((LocalStorage.getTheme() as Theme) || BrowserConfig.getTheme());
+	const [lang, setLang] = useState<Lang>((LocalStorage.getLang() as Lang) || BrowserConfig.getLang());
+	const [theme, setTheme] = useState<Theme>((LocalStorage.getTheme() as Theme) || Theme.Dark);
 
 	const translate = new Polyglot({
 		locale: lang,
